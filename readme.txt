@@ -1,0 +1,5 @@
+B4XLIBS.TK 开源项目
+文件结构说明
+b4alibs中为b4a的库（部分不依赖android.jar的库也可以在b4j中通用
+b4jlibs中为b4j的库，这里基本上都是只支持b4j的库
+b4ilibs中为b4i的库，这里的于其他的都不兼容（部分class除外）
