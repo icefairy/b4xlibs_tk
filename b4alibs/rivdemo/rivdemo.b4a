@@ -1,0 +1,71 @@
+﻿Version=5.8
+NumberOfModules=1
+Module1=Starter
+Build1=Default,b4a.example
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddPermission(android.permission.INTERNET)~\n~AddPermission(android.permission.WRITE_EXTERNAL_STORAGE)
+IconFile=
+NumberOfFiles=2
+File1=1.bal
+File2=test.jpg
+NumberOfLibraries=3
+Library1=core
+Library2=b4ariv
+Library3=universalimageloader
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: B4A Example
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+
+	Private RIV1 As RIV
+	Private uil As UniversalImageLoader
+	Private uilo As uilOptions
+	Private imgUrl As String="http://fdfs.xmcdn.com/group8/M06/2C/83/wKgDYVbzfz6AjFvbABX-sLXJVtc731.jpg"
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("1")
+	'RIV1.ImageBitmap=LoadBitmap(File.DirAssets,"test.jpg")
+	uilo.Initialize
+	uilo.cacheInMemory(False).cacheOnDisc(True)
+	uil.Initialize("uil",uilo.build)
+	uil.loadimg(imgUrl,RIV1)
+	RIV1.BorderInsideColor=Colors.Green
+	RIV1.BorderOutsideColor=Colors.Red
+	RIV1.BorderThickness=1dip
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+Sub RIV1_LongClick As Boolean
+	ToastMessageShow("riv1 longclick",False)
+	Return False
+End Sub
+Sub RIV1_Click
+	ToastMessageShow("riv1 click",False)
+End Sub
