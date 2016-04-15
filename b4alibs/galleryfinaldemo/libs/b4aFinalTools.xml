@@ -1,0 +1,3927 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.04</doclet-version-NOT-library-version>
+    <class>
+        <name>cn.finalteam.toolsfinal.DateUtils</name>
+        <shortname>DateUtils_tf</shortname>
+        <comment>Desction:日期时间工具类
+ Author:pengjianbo
+ Date:15/9/17 下午4:20</comment>
+        <owner>process</owner>
+        <method>
+            <name>formatDate</name>
+            <comment>功能描述：常用的格式化日期
+date: Date 日期
+Return type: @return:String 日期字符串 yyyy-MM-dd格式</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>formatDateByFormat</name>
+            <comment>功能描述：以指定的格式来格式化日期
+date: Date 日期
+format: String 格式
+Return type: @return:String 日期字符串</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+            <parameter>
+                <name>format</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getDateTime</name>
+            <comment>功能描述：返回字符型日期时间
+date: Date 日期
+Return type: @return:返回字符型日期时间 yyyy/MM/dd HH:mm:ss 格式</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getTime</name>
+            <comment>功能描述：返回字符型时间
+date: Date 日期
+Return type: @return:返回字符型时间 HH:mm:ss 格式</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getMonthEnd</name>
+            <comment>功能描述：取得指定月份的最后一天
+strdate: String 字符型日期
+Return type: @return:String 日期字符串 yyyy-MM-dd格式</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>strdate</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>format</name>
+            <comment>功能描述：格式化输出日期
+date: Date 日期
+format: String 格式
+Return type: @return:返回字符型日期</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+            <parameter>
+                <name>format</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getMonthDayWeek</name>
+            <comment>获取某天是星期几
+date: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getMillis</name>
+            <comment>功能描述：返回毫秒
+date: 日期
+Return type: @return:返回毫秒</comment>
+            <returntype>long</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>addDate</name>
+            <comment>功能描述：日期相加
+date: Date 日期
+day: int 天数
+Return type: @return:返回相加后的日期</comment>
+            <returntype>java.util.Date</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+            <parameter>
+                <name>day</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getDay</name>
+            <comment>功能描述：返回日份
+date: Date 日期
+Return type: @return:返回日份</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getMonthBegin</name>
+            <comment>功能描述：取得指定月份的第一天
+strdate: String 字符型日期
+Return type: @return:String yyyy-MM-dd 格式</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>strdate</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>parseDate</name>
+            <comment>功能描述：格式化日期
+dateStr: String 字符型日期
+format: String 格式
+Return type: @return:Date 日期</comment>
+            <returntype>java.util.Date</returntype>
+            <parameter>
+                <name>dateStr</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>format</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getYear</name>
+            <comment>功能描述：返回年份
+date: Date 日期
+Return type: @return:返回年份</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>reformatTime</name>
+            <comment>日期字符串转换为日期
+date: 日期字符串
+pattern: 格式
+Return type: @return:日期</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>pattern</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>formatStringByFormat</name>
+            <comment>日期字符串转换为日期
+date: 日期字符串
+pattern: 格式
+Return type: @return:日期</comment>
+            <returntype>java.util.Date</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>pattern</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getTimeInterval</name>
+            <comment>获得口头时间字符串，如今天，昨天等
+d: 时间格式为yyyy-MM-dd HH:mm:ss
+Return type: @return:口头时间字符串</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>d</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>parseToDate</name>
+            <comment>字符串转换成日期.
+dateString: 日期字符
+pattern: 格式化.
+Return type: @return:</comment>
+            <returntype>java.util.Date</returntype>
+            <parameter>
+                <name>dateString</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>pattern</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getMinute</name>
+            <comment>功能描述：返回分钟
+date: 日期
+Return type: @return:返回分钟</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getSecond</name>
+            <comment>返回秒钟
+date: Date 日期
+Return type: @return:返回秒钟</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getHour</name>
+            <comment>功能描述：返回小时
+date: 日期
+Return type: @return:返回小时</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getDate</name>
+            <comment>功能描述：返回字符型日期
+date: 日期
+Return type: @return:返回字符型日期 yyyy/MM/dd 格式</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getMonth</name>
+            <comment>功能描述：返回月份
+date: Date 日期
+Return type: @return:返回月份</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <method>
+            <name>diffDate</name>
+            <comment>功能描述：日期相减
+date: Date 日期
+date1: Date 日期
+Return type: @return:返回相减后的日期</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>date</name>
+                <type>java.util.Date</type>
+            </parameter>
+            <parameter>
+                <name>date1</name>
+                <type>java.util.Date</type>
+            </parameter>
+        </method>
+        <field>
+            <name>date</name>
+            <comment></comment>
+            <returntype>java.util.Date</returntype>
+        </field>
+        <field>
+            <name>calendar</name>
+            <comment></comment>
+            <returntype>java.util.Calendar</returntype>
+        </field>
+        <field>
+            <name>dateFormat</name>
+            <comment></comment>
+            <returntype>java.text.DateFormat</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.DeviceUtils</name>
+        <comment>Desction:设备相关工具类
+ Author:pengjianbo
+ Date:15/9/17 下午4:21</comment>
+        <owner>process</owner>
+        <method>
+            <name>isProessRunning</name>
+            <comment>进程是否运行</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>proessName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>callDial</name>
+            <comment>跳转至拨号界面
+context: 
+phoneNumber: 电话号码电话号码</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>phoneNumber</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getUDID</name>
+            <comment>获取UDID
+context: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>vibrate</name>
+            <comment>震动
+context: 
+duration: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>duration</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isOnline</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isSoftKeyAvail</name>
+            <comment>判断是否有软控制键（手机底部几个按钮）
+activity: 
+Return type: @return:</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>activity</name>
+                <type>android.app.Activity</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getPhoneType</name>
+            <comment>返回移动终端类型
+ PHONE_TYPE_NONE :0 手机制式未知
+ PHONE_TYPE_GSM :1 手机制式为GSM，移动和联通
+ PHONE_TYPE_CDMA :2 手机制式为CDMA，电信
+ PHONE_TYPE_SIP:3
+context: 
+Return type: @return:</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>existSDCard</name>
+            <comment>判断SDCard是否可用</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>startActivityForPackage</name>
+            <comment>
+@param: context
+@param: packageName   包名
+Return type: @return:void    返回类型</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>packageName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isServiceRunning</name>
+            <comment>服务是否运行
+mContext: 
+className: 
+Return type: @return:</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>mContext</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>className</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>dip2px</name>
+            <comment></comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>dipValue</name>
+                <type>float</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getMac</name>
+            <comment>获取MAC地址
+context: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isActiveSoftInput</name>
+            <comment>判断输入负是否处于激活状态
+context: 
+Return type: @return:</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getNavigationBarHeight</name>
+            <comment>获取navigationbar高度
+context: 
+Return type: @return:</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isAppInstall</name>
+            <comment>判断某个应用是否已经安装
+context: 上下文
+packageName: 包名
+Return type: @return:是否已经安装</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>packageName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getIMEI</name>
+            <comment>获取IMEI
+context: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getNetType</name>
+            <comment>判断手机连接的网络类型(wifi,2G,3G,4G)
+ 联通的3G为UMTS或HSDPA，移动和联通的2G为GPRS或EGDE，电信的2G为CDMA，电信的3G为EVDO
+context: 
+Return type: @return:</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>showInputSoftFromWindowMethod</name>
+            <comment>显示输入法
+context: 
+view: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>view</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+        <method>
+            <name>coptyToClipBoard</name>
+            <comment>复制到剪切板
+context: 
+content: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>content</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getStatusBarHeight</name>
+            <comment>获取statusbar高度
+context: 
+Return type: @return:</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>goHome</name>
+            <comment>主动回到Home，后台运行
+context: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isPhone</name>
+            <comment>判断当前设备是否为手机
+context: 
+Return type: @return:</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getLatestCameraPicture</name>
+            <comment>获取最后一次拍照的图片
+context: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getTopBarHeight</name>
+            <comment>获取状态栏高度＋标题栏(ActionBar)高度
+ (注意，如果没有ActionBar，那么获取的高度将和上面的是一样的，只有状态栏的高度)
+activity: 
+Return type: @return:</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>activity</name>
+                <type>android.app.Activity</type>
+            </parameter>
+        </method>
+        <method>
+            <name>px2dip</name>
+            <comment></comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>pxValue</name>
+                <type>float</type>
+            </parameter>
+        </method>
+        <method>
+            <name>sendSms</name>
+            <comment>发送短信
+context: 
+phoneNumber: 
+content: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>phoneNumber</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>content</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getAppPackageNamelist</name>
+            <comment>获取非系统应用包名
+context: 
+Return type: @return:</comment>
+            <returntype>java.util.List</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>callPhone</name>
+            <comment>拨打电话
+context: 
+phoneNumber: 电话号码</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>phoneNumber</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getScreenPix</name>
+            <comment>获取手机大小（分辨率）
+activity: 
+Return type: @return:</comment>
+            <returntype>android.util.DisplayMetrics</returntype>
+            <parameter>
+                <name>activity</name>
+                <type>android.app.Activity</type>
+            </parameter>
+        </method>
+        <method>
+            <name>hideInputSoftFromWindowMethod</name>
+            <comment>隐藏键盘
+ ：强制隐藏
+context: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>view</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+        <property>
+            <name>ExternalStorageDirectory</name>
+            <returntype>java.lang.String</returntype>
+            <comment>多个SD卡时 取外置SD卡</comment>
+        </property>
+        <property>
+            <name>AvailaleSize</name>
+            <returntype>long</returntype>
+            <comment>获取可用空间大小</comment>
+        </property>
+        <property>
+            <name>AllSize</name>
+            <returntype>long</returntype>
+            <comment>获取SD大小</comment>
+        </property>
+        <property>
+            <name>LocalIPAddress</name>
+            <returntype>java.lang.String</returntype>
+            <comment>获取本机IP地址</comment>
+        </property>
+        <field>
+            <name>NETWORK_CLASS_UNKNOWN</name>
+            <comment>Unknown network class</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>NETWORK_CLASS_4_G</name>
+            <comment>"4G" networks</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>NETWORK_WIFI</name>
+            <comment>wifi net work</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>NETWORK_CLASS_3_G</name>
+            <comment>"3G" networks</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>NETWORK_CLASS_2_G</name>
+            <comment>"2G" networks</comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.ManifestUtils</name>
+        <shortname>ManifestUtils_tf</shortname>
+        <comment>Desction:Android Manifest工具类
+ Author:pengjianbo
+ Date:15/9/17 下午4:38</comment>
+        <owner>process</owner>
+        <method>
+            <name>getChannelNo</name>
+            <comment>获得渠道号
+context: 
+channelKey: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>channelKey</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getVersionName</name>
+            <comment>获得apk版本号
+context: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getMetaData</name>
+            <comment>获取Manifest Meta Data
+context: 
+metaKey: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>metaKey</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getVersionCode</name>
+            <comment>获得apk版本号
+context: 
+Return type: @return:</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.AIO</name>
+        <shortname>AIO_tf</shortname>
+        <owner>process</owner>
+        <permission>android.permission.READ_PHONE_STATE</permission>
+        <permission>android.permission.GET_TASKS</permission>
+        <method>
+            <name>getContext</name>
+            <comment></comment>
+            <returntype>android.content.Context</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <property>
+            <name>ApplicationContext</name>
+            <returntype>android.app.Application</returntype>
+            <comment></comment>
+        </property>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.ApkUtils</name>
+        <shortname>ApkUtils_tf</shortname>
+        <comment>Desction:Apk工具
+ Author:pengjianbo
+ Date:15/9/17 下午5:06</comment>
+        <owner>process</owner>
+        <method>
+            <name>getChannelFromApk</name>
+            <comment>从apk中获取版本信息
+context: 
+channelPrefix: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>channelPrefix</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>uninstall</name>
+            <comment>卸载一个app
+context: 
+packageName: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>packageName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>install</name>
+            <comment>安装一个apk文件
+context: 
+uriFile: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>uriFile</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isAvilible</name>
+            <comment>检查手机上是否安装了指定的软件
+context: 
+packageName: 应用包名
+Return type: @return:</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>packageName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.BitmapUtils</name>
+        <shortname>BitmapUtils_tf</shortname>
+        <comment>Desction:Bitmap工具类
+ Author:pengjianbo
+ Date:15/9/17 下午4:26</comment>
+        <owner>process</owner>
+        <method>
+            <name>bitmapToString</name>
+            <comment>把bitmap转换成Base64编码String
+bitmap: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>bitmap</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+        </method>
+        <method>
+            <name>compressBitmapBig</name>
+            <comment>图片缩放-尺寸缩放
+imageFile: 
+scale: 图片放大倍速
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>imageFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>scale</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>drawableToBitmap</name>
+            <comment>convert Drawable to Bitmap
+drawable: 
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>drawable</name>
+                <type>android.graphics.drawable.Drawable</type>
+            </parameter>
+        </method>
+        <method>
+            <name>saveBitmap</name>
+            <comment>保存Bitmap到文件
+bitmap: 
+target: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>bitmap</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+            <parameter>
+                <name>target</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>byteToBitmap</name>
+            <comment>convert byte array to Bitmap
+b: 
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>b</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>scaleImage</name>
+            <comment>scale image
+src: 
+scaleWidth: 
+scaleHeight: 
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>src</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+            <parameter>
+                <name>scaleWidth</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>scaleHeight</name>
+                <type>float</type>
+            </parameter>
+        </method>
+        <method>
+            <name>bitmapToByte</name>
+            <comment>convert Bitmap to byte array
+b: 
+Return type: @return:</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>b</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+        </method>
+        <method>
+            <name>bitmapToDrawable</name>
+            <comment>convert Bitmap to Drawable
+bitmap: 
+Return type: @return:</comment>
+            <returntype>android.graphics.drawable.Drawable</returntype>
+            <parameter>
+                <name>bitmap</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+        </method>
+        <method>
+            <name>createBitmapThumbnail</name>
+            <comment>生成bitmap缩略图
+bitmap: 
+needRecycle: 是否释放bitmap原图
+newHeight: 目标宽度
+newWidth: 目标高度
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>bitmap</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+            <parameter>
+                <name>needRecycle</name>
+                <type>boolean</type>
+            </parameter>
+            <parameter>
+                <name>newHeight</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>newWidth</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>compressBimap</name>
+            <comment>质量压缩图片-压缩在maxSize以内
+imageFile: 
+maxSize: 
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>imageFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>maxSize</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toRoundCorner</name>
+            <comment>圆bitmap
+bitmap: 
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>bitmap</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getDegress</name>
+            <comment>根据path
+path: 
+Return type: @return:</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>path</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>compressBitmapSmall</name>
+            <comment>图片缩放-尺寸缩放
+imageFile: 
+scale: 图片缩小倍速
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>imageFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>scale</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>scaleImageTo</name>
+            <comment>scale image
+org: 
+newWidth: 
+newHeight: 
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>org</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+            <parameter>
+                <name>newWidth</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>newHeight</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>compressImageBig</name>
+            <comment>图片缩放-尺寸缩放
+imageFile: 
+scale: 图片放大倍速</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>imageFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>scale</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>compressImage</name>
+            <comment>压缩某张图片(执行步骤sampleSize压缩-&gt;等比压缩-&gt;质量压缩)
+imageFile: 
+targetFile: 保存目标，为空表示源地址保存
+qualityCompress: 是否做质量压缩
+maxSize: 目标图片大小
+targetWidth: 
+targeHeight: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>imageFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>targetFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>qualityCompress</name>
+                <type>boolean</type>
+            </parameter>
+            <parameter>
+                <name>maxSize</name>
+                <type>long</type>
+            </parameter>
+            <parameter>
+                <name>targetWidth</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>targeHeight</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>rotateBitmap</name>
+            <comment>旋转bitmap
+bitmap: 
+degress: 旋转角度
+needRecycle: 
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>bitmap</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+            <parameter>
+                <name>degress</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>needRecycle</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>compressBitmap</name>
+            <comment>压缩bitmp到目标大小（质量压缩）
+bitmap: 
+needRecycle: 
+maxSize: 
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>bitmap</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+            <parameter>
+                <name>needRecycle</name>
+                <type>boolean</type>
+            </parameter>
+            <parameter>
+                <name>maxSize</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>compressImageSmall</name>
+            <comment>图片缩放-尺寸缩放
+imageFile: 
+scale: 图片缩小倍速</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>imageFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>scale</name>
+                <type>int</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.ShellUtils</name>
+        <comment>ShellUtils
+ &lt;ul&gt;
+ &lt;strong&gt;Check root&lt;/strong&gt;
+ &lt;li&gt;{@link ShellUtils#checkRootPermission()}&lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;ul&gt;
+ &lt;strong&gt;Execte command&lt;/strong&gt;
+ &lt;li&gt;{@link ShellUtils#execCommand(String, boolean)}&lt;/li&gt;
+ &lt;li&gt;{@link ShellUtils#execCommand(String, boolean, boolean)}&lt;/li&gt;
+ &lt;li&gt;{@link ShellUtils#execCommand(List, boolean)}&lt;/li&gt;
+ &lt;li&gt;{@link ShellUtils#execCommand(List, boolean, boolean)}&lt;/li&gt;
+ &lt;li&gt;{@link ShellUtils#execCommand(String[], boolean)}&lt;/li&gt;
+ &lt;li&gt;{@link ShellUtils#execCommand(String[], boolean, boolean)}&lt;/li&gt;
+ &lt;/ul&gt;</comment>
+        <owner>process</owner>
+        <method>
+            <name>execCommand</name>
+            <comment>execute shell command, default return result msg
+command: command
+isRoot: whether need to run with root
+Return type: @return:</comment>
+            <returntype>cn.finalteam.toolsfinal.ShellUtils.CommandResult</returntype>
+            <parameter>
+                <name>command</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>isRoot</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>checkRootPermission</name>
+            <comment>check whether has root permission
+Return type: @return:</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <field>
+            <name>COMMAND_LINE_END</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>COMMAND_SU</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>COMMAND_EXIT</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>COMMAND_SH</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.ShellUtils.CommandResult</name>
+        <comment>result of command
+ &lt;ul&gt;
+ &lt;li&gt;{@link CommandResult#result} means result of command, 0 means normal,
+ else means error, same to excute in linux shell&lt;/li&gt;
+ &lt;li&gt;{@link CommandResult#successMsg} means success message of command
+ result&lt;/li&gt;
+ &lt;li&gt;{@link CommandResult#errorMsg} means error message of command result&lt;/li&gt;
+ &lt;/ul&gt;</comment>
+        <owner>process</owner>
+        <field>
+            <name>result</name>
+            <comment>result of command</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>successMsg</name>
+            <comment>success message of command result</comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>errorMsg</name>
+            <comment>error message of command result</comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.StorageUtils</name>
+        <comment>Desction:Provides application storage paths
+ Author:pengjianbo
+ Date:15/9/17 下午4:41</comment>
+        <owner>process</owner>
+        <method>
+            <name>getOwnCacheDirectory</name>
+            <comment>Returns specified application cache directory. Cache directory will be created on SD card by defined path if card
+ is mounted and app has appropriate permission. Else - Android defines cache directory on device's file system.
+context: Application context
+cacheDir: Cache directory path (e.g.: "AppCacheDir", "AppDir/cache/images")
+Return type: @return:Cache {@link File directory}</comment>
+            <returntype>java.io.File</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+            <parameter>
+                <name>cacheDir</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getCacheDirectory</name>
+            <comment>Returns application cache directory. Cache directory will be created on SD card
+ &lt;i&gt;("/Android/data/[app_package_name]/cache")&lt;/i&gt; if card is mounted and app has appropriate permission. Else -
+ Android defines cache directory on device's file system.
+context: Application context
+Return type: @return:Cache {@link File directory}.&lt;br /&gt;
+ &lt;b&gt;NOTE:&lt;/b&gt; Can be null in some unpredictable cases (if SD card is unmounted and
+ {@link android.content.Context#getCacheDir() Context.getCacheDir()} returns null).</comment>
+            <returntype>java.io.File</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getIndividualCacheDirectory</name>
+            <comment>Returns individual application cache directory (for only image caching from ImageLoader). Cache directory will be
+ created on SD card &lt;i&gt;("/Android/data/[app_package_name]/cache/uil-images")&lt;/i&gt; if card is mounted and app has
+ appropriate permission. Else - Android defines cache directory on device's file system.
+context: Application context
+Return type: @return:Cache {@link File directory}</comment>
+            <returntype>java.io.File</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.ActivityManager</name>
+        <shortname>ActivityManager_tf</shortname>
+        <comment>Desction:应用程序Activity管理类：用于Activity管理和应用程序退出
+ Author:pengjianbo
+ Date:15/9/17 下午4:48</comment>
+        <owner>process</owner>
+        <method>
+            <name>getActivity</name>
+            <comment>根据ActivityName获取堆中Activity实例
+activityName: 
+Return type: @return:</comment>
+            <returntype>android.app.Activity</returntype>
+            <parameter>
+                <name>activityName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>currentActivity</name>
+            <comment>获取当前Activity（堆栈中最后一个压入的）</comment>
+            <returntype>android.app.Activity</returntype>
+        </method>
+        <method>
+            <name>finishAllActivity</name>
+            <comment>结束所有Activity</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>addActivity</name>
+            <comment>添加Activity到堆栈</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>activity</name>
+                <type>android.app.Activity</type>
+            </parameter>
+        </method>
+        <method>
+            <name>appExit</name>
+            <comment>退出应用程序</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>context</name>
+                <type>android.content.Context</type>
+            </parameter>
+        </method>
+        <method>
+            <name>finishActivity</name>
+            <comment>结束当前Activity（堆栈中最后一个压入的）</comment>
+            <returntype>void</returntype>
+        </method>
+        <property>
+            <name>ActivityManager</name>
+            <returntype>cn.finalteam.toolsfinal.ActivityManager</returntype>
+            <comment>单一实例</comment>
+        </property>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.coder.RSACoder</name>
+        <shortname>RSACoder_tf</shortname>
+        <comment>Desction:RSA 工具类。提供加密，解密，生成密钥对等方法。
+ Author:pengjianbo
+ Date:15/9/22 下午7:47</comment>
+        <owner>process</owner>
+        <method>
+            <name>decryptByPrivateKey</name>
+            <comment>私钥解密
+publicKey: 
+privateKey: 
+data: 
+Return type: @return:</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>publicKey</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>privateKey</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>data</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>padding</name>
+                <type EnumType="true">cn.finalteam.toolsfinal.coder.RSACoder.PADDING</type>
+            </parameter>
+        </method>
+        <method>
+            <name>decryptByPublicKey</name>
+            <comment>公钥解密
+publicKey: 
+data: </comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>publicKey</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>data</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>padding</name>
+                <type EnumType="true">cn.finalteam.toolsfinal.coder.RSACoder.PADDING</type>
+            </parameter>
+        </method>
+        <method>
+            <name>encryptByPublicKey</name>
+            <comment>公钥加密
+publicKey: 
+data: 
+Return type: @return:</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>publicKey</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>data</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>padding</name>
+                <type EnumType="true">cn.finalteam.toolsfinal.coder.RSACoder.PADDING</type>
+            </parameter>
+        </method>
+        <method>
+            <name>encryptByPrivateKey</name>
+            <comment>私钥加密
+publicKey: 
+privateKey: 
+data: 
+Return type: @return:</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>publicKey</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>privateKey</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>data</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>padding</name>
+                <type EnumType="true">cn.finalteam.toolsfinal.coder.RSACoder.PADDING</type>
+            </parameter>
+        </method>
+        <method>
+            <name>generateKeyPair</name>
+            <comment>生成密钥对
+Return type: @return:KeyPair</comment>
+            <returntype>java.security.KeyPair</returntype>
+        </method>
+        <field>
+            <name>PUBLIC_EXPONENT</name>
+            <comment>65537 or 0x010001</comment>
+            <returntype>byte[]</returntype>
+        </field>
+        <field>
+            <name>KEY_SIZE</name>
+            <comment>密钥长度</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>CHIPER_ALGORITHM</name>
+            <comment>算法/工作模式</comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>KEY_ALGORITHM</name>
+            <comment>算法</comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.coder.RSACoder.PADDING</name>
+        <comment>填充方式</comment>
+        <owner>process</owner>
+        <method>
+            <name>valueOf</name>
+            <comment></comment>
+            <returntype EnumType="true">cn.finalteam.toolsfinal.coder.RSACoder.PADDING</returntype>
+            <parameter>
+                <name>name</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>hashCode</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>values</name>
+            <comment></comment>
+            <returntype EnumType="true">cn.finalteam.toolsfinal.coder.RSACoder.PADDING[]</returntype>
+        </method>
+        <method>
+            <name>equals</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>arg0</name>
+                <type>java.lang.Object</type>
+            </parameter>
+        </method>
+        <method>
+            <name>name</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>toString</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>compareTo</name>
+            <comment></comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>arg0</name>
+                <type>E</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ordinal</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </method>
+        <property>
+            <name>DeclaringClass</name>
+            <returntype>java.lang.Class</returntype>
+            <comment></comment>
+        </property>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.coder.MD5Coder</name>
+        <shortname>MD5Coder_tf</shortname>
+        <comment>Desction:MD5工具
+ Author:pengjianbo
+ Date:15/10/31 上午10:12</comment>
+        <owner>process</owner>
+        <method>
+            <name>getMD5Code</name>
+            <comment>获取MD5编码
+source: 
+Return type: @return:</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>source</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.coder.HexCoder</name>
+        <shortname>HexCoder_tf</shortname>
+        <comment>Desction:
+ Author:pengjianbo
+ Date:15/12/9 上午11:08</comment>
+        <owner>process</owner>
+        <method>
+            <name>encode</name>
+            <comment></comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>array</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>encodeHex</name>
+            <comment></comment>
+            <returntype>char[]</returntype>
+            <parameter>
+                <name>data</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>decodeHex</name>
+            <comment></comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>data</name>
+                <type>char[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toString</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>decode</name>
+            <comment></comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>array</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>encodeHexString</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>data</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <property>
+            <name>CharsetName</name>
+            <returntype>java.lang.String</returntype>
+            <comment></comment>
+        </property>
+        <property>
+            <name>Charset</name>
+            <returntype>java.nio.charset.Charset</returntype>
+            <comment></comment>
+        </property>
+        <field>
+            <name>DEFAULT_CHARSET</name>
+            <comment></comment>
+            <returntype>java.nio.charset.Charset</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.coder.DESCoder</name>
+        <shortname>DESCoder_tf</shortname>
+        <comment>Desction:DES对称加/解密
+ Author:pengjianbo
+ Date:15/12/8 下午10:32</comment>
+        <owner>process</owner>
+        <method>
+            <name>encrypt</name>
+            <comment>加密
+data: 
+password: 
+Return type: @return:</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>data</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>password</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>decrypt</name>
+            <comment>DES
+src: 
+password: 
+Return type: @return:</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>src</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>password</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.coder.DES3Coder</name>
+        <shortname>DES3Coder_tf</shortname>
+        <comment>Desction:
+ Author:pengjianbo
+ Date:15/12/9 下午2:26</comment>
+        <owner>process</owner>
+        <method>
+            <name>decryptMode</name>
+            <comment>解密函数
+src: 密文的字节数组
+password: 
+Return type: @return:</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>src</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>password</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>encryptMode</name>
+            <comment>加密方法
+src: 源数据的字节数组
+password: 
+Return type: @return:</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>src</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>password</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.coder.Base64Coder</name>
+        <shortname>Base64Coder_tf</shortname>
+        <comment>Desction:Base64编码工具
+ Author:pengjianbo
+ Date:15/9/22 下午7:36</comment>
+        <owner>process</owner>
+        <method>
+            <name>encode</name>
+            <comment>Base64-encode the given data and return a newly allocated byte[] with the
+ result.
+input: the data to encode
+flags: controls certain features of the encoded output. Passing
+ {@code DEFAULT} results in output that adheres to RFC 2045.</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>input</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>flags</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>encodeToString</name>
+            <comment>Base64-encode the given data and return a newly allocated String with the
+ result.
+input: the data to encode
+flags: controls certain features of the encoded output. Passing
+ {@code DEFAULT} results in output that adheres to RFC 2045.</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>input</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>flags</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>decode</name>
+            <comment>Decode the Base64-encoded data in input and return the data in a new byte
+ array.
+
+ &lt;p&gt;
+ The padding '=' characters at the end are considered optional, but if any
+ are present, there must be the correct number of them.
+str: the input String to decode, which is converted to bytes using
+ the default charset
+flags: controls certain features of the decoded output. Pass
+ {@code DEFAULT} to decode standard Base64.</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>str</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>flags</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <field>
+            <name>NO_WRAP</name>
+            <comment>Encoder flag bit to omit all line terminators (i.e., the output will be
+ on one long line).</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>NO_CLOSE</name>
+            <comment>Flag to pass to {@link Base64OutputStream} to indicate that it should not
+ close the output stream it is wrapping when it itself is closed.</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>CRLF</name>
+            <comment>Encoder flag bit to indicate lines should be terminated with a CRLF pair
+ instead of just an LF. Has no effect if {@code NO_WRAP} is specified as
+ well.</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>NO_PADDING</name>
+            <comment>Encoder flag bit to omit the padding '=' characters at the end of the
+ output (if any).</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>URL_SAFE</name>
+            <comment>Encoder/decoder flag bit to indicate using the "URL and filename safe"
+ variant of Base64 (see RFC 3548 section 4) where {@code -} and {@code _}
+ are used in place of {@code +} and {@code /}.</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>DEFAULT</name>
+            <comment>Default values for encoder/decoder flags.</comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.coder.AESCoder</name>
+        <shortname>AESCoder_tf</shortname>
+        <comment>Desction:
+ Author:pengjianbo
+ Date:15/11/7 下午7:44</comment>
+        <owner>process</owner>
+        <method>
+            <name>encrypt</name>
+            <comment>Encrypt and encode message using 256-bit AES with key generated from password.
+password: used to generated key
+message: the thing you want to encrypt assumed String UTF-8
+Return type: @return:Base64 encoded CipherText</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>password</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>message</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>decrypt</name>
+            <comment>Decrypt and decode ciphertext using 256-bit AES with key generated from password
+password: used to generated key
+base64EncodedCipherText: the encrpyted message encoded with base64
+Return type: @return:message in Plain text (String UTF-8)</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>password</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>base64EncodedCipherText</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.io.IOUtils</name>
+        <shortname>IOUtils_tf</shortname>
+        <comment>General IO stream manipulation utilities.
+ &lt;p/&gt;
+ This class provides static utility methods for input/output operations.
+ &lt;ul&gt;
+ &lt;li&gt;closeQuietly - these methods close a stream ignoring nulls and exceptions
+ &lt;li&gt;toXxx/read - these methods read data from a stream
+ &lt;li&gt;write - these methods write data to a stream
+ &lt;li&gt;copy - these methods copy all the data from one stream to another
+ &lt;li&gt;contentEquals - these methods compare the content of two streams
+ &lt;/ul&gt;
+ &lt;p/&gt;
+ The byte-to-char methods and char-to-byte methods involve a conversion step.
+ Two methods are provided in each case, one that uses the platform default
+ encoding and the other which allows you to specify an encoding. You are
+ encouraged to always specify an encoding because relying on the platform
+ default can lead to unexpected results, for example when moving from
+ development to production.
+ &lt;p/&gt;
+ All the methods in this class that read a stream are buffered internally.
+ This means that there is no cause to use a &lt;code&gt;BufferedInputStream&lt;/code&gt;
+ or &lt;code&gt;BufferedReader&lt;/code&gt;. The default buffer size of 4K has been shown
+ to be efficient in tests.
+ &lt;p/&gt;
+ Wherever possible, the methods in this class do &lt;em&gt;not&lt;/em&gt; flush or close
+ the stream. This is to avoid making non-portable assumptions about the
+ streams' origin and further use. Thus the caller is still responsible for
+ closing streams after use.
+ &lt;p/&gt;
+ Origin of code: Excalibur.</comment>
+        <owner>process</owner>
+        <method>
+            <name>toCharArray</name>
+            <comment>Get the contents of an &lt;code&gt;InputStream&lt;/code&gt; as a character array
+ using the default character encoding of the platform.
+ &lt;p/&gt;
+ This method buffers the input internally, so there is no need to use a
+ &lt;code&gt;BufferedInputStream&lt;/code&gt;.
+is: the &lt;code&gt;InputStream&lt;/code&gt; to read from
+Return type: @return:the requested character array</comment>
+            <returntype>char[]</returntype>
+            <parameter>
+                <name>is</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>read</name>
+            <comment>Read characters from an input character stream.
+ This implementation guarantees that it will read as many characters
+ as possible before giving up; this may not always be the case for
+ subclasses of {@link Reader}.
+input: where to read input from
+buffer: destination
+offset: inital offset into buffer
+length: length to read, must be &gt;= 0
+Return type: @return:actual length read; may be less than requested if EOF was reached</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.Reader</type>
+            </parameter>
+            <parameter>
+                <name>buffer</name>
+                <type>char[]</type>
+            </parameter>
+            <parameter>
+                <name>offset</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>length</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>writeLines</name>
+            <comment>Writes the &lt;code&gt;toString()&lt;/code&gt; value of each item in a collection to
+ an &lt;code&gt;OutputStream&lt;/code&gt; line by line, using the default character
+ encoding of the platform and the specified line ending.
+lines: the lines to write, null entries produce blank lines
+lineEnding: the line separator to use, null is system default
+output: the &lt;code&gt;OutputStream&lt;/code&gt; to write to, not null, not closed</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>lines</name>
+                <type>java.util.Collection</type>
+            </parameter>
+            <parameter>
+                <name>lineEnding</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>output</name>
+                <type>java.io.OutputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>contentEquals</name>
+            <comment>Compare the contents of two Streams to determine if they are equal or
+ not.
+ &lt;p/&gt;
+ This method buffers the input internally using
+ &lt;code&gt;BufferedInputStream&lt;/code&gt; if they are not already buffered.
+input1: the first stream
+input2: the second stream
+Return type: @return:true if the content of the streams are equal or they both don't
+ exist, false otherwise</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>input1</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+            <parameter>
+                <name>input2</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toBufferedReader</name>
+            <comment>Returns the given reader if it is a {@link BufferedReader}, otherwise creates a toBufferedReader for the given
+ reader.
+reader: the reader to wrap or return
+Return type: @return:the given reader or a new {@link BufferedReader} for the given reader</comment>
+            <returntype>java.io.BufferedReader</returntype>
+            <parameter>
+                <name>reader</name>
+                <type>java.io.Reader</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toBufferedInputStream</name>
+            <comment>Fetches entire contents of an &lt;code&gt;InputStream&lt;/code&gt; and represent
+ same data as result InputStream.
+ &lt;p/&gt;
+ This method is useful where,
+ &lt;ul&gt;
+ &lt;li&gt;Source InputStream is slow.&lt;/li&gt;
+ &lt;li&gt;It has network resources associated, so we cannot keep it open for
+ long time.&lt;/li&gt;
+ &lt;li&gt;It has network timeout associated.&lt;/li&gt;
+ &lt;/ul&gt;
+ It can be used in favor of {@link #toByteArray(InputStream)}, since it
+ avoids unnecessary allocation and copy of byte[].&lt;br&gt;
+ This method buffers the input internally, so there is no need to use a
+ &lt;code&gt;BufferedInputStream&lt;/code&gt;.
+input: Stream to be fully buffered.
+Return type: @return:A fully buffered stream.</comment>
+            <returntype>java.io.InputStream</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>skip</name>
+            <comment>Skip bytes from an input byte stream.
+ This implementation guarantees that it will read as many bytes
+ as possible before giving up; this may not always be the case for
+ subclasses of {@link Reader}.
+input: byte stream to skip
+toSkip: number of bytes to skip.
+Return type: @return:number of bytes actually skipped.</comment>
+            <returntype>long</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+            <parameter>
+                <name>toSkip</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>copyLarge</name>
+            <comment>Copy bytes from a large (over 2GB) &lt;code&gt;InputStream&lt;/code&gt; to an
+ &lt;code&gt;OutputStream&lt;/code&gt;.
+ &lt;p/&gt;
+ This method buffers the input internally, so there is no need to use a
+ &lt;code&gt;BufferedInputStream&lt;/code&gt;.
+ &lt;p/&gt;
+ The buffer size is given by {@link #DEFAULT_BUFFER_SIZE}.
+input: the &lt;code&gt;InputStream&lt;/code&gt; to read from
+output: the &lt;code&gt;OutputStream&lt;/code&gt; to write to
+Return type: @return:the number of bytes copied</comment>
+            <returntype>long</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+            <parameter>
+                <name>output</name>
+                <type>java.io.OutputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>contentEqualsIgnoreEOL</name>
+            <comment>Compare the contents of two Readers to determine if they are equal or
+ not, ignoring EOL characters.
+ &lt;p/&gt;
+ This method buffers the input internally using
+ &lt;code&gt;BufferedReader&lt;/code&gt; if they are not already buffered.
+input1: the first reader
+input2: the second reader
+Return type: @return:true if the content of the readers are equal (ignoring EOL differences),  false otherwise</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>input1</name>
+                <type>java.io.Reader</type>
+            </parameter>
+            <parameter>
+                <name>input2</name>
+                <type>java.io.Reader</type>
+            </parameter>
+        </method>
+        <method>
+            <name>skipFully</name>
+            <comment>Skip the requested number of bytes or fail if there are not enough left.
+ &lt;p/&gt;
+ This allows for the possibility that {@link InputStream#skip(long)} may
+ not skip as many bytes as requested (most likely because of reaching EOF).
+input: stream to skip
+toSkip: the number of bytes to skip</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+            <parameter>
+                <name>toSkip</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>readFully</name>
+            <comment>Read the requested number of characters or fail if there are not enough left.
+ &lt;p/&gt;
+ This allows for the possibility that {@link Reader#read(char[], int, int)} may
+ not read as many characters as requested (most likely because of reaching EOF).
+input: where to read input from
+buffer: destination
+offset: inital offset into buffer
+length: length to read, must be &gt;= 0</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.Reader</type>
+            </parameter>
+            <parameter>
+                <name>buffer</name>
+                <type>char[]</type>
+            </parameter>
+            <parameter>
+                <name>offset</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>length</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toByteArray</name>
+            <comment>Get the contents of an &lt;code&gt;InputStream&lt;/code&gt; as a &lt;code&gt;byte[]&lt;/code&gt;.
+ &lt;p/&gt;
+ This method buffers the input internally, so there is no need to use a
+ &lt;code&gt;BufferedInputStream&lt;/code&gt;.
+input: the &lt;code&gt;InputStream&lt;/code&gt; to read from
+Return type: @return:the requested byte array</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>readLines</name>
+            <comment>Get the contents of an &lt;code&gt;InputStream&lt;/code&gt; as a list of Strings,
+ one entry per line, using the default character encoding of the platform.
+ &lt;p/&gt;
+ This method buffers the input internally, so there is no need to use a
+ &lt;code&gt;BufferedInputStream&lt;/code&gt;.
+input: the &lt;code&gt;InputStream&lt;/code&gt; to read from, not null
+Return type: @return:the list of Strings, never null</comment>
+            <returntype>java.util.List</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toString</name>
+            <comment>Get the contents of an &lt;code&gt;InputStream&lt;/code&gt; as a String
+ using the default character encoding of the platform.
+ &lt;p/&gt;
+ This method buffers the input internally, so there is no need to use a
+ &lt;code&gt;BufferedInputStream&lt;/code&gt;.
+input: the &lt;code&gt;InputStream&lt;/code&gt; to read from
+Return type: @return:the requested String</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>closeQuietly</name>
+            <comment>Unconditionally close an &lt;code&gt;Reader&lt;/code&gt;.
+ &lt;p/&gt;
+ Equivalent to {@link Reader#close()}, except any exceptions will be ignored.
+ This is typically used in finally blocks.
+ &lt;p/&gt;
+ Example code:
+ &lt;pre&gt;
+   char[] data = new char[1024];
+   Reader in = null;
+   try {
+       in = new FileReader("foo.txt");
+       in.read(data);
+       in.close(); //close errors are handled
+   } catch (Exception e) {
+       // error handling
+   } finally {
+       IOUtils.closeQuietly(in);
+   }
+ &lt;/pre&gt;
+input: the Reader to close, may be null or already closed</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.Reader</type>
+            </parameter>
+        </method>
+        <method>
+            <name>copy</name>
+            <comment>Copy bytes from an &lt;code&gt;InputStream&lt;/code&gt; to an
+ &lt;code&gt;OutputStream&lt;/code&gt;.
+ &lt;p/&gt;
+ This method buffers the input internally, so there is no need to use a
+ &lt;code&gt;BufferedInputStream&lt;/code&gt;.
+ &lt;p/&gt;
+ Large streams (over 2GB) will return a bytes copied value of
+ &lt;code&gt;-1&lt;/code&gt; after the copy has completed since the correct
+ number of bytes cannot be returned as an int. For large streams
+ use the &lt;code&gt;copyLarge(InputStream, OutputStream)&lt;/code&gt; method.
+input: the &lt;code&gt;InputStream&lt;/code&gt; to read from
+output: the &lt;code&gt;OutputStream&lt;/code&gt; to write to
+Return type: @return:the number of bytes copied, or -1 if &amp;gt; Integer.MAX_VALUE</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+            <parameter>
+                <name>output</name>
+                <type>java.io.OutputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>close</name>
+            <comment>Closes a URLConnection.
+conn: the connection to close.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>conn</name>
+                <type>java.net.URLConnection</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toInputStream</name>
+            <comment>Convert the specified CharSequence to an input stream, encoded as bytes
+ using the default character encoding of the platform.
+input: the CharSequence to convert
+Return type: @return:an input stream</comment>
+            <returntype>java.io.InputStream</returntype>
+            <parameter>
+                <name>input</name>
+                <type>java.lang.CharSequence</type>
+            </parameter>
+        </method>
+        <method>
+            <name>write</name>
+            <comment>Writes bytes from a &lt;code&gt;byte[]&lt;/code&gt; to an &lt;code&gt;OutputStream&lt;/code&gt;.
+data: the byte array to write, do not modify during output,
+               null ignored
+output: the &lt;code&gt;OutputStream&lt;/code&gt; to write to</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>data</name>
+                <type>byte[]</type>
+            </parameter>
+            <parameter>
+                <name>output</name>
+                <type>java.io.OutputStream</type>
+            </parameter>
+        </method>
+        <field>
+            <name>LINE_SEPARATOR</name>
+            <comment>The system line separator string.</comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>DIR_SEPARATOR_WINDOWS</name>
+            <comment>The Windows directory separator character.</comment>
+            <returntype>char</returntype>
+        </field>
+        <field>
+            <name>DIR_SEPARATOR</name>
+            <comment>The system directory separator character.</comment>
+            <returntype>char</returntype>
+        </field>
+        <field>
+            <name>DIR_SEPARATOR_UNIX</name>
+            <comment>The Unix directory separator character.</comment>
+            <returntype>char</returntype>
+        </field>
+        <field>
+            <name>LINE_SEPARATOR_UNIX</name>
+            <comment>The Unix line separator string.</comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>LINE_SEPARATOR_WINDOWS</name>
+            <comment>The Windows line separator string.</comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.io.FileUtils</name>
+        <shortname>FileUtils_tf</shortname>
+        <comment>General file manipulation utilities.
+ &lt;p/&gt;
+ Facilities are provided in the following areas:
+ &lt;ul&gt;
+ &lt;li&gt;writing to a file
+ &lt;li&gt;reading from a file
+ &lt;li&gt;make a directory including parent directories
+ &lt;li&gt;copying files and directories
+ &lt;li&gt;deleting files and directories
+ &lt;li&gt;converting to and from a URL
+ &lt;li&gt;listing files and directories by filter and extension
+ &lt;li&gt;comparing file content
+ &lt;li&gt;file last changed date
+ &lt;li&gt;calculating a checksum
+ &lt;/ul&gt;
+ &lt;p/&gt;
+ Origin of code: Excalibur, Alexandria, Commons-Utils</comment>
+        <owner>process</owner>
+        <method>
+            <name>copyFile</name>
+            <comment>Copies a file to a new location preserving the file date.
+ &lt;p/&gt;
+ This method copies the contents of the specified source file to the
+ specified destination file. The directory holding the destination file is
+ created if it does not exist. If the destination file exists, then this
+ method will overwrite it.
+ &lt;p/&gt;
+ &lt;strong&gt;Note:&lt;/strong&gt; This method tries to preserve the file's last
+ modified date/times using {@link File#setLastModified(long)}, however
+ it is not guaranteed that the operation will succeed.
+ If the modification operation fails, no indication is provided.
+srcFile: an existing file to copy, must not be {@code null}
+destFile: the new file, must not be {@code null}</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>srcFile</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>destFile</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>forceMkdir</name>
+            <comment>Makes a directory, including any necessary but nonexistent parent
+ directories. If a file already exists with specified name but it is
+ not a directory then an IOException is thrown.
+ If the directory cannot be created (or does not already exist)
+ then an IOException is thrown.
+directory: directory to create, must not be {@code null}</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>directory</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>sizeOf</name>
+            <comment>Returns the size of the specified file or directory. If the provided
+ {@link File} is a regular file, then the file's length is returned.
+ If the argument is a directory, then the size of the directory is
+ calculated recursively. If a directory or subdirectory is security
+ restricted, its size will not be included.
+file: the regular file or directory to return the size
+             of (must not be {@code null}).
+Return type: @return:the length of the file, or recursive size of the directory,
+ provided (in bytes).</comment>
+            <returntype>long</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>sizeOfAsBigInteger</name>
+            <comment>Returns the size of the specified file or directory. If the provided
+ {@link File} is a regular file, then the file's length is returned.
+ If the argument is a directory, then the size of the directory is
+ calculated recursively. If a directory or subdirectory is security
+ restricted, its size will not be included.
+file: the regular file or directory to return the size
+             of (must not be {@code null}).
+Return type: @return:the length of the file, or recursive size of the directory,
+ provided (in bytes).</comment>
+            <returntype>java.math.BigInteger</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toURLs</name>
+            <comment>Converts each of an array of &lt;code&gt;File&lt;/code&gt; to a &lt;code&gt;URL&lt;/code&gt;.
+ &lt;p/&gt;
+ Returns an array of the same size as the input.
+files: the files to convert, must not be {@code null}
+Return type: @return:an array of URLs matching the input</comment>
+            <returntype>java.net.URL[]</returntype>
+            <parameter>
+                <name>files</name>
+                <type>java.io.File[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>convertFileCollectionToFileArray</name>
+            <comment>Converts a Collection containing java.io.File instanced into array
+ representation. This is to account for the difference between
+ File.listFiles() and FileUtils.listFiles().
+files: a Collection containing java.io.File instances
+Return type: @return:an array of java.io.File</comment>
+            <returntype>java.io.File[]</returntype>
+            <parameter>
+                <name>files</name>
+                <type>java.util.Collection</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getFile</name>
+            <comment>Construct a file from the set of name elements.
+directory: the parent directory
+names: the name elements
+Return type: @return:the file</comment>
+            <returntype>java.io.File</returntype>
+            <parameter>
+                <name>directory</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>names</name>
+                <type>java.lang.String[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isFileOlder</name>
+            <comment>Tests if the specified &lt;code&gt;File&lt;/code&gt; is older than the reference
+ &lt;code&gt;File&lt;/code&gt;.
+file: the &lt;code&gt;File&lt;/code&gt; of which the modification date must
+                  be compared, must not be {@code null}
+reference: the &lt;code&gt;File&lt;/code&gt; of which the modification date
+                  is used, must not be {@code null}
+Return type: @return:true if the &lt;code&gt;File&lt;/code&gt; exists and has been modified before
+ the reference &lt;code&gt;File&lt;/code&gt;</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>reference</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>cleanDirectory</name>
+            <comment>Cleans a directory without deleting it.
+directory: directory to clean</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>directory</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>writeByteArrayToFile</name>
+            <comment>Writes a byte array to a file creating the file if it does not exist.
+ &lt;p/&gt;
+ NOTE: As from v1.3, the parent directories of the file will be created
+ if they do not exist.
+file: the file to write to
+data: the content to write to the file</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>data</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>copyURLToFile</name>
+            <comment>Copies bytes from the URL &lt;code&gt;source&lt;/code&gt; to a file
+ &lt;code&gt;destination&lt;/code&gt;. The directories up to &lt;code&gt;destination&lt;/code&gt;
+ will be created if they don't already exist. &lt;code&gt;destination&lt;/code&gt;
+ will be overwritten if it already exists.
+ &lt;p/&gt;
+ Warning: this method does not set a connection or read timeout and thus
+ might block forever. Use {@link #copyURLToFile(URL, File, int, int)}
+ with reasonable timeouts to prevent this.
+source: the &lt;code&gt;URL&lt;/code&gt; to copy bytes from, must not be {@code null}
+destination: the non-directory &lt;code&gt;File&lt;/code&gt; to write bytes to
+                    (possibly overwriting), must not be {@code null}</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>source</name>
+                <type>java.net.URL</type>
+            </parameter>
+            <parameter>
+                <name>destination</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>copyFileToDirectory</name>
+            <comment>Copies a file to a directory preserving the file date.
+ &lt;p/&gt;
+ This method copies the contents of the specified source file
+ to a file of the same name in the specified destination directory.
+ The destination directory is created if it does not exist.
+ If the destination file exists, then this method will overwrite it.
+ &lt;p/&gt;
+ &lt;strong&gt;Note:&lt;/strong&gt; This method tries to preserve the file's last
+ modified date/times using {@link File#setLastModified(long)}, however
+ it is not guaranteed that the operation will succeed.
+ If the modification operation fails, no indication is provided.
+srcFile: an existing file to copy, must not be {@code null}
+destDir: the directory to place the copy in, must not be {@code null}</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>srcFile</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>destDir</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>contentEqualsIgnoreEOL</name>
+            <comment>Compares the contents of two files to determine if they are equal or not.
+ &lt;p/&gt;
+ This method checks to see if the two files point to the same file,
+ before resorting to line-by-line comparison of the contents.
+ &lt;p/&gt;
+file1: the first file
+file2: the second file
+charsetName: the character encoding to be used.
+                    May be null, in which case the platform default is used
+Return type: @return:true if the content of the files are equal or neither exists,
+ false otherwise</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>file1</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>file2</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>charsetName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>copyDirectoryToDirectory</name>
+            <comment>Copies a directory to within another directory preserving the file dates.
+ &lt;p/&gt;
+ This method copies the source directory and all its contents to a
+ directory of the same name in the specified destination directory.
+ &lt;p/&gt;
+ The destination directory is created if it does not exist.
+ If the destination directory did exist, then this method merges
+ the source with the destination, with the source taking precedence.
+ &lt;p/&gt;
+ &lt;strong&gt;Note:&lt;/strong&gt; This method tries to preserve the files' last
+ modified date/times using {@link File#setLastModified(long)}, however
+ it is not guaranteed that those operations will succeed.
+ If the modification operation fails, no indication is provided.
+srcDir: an existing directory to copy, must not be {@code null}
+destDir: the directory to place the copy in, must not be {@code null}</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>srcDir</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>destDir</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>forceDelete</name>
+            <comment>Deletes a file. If file is a directory, delete it and all sub-directories.
+ &lt;p/&gt;
+ The difference between File.delete() and this method are:
+ &lt;ul&gt;
+ &lt;li&gt;A directory to be deleted does not have to be empty.&lt;/li&gt;
+ &lt;li&gt;You get exceptions when a file or directory cannot be deleted.
+ (java.io.File methods returns a boolean)&lt;/li&gt;
+ &lt;/ul&gt;
+file: file or directory to delete, must not be {@code null}</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>writeStringToFile</name>
+            <comment>Writes a String to a file creating the file if it does not exist.
+ &lt;p/&gt;
+ NOTE: As from v1.3, the parent directories of the file will be created
+ if they do not exist.
+file: the file to write
+data: the content to write to the file
+encoding: the encoding to use, {@code null} means platform default</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>data</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>encoding</name>
+                <type>java.nio.charset.Charset</type>
+            </parameter>
+        </method>
+        <method>
+            <name>sizeOfDirectoryAsBigInteger</name>
+            <comment>Counts the size of a directory recursively (sum of the length of all files).
+directory: directory to inspect, must not be {@code null}
+Return type: @return:size of directory in bytes, 0 if directory is security restricted.</comment>
+            <returntype>java.math.BigInteger</returntype>
+            <parameter>
+                <name>directory</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>readLines</name>
+            <comment>Reads the contents of a file line by line to a List of Strings.
+ The file is always closed.
+file: the file to read, must not be {@code null}
+encoding: the encoding to use, {@code null} means platform default
+Return type: @return:the list of Strings representing each line in the file, never {@code null}</comment>
+            <returntype>java.util.List</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>encoding</name>
+                <type>java.nio.charset.Charset</type>
+            </parameter>
+        </method>
+        <method>
+            <name>openOutputStream</name>
+            <comment>Opens a {@link FileOutputStream} for the specified file, checking and
+ creating the parent directory if it does not exist.
+ &lt;p/&gt;
+ At the end of the method either the stream will be successfully opened,
+ or an exception will have been thrown.
+ &lt;p/&gt;
+ The parent directory will be created if it does not exist.
+ The file will be created if it does not exist.
+ An exception is thrown if the file object exists but is a directory.
+ An exception is thrown if the file exists but cannot be written to.
+ An exception is thrown if the parent directory cannot be created.
+file: the file to open for output, must not be {@code null}
+Return type: @return:a new {@link FileOutputStream} for the specified file</comment>
+            <returntype>java.io.FileOutputStream</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>moveDirectory</name>
+            <comment>Moves a directory.
+ &lt;p/&gt;
+ When the destination directory is on another file system, do a "copy and delete".
+srcDir: the directory to be moved
+destDir: the destination directory</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>srcDir</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>destDir</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>waitFor</name>
+            <comment>Waits for NFS to propagate a file creation, imposing a timeout.
+ &lt;p/&gt;
+ This method repeatedly tests {@link File#exists()} until it returns
+ true up to the maximum time specified in seconds.
+file: the file to check, must not be {@code null}
+seconds: the maximum time in seconds to wait
+Return type: @return:true if file exists</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>seconds</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>write</name>
+            <comment>Writes a CharSequence to a file creating the file if it does not exist using the default encoding for the VM.
+file: the file to write
+data: the content to write to the file</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>data</name>
+                <type>java.lang.CharSequence</type>
+            </parameter>
+        </method>
+        <method>
+            <name>openInputStream</name>
+            <comment>Opens a {@link FileInputStream} for the specified file, providing better
+ error messages than simply calling &lt;code&gt;new FileInputStream(file)&lt;/code&gt;.
+ &lt;p/&gt;
+ At the end of the method either the stream will be successfully opened,
+ or an exception will have been thrown.
+ &lt;p/&gt;
+ An exception is thrown if the file does not exist.
+ An exception is thrown if the file object exists but is a directory.
+ An exception is thrown if the file exists but cannot be read.
+file: the file to open for input, must not be {@code null}
+Return type: @return:a new {@link FileInputStream} for the specified file</comment>
+            <returntype>java.io.FileInputStream</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>deleteQuietly</name>
+            <comment>Deletes a file, never throwing an exception. If file is a directory, delete it and all sub-directories.
+ &lt;p/&gt;
+ The difference between File.delete() and this method are:
+ &lt;ul&gt;
+ &lt;li&gt;A directory to be deleted does not have to be empty.&lt;/li&gt;
+ &lt;li&gt;No exceptions are thrown when a file or directory cannot be deleted.&lt;/li&gt;
+ &lt;/ul&gt;
+file: file or directory to delete, can be {@code null}
+Return type: @return:{@code true} if the file or directory was deleted, otherwise
+ {@code false}</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>readFileToByteArray</name>
+            <comment>Reads the contents of a file into a byte array.
+ The file is always closed.
+file: the file to read, must not be {@code null}
+Return type: @return:the file contents, never {@code null}</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>writeLines</name>
+            <comment>Writes the &lt;code&gt;toString()&lt;/code&gt; value of each item in a collection to
+ the specified &lt;code&gt;File&lt;/code&gt; line by line.
+ The specified character encoding and the default line ending will be used.
+ &lt;p/&gt;
+ NOTE: As from v1.3, the parent directories of the file will be created
+ if they do not exist.
+file: the file to write to
+encoding: the encoding to use, {@code null} means platform default
+lines: the lines to write, {@code null} entries produce blank lines</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>encoding</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>lines</name>
+                <type>java.util.Collection</type>
+            </parameter>
+        </method>
+        <method>
+            <name>contentEquals</name>
+            <comment>Compares the contents of two files to determine if they are equal or not.
+ &lt;p/&gt;
+ This method checks to see if the two files are different lengths
+ or if they point to the same file, before resorting to byte-by-byte
+ comparison of the contents.
+ &lt;p/&gt;
+ Code origin: Avalon
+file1: the first file
+file2: the second file
+Return type: @return:true if the content of the files are equal or they both don't
+ exist, false otherwise</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>file1</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>file2</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>moveToDirectory</name>
+            <comment>Moves a file or directory to the destination directory.
+ &lt;p/&gt;
+ When the destination is on another file system, do a "copy and delete".
+src: the file or directory to be moved
+destDir: the destination directory
+createDestDir: If {@code true} create the destination directory,
+                      otherwise if {@code false} throw an IOException</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>src</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>destDir</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>createDestDir</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>forceDeleteOnExit</name>
+            <comment>Schedules a file to be deleted when JVM exits.
+ If file is directory delete it and all sub-directories.
+file: file or directory to delete, must not be {@code null}</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>touch</name>
+            <comment>Implements the same behaviour as the "touch" utility on Unix. It creates
+ a new file with size 0 or, if the file exists already, it is opened and
+ closed without modifying it, but updating the file date and time.
+ &lt;p/&gt;
+ NOTE: As from v1.3, this method throws an IOException if the last
+ modified date of the file cannot be set. Also, as from v1.3 this method
+ creates parent directories if they do not exist.
+file: the File to touch</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>copyInputStreamToFile</name>
+            <comment>Copies bytes from an {@link InputStream} &lt;code&gt;source&lt;/code&gt; to a file
+ &lt;code&gt;destination&lt;/code&gt;. The directories up to &lt;code&gt;destination&lt;/code&gt;
+ will be created if they don't already exist. &lt;code&gt;destination&lt;/code&gt;
+ will be overwritten if it already exists.
+source: the &lt;code&gt;InputStream&lt;/code&gt; to copy bytes from, must not be {@code null}
+destination: the non-directory &lt;code&gt;File&lt;/code&gt; to write bytes to
+                    (possibly overwriting), must not be {@code null}</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>source</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+            <parameter>
+                <name>destination</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>moveFileToDirectory</name>
+            <comment>Moves a file to a directory.
+srcFile: the file to be moved
+destDir: the destination file
+createDestDir: If {@code true} create the destination directory,
+                      otherwise if {@code false} throw an IOException</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>srcFile</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>destDir</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>createDestDir</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>sizeOfDirectory</name>
+            <comment>Counts the size of a directory recursively (sum of the length of all files).
+directory: directory to inspect, must not be {@code null}
+Return type: @return:size of directory in bytes, 0 if directory is security restricted, a negative number when the real total
+ is greater than {@link Long#MAX_VALUE}.</comment>
+            <returntype>long</returntype>
+            <parameter>
+                <name>directory</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>moveFile</name>
+            <comment>Moves a file.
+ &lt;p/&gt;
+ When the destination file is on another file system, do a "copy and delete".
+srcFile: the file to be moved
+destFile: the destination file</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>srcFile</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>destFile</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>byteCountToDisplaySize</name>
+            <comment>Returns a human-readable version of the file size, where the input represents a specific number of bytes.
+ &lt;p&gt;
+ If the size is over 1GB, the size is returned as the number of whole GB, i.e. the size is rounded down to the
+ nearest GB boundary.
+ &lt;/p&gt;
+ &lt;p&gt;
+ Similarly for the 1MB and 1KB boundaries.
+ &lt;/p&gt;
+size: the number of bytes
+Return type: @return:a human-readable display value (includes units - EB, PB, TB, GB, MB, KB or bytes)</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>size</name>
+                <type>java.math.BigInteger</type>
+            </parameter>
+        </method>
+        <method>
+            <name>moveDirectoryToDirectory</name>
+            <comment>Moves a directory to another directory.
+src: the file to be moved
+destDir: the destination file
+createDestDir: If {@code true} create the destination directory,
+                      otherwise if {@code false} throw an IOException</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>src</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>destDir</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>createDestDir</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>copyDirectory</name>
+            <comment>Copies a whole directory to a new location preserving the file dates.
+ &lt;p/&gt;
+ This method copies the specified directory and all its child
+ directories and files to the specified destination.
+ The destination is the new location and name of the directory.
+ &lt;p/&gt;
+ The destination directory is created if it does not exist.
+ If the destination directory did exist, then this method merges
+ the source with the destination, with the source taking precedence.
+ &lt;p/&gt;
+ &lt;strong&gt;Note:&lt;/strong&gt; This method tries to preserve the files' last
+ modified date/times using {@link File#setLastModified(long)}, however
+ it is not guaranteed that those operations will succeed.
+ If the modification operation fails, no indication is provided.
+srcDir: an existing directory to copy, must not be {@code null}
+destDir: the new directory, must not be {@code null}</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>srcDir</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>destDir</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toFiles</name>
+            <comment>Converts each of an array of &lt;code&gt;URL&lt;/code&gt; to a &lt;code&gt;File&lt;/code&gt;.
+ &lt;p/&gt;
+ Returns an array of the same size as the input.
+ If the input is {@code null}, an empty array is returned.
+ If the input contains {@code null}, the output array contains {@code null} at the same
+ index.
+ &lt;p/&gt;
+ This method will decode the URL.
+ Syntax such as &lt;code&gt;file:///my%20docs/file.txt&lt;/code&gt; will be
+ correctly decoded to &lt;code&gt;/my docs/file.txt&lt;/code&gt;.
+urls: the file URLs to convert, {@code null} returns empty array
+Return type: @return:a non-{@code null} array of Files matching the input, with a {@code null} item
+ if there was a {@code null} at that index in the input array</comment>
+            <returntype>java.io.File[]</returntype>
+            <parameter>
+                <name>urls</name>
+                <type>java.net.URL[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>readFileToString</name>
+            <comment>Reads the contents of a file into a String.
+ The file is always closed.
+file: the file to read, must not be {@code null}
+encoding: the encoding to use, {@code null} means platform default
+Return type: @return:the file contents, never {@code null}</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>encoding</name>
+                <type>java.nio.charset.Charset</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isFileNewer</name>
+            <comment>Tests if the specified &lt;code&gt;File&lt;/code&gt; is newer than the reference
+ &lt;code&gt;File&lt;/code&gt;.
+file: the &lt;code&gt;File&lt;/code&gt; of which the modification date must
+                  be compared, must not be {@code null}
+reference: the &lt;code&gt;File&lt;/code&gt; of which the modification date
+                  is used, must not be {@code null}
+Return type: @return:true if the &lt;code&gt;File&lt;/code&gt; exists and has been modified more
+ recently than the reference &lt;code&gt;File&lt;/code&gt;</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+            <parameter>
+                <name>reference</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>mkdirs</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>directory</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toFile</name>
+            <comment>Convert from a &lt;code&gt;URL&lt;/code&gt; to a &lt;code&gt;File&lt;/code&gt;.
+ &lt;p/&gt;
+ From version 1.1 this method will decode the URL.
+ Syntax such as &lt;code&gt;file:///my%20docs/file.txt&lt;/code&gt; will be
+ correctly decoded to &lt;code&gt;/my docs/file.txt&lt;/code&gt;. Starting with version
+ 1.5, this method uses UTF-8 to decode percent-encoded octets to characters.
+ Additionally, malformed percent-encoded octets are handled leniently by
+ passing them through literally.
+url: the file URL to convert, {@code null} returns {@code null}
+Return type: @return:the equivalent &lt;code&gt;File&lt;/code&gt; object, or {@code null}
+ if the URL's protocol is not &lt;code&gt;file&lt;/code&gt;</comment>
+            <returntype>java.io.File</returntype>
+            <parameter>
+                <name>url</name>
+                <type>java.net.URL</type>
+            </parameter>
+        </method>
+        <method>
+            <name>deleteDirectory</name>
+            <comment>Deletes a directory recursively.
+directory: directory to delete</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>directory</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isSymlink</name>
+            <comment>Determines whether the specified file is a Symbolic Link rather than an actual file.
+ &lt;p/&gt;
+ Will not return true if there is a Symbolic Link anywhere in the path,
+ only if the specific file is.
+ &lt;p/&gt;
+ &lt;b&gt;Note:&lt;/b&gt; the current implementation always returns {@code false} if the system
+ is detected as Windows using {@link FilenameUtils#isSystemWindows()}
+file: the file to check
+Return type: @return:true if the file is a Symbolic Link</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>file</name>
+                <type>java.io.File</type>
+            </parameter>
+        </method>
+        <property>
+            <name>TempDirectory</name>
+            <returntype>java.io.File</returntype>
+            <comment>Returns a {@link File} representing the system temporary directory.</comment>
+        </property>
+        <property>
+            <name>TempDirectoryPath</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Returns the path to the system temporary directory.</comment>
+        </property>
+        <property>
+            <name>UserDirectory</name>
+            <returntype>java.io.File</returntype>
+            <comment>Returns a {@link File} representing the user's home directory.</comment>
+        </property>
+        <property>
+            <name>UserDirectoryPath</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Returns the path to the user's home directory.</comment>
+        </property>
+        <field>
+            <name>ONE_EB_BI</name>
+            <comment>The number of bytes in an exabyte.</comment>
+            <returntype>java.math.BigInteger</returntype>
+        </field>
+        <field>
+            <name>ONE_KB</name>
+            <comment>The number of bytes in a kilobyte.</comment>
+            <returntype>long</returntype>
+        </field>
+        <field>
+            <name>ONE_EB</name>
+            <comment>The number of bytes in an exabyte.</comment>
+            <returntype>long</returntype>
+        </field>
+        <field>
+            <name>ONE_GB</name>
+            <comment>The number of bytes in a gigabyte.</comment>
+            <returntype>long</returntype>
+        </field>
+        <field>
+            <name>ONE_PB_BI</name>
+            <comment>The number of bytes in a petabyte.</comment>
+            <returntype>java.math.BigInteger</returntype>
+        </field>
+        <field>
+            <name>ONE_PB</name>
+            <comment>The number of bytes in a petabyte.</comment>
+            <returntype>long</returntype>
+        </field>
+        <field>
+            <name>ONE_KB_BI</name>
+            <comment>The number of bytes in a kilobyte.</comment>
+            <returntype>java.math.BigInteger</returntype>
+        </field>
+        <field>
+            <name>ONE_MB</name>
+            <comment>The number of bytes in a megabyte.</comment>
+            <returntype>long</returntype>
+        </field>
+        <field>
+            <name>MB</name>
+            <comment></comment>
+            <returntype>double</returntype>
+        </field>
+        <field>
+            <name>KB</name>
+            <comment></comment>
+            <returntype>double</returntype>
+        </field>
+        <field>
+            <name>ONE_MB_BI</name>
+            <comment>The number of bytes in a megabyte.</comment>
+            <returntype>java.math.BigInteger</returntype>
+        </field>
+        <field>
+            <name>ONE_YB</name>
+            <comment>The number of bytes in a yottabyte.</comment>
+            <returntype>java.math.BigInteger</returntype>
+        </field>
+        <field>
+            <name>GB</name>
+            <comment></comment>
+            <returntype>double</returntype>
+        </field>
+        <field>
+            <name>ONE_ZB</name>
+            <comment>The number of bytes in a zettabyte.</comment>
+            <returntype>java.math.BigInteger</returntype>
+        </field>
+        <field>
+            <name>ONE_TB_BI</name>
+            <comment>The number of bytes in a terabyte.</comment>
+            <returntype>java.math.BigInteger</returntype>
+        </field>
+        <field>
+            <name>EMPTY_FILE_ARRAY</name>
+            <comment>An empty array of type &lt;code&gt;File&lt;/code&gt;.</comment>
+            <returntype>java.io.File[]</returntype>
+        </field>
+        <field>
+            <name>ONE_TB</name>
+            <comment>The number of bytes in a terabyte.</comment>
+            <returntype>long</returntype>
+        </field>
+        <field>
+            <name>ONE_GB_BI</name>
+            <comment>The number of bytes in a gigabyte.</comment>
+            <returntype>java.math.BigInteger</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.io.FileUtils.FileExistsException</name>
+        <comment>Indicates that a file already exists.</comment>
+        <owner>process</owner>
+        <method>
+            <name>printStackTrace</name>
+            <comment></comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>addSuppressed</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>arg0</name>
+                <type>java.lang.Throwable</type>
+            </parameter>
+        </method>
+        <method>
+            <name>initCause</name>
+            <comment></comment>
+            <returntype>java.lang.Throwable</returntype>
+            <parameter>
+                <name>arg0</name>
+                <type>java.lang.Throwable</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toString</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>fillInStackTrace</name>
+            <comment></comment>
+            <returntype>java.lang.Throwable</returntype>
+        </method>
+        <property>
+            <name>Message</name>
+            <returntype>java.lang.String</returntype>
+            <comment></comment>
+        </property>
+        <property>
+            <name>StackTrace</name>
+            <returntype>java.lang.StackTraceElement[]</returntype>
+            <parameter>
+                <name>arg0</name>
+                <type>java.lang.StackTraceElement[]</type>
+            </parameter>
+            <comment></comment>
+        </property>
+        <property>
+            <name>Suppressed</name>
+            <returntype>java.lang.Throwable[]</returntype>
+            <comment></comment>
+        </property>
+        <property>
+            <name>Cause</name>
+            <returntype>java.lang.Throwable</returntype>
+            <comment></comment>
+        </property>
+        <property>
+            <name>LocalizedMessage</name>
+            <returntype>java.lang.String</returntype>
+            <comment></comment>
+        </property>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.io.FilenameUtils</name>
+        <shortname>FilenameUtils_tf</shortname>
+        <comment>General filename and filepath manipulation utilities.
+ &lt;p&gt;
+ When dealing with filenames you can hit problems when moving from a Windows
+ based development machine to a Unix based production machine.
+ This class aims to help avoid those problems.
+ &lt;p&gt;
+ &lt;b&gt;NOTE&lt;/b&gt;: You may be able to avoid using this class entirely simply by
+ using JDK {@link File File} objects and the two argument constructor
+ {@link File#File(File, String) File(File,String)}.
+ &lt;p&gt;
+ Most methods on this class are designed to work the same on both Unix and Windows.
+ Those that don't include 'System', 'Unix' or 'Windows' in their name.
+ &lt;p&gt;
+ Most methods recognise both separators (forward and back), and both
+ sets of prefixes. See the javadoc of each method for details.
+ &lt;p&gt;
+ This class defines six components within a filename
+ (example C:\dev\project\file.txt):
+ &lt;ul&gt;
+ &lt;li&gt;the prefix - C:\&lt;/li&gt;
+ &lt;li&gt;the path - dev\project\&lt;/li&gt;
+ &lt;li&gt;the full path - C:\dev\project\&lt;/li&gt;
+ &lt;li&gt;the name - file.txt&lt;/li&gt;
+ &lt;li&gt;the base name - file&lt;/li&gt;
+ &lt;li&gt;the extension - txt&lt;/li&gt;
+ &lt;/ul&gt;
+ Note that this class works best if directory filenames end with a separator.
+ If you omit the last separator, it is impossible to determine if the filename
+ corresponds to a file or a directory. As a result, we have chosen to say
+ it corresponds to a file.
+ &lt;p&gt;
+ This class only supports Unix and Windows style names.
+ Prefixes are matched as follows:
+ &lt;pre&gt;
+ Windows:
+ a\b\c.txt           --&gt; ""          --&gt; relative
+ \a\b\c.txt          --&gt; "\"         --&gt; current drive absolute
+ C:a\b\c.txt         --&gt; "C:"        --&gt; drive relative
+ C:\a\b\c.txt        --&gt; "C:\"       --&gt; absolute
+ \\server\a\b\c.txt  --&gt; "\\server\" --&gt; UNC
+
+ Unix:
+ a/b/c.txt           --&gt; ""          --&gt; relative
+ /a/b/c.txt          --&gt; "/"         --&gt; absolute
+ ~/a/b/c.txt         --&gt; "~/"        --&gt; current user
+ ~                   --&gt; "~/"        --&gt; current user (slash added)
+ ~user/a/b/c.txt     --&gt; "~user/"    --&gt; named user
+ ~user               --&gt; "~user/"    --&gt; named user (slash added)
+ &lt;/pre&gt;
+ Both prefix styles are matched always, irrespective of the machine that you are
+ currently running on.
+ &lt;p&gt;
+ Origin of code: Excalibur, Alexandria, Tomcat, Commons-Utils.</comment>
+        <owner>process</owner>
+        <method>
+            <name>getPrefix</name>
+            <comment>Gets the prefix from a full filename, such as &lt;code&gt;C:/&lt;/code&gt;
+ or &lt;code&gt;~/&lt;/code&gt;.
+ &lt;p&gt;
+ This method will handle a file in either Unix or Windows format.
+ The prefix includes the first slash in the full filename where applicable.
+ &lt;pre&gt;
+ Windows:
+ a\b\c.txt           --&gt; ""          --&gt; relative
+ \a\b\c.txt          --&gt; "\"         --&gt; current drive absolute
+ C:a\b\c.txt         --&gt; "C:"        --&gt; drive relative
+ C:\a\b\c.txt        --&gt; "C:\"       --&gt; absolute
+ \\server\a\b\c.txt  --&gt; "\\server\" --&gt; UNC
+
+ Unix:
+ a/b/c.txt           --&gt; ""          --&gt; relative
+ /a/b/c.txt          --&gt; "/"         --&gt; absolute
+ ~/a/b/c.txt         --&gt; "~/"        --&gt; current user
+ ~                   --&gt; "~/"        --&gt; current user (slash added)
+ ~user/a/b/c.txt     --&gt; "~user/"    --&gt; named user
+ ~user               --&gt; "~user/"    --&gt; named user (slash added)
+ &lt;/pre&gt;
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+ ie. both Unix and Windows prefixes are matched regardless.
+filename: the filename to query, null returns null
+Return type: @return:the prefix of the file, null if invalid</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getName</name>
+            <comment>Gets the name minus the path from a full filename.
+ &lt;p&gt;
+ This method will handle a file in either Unix or Windows format.
+ The text after the last forward or backslash is returned.
+ &lt;pre&gt;
+ a/b/c.txt --&gt; c.txt
+ a.txt     --&gt; a.txt
+ a/b/c     --&gt; c
+ a/b/c/    --&gt; ""
+ &lt;/pre&gt;
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+filename: the filename to query, null returns null
+Return type: @return:the name of the file without the path, or an empty string if none exists</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getExtension</name>
+            <comment>Gets the extension of a filename.
+ &lt;p&gt;
+ This method returns the textual part of the filename after the last dot.
+ There must be no directory separator after the dot.
+ &lt;pre&gt;
+ foo.txt      --&gt; "txt"
+ a/b/c.jpg    --&gt; "jpg"
+ a/b.txt/c    --&gt; ""
+ a/b/c        --&gt; ""
+ &lt;/pre&gt;
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+filename: the filename to retrieve the extension of.
+Return type: @return:the extension of the file or an empty string if none exists or {@code null}
+ if the filename is {@code null}.</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getFullPath</name>
+            <comment>Gets the full path from a full filename, which is the prefix + path.
+ &lt;p&gt;
+ This method will handle a file in either Unix or Windows format.
+ The method is entirely text based, and returns the text before and
+ including the last forward or backslash.
+ &lt;pre&gt;
+ C:\a\b\c.txt --&gt; C:\a\b\
+ ~/a/b/c.txt  --&gt; ~/a/b/
+ a.txt        --&gt; ""
+ a/b/c        --&gt; a/b/
+ a/b/c/       --&gt; a/b/c/
+ C:           --&gt; C:
+ C:\          --&gt; C:\
+ ~            --&gt; ~/
+ ~/           --&gt; ~/
+ ~user        --&gt; ~user/
+ ~user/       --&gt; ~user/
+ &lt;/pre&gt;
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+filename: the filename to query, null returns null
+Return type: @return:the path of the file, an empty string if none exists, null if invalid</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>separatorsToSystem</name>
+            <comment>Converts all separators to the system separator.
+path: the path to be changed, null ignored
+Return type: @return:the updated path</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>path</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>indexOfLastSeparator</name>
+            <comment>Returns the index of the last directory separator character.
+ &lt;p&gt;
+ This method will handle a file in either Unix or Windows format.
+ The position of the last forward or backslash is returned.
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+filename: the filename to find the last path separator in, null returns -1
+Return type: @return:the index of the last separator character, or -1 if there
+ is no such character</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>concat</name>
+            <comment>Concatenates a filename to a base path using normal command line style rules.
+ &lt;p&gt;
+ The effect is equivalent to resultant directory after changing
+ directory to the first argument, followed by changing directory to
+ the second argument.
+ &lt;p&gt;
+ The first argument is the base path, the second is the path to concatenate.
+ The returned path is always normalized via {@link #normalize(String)},
+ thus &lt;code&gt;..&lt;/code&gt; is handled.
+ &lt;p&gt;
+ If &lt;code&gt;pathToAdd&lt;/code&gt; is absolute (has an absolute prefix), then
+ it will be normalized and returned.
+ Otherwise, the paths will be joined, normalized and returned.
+ &lt;p&gt;
+ The output will be the same on both Unix and Windows except
+ for the separator character.
+ &lt;pre&gt;
+ /foo/ + bar          --&gt;   /foo/bar
+ /foo + bar           --&gt;   /foo/bar
+ /foo + /bar          --&gt;   /bar
+ /foo + C:/bar        --&gt;   C:/bar
+ /foo + C:bar         --&gt;   C:bar (*)
+ /foo/a/ + ../bar     --&gt;   foo/bar
+ /foo/ + ../../bar    --&gt;   null
+ /foo/ + /bar         --&gt;   /bar
+ /foo/.. + /bar       --&gt;   /bar
+ /foo + bar/c.txt     --&gt;   /foo/bar/c.txt
+ /foo/c.txt + bar     --&gt;   /foo/c.txt/bar (!)
+ &lt;/pre&gt;
+ (*) Note that the Windows relative drive prefix is unreliable when
+ used with this method.
+ (!) Note that the first parameter must be a path. If it ends with a name, then
+ the name will be built into the concatenated path. If this might be a problem,
+ use {@link #getFullPath(String)} on the base path argument.
+basePath: the base path to attach to, always treated as a path
+fullFilenameToAdd: the filename (or path) to attach to the base
+Return type: @return:the concatenated path, or null if invalid</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>basePath</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>fullFilenameToAdd</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>indexOfExtension</name>
+            <comment>Returns the index of the last extension separator character, which is a dot.
+ &lt;p&gt;
+ This method also checks that there is no directory separator after the last dot.
+ To do this it uses {@link #indexOfLastSeparator(String)} which will
+ handle a file in either Unix or Windows format.
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+filename: the filename to find the last path separator in, null returns -1
+Return type: @return:the index of the last separator character, or -1 if there
+ is no such character</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isExtension</name>
+            <comment>Checks whether the extension of the filename is that specified.
+ &lt;p&gt;
+ This method obtains the extension as the textual part of the filename
+ after the last dot. There must be no directory separator after the dot.
+ The extension check is case-sensitive on all platforms.
+filename: the filename to query, null returns false
+extension: the extension to check for, null or empty checks for no extension
+Return type: @return:true if the filename has the specified extension</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>extension</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getPrefixLength</name>
+            <comment>Returns the length of the filename prefix, such as &lt;code&gt;C:/&lt;/code&gt; or &lt;code&gt;~/&lt;/code&gt;.
+ &lt;p&gt;
+ This method will handle a file in either Unix or Windows format.
+ &lt;p&gt;
+ The prefix length includes the first slash in the full filename
+ if applicable. Thus, it is possible that the length returned is greater
+ than the length of the input string.
+ &lt;pre&gt;
+ Windows:
+ a\b\c.txt           --&gt; ""          --&gt; relative
+ \a\b\c.txt          --&gt; "\"         --&gt; current drive absolute
+ C:a\b\c.txt         --&gt; "C:"        --&gt; drive relative
+ C:\a\b\c.txt        --&gt; "C:\"       --&gt; absolute
+ \\server\a\b\c.txt  --&gt; "\\server\" --&gt; UNC
+
+ Unix:
+ a/b/c.txt           --&gt; ""          --&gt; relative
+ /a/b/c.txt          --&gt; "/"         --&gt; absolute
+ ~/a/b/c.txt         --&gt; "~/"        --&gt; current user
+ ~                   --&gt; "~/"        --&gt; current user (slash added)
+ ~user/a/b/c.txt     --&gt; "~user/"    --&gt; named user
+ ~user               --&gt; "~user/"    --&gt; named user (slash added)
+ &lt;/pre&gt;
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+ ie. both Unix and Windows prefixes are matched regardless.
+filename: the filename to find the prefix in, null returns -1
+Return type: @return:the length of the prefix, -1 if invalid or null</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>normalize</name>
+            <comment>Normalizes a path, removing double and single dot path steps.
+ &lt;p&gt;
+ This method normalizes a path to a standard format.
+ The input may contain separators in either Unix or Windows format.
+ The output will contain separators in the format of the system.
+ &lt;p&gt;
+ A trailing slash will be retained.
+ A double slash will be merged to a single slash (but UNC names are handled).
+ A single dot path segment will be removed.
+ A double dot will cause that path segment and the one before to be removed.
+ If the double dot has no parent path segment to work with, {@code null}
+ is returned.
+ &lt;p&gt;
+ The output will be the same on both Unix and Windows except
+ for the separator character.
+ &lt;pre&gt;
+ /foo//               --&gt;   /foo/
+ /foo/./              --&gt;   /foo/
+ /foo/../bar          --&gt;   /bar
+ /foo/../bar/         --&gt;   /bar/
+ /foo/../bar/../baz   --&gt;   /baz
+ //foo//./bar         --&gt;   /foo/bar
+ /../                 --&gt;   null
+ ../foo               --&gt;   null
+ foo/bar/..           --&gt;   foo/
+ foo/../../bar        --&gt;   null
+ foo/../bar           --&gt;   bar
+ //server/foo/../bar  --&gt;   //server/bar
+ //server/../bar      --&gt;   null
+ C:\foo\..\bar        --&gt;   C:\bar
+ C:\..\bar            --&gt;   null
+ ~/foo/../bar/        --&gt;   ~/bar/
+ ~/../bar             --&gt;   null
+ &lt;/pre&gt;
+ (Note the file separator returned will be correct for Windows/Unix)
+filename: the filename to normalize, null returns null
+Return type: @return:the normalized filename, or null if invalid</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getPath</name>
+            <comment>Gets the path from a full filename, which excludes the prefix.
+ &lt;p&gt;
+ This method will handle a file in either Unix or Windows format.
+ The method is entirely text based, and returns the text before and
+ including the last forward or backslash.
+ &lt;pre&gt;
+ C:\a\b\c.txt --&gt; a\b\
+ ~/a/b/c.txt  --&gt; a/b/
+ a.txt        --&gt; ""
+ a/b/c        --&gt; a/b/
+ a/b/c/       --&gt; a/b/c/
+ &lt;/pre&gt;
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+ &lt;p&gt;
+ This method drops the prefix from the result.
+ See {@link #getFullPath(String)} for the method that retains the prefix.
+filename: the filename to query, null returns null
+Return type: @return:the path of the file, an empty string if none exists, null if invalid</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>normalizeNoEndSeparator</name>
+            <comment>Normalizes a path, removing double and single dot path steps,
+ and removing any final directory separator.
+ &lt;p&gt;
+ This method normalizes a path to a standard format.
+ The input may contain separators in either Unix or Windows format.
+ The output will contain separators in the format of the system.
+ &lt;p&gt;
+ A trailing slash will be removed.
+ A double slash will be merged to a single slash (but UNC names are handled).
+ A single dot path segment will be removed.
+ A double dot will cause that path segment and the one before to be removed.
+ If the double dot has no parent path segment to work with, {@code null}
+ is returned.
+ &lt;p&gt;
+ The output will be the same on both Unix and Windows except
+ for the separator character.
+ &lt;pre&gt;
+ /foo//               --&gt;   /foo
+ /foo/./              --&gt;   /foo
+ /foo/../bar          --&gt;   /bar
+ /foo/../bar/         --&gt;   /bar
+ /foo/../bar/../baz   --&gt;   /baz
+ //foo//./bar         --&gt;   /foo/bar
+ /../                 --&gt;   null
+ ../foo               --&gt;   null
+ foo/bar/..           --&gt;   foo
+ foo/../../bar        --&gt;   null
+ foo/../bar           --&gt;   bar
+ //server/foo/../bar  --&gt;   //server/bar
+ //server/../bar      --&gt;   null
+ C:\foo\..\bar        --&gt;   C:\bar
+ C:\..\bar            --&gt;   null
+ ~/foo/../bar/        --&gt;   ~/bar
+ ~/../bar             --&gt;   null
+ &lt;/pre&gt;
+ (Note the file separator returned will be correct for Windows/Unix)
+filename: the filename to normalize, null returns null
+Return type: @return:the normalized filename, or null if invalid</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getPathNoEndSeparator</name>
+            <comment>Gets the path from a full filename, which excludes the prefix, and
+ also excluding the final directory separator.
+ &lt;p&gt;
+ This method will handle a file in either Unix or Windows format.
+ The method is entirely text based, and returns the text before the
+ last forward or backslash.
+ &lt;pre&gt;
+ C:\a\b\c.txt --&gt; a\b
+ ~/a/b/c.txt  --&gt; a/b
+ a.txt        --&gt; ""
+ a/b/c        --&gt; a/b
+ a/b/c/       --&gt; a/b/c
+ &lt;/pre&gt;
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+ &lt;p&gt;
+ This method drops the prefix from the result.
+ See {@link #getFullPathNoEndSeparator(String)} for the method that retains the prefix.
+filename: the filename to query, null returns null
+Return type: @return:the path of the file, an empty string if none exists, null if invalid</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>separatorsToUnix</name>
+            <comment>Converts all separators to the Unix separator of forward slash.
+path: the path to be changed, null ignored
+Return type: @return:the updated path</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>path</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>separatorsToWindows</name>
+            <comment>Converts all separators to the Windows separator of backslash.
+path: the path to be changed, null ignored
+Return type: @return:the updated path</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>path</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getFullPathNoEndSeparator</name>
+            <comment>Gets the full path from a full filename, which is the prefix + path,
+ and also excluding the final directory separator.
+ &lt;p&gt;
+ This method will handle a file in either Unix or Windows format.
+ The method is entirely text based, and returns the text before the
+ last forward or backslash.
+ &lt;pre&gt;
+ C:\a\b\c.txt --&gt; C:\a\b
+ ~/a/b/c.txt  --&gt; ~/a/b
+ a.txt        --&gt; ""
+ a/b/c        --&gt; a/b
+ a/b/c/       --&gt; a/b/c
+ C:           --&gt; C:
+ C:\          --&gt; C:\
+ ~            --&gt; ~
+ ~/           --&gt; ~
+ ~user        --&gt; ~user
+ ~user/       --&gt; ~user
+ &lt;/pre&gt;
+ &lt;p&gt;
+ The output will be the same irrespective of the machine that the code is running on.
+filename: the filename to query, null returns null
+Return type: @return:the path of the file, an empty string if none exists, null if invalid</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <field>
+            <name>EXTENSION_SEPARATOR_STR</name>
+            <comment>The extension separator String.</comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>EXTENSION_SEPARATOR</name>
+            <comment>The extension separator character.</comment>
+            <returntype>char</returntype>
+        </field>
+    </class>
+    <class>
+        <name>cn.finalteam.toolsfinal.io.Charsets</name>
+        <shortname>Charsets_tf</shortname>
+        <comment>Charsets</comment>
+        <owner>process</owner>
+        <method>
+            <name>toCharset</name>
+            <comment></comment>
+            <returntype>java.nio.charset.Charset</returntype>
+            <parameter>
+                <name>charset</name>
+                <type>java.nio.charset.Charset</type>
+            </parameter>
+        </method>
+        <field>
+            <name>US_ASCII</name>
+            <comment></comment>
+            <returntype>java.nio.charset.Charset</returntype>
+        </field>
+        <field>
+            <name>UTF_16</name>
+            <comment></comment>
+            <returntype>java.nio.charset.Charset</returntype>
+        </field>
+        <field>
+            <name>UTF_16LE</name>
+            <comment></comment>
+            <returntype>java.nio.charset.Charset</returntype>
+        </field>
+        <field>
+            <name>UTF_16BE</name>
+            <comment></comment>
+            <returntype>java.nio.charset.Charset</returntype>
+        </field>
+        <field>
+            <name>UTF_8</name>
+            <comment></comment>
+            <returntype>java.nio.charset.Charset</returntype>
+        </field>
+        <field>
+            <name>ISO_8859_1</name>
+            <comment></comment>
+            <returntype>java.nio.charset.Charset</returntype>
+        </field>
+    </class>
+    <version>1.15</version>
+    <author>Icefairy333</author>
+    <dependsOn>android-support-v4</dependsOn>
+</root>
