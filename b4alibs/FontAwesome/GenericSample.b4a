@@ -1,0 +1,84 @@
+﻿Version=4.3
+IconFile=
+NumberOfModules=0
+Build1=Default,njdude.generic.sample
+DoNotOverwriteManifest=False
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~~\n~AddManifestText(<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="64"/>~\n~                <supports-screens android:largeScreens="true"~\n~                                  android:normalScreens="true"~\n~                                  android:smallScreens="true"~\n~								  android:xlargeScreens="true"~\n~                                  android:anyDensity="true"/>)~\n~~\n~'SetApplicationAttribute(android:hardwareAccelerated, "true")~\n~SetManifestAttribute("android:installLocation", "auto")~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~~\n~'End of default text.~\n~~\n~AddActivityText(main,~\n~<intent-filter android:icon="@drawable/icon1" android:label="Momonery">~\n~<action android:name="android.intent.action.VIEW" />~\n~<category android:name="android.intent.category.DEFAULT" />~\n~<category android:name="android.intent.category.BROWSABLE" />~\n~<data android:mimeType="text/*" />~\n~<data android:mimeType="application/apstat" />~\n~<data android:mimeType="application/vnd.apstat" />~\n~<data android:pathPattern=".*\\.apstat" />~\n~</intent-filter>~\n~)~\n~~\n~'<intent-filter android:icon="@drawable/icon1" android:label="swv">~\n~'<action android:name="android.intent.action.VIEW" />~\n~'<category android:name="android.intent.category.DEFAULT" />~\n~'<category android:name="android.intent.category.BROWSABLE" />~\n~'<data android:mimeType="text/*" />~\n~'</intent-filter>~\n~')
+NumberOfFiles=1
+File1=Main.bal
+NumberOfLibraries=2
+Library1=core
+Library2=fontawesome
+@EndOfDesignText@
+#Region Project Attributes
+#ApplicationLabel: Generic Sample
+#VersionCode: 1
+#VersionName: 1.0
+'SupportedOrientations possible values: unspecified, landscape or portrait.
+#SupportedOrientations: portrait
+#CanInstallToExternalStorage: False
+#LibraryAuthor: NJDude
+#End Region
+
+#Region Activity Attributes
+#FullScreen: False
+#IncludeTitle: False
+#End Region
+
+'###########################################
+'######## Donations are appreciated ########
+'###########################################
+
+'If the code indentation looks weird, change the tab size to 1 (TOOLS -> IDE OPTIONS -> TAB SIZE)
+
+Sub Process_Globals
+
+End Sub
+
+Sub Globals
+
+    Private FA As FontAwesome
+				
+				Private ListView1 As ListView
+				Private Label1 As Label
+				Private Button1 As Button
+	
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)	
+
+   Activity.LoadLayout("Main")
+			
+			FA.Initialize
+			
+			Label1.Typeface = FA.FontAwesomeTypeface
+
+			Label1.Text = FA.GetFontAwesomeIconByName("fa-android") & "  Some title label  " & FA.GetFontAwesomeIconByNumber(0xf15d)
+			
+			FA.SetFontAwesomeTypefaceByTag(Activity, "Awesome")
+			
+			For I = 61440 To 61460
+			
+			    ListView1.AddSingleLine(FA.GetFontAwesomeIconByNumber(I) & "  " & I)
+							
+			Next
+			
+			Button1.Text = FA.GetFontAwesomeIconByName("fa-star") & " Click me"			
+
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause(UserClosed As Boolean)
+
+End Sub
+
+'##########################
+'######## Controls ########
+'##########################
+
+'##########################
+'######## Routines ########
+'##########################

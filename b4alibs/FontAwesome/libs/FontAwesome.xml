@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+  <dependsOn>reflection</dependsOn>
+  <dependsOn>javaobject</dependsOn>
+  <class>
+    <name>njdude.fontawesome.lib.fontawesome</name>
+    <shortname>FontAwesome</shortname>
+    <owner>process</owner>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="FontAwesomeTypeface">_fontawesometypeface</name>
+      <comment>Sets the FontAwesome typeface.
+</comment>
+      <returntype>anywheresoftware.b4a.keywords.constants.TypefaceWrapper</returntype>
+    </method>
+    <method>
+      <name DesignerName="GetFontAwesomeIconByName">_getfontawesomeiconbyname</name>
+      <comment>Get the selected icon by name.
+e.g. fa-android
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>IconName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="GetFontAwesomeIconByNumber">_getfontawesomeiconbynumber</name>
+      <comment>Get the selected icon by its number.
+e.g. 0xf17b or 61819
+</comment>
+      <returntype>char</returntype>
+      <parameter>
+        <name>IconNumber</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>Initializes the FontAwesome library.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SetFontAwesomeTypefaceByTag">_setfontawesometypefacebytag</name>
+      <comment>Set the typeface of the views matching the value of the tag.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Parent</name>
+        <type>anywheresoftware.b4a.objects.PanelWrapper</type>
+      </parameter>
+      <parameter>
+        <name>ViewTag</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SetFontAwesomeTypefaceToAllViews">_setfontawesometypefacetoallviews</name>
+      <comment>Set the FontAwesome typeface for all views.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Parent</name>
+        <type>anywheresoftware.b4a.objects.PanelWrapper</type>
+      </parameter>
+    </method>
+  </class>
+  <class>
+    <name>njdude.fontawesome.lib.jarfileloader</name>
+    <shortname>JarFileLoader</shortname>
+    <owner>process</owner>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="CopyFileFromJar">_copyfilefromjar</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>FileName</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>ToDirectory</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>True: From Assets, False: From Jar
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+      <parameter>
+        <name>FromAssetsFile</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="LoadBitmapFromJar">_loadbitmapfromjar</name>
+      <returntype>anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper</returntype>
+      <parameter>
+        <name>BitmapName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="LoadFileFromJar">_loadfilefromjar</name>
+      <returntype>anywheresoftware.b4a.objects.streams.File.InputStreamWrapper</returntype>
+      <parameter>
+        <name>FileName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="LoadMapFromJar">_loadmapfromjar</name>
+      <returntype>anywheresoftware.b4a.objects.collections.Map</returntype>
+      <parameter>
+        <name>MapName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="LoadNinePatchDrawable">_loadninepatchdrawable</name>
+      <returntype>Object</returntype>
+      <parameter>
+        <name>FileName</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Left</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Right</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="LoadTextFileFromJar">_loadtextfilefromjar</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>FileName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="LoadTypefaceFromJar">_loadtypefacefromjar</name>
+      <returntype>anywheresoftware.b4a.keywords.constants.TypefaceWrapper</returntype>
+      <parameter>
+        <name>TypefaceName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+  </class>
+  <version>1.5</version>
+  <author>NJDude</author>
+</root>

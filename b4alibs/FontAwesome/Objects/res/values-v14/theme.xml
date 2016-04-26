@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="MyCustomTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/ActionBarColor</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="ActionBarColor" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">#ff9800</item>
+        <item name="android:titleTextStyle">@style/ActionBarTitleText</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="ActionBarTitleText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+</resources>
