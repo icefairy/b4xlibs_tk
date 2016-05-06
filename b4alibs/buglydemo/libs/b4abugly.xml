@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.04</doclet-version-NOT-library-version>
+    <class>
+        <name>com.bugly.buglywrapper</name>
+        <shortname>bugly</shortname>
+        <owner>process</owner>
+        <permission>android.permission.READ_PHONE_STATE</permission>
+        <permission>android.permission.INTERNET</permission>
+        <permission>android.permission.ACCESS_NETWORK_STATE</permission>
+        <permission>android.permission.ACCESS_WIFI_STATE</permission>
+        <permission>android.permission.READ_LOGS</permission>
+        <method>
+            <name>startCatching</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>appid</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>testJavaCrash</name>
+            <comment></comment>
+            <returntype>void</returntype>
+        </method>
+    </class>
+    <version>1.0</version>
+    <author>icefairy333</author>
+    <dependsOn>bugly_crash_release__2.1.1</dependsOn>
+</root>
