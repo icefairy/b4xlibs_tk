@@ -38,12 +38,14 @@ Sub gt_onClickid(cid As String)
 	Log("cid:"&cid)
 End Sub
 '
-Sub gt_onRec(str As String,messageid As String,taskid As String)
-	'gotStr:{"a":"b","cc":"bb","taskid":"GT_0507_219bc14e97f7eb3515c7e6c065eef877"}
+Sub gt_onRec(str As String)
+	'gotStr:{"a":"b","cc":"bb","taskid":"GT_0507_219bc14e97f7eb3515c7e6c065eef877,"messageid":"bc2c10f8-18cc-15485366f2d-1545963577"}
 	Log("gotStr:"&str)
 	Dim parser As JSONParser
 	parser.Initialize(str)
 	Dim root As Map = parser.NextObject
+	Dim messageid As String = root.Get("messageid")
+	Dim taskid As String = root.Get("taskid")
 	Try
 		'透传测试
 		Dim action As String = root.Get("actionid")
@@ -53,6 +55,6 @@ Sub gt_onRec(str As String,messageid As String,taskid As String)
 	Catch
 		Log(LastException)
 	End Try
-	'回执调用，如果不需要直接去掉
+
 	getui.sendFeedbackMessage(taskid,messageid,90001)
 End Sub

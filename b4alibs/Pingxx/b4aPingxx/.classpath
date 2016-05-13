@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="D:/soft/asdk/platforms/android-23/android.jar"/>
+	<classpathentry kind="lib" path="D:/soft/Basic4android/Libraries/B4AShared.jar"/>
+	<classpathentry kind="lib" path="D:/soft/Basic4android/Libraries/Core.jar"/>
+	<classpathentry kind="lib" path="E:/projects/kpjj/libs/b4aPingxx/demo/libs/alipaySingle-20160111.jar"/>
+	<classpathentry kind="lib" path="E:/projects/kpjj/libs/b4aPingxx/demo/libs/libammsdk.jar"/>
+	<classpathentry kind="lib" path="E:/projects/kpjj/libs/b4aPingxx/demo/libs/libpingpp-2.1.2.jar"/>
+	<classpathentry kind="lib" path="E:/projects/kpjj/libs/b4aPingxx/demo/libs/libpingppone-2.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
