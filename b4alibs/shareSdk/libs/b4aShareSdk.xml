@@ -18,7 +18,7 @@
         <permission>android.permission.BLUETOOTH_ADMIN</permission>
         <method>
             <name>addHiddenPlatform</name>
-            <comment>Ìí¼ÓÒ»¸öÒş²ØµÄplatform</comment>
+            <comment>æ·»åŠ ä¸€ä¸ªéšè—çš„platform</comment>
             <returntype>void</returntype>
             <parameter>
                 <name>platform</name>
@@ -31,7 +31,7 @@
 ba: 
 eventname: 
 Appkey: 
-parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
+parms: è¿™æ˜¯mapçš„listï¼Œå…¶ä¸­æ¸ é“åæ”¾åœ¨pnameä¸­</comment>
             <returntype>void</returntype>
             <parameter>
                 <name>ba</name>
@@ -52,7 +52,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
         </method>
         <method>
             <name>disableSSOWhenAuthorize</name>
-            <comment>ÉèÖÃÒ»¸ö×Ü¿ª¹Ø£¬ÓÃÓÚÔÚ·ÖÏíÇ°ÈôĞèÒªÊÚÈ¨£¬Ôò½ûÓÃsso¹¦ÄÜ</comment>
+            <comment>è®¾ç½®ä¸€ä¸ªæ€»å¼€å…³ï¼Œç”¨äºåœ¨åˆ†äº«å‰è‹¥éœ€è¦æˆæƒï¼Œåˆ™ç¦ç”¨ssoåŠŸèƒ½</comment>
             <returntype>void</returntype>
         </method>
         <method>
@@ -62,7 +62,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
         </method>
         <method>
             <name>setCustomerLogo</name>
-            <comment>ÉèÖÃ×Ô¼ºÍ¼±êºÍµã»÷ÊÂ¼ş£¬¿ÉÒÔÖØ¸´µ÷ÓÃÌí¼Ó¶à´Î</comment>
+            <comment>è®¾ç½®è‡ªå·±å›¾æ ‡å’Œç‚¹å‡»äº‹ä»¶ï¼Œå¯ä»¥é‡å¤è°ƒç”¨æ·»åŠ å¤šæ¬¡</comment>
             <returntype>void</returntype>
             <parameter>
                 <name>logo</name>
@@ -79,12 +79,12 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
         </method>
         <method>
             <name>setDialogMode</name>
-            <comment>ÉèÖÃ±à¼­Ò³ÃæµÄÏÔÊ¾Ä£Ê½ÎªDialogÄ£Ê½</comment>
+            <comment>è®¾ç½®ç¼–è¾‘é¡µé¢çš„æ˜¾ç¤ºæ¨¡å¼ä¸ºDialogæ¨¡å¼</comment>
             <returntype>void</returntype>
         </method>
         <method>
             <name>setShareToTencentWeiboWhenPerformingQQOrQZoneSharing</name>
-            <comment>ÉèÖÃÔÚÖ´ĞĞ·ÖÏíµ½QQ»òQZoneµÄÍ¬Ê±£¬·ÖÏíÏàÍ¬µÄÄÚÈİÌÚÑ¶Î¢²©</comment>
+            <comment>è®¾ç½®åœ¨æ‰§è¡Œåˆ†äº«åˆ°QQæˆ–QZoneçš„åŒæ—¶ï¼Œåˆ†äº«ç›¸åŒçš„å†…å®¹è…¾è®¯å¾®åš</comment>
             <returntype>void</returntype>
         </method>
         <property>
@@ -93,7 +93,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>site</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>siteÊÇ·ÖÏí´ËÄÚÈİµÄÍøÕ¾Ãû³Æ£¬½öÔÚQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹©</comment>
+            <comment>siteæ˜¯åˆ†äº«æ­¤å†…å®¹çš„ç½‘ç«™åç§°ï¼Œä»…åœ¨QQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾›</comment>
         </property>
         <property>
             <name>Address</name>
@@ -101,7 +101,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>address</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>addressÊÇ½ÓÊÕÈËµØÖ·£¬½öÔÚĞÅÏ¢ºÍÓÊ¼şÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹©</comment>
+            <comment>addressæ˜¯æ¥æ”¶äººåœ°å€ï¼Œä»…åœ¨ä¿¡æ¯å’Œé‚®ä»¶ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾›</comment>
         </property>
         <property>
             <name>Platform</name>
@@ -109,7 +109,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>platform</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>ÉèÖÃ±à¼­Ò³µÄ³õÊ¼»¯Ñ¡ÖĞÆ½Ì¨</comment>
+            <comment>è®¾ç½®ç¼–è¾‘é¡µçš„åˆå§‹åŒ–é€‰ä¸­å¹³å°</comment>
         </property>
         <property>
             <name>InstallUrl</name>
@@ -117,7 +117,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>installurl</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>ÉèÖÃKakaoTalkµÄÓ¦ÓÃÏÂÔØµØÖ·</comment>
+            <comment>è®¾ç½®KakaoTalkçš„åº”ç”¨ä¸‹è½½åœ°å€</comment>
         </property>
         <property>
             <name>ViewToShare</name>
@@ -125,7 +125,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>viewToShare</name>
                 <type>android.view.View</type>
             </parameter>
-            <comment>ÉèÖÃÒ»¸ö½«±»½ØÍ¼·ÖÏíµÄView , surfaceViewÊÇ½Ø²»ÁËÍ¼Æ¬µÄ</comment>
+            <comment>è®¾ç½®ä¸€ä¸ªå°†è¢«æˆªå›¾åˆ†äº«çš„View , surfaceViewæ˜¯æˆªä¸äº†å›¾ç‰‡çš„</comment>
         </property>
         <property>
             <name>Latitude</name>
@@ -133,7 +133,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>latitude</name>
                 <type>float</type>
             </parameter>
-            <comment>·ÖÏíµØÎ³¶È£¬ĞÂÀËÎ¢²©¡¢ÌÚÑ¶Î¢²©ºÍfoursquareÖ§³Ö´Ë×Ö¶Î</comment>
+            <comment>åˆ†äº«åœ°çº¬åº¦ï¼Œæ–°æµªå¾®åšã€è…¾è®¯å¾®åšå’Œfoursquareæ”¯æŒæ­¤å­—æ®µ</comment>
         </property>
         <property>
             <name>MusicUrl</name>
@@ -141,7 +141,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>musicUrl</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>ÉèÖÃÎ¢ĞÅ·ÖÏíµÄÒôÀÖµÄµØÖ·</comment>
+            <comment>è®¾ç½®å¾®ä¿¡åˆ†äº«çš„éŸ³ä¹çš„åœ°å€</comment>
         </property>
         <property>
             <name>Url</name>
@@ -149,7 +149,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>url</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>urlÔÚÎ¢ĞÅ£¨°üÀ¨ºÃÓÑ¡¢ÅóÓÑÈ¦ÊÕ²Ø£©ºÍÒ×ĞÅ£¨°üÀ¨ºÃÓÑºÍÅóÓÑÈ¦£©ÖĞÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹©</comment>
+            <comment>urlåœ¨å¾®ä¿¡ï¼ˆåŒ…æ‹¬å¥½å‹ã€æœ‹å‹åœˆæ”¶è—ï¼‰å’Œæ˜“ä¿¡ï¼ˆåŒ…æ‹¬å¥½å‹å’Œæœ‹å‹åœˆï¼‰ä¸­ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾›</comment>
         </property>
         <property>
             <name>ImagePath</name>
@@ -157,7 +157,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>imagePath</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>imagePathÊÇ±¾µØµÄÍ¼Æ¬Â·¾¶£¬³ıLinked-InÍâµÄËùÓĞÆ½Ì¨¶¼Ö§³ÖÕâ¸ö×Ö¶Î</comment>
+            <comment>imagePathæ˜¯æœ¬åœ°çš„å›¾ç‰‡è·¯å¾„ï¼Œé™¤Linked-Inå¤–çš„æ‰€æœ‰å¹³å°éƒ½æ”¯æŒè¿™ä¸ªå­—æ®µ</comment>
         </property>
         <property>
             <name>VenueDescription</name>
@@ -165,7 +165,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>venueDescription</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>foursquare·ÖÏíÊ±µÄµØ·½ÃèÊö</comment>
+            <comment>foursquareåˆ†äº«æ—¶çš„åœ°æ–¹æè¿°</comment>
         </property>
         <property>
             <name>FilePath</name>
@@ -173,7 +173,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>filePath</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>filePathÊÇ´ı·ÖÏíÓ¦ÓÃ³ÌĞòµÄ±¾µØÂ·¾¢£¬½öÔÚÎ¢ĞÅ£¨Ò×ĞÅ£©ºÃÓÑºÍDropboxÖĞÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹©</comment>
+            <comment>filePathæ˜¯å¾…åˆ†äº«åº”ç”¨ç¨‹åºçš„æœ¬åœ°è·¯åŠ²ï¼Œä»…åœ¨å¾®ä¿¡ï¼ˆæ˜“ä¿¡ï¼‰å¥½å‹å’ŒDropboxä¸­ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾›</comment>
         </property>
         <property>
             <name>Comment</name>
@@ -181,7 +181,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>comment</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>commentÊÇÎÒ¶ÔÕâÌõ·ÖÏíµÄÆÀÂÛ£¬½öÔÚÈËÈËÍøºÍQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹©</comment>
+            <comment>commentæ˜¯æˆ‘å¯¹è¿™æ¡åˆ†äº«çš„è¯„è®ºï¼Œä»…åœ¨äººäººç½‘å’ŒQQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾›</comment>
         </property>
         <property>
             <name>ExecuteUrl</name>
@@ -189,7 +189,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>executeurl</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>ÉèÖÃKakaoTalkµÄÓ¦ÓÃ´ò¿ªµØÖ·</comment>
+            <comment>è®¾ç½®KakaoTalkçš„åº”ç”¨æ‰“å¼€åœ°å€</comment>
         </property>
         <property>
             <name>VenueName</name>
@@ -197,7 +197,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>venueName</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>foursquare·ÖÏíÊ±µÄµØ·½Ãû</comment>
+            <comment>foursquareåˆ†äº«æ—¶çš„åœ°æ–¹å</comment>
         </property>
         <property>
             <name>Title</name>
@@ -205,8 +205,8 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>title</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>title±êÌâ£¬ÔÚÓ¡Ïó±Ê¼Ç¡¢ÓÊÏä¡¢ĞÅÏ¢¡¢Î¢ĞÅ£¨°üÀ¨ºÃÓÑ¡¢ÅóÓÑÈ¦ºÍÊÕ²Ø£©¡¢
- Ò×ĞÅ£¨°üÀ¨ºÃÓÑ¡¢ÅóÓÑÈ¦£©¡¢ÈËÈËÍøºÍQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹©</comment>
+            <comment>titleæ ‡é¢˜ï¼Œåœ¨å°è±¡ç¬”è®°ã€é‚®ç®±ã€ä¿¡æ¯ã€å¾®ä¿¡ï¼ˆåŒ…æ‹¬å¥½å‹ã€æœ‹å‹åœˆå’Œæ”¶è—ï¼‰ã€
+ æ˜“ä¿¡ï¼ˆåŒ…æ‹¬å¥½å‹ã€æœ‹å‹åœˆï¼‰ã€äººäººç½‘å’ŒQQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾›</comment>
         </property>
         <property>
             <name>ImageUrl</name>
@@ -214,7 +214,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>imageUrl</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>imageUrlÊÇÍ¼Æ¬µÄÍøÂçÂ·¾¶£¬ĞÂÀËÎ¢²©¡¢ÈËÈËÍø¡¢QQ¿Õ¼äºÍLinked-InÖ§³Ö´Ë×Ö¶Î</comment>
+            <comment>imageUrlæ˜¯å›¾ç‰‡çš„ç½‘ç»œè·¯å¾„ï¼Œæ–°æµªå¾®åšã€äººäººç½‘ã€QQç©ºé—´å’ŒLinked-Inæ”¯æŒæ­¤å­—æ®µ</comment>
         </property>
         <property>
             <name>Silent</name>
@@ -222,7 +222,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>silent</name>
                 <type>boolean</type>
             </parameter>
-            <comment>ÊÇ·ñÖ±½Ó·ÖÏí</comment>
+            <comment>æ˜¯å¦ç›´æ¥åˆ†äº«</comment>
         </property>
         <property>
             <name>Text</name>
@@ -231,7 +231,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>text</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>»ñÈ¡text×Ö¶ÎµÄÖµ</comment>
+            <comment>è·å–textå­—æ®µçš„å€¼</comment>
         </property>
         <property>
             <name>SiteUrl</name>
@@ -239,7 +239,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>siteUrl</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>siteUrlÊÇ·ÖÏí´ËÄÚÈİµÄÍøÕ¾µØÖ·£¬½öÔÚQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹©</comment>
+            <comment>siteUrlæ˜¯åˆ†äº«æ­¤å†…å®¹çš„ç½‘ç«™åœ°å€ï¼Œä»…åœ¨QQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾›</comment>
         </property>
         <property>
             <name>Longitude</name>
@@ -247,7 +247,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>longitude</name>
                 <type>float</type>
             </parameter>
-            <comment>·ÖÏíµØ¾­¶È£¬ĞÂÀËÎ¢²©¡¢ÌÚÑ¶Î¢²©ºÍfoursquareÖ§³Ö´Ë×Ö¶Î</comment>
+            <comment>åˆ†äº«åœ°ç»åº¦ï¼Œæ–°æµªå¾®åšã€è…¾è®¯å¾®åšå’Œfoursquareæ”¯æŒæ­¤å­—æ®µ</comment>
         </property>
         <property>
             <name>VideoUrl</name>
@@ -255,7 +255,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>url</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>ÉèÖÃÊÓÆµÍøÂçµØÖ·</comment>
+            <comment>è®¾ç½®è§†é¢‘ç½‘ç»œåœ°å€</comment>
         </property>
         <property>
             <name>ShareContentCustomizeCallback</name>
@@ -264,7 +264,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>callback</name>
                 <type>cn.sharesdk.onekeyshare.ShareContentCustomizeCallback</type>
             </parameter>
-            <comment>×Ô¶¨Òå²»Í¬Æ½Ì¨·ÖÏí²»Í¬ÄÚÈİµÄ»Øµ÷</comment>
+            <comment>è‡ªå®šä¹‰ä¸åŒå¹³å°åˆ†äº«ä¸åŒå†…å®¹çš„å›è°ƒ</comment>
         </property>
         <property>
             <name>TitleUrl</name>
@@ -272,7 +272,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>titleUrl</name>
                 <type>java.lang.String</type>
             </parameter>
-            <comment>titleUrlÊÇ±êÌâµÄÍøÂçÁ´½Ó£¬½öÔÚÈËÈËÍøºÍQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹©</comment>
+            <comment>titleUrlæ˜¯æ ‡é¢˜çš„ç½‘ç»œé“¾æ¥ï¼Œä»…åœ¨äººäººç½‘å’ŒQQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾›</comment>
         </property>
         <property>
             <name>Callback</name>
@@ -281,7 +281,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>callback</name>
                 <type>cn.sharesdk.framework.PlatformActionListener</type>
             </parameter>
-            <comment>·µ»Ø²Ù×÷»Øµ÷</comment>
+            <comment>è¿”å›æ“ä½œå›è°ƒ</comment>
         </property>
         <property>
             <name>ImageArray</name>
@@ -289,7 +289,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>imageArray</name>
                 <type>java.lang.String[]</type>
             </parameter>
-            <comment>ÌÚÑ¶Î¢²©·ÖÏí¶àÕÅÍ¼Æ¬</comment>
+            <comment>è…¾è®¯å¾®åšåˆ†äº«å¤šå¼ å›¾ç‰‡</comment>
         </property>
         <property>
             <name>Theme</name>
@@ -297,7 +297,7 @@ parms: ÕâÊÇmapµÄlist£¬ÆäÖĞÇşµÀÃû·ÅÔÚpnameÖĞ</comment>
                 <name>theme</name>
                 <type EnumType="true">cn.sharesdk.onekeyshare.OnekeyShareTheme</type>
             </parameter>
-            <comment>ÉèÖÃ·ÖÏí½çÃæµÄÑùÊ½£¬Ä¿Ç°Ö»ÓĞÒ»ÖÖ£¬²»ĞèÒªÉèÖÃ</comment>
+            <comment>è®¾ç½®åˆ†äº«ç•Œé¢çš„æ ·å¼ï¼Œç›®å‰åªæœ‰ä¸€ç§ï¼Œä¸éœ€è¦è®¾ç½®</comment>
         </property>
     </class>
     <class>
