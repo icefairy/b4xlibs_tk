@@ -27,5 +27,5 @@
     </class>
     <version>1.0</version>
     <author>icefairy333</author>
-    <dependsOn>bugly_crash_release__2.1.1</dependsOn>
+    <dependsOn>bugly_crash_release__2.1.3</dependsOn>
 </root>
