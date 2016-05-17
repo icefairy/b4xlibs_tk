@@ -544,7 +544,6 @@
     </class>
     <class>
         <name>cn.finalteam.galleryfinal.ThemeConfig</name>
-        <shortname>ThemeConfig_gf</shortname>
         <comment>Desction:
  Author:pengjianbo
  Date:15/12/16 обнГ2:49</comment>
@@ -682,6 +681,7 @@
     </class>
     <class>
         <name>cn.finalteam.galleryfinal.ThemeConfig.Builder</name>
+        <shortname>ThemeConfig_gf</shortname>
         <owner>process</owner>
         <method>
             <name>setIconClear</name>
