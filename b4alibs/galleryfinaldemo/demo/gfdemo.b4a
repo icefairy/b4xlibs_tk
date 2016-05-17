@@ -48,7 +48,11 @@ Sub Activity_Create(FirstTime As Boolean)
 	'showPicker(3)
 End Sub
 Private Sub showPicker(num As Int)
-	gf.Init("gf",gf.GREEN)
+	Dim tfc As ThemeConfig_gf
+	tfc.setCheckSelectedColor(Colors.LightGray)
+	tfc.setCheckNornalColor(Colors.Gray)
+	gf.Init("gf",tfc.build)
+	
 	If num>1 Then
 		gf.openGalleryMuti(1,num)
 	Else
