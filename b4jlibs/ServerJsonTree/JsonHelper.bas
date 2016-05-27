@@ -16,6 +16,7 @@ End Sub
 
 Sub Handle(req As ServletRequest, resp As ServletResponse)
 	resp.ContentType = "application/json"
+	resp.CharacterEncoding="UTF-8"
 	resMap.Initialize
 	Try
 		Dim data() As Byte = Bit.InputStreamToBytes(req.InputStream)
@@ -86,6 +87,7 @@ Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		Next
 	Else
 		Dim objectType As String
+		'Log(Null=element)
 		If element Is Int Then
 			objectType = "Int"
 		Else If element Is Double Then
@@ -104,9 +106,15 @@ End Sub
 
 Sub WriteCodeHelper (ObjectType As String, code As StringBuilder, _
 	parentName As String, GetFromMap As String, BuildList As Boolean, indent As String) As String
-	
 	If GetFromMap.Length > 0 Then
-		code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap).Append(" "&CRLF)
+		Select ObjectType.ToLowerCase
+		Case "int"
+			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap.Replace("Get","GetDefault").Replace(")",",0)")).Append(" "&CRLF)
+		Case "double"
+			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap.Replace("Get","GetDefault").Replace(")",",0)")).Append(" "&CRLF)
+		Case Else
+			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap.Replace("Get","GetDefault").Replace(")",","""")")).Append(" "&CRLF)
+		End Select		
 	Else If BuildList Then
 		code.Append("For Each " & parentName & " As " & ObjectType & " In " & parentName.SubString(3)).Append(" "&CRLF)
 		indent = indent & sIndent

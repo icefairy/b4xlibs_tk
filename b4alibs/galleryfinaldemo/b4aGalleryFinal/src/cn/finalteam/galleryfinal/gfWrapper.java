@@ -16,7 +16,7 @@ import cn.finalteam.galleryfinal.model.PhotoInfo;
 @Author("Icefairy333")
 @DependsOn(values={"b4aFinalTools","android-support-v4","universal-image-loader-1.9.5"})
 @Events(values={"onHanlderSuccess(reqeustCode as Int,resultList as List)","onHanlderFailure(requestCode as Int,errorMsg as String)"})
-@Version(1.487f)
+@Version(1.5f)
 @Permissions(values={"android.permission.MOUNT_UNMOUNT_FILESYSTEMS","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.READ_EXTERNAL_STORAGE"})
 public class gfWrapper {
 	private BA mba;
@@ -73,8 +73,8 @@ public class gfWrapper {
 			}
 		};
 	}
-	public void openGallerySingle2(int requestCode, FunctionConfig config) {
-		GalleryFinal.openGallerySingle(requestCode, config,ohrc); 
+	public void openGallerySingle2(int requestCode, FCWrapper fc) {
+		GalleryFinal.openGallerySingle(requestCode, fc.Build(),ohrc); 
 	}
 	public void openGallerySingle(int requestCode) {
 		GalleryFinal.openGallerySingle(requestCode, ohrc); 
