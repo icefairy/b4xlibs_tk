@@ -12,7 +12,7 @@ Library3=json
 'Non-UI application (console application)
 #Region  Project Attributes 
 	#CommandLineArgs:
-	#MergeLibraries: True 
+	#MergeLibraries: true 
 #End Region
 
 Sub Process_Globals
@@ -31,7 +31,8 @@ Sub AppStart (Args() As String)
 	srvr.Initialize("srvr")
 	srvr.Port = nPort
 	srvr.StaticFilesFolder=File.DirApp&"/www"
-	srvr.LogsFileFolder=File.DirApp&"/logs"
+	
+	srvr.LogsFileFolder=File.DirTemp&"/logs"
 	srvr.AddHandler("/jsonHelper", "JsonHelper", False)
 	srvr.Start
 	Log("Server started")

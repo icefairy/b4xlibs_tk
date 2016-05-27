@@ -5,14 +5,16 @@ import com.zaiten.ryimcaller;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import io.rong.imkit.fragment.ConversationFragment;
 import io.rong.imlib.model.Conversation;
 
 public class ConversationActivity extends FragmentActivity {
 
-	  	private TextView tvtitle,tvback;
+	  	private TextView tvtitle;
 	    private String mTargetId;
 
 	    /**
@@ -26,18 +28,26 @@ public class ConversationActivity extends FragmentActivity {
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.conversation);
-	        tvback=(TextView) findViewById(R.id.tvback);
-	        tvback.setOnClickListener(new OnClickListener() {
+	        findViewById(R.id.ivback).setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					finish();
 				}
-			});;
-			tvback.setText("<返回");
+			});
 			tvtitle=(TextView) findViewById(R.id.tvtitle);
 			tvtitle.setText("与"+ryimcaller.userName+"聊天中");
 	    }
-
+	    @Override
+	    public boolean onKeyDown(int keyCode, KeyEvent event) {
+	        return super.onKeyDown(keyCode, event);
+	    }
+	    @Override
+	    public void onBackPressed() {
+	               ConversationFragment fragment = (ConversationFragment) getSupportFragmentManager().findFragmentById(R.id.conversation);
+	        if(!fragment.onBackPressed()) {
+	            finish();
+	        }
+	      }
 	}

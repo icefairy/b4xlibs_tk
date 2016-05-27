@@ -14,6 +14,7 @@ public class FCWrapper extends AbsObjectWrapper<FunctionConfig.Builder> {
 	}
 	public void setCropHeight(int height) {
 		getObject().setCropHeight(height);
+		
 	}
 	public void setCropSquare(boolean enable) {
 		getObject().setCropSquare(enable);
@@ -41,6 +42,15 @@ public class FCWrapper extends AbsObjectWrapper<FunctionConfig.Builder> {
 	}
 	public void setRotateReplaceSource(boolean rotateReplaceSource) {
 		getObject().setRotateReplaceSource(rotateReplaceSource);
+	}
+	public void setEnableRotate(Boolean EnableRotate) {
+		getObject().setEnableRotate(EnableRotate);
+	}
+	public void setForceCrop(boolean forceCrop) {
+		getObject().setForceCrop(forceCrop);
+	}
+	public void setForceCropEdit(boolean forceCropEdit) {
+		getObject().setForceCropEdit(forceCropEdit);
 	}
 	public FunctionConfig Build(){
 		return getObject().build();
