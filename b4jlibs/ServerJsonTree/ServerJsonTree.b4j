@@ -1,0 +1,39 @@
+﻿Version=4.2
+AppType=StandardJava
+NumberOfModules=1
+Module1=JsonHelper
+Build1=Default,b4j.example
+NumberOfFiles=0
+NumberOfLibraries=3
+Library1=jcore
+Library2=jserver
+Library3=json
+@EndOfDesignText@
+'Non-UI application (console application)
+#Region  Project Attributes 
+	#CommandLineArgs:
+	#MergeLibraries: True 
+#End Region
+
+Sub Process_Globals
+	Private srvr As Server
+	Private nPort As Int=88
+End Sub
+
+Sub AppStart (Args() As String)
+	'解析端口
+	If Args.Length>0 Then
+		If Args(0).IndexOf("port")>-1 Then
+			Dim ts As String=Args(0).Replace("port=","").Replace("-","")
+			If IsNumber(ts) Then nPort=ts
+		End If
+	End If
+	srvr.Initialize("srvr")
+	srvr.Port = nPort
+	srvr.StaticFilesFolder=File.DirApp&"/www"
+	srvr.LogsFileFolder=File.DirApp&"/logs"
+	srvr.AddHandler("/jsonHelper", "JsonHelper", False)
+	srvr.Start
+	Log("Server started")
+	StartMessageLoop
+End Sub
