@@ -5,6 +5,7 @@ import com.amap.api.maps2d.model.MyLocationStyle;
 
 import anywheresoftware.b4a.AbsObjectWrapper;
 import anywheresoftware.b4a.BA.ShortName;
+import anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper;
 
 @ShortName("MyLocationStyle")
 public class MyLocationStyleWrapper extends AbsObjectWrapper<MyLocationStyle> {
@@ -13,6 +14,10 @@ public class MyLocationStyleWrapper extends AbsObjectWrapper<MyLocationStyle> {
 	}
 	public MyLocationStyleWrapper iconfromasset(String fn) {
 		getObject().myLocationIcon(BitmapDescriptorFactory.fromAsset(fn));
+		return this;
+	}
+	public MyLocationStyleWrapper iconfrombmp(BitmapWrapper bw) {
+		getObject().myLocationIcon(BitmapDescriptorFactory.fromBitmap(bw.getObject()));
 		return this;
 	}
 	public MyLocationStyleWrapper icondefault() {
