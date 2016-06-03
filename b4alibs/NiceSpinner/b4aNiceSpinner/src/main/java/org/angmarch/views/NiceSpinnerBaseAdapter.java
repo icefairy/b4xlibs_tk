@@ -15,6 +15,7 @@ public abstract class NiceSpinnerBaseAdapter<T> extends BaseAdapter {
     protected Context mContext;
     protected int mSelectedIndex;
     private int dropdownListTextColor = 0xffff0000;
+    private int textsize=12;
 
     public NiceSpinnerBaseAdapter(Context context) {
         mContext = context;
@@ -44,7 +45,7 @@ public abstract class NiceSpinnerBaseAdapter<T> extends BaseAdapter {
         }
 
         textView.setText(getItem(position).toString());
-
+        textView.setTextSize(textsize);
         return convertView;
     }
 
@@ -81,6 +82,9 @@ public abstract class NiceSpinnerBaseAdapter<T> extends BaseAdapter {
 
     public void setDropdownListTextColor(int color){
         dropdownListTextColor = color;                
+    }
+    public void setDropdownListTextSize(int size){
+        textsize=size;                
     }
 
 

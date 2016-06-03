@@ -1,4 +1,4 @@
-package com.nicespinner;
+package nicespinnerwrapper;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import anywheresoftware.b4a.BA;
 import anywheresoftware.b4a.BA.Author;
 import anywheresoftware.b4a.BA.DependsOn;
+import anywheresoftware.b4a.BA.Events;
 import anywheresoftware.b4a.BA.Hide;
 import anywheresoftware.b4a.BA.Pixel;
 import anywheresoftware.b4a.BA.ShortName;
@@ -19,9 +20,10 @@ import anywheresoftware.b4a.objects.TextViewWrapper;
 import main.java.org.angmarch.views.NiceSpinner;
 
 @Author("Johan Schoeman")
-@Version(2.00f)
+@Version(2.10f)
 @ShortName("NiceSpinner")
 @DependsOn(values={"android-support-v4"})
+@Events(values={"item_clicked"})
 public class niceSpinnerWrapper extends TextViewWrapper<NiceSpinner> implements DesignerCustomView {
 
 
@@ -163,7 +165,14 @@ public class niceSpinnerWrapper extends TextViewWrapper<NiceSpinner> implements 
         cv.setDropdownListTextColor(color);
         cv.invalidate();
     }
-
+    public void setDropdownListTextSize(int size){
+        cv.setDropdownListTextSize(size);
+        cv.invalidate();
+    }
+    public void setTextSize(int size){
+        cv.setTextSize(size);
+        cv.invalidate();
+    }
     public int getSelectedIndex() {
         return cv.getSelectedIndex();
     }

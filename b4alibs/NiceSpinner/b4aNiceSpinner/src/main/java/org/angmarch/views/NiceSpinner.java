@@ -56,6 +56,7 @@ public class NiceSpinner extends TextView {
     private int[] dividercolor = {0, 0xFFFF0000, 0};
     private int arrowcolor = 0xff000000;
     private int selectedtextcolor = 0xffff0000;
+    private int selectedtextsize = 12;
     private int selectedtextbackgroundcolor = 0xffff0000;
 
 
@@ -220,6 +221,7 @@ public class NiceSpinner extends TextView {
                 mSelectedIndex = position;
                 setText(mAdapter.getItemInDataset(position).toString());
                 setTextColor(selectedtextcolor);
+                setTextSize(selectedtextsize);
                 setBackgroundColor(selectedtextbackgroundcolor);
             } else {
                 throw new IllegalArgumentException("Position must be lower than adapter count!");
@@ -326,12 +328,18 @@ public class NiceSpinner extends TextView {
         mAdapter.setDropdownListTextColor(color);
         this.invalidate();            
     }
-
+    public void setDropdownListTextSize(int size){
+        mAdapter.setDropdownListTextSize(size);
+        this.invalidate();            
+    }
     public void setSelectedTextColor(int color){
         selectedtextcolor = color;
         this.invalidate();            
     }
-
+    public void setSelectedTextSize(int size){
+        selectedtextsize = size;
+        this.invalidate();            
+    }
     public void setSelectedTextBackgroundColor(int color){
         selectedtextbackgroundcolor = color;
         this.invalidate();            
