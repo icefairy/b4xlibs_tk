@@ -34,14 +34,22 @@ public class PhotoInfo implements Serializable {
     //private String thumbPath;
     private int width;
     private int height;
-
+    private int degree;
     public PhotoInfo() {}
 
     public int getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public int getDegree() {
+		return degree;
+	}
+
+	public void setDegree(int degree) {
+		this.degree = degree;
+	}
+
+	public void setWidth(int width) {
         this.width = width;
     }
 

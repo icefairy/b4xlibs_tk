@@ -18,6 +18,7 @@ package cn.finalteam.galleryfinal;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,8 +27,12 @@ import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.view.Window;
 import android.widget.Toast;
+import anywheresoftware.b4a.BA;
+import anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper;
+import anywheresoftware.b4a.objects.streams.File.OutputStreamWrapper;
 import cn.finalteam.galleryfinal.model.PhotoInfo;
 import cn.finalteam.galleryfinal.permission.EasyPermissions;
+import cn.finalteam.galleryfinal.utils.BitmapTools;
 import cn.finalteam.galleryfinal.utils.ILogger;
 import cn.finalteam.galleryfinal.utils.MediaScanner;
 import cn.finalteam.galleryfinal.utils.Utils;
@@ -38,6 +43,8 @@ import cn.finalteam.toolsfinal.StringUtils;
 import cn.finalteam.toolsfinal.io.FileUtils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -149,6 +156,23 @@ public abstract class PhotoBaseActivity extends Activity implements EasyPermissi
                     final PhotoInfo info = new PhotoInfo();
                     info.setPhotoId(Utils.getRandom(10000, 99999));
                     info.setPhotoPath(path);
+                    info.setDegree(BitmapTools.readPictureDegree(path));
+                    //准备检测是否旋转了，并纠正
+                    if(info.getDegree()!=0){
+                    	try {
+                    		
+                    		Bitmap bitmap= BitmapTools.loadimg(path);
+                    		//BA.Log(bitmap.toString()+" "+(bitmap==null));
+                    		bitmap= BitmapTools.rotaingImageView(info.getDegree(), bitmap);
+                    		BitmapTools.saveimg(path, bitmap);
+	                    	BA.Log("reDeg ok");
+						} catch (Exception  e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+							BA.Log(e.getMessage());
+						}
+                    	
+                    }
                     updateGallery(path);
                     takeResult(info);
                 } else {

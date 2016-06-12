@@ -16,7 +16,7 @@ import cn.finalteam.galleryfinal.model.PhotoInfo;
 @Author("Icefairy333")
 @DependsOn(values={"b4aFinalTools","android-support-v4","universal-image-loader-1.9.5"})
 @Events(values={"onHanlderSuccess(reqeustCode as Int,resultList as List)","onHanlderFailure(requestCode as Int,errorMsg as String)"})
-@Version(1.5f)
+@Version(1.6f)
 @Permissions(values={"android.permission.MOUNT_UNMOUNT_FILESYSTEMS","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.READ_EXTERNAL_STORAGE"})
 public class gfWrapper {
 	private BA mba;
