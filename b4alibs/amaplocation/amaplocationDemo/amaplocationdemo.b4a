@@ -1,0 +1,83 @@
+﻿Version=5.8
+NumberOfModules=1
+Module1=Starter
+Build1=Default,b4a.example
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddApplicationText(<meta-data~\n~            android:name="com.amap.api.v2.apikey"~\n~            android:value="f2837a1337b999693db5842335c62ff8" />~\n~        <service android:name="com.amap.api.location.APSService" >~\n~        </service>)~\n~
+IconFile=
+NumberOfFiles=1
+File1=1.bal
+NumberOfLibraries=2
+Library1=core
+Library2=b4a_amaplocation
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: amaplocation
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+	'
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+
+	Private btnstart As Button
+	Private btnstop As Button
+	Private edtresult As EditText
+	Private aLoc As AMapLocationClient
+	Private aloc_option As locationOption
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("1")
+	initloc
+End Sub
+Sub initloc
+	aLoc.Init("aloc")
+	aloc_option.init
+	aloc_option.Interval=3000
+	aloc_option.LocationMode=aloc_option.Battery_Saving
+	aloc_option.OnceLocation=True
+	aLoc.LocationOption=aloc_option
+	
+End Sub
+Sub aloc_onLocationChanged(loc As AMapLocation)
+	Dim str As String="addr:"&loc.Address&" City:"&loc.City&" Road:"&loc.Road&" Country:"&loc.Country&" District:"&loc.District&" Latitude:"&loc.Latitude&" Longitude:"&loc.Longitude&" LocationDetail:"&loc.LocationDetail _
+	&" PoiName:"&loc.PoiName&" Province:"&loc.Province&" Street:"&loc.Street&CRLF&CRLF&"Str:"&loc.toStr
+	Log(loc.toStr)
+	'out puts:
+	'{"country":"中国","province":"新疆维吾尔自治区","city":"乌鲁木齐市","cityCode":"0991","district":"新市区","adCode":"650104","address":"新疆维吾尔自治区乌鲁木齐市新市区鲤鱼山路靠近领世广场","road":"鲤鱼山路","street":"鲤鱼山路","number":"298号","poiName":"领世广场","errorCode":0,"errorInfo":"success","locationDetail":"-5","altitude":0,"bearing":0,"speed":0,"satellites":0,"aoiName":"","desc":"新疆维吾尔自治区 乌鲁木齐市 新市区 鲤鱼山路 靠近领世广场","time":1458556366701,"locationType":2,"accuracy":91,"latitude":43.884021,"longitude":87.598392,"provider":"lbs"}
+	edtresult.Text="位置:"&str&CRLF&edtresult.Text
+End Sub
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+	If UserClosed Then aLoc.OnDestory
+End Sub
+
+
+Sub btnstop_Click
+	aLoc.StopLocation
+	edtresult.Text="停止定位:"&CRLF&edtresult.Text
+End Sub
+
+Sub btnstart_Click
+	aLoc.StartLocation
+	edtresult.Text="开始定位:"&CRLF&edtresult.Text
+End Sub
