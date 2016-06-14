@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.04</doclet-version-NOT-library-version>
+    <class>
+        <name>com.myuil.myUIL</name>
+        <shortname>myUIL</shortname>
+        <owner>process</owner>
+        <permission>android.permission.INTERNET</permission>
+        <permission>android.permission.ACCESS_NETWORK_STATE</permission>
+        <permission>android.permission.WRITE_EXTERNAL_STORAGE</permission>
+        <permission>android.permission.READ_EXTERNAL_STORAGE</permission>
+        <method>
+            <name>init</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>eventname</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getfilePath</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>uri</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>cancelDisplayTask</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>iv</name>
+                <type>android.widget.ImageView</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ShowCircleImage</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>iv</name>
+                <type>android.widget.ImageView</type>
+            </parameter>
+            <parameter>
+                <name>uri</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>strokeColor</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>strokeWidth</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ClearCache</name>
+            <comment></comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ShowImage</name>
+            <comment>Acceptable URIs examples
+ "http://site.com/image.png" // from Web
+ "file:///mnt/sdcard/image.png" // from SD card
+ "file:///mnt/sdcard/video.mp4" // from SD card (video thumbnail)
+ "content://media/external/images/media/13" // from content provider
+ "content://media/external/video/media/13" // from content provider (video thumbnail)
+ "assets://image.png" // from assets
+ "drawable://" + R.drawable.img // from drawables (non-9patch images)</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>iv</name>
+                <type>android.widget.ImageView</type>
+            </parameter>
+            <parameter>
+                <name>uri</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ShowRoundCornImage</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>iv</name>
+                <type>android.widget.ImageView</type>
+            </parameter>
+            <parameter>
+                <name>uri</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>cornerRadiusPixels</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>marginPixels</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <field>
+            <name>resetViewBeforeLoading</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </field>
+        <field>
+            <name>MATRIX</name>
+            <comment></comment>
+            <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>delayBeforeLoading</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>nFailResId</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FIT_XY</name>
+            <comment></comment>
+            <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>CENTER</name>
+            <comment></comment>
+            <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>nLoadResId</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FIT_CENTER</name>
+            <comment></comment>
+            <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>FIT_START</name>
+            <comment></comment>
+            <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>defScaleType</name>
+            <comment></comment>
+            <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>memcache</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </field>
+        <field>
+            <name>FIT_END</name>
+            <comment></comment>
+            <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>diskcache</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </field>
+    </class>
+    <version>1.1</version>
+    <author>Icefairy333</author>
+    <dependsOn>universal-image-loader-1.9.5</dependsOn>
+</root>
