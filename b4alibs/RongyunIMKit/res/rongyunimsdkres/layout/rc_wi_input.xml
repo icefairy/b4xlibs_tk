@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:orientation="horizontal"></LinearLayout>
+                android:orientation="horizontal"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -134,24 +134,17 @@
         android:padding="0dp"
         android:visibility="visible">
 
-        <GridView
+        <LinearLayout
             android:id="@+id/rc_plugins"
+            android:orientation="vertical"
+            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/transparent"
-            android:columnWidth="75dp"
-            android:numColumns="auto_fit"
-            android:scrollbars="none"
-            android:visibility="gone" />
+            android:layout_height="wrap_content"/>
 
         <FrameLayout
             android:id="@+id/rc_ext"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></FrameLayout>
+            android:layout_height="wrap_content"/>
     </FrameLayout>
 
 </merge>

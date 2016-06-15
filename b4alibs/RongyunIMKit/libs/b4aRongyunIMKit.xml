@@ -23,6 +23,27 @@
             </parameter>
         </method>
         <method>
+            <name>startChatByUser2</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>clientId</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>title</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>ct</name>
+                <type EnumType="true">io.rong.imlib.model.Conversation.ConversationType</type>
+            </parameter>
+        </method>
+        <method>
             <name>startSubConversationList</name>
             <comment></comment>
             <returntype>void</returntype>
@@ -40,23 +61,31 @@
                 <type>anywheresoftware.b4a.BA</type>
             </parameter>
         </method>
-        <method>
-            <name>startChatByClient</name>
+        <field>
+            <name>APP_PUBLIC_SERVICE</name>
             <comment></comment>
-            <returntype>void</returntype>
-            <parameter>
-                <name>ba</name>
-                <type>anywheresoftware.b4a.BA</type>
-            </parameter>
-            <parameter>
-                <name>clientId</name>
-                <type>java.lang.String</type>
-            </parameter>
-            <parameter>
-                <name>title</name>
-                <type>java.lang.String</type>
-            </parameter>
-        </method>
+            <returntype EnumType="true">io.rong.imlib.model.Conversation.ConversationType</returntype>
+        </field>
+        <field>
+            <name>GROUP</name>
+            <comment></comment>
+            <returntype EnumType="true">io.rong.imlib.model.Conversation.ConversationType</returntype>
+        </field>
+        <field>
+            <name>PUBLIC_SERVICE</name>
+            <comment></comment>
+            <returntype EnumType="true">io.rong.imlib.model.Conversation.ConversationType</returntype>
+        </field>
+        <field>
+            <name>CUSTOMER_SERVICE</name>
+            <comment></comment>
+            <returntype EnumType="true">io.rong.imlib.model.Conversation.ConversationType</returntype>
+        </field>
+        <field>
+            <name>PRIVATE</name>
+            <comment></comment>
+            <returntype EnumType="true">io.rong.imlib.model.Conversation.ConversationType</returntype>
+        </field>
     </class>
     <class>
         <name>com.zaiten.ryimkitwrapper</name>
@@ -161,8 +190,8 @@
             <comment></comment>
         </property>
     </class>
-    <version>1.0</version>
+    <version>1.1</version>
     <author>Icefairy333</author>
-    <dependsOn>Rong_IMLib_v2_5_2</dependsOn>
+    <dependsOn>Rong_IMLib_v2_6_2</dependsOn>
     <dependsOn>android-support-v4</dependsOn>
 </root>

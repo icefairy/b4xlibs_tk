@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="6dp" />
+        android:layout_marginBottom="8dp" />
 
     <io.rong.imkit.widget.AsyncImageView
         android:id="@id/rc_left"
@@ -67,30 +67,30 @@
 
             <TextView
                 android:id="@id/rc_sent_status"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/rc_notification_bg"
-                android:textSize="12sp"
-                android:visibility="gone"
-                android:text="已发"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:text="已发"
+                android:textColor="@color/rc_notification_bg"
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <ProgressBar
                 android:id="@id/rc_progress"
+                style="?android:attr/progressBarStyle"
                 android:layout_width="13dp"
                 android:layout_height="13dp"
-                android:indeterminateDrawable="@drawable/rc_progress_sending_style"
+                android:layout_gravity="center_vertical"
                 android:layout_marginRight="11dp"
-                style="?android:attr/progressBarStyle"
-                android:layout_gravity="center_vertical" />
+                android:indeterminateDrawable="@drawable/rc_progress_sending_style" />
 
             <ImageView
                 android:id="@id/rc_warning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="11dp"
+                android:layout_marginRight="8dp"
                 android:src="@drawable/rc_ic_warning"
                 android:visibility="gone" />
 
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginRight="4dp"
+                android:layout_marginRight="2dp"
                 android:src="@drawable/rc_read_receipt"
                 android:visibility="gone" />
 
