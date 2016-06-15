@@ -2,10 +2,6 @@
 <resources>
     <string name="rc_name">融云</string>
 
-    <string name="rc_voice_dialog_swipe">手指上滑，取消发送</string>
-    <string name="rc_voice_dialog_cancel_send">松开手指，取消发送</string>
-    <string name="rc_voice_dialog_time_short">说话时间太短</string>
-
     <!-- discussion_notification_msg -->
     <string name="rc_discussion_nt_msg_for_rename">"%1$s 修改讨论组名称为 %2$s"</string>
     <string name="rc_discussion_nt_msg_for_added">"%1$s 邀请 %2$s 加入了讨论组"</string>
@@ -78,7 +74,7 @@
     <string name="rc_pub_service_info_unfollow">取消关注</string>
     <string name="rc_pub_service_info_account">公众号：%1$s</string>
 
-    <string name="rc_notice_network_unavailable">当前网络不可用</string>
+    <string name="rc_notice_network_unavailable">网络连接不可用</string>
     <string name="rc_notice_disconnect">无法连接到服务器</string>
     <string name="rc_notice_tick">该帐号已经在其他设备登录</string>
     <string name="rc_notice_connecting">正在连接服务器</string>
@@ -100,6 +96,7 @@
     <string name="rc_info_forbidden_to_talk">您当前在群组中被禁言</string>
     <string name="rc_forbidden_in_chatroom">你已被禁言，不能发送消息</string>
     <string name="rc_kicked_from_chatroom">你已被踢出聊天室</string>
+    <string name="rc_join_chatroom_failure">加入聊天室失败</string>
 
     <string name="rc_send_format">发送(%1$s)</string>
     <string name="rc_yesterday_format">昨天 %1$s</string>
@@ -124,10 +121,81 @@
     <string name="rc_cs_submit">提交</string>
     <string name="rc_cs_cancel">取消</string>
     
-     <string name="rc_notification_ticker_text">您有了一条新消息</string>
+    <!-- PictureSelectorActivity -->
+    <string name="rc_picsel_toolbar">图片</string>
+    <string name="rc_picsel_toolbar_send">发送</string>
+    <string name="rc_picsel_toolbar_send_num">发送(%d/9)</string>
+    <string name="rc_picsel_pictype">图片</string>
+    <string name="rc_picsel_toolbar_preview">预览</string>
+    <string name="rc_picsel_toolbar_preview_num">预览(%d)</string>
+    <string name="rc_picsel_selected_max">您最多只能选择9张图片</string>
+    <string name="rc_picsel_take_picture">拍摄照片</string>
+    <string name="rc_picsel_catalog_allpic">所有图片</string>
+    <string name="rc_picsel_catalog_number">%d张</string>
+
+    <!-- PicturePreviewActivity -->
+    <string name="rc_picprev_origin">原图</string>
+    <string name="rc_picprev_origin_size">原图(%s)</string>
+    <string name="rc_picprev_select">选择</string>
+
+    <!-- LargePictureActivity -->
+    <string name="rc_save_picture">保存图片</string>
+    <string name="rc_save_picture_at">图片保存在%s</string>
+    <string name="rc_src_file_not_found">源文件不存在</string>
+
+    <string name="rc_confirm">确认</string>
+    <string name="rc_cancel">取消</string>
+
+    <string name="rc_permission_grant_needed">您需要在设置中打开权限</string>
+    <string name="rc_permission_microphone">（麦克风）。</string>
+    <string name="rc_permission_microphone_and_camera">（麦克风，相机）。</string>
+    <string name="rc_permission_camera">（相机）。</string>
+
+
+    <string name="rc_quit_custom_service">客服已结束</string>
+    <string name="rc_init_failed">连接客服失败</string>
+
+    <string name="rc_notification_ticker_text">您有了一条新消息</string>
     <string name="rc_notification_new_msg">%1$s发来了%2$d条消息</string>
     <string name="rc_notification_new_plural_msg">%1$d个联系人发来了%2$d条消息</string>
-    
-      <string name="rc_quit_custom_service">客服已结束</string>
-    <string name="rc_init_failed">连接客服失败</string>
+    <string name="rc_voip_video">视频聊天</string>
+    <string name="rc_voip_audio">语音聊天</string>
+    <string name="rc_voip_call_waiting">正在等待对方接受邀请...</string>
+    <string name="rc_voip_call_connecting">连接中</string>
+    <string name="rc_voip_call_busy">忙线中</string>
+    <string name="rc_voip_call_no_response">无响应</string>
+    <string name="rc_voip_call_hungup">已挂断</string>
+    <string name="rc_voip_call_network_error">当前网络不可用,请检查你的网络设置</string>
+    <string name="rc_voip_call_interrupt">已挂断</string>
+    <string name="rc_voip_call_terminalted">通话结束</string>
+    <string name="rc_voip_call_started">开始通话</string>
+    <string name="rc_voip_select_member">选择成员</string>
+    <string name="rc_voip_call_start_fail">正在通话中</string>
+
+    <string name="rc_voip_audio_call_inviting">邀请你进行语音聊天...</string>
+    <string name="rc_voip_video_call_inviting">邀请你进行视频聊天...</string>
+    <string name="rc_voip_video_ended">视频聊天已经结束</string>
+    <string name="rc_voip_video_no_response">视频聊天未接听</string>
+    <string name="rc_voip_audio_ended">语音聊天已经结束</string>
+    <string name="rc_voip_audio_no_response">语音聊天未接听</string>
+    <string name="rc_voip_mute">静音</string>
+    <string name="rc_voip_hangup">挂断</string>
+    <string name="rc_voip_answer">接听</string>
+    <string name="rc_voip_camera">摄像头</string>
+    <string name="rc_voip_handfree">免提</string>
+    <string name="rc_voip_disable_camera">关闭摄像头</string>
+    <string name="rc_voip_enable_camera">开启摄像头</string>
+    <string name="rc_voip_participant_users">群聊成员</string>
+    <string name="rc_voip_mo_cancel">已取消</string>
+    <string name="rc_voip_mo_reject">已拒绝</string>
+    <string name="rc_voip_mo_no_response">未接听</string>
+    <string name="rc_voip_mt_cancel">对方已取消</string>
+    <string name="rc_voip_mt_reject">对方已拒绝</string>
+    <string name="rc_voip_mt_no_response">对方未接听</string>
+    <string name="rc_voip_call_time_length">通话时长</string>
+    <string name="rc_voip_mt_busy">对方忙,请稍后再播</string>
+    <string name="rc_voip_message_audio">[语音聊天]</string>
+    <string name="rc_voip_message_video">[视频聊天]</string>
+    <string name="rc_voip_remote_switch_to_audio">对方已切换到语音聊天</string>
+    <string name="rc_voip_switch_to_audio">已切换到语音聊天</string>
 </resources>

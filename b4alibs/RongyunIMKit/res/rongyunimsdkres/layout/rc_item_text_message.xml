@@ -7,4 +7,5 @@
     android:layout_height="wrap_content"
     android:autoLink="all"
     android:gravity="center_vertical|left"
-    android:maxWidth="236dp" />
+    android:maxWidth="210dp"
+    android:paddingLeft="9dp" />

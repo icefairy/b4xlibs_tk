@@ -106,14 +106,18 @@ End Sub
 
 Sub WriteCodeHelper (ObjectType As String, code As StringBuilder, _
 	parentName As String, GetFromMap As String, BuildList As Boolean, indent As String) As String
+	
 	If GetFromMap.Length > 0 Then
 		Select ObjectType.ToLowerCase
 		Case "int"
 			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap.Replace("Get","GetDefault").Replace(")",",0)")).Append(" "&CRLF)
 		Case "double"
 			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap.Replace("Get","GetDefault").Replace(")",",0)")).Append(" "&CRLF)
-		Case Else
+		Case "string"
 			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap.Replace("Get","GetDefault").Replace(")",","""")")).Append(" "&CRLF)
+		Case Else
+			'Log(ObjectType)
+			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap&" "&CRLF)
 		End Select		
 	Else If BuildList Then
 		code.Append("For Each " & parentName & " As " & ObjectType & " In " & parentName.SubString(3)).Append(" "&CRLF)

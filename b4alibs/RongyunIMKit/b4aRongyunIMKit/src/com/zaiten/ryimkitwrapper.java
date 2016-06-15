@@ -12,15 +12,14 @@ import anywheresoftware.b4a.BA.ShortName;
 import anywheresoftware.b4a.BA.Version;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.RongIM.UserInfoProvider;
-import io.rong.imlib.RongIMClient;
 import io.rong.imlib.RongIMClient.ConnectCallback;
 import io.rong.imlib.RongIMClient.ErrorCode;
 import io.rong.imlib.model.UserInfo;
 
 @ShortName("RongYunIMKit")
-@DependsOn(values={"Rong_IMLib_v2_5_2","android-support-v4",})
+@DependsOn(values={"Rong_IMKit_v2_6_2","android-support-v4",})
 @Events(values={"onSuccess(arg as String)","onError(code as int,msg as String)","onTokenIncorrect","reqUserInfo(userId as String) as UserInfo_ry"})
-@Version(1.00f)
+@Version(1.10f)
 @Author("Icefairy333")
 @Permissions(values={"android.permission.WRITE_EXTERNAL_STORAGE","android.permission.INTERNET","android.permission.ACCESS_COARSE_LOCATION","android.permission.READ_PHONE_STATE","android.permission.GET_TASKS","android.permission.INTERACT_ACROSS_USERS_FULL","android.permission.ACCESS_WIFI_STATE","android.permission.ACCESS_NETWORK_STATE","android.permission.CAMERA","android.permission.RECORD_AUDIO","android.permission.VIBRATE","android.permission.WAKE_LOCK","android.permission.WRITE_SETTINGS","android.permission.MODIFY_AUDIO_SETTINGS","android.permission.RECEIVE_BOOT_COMPLETED"})
 public class ryimkitwrapper {
@@ -29,6 +28,7 @@ public class ryimkitwrapper {
 	public void init(BA ba,String EventStr) {
 		en=EventStr.toLowerCase();
 		mba=ba;
+
 		BA.Log("RongIM Init");
 		RongIM.init(mba.context);
 		RongIM.setUserInfoProvider(new UserInfoProvider() {
@@ -83,6 +83,7 @@ public class ryimkitwrapper {
 			}
 		});
 	}
+	
 	public void logout() {
 		if(RongIM.getInstance()!=null){RongIM.getInstance().logout();}
 	}

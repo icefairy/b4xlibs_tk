@@ -5,7 +5,7 @@
 	<classpathentry kind="lib" path="D:/soft/Basic4android/Libraries/B4AShared.jar"/>
 	<classpathentry kind="lib" path="D:/soft/Basic4android/Libraries/Core.jar"/>
 	<classpathentry kind="lib" path="D:/soft/asdk/platforms/android-23/android.jar"/>
-	<classpathentry kind="lib" path="E:/documents/B4ALibs/Rong_IMLib_v2_5_2.jar"/>
 	<classpathentry kind="lib" path="E:/documents/B4ALibs/android-support-v4.jar"/>
+	<classpathentry kind="lib" path="E:/documents/B4ALibs/Rong_IMKit_v2_6_2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

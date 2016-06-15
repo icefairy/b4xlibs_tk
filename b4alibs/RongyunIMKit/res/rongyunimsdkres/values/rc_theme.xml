@@ -55,12 +55,12 @@
     3、DiscussionNotificationMessage 字体
     -->
     <style name="RCTheme.Notification" parent="RCTheme.TextView">
-        <item name="android:background">@color/rc_notification_bg</item>
+        <item name="android:background">@drawable/rc_corner_style</item>
         <item name="android:textSize">12sp</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
-        <item name="android:paddingTop">7dp</item>
-        <item name="android:paddingBottom">7dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
         <item name="android:textColor">@color/rc_text_color_primary_inverse</item>
     </style>
 
@@ -90,7 +90,7 @@
     3、异常弹出条 字体
     -->
     <style name="RCTheme.Message.RichContent.TextView" parent="RCTheme.TextView">
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/rc_text_color_secondary</item>
     </style>
 
