@@ -1,0 +1,6 @@
+还需要android-support-v4.jar就不重复放到这里了
+另外需要引入res文件，在main中
+'引入融云IM的layout文件
+#AdditionalRes:..\res\rongyunimres
+'引入融云IMSDK的res文件
+#AdditionalRes:..\res\rongyunimsdkres,io.rong.imkit

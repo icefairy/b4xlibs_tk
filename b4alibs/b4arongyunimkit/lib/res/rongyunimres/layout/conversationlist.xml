@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#009688"
+        android:layout_height="50dip">
+        <ImageView
+            android:layout_width="20dip"
+            android:id="@+id/ivback"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:src="@drawable/btn_back_white"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_height="20dip" />
+        <TextView
+            android:id="@+id/tvtitle"
+            android:text=""
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <fragment
+        android:id="@+id/conversationlist"
+        android:name="io.rong.imkit.fragment.ConversationListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
