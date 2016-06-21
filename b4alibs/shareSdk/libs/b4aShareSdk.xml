@@ -299,6 +299,59 @@ parms: 这是map的list，其中渠道名放在pname中</comment>
             </parameter>
             <comment>设置分享界面的样式，目前只有一种，不需要设置</comment>
         </property>
+        <property>
+            <name>ShareType</name>
+            <parameter>
+                <name>ShareType</name>
+                <type>int</type>
+            </parameter>
+            <comment></comment>
+        </property>
+        <field>
+            <name>SHARE_APPS</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SHARE_TEXT</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SHARE_MUSIC</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SHARE_FILE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SHARE_IMAGE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>params</name>
+            <comment></comment>
+            <returntype>anywheresoftware.b4a.objects.collections.Map</returntype>
+        </field>
+        <field>
+            <name>SHARE_WEBPAGE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SHARE_VIDEO</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SHARE_EMOJI</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
     </class>
     <class>
         <name>com.zaiten.ThirdLogin</name>
@@ -405,7 +458,7 @@ parms: 这是map的list，其中渠道名放在pname中</comment>
             <returntype>boolean</returntype>
         </field>
     </class>
-    <version>1.02</version>
+    <version>1.03</version>
     <author>Icefairy333</author>
     <dependsOn>libammsdk</dependsOn>
     <dependsOn>MobCommons-2016.0426.1819</dependsOn>
