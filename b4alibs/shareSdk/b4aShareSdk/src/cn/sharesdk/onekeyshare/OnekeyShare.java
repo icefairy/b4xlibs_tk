@@ -13,6 +13,8 @@ import static com.mob.tools.utils.BitmapHelper.captureView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.mob.tools.utils.R;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
@@ -26,14 +28,10 @@ import anywheresoftware.b4a.BA.Permissions;
 import anywheresoftware.b4a.BA.ShortName;
 import anywheresoftware.b4a.BA.Version;
 import anywheresoftware.b4a.objects.collections.List;
-import anywheresoftware.b4a.objects.collections.Map;
 import anywheresoftware.b4a.objects.collections.Map.MyMap;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.tencent.qq.QQ;
-
-import com.mob.tools.utils.R;
 
 @ShortName("OKS")
 @Author("Icefairy333")
@@ -44,6 +42,14 @@ import com.mob.tools.utils.R;
 public class OnekeyShare {
 	private HashMap<String, Object> params;
 	private BA mba;
+	public static final int SHARE_TEXT = 1;
+	public static final int SHARE_IMAGE = 2;
+	public static final int SHARE_WEBPAGE = 4;
+	public static final int SHARE_MUSIC = 5;
+	public static final int SHARE_VIDEO = 6;
+	public static final int SHARE_APPS = 7;
+	public static final int SHARE_FILE = 8;
+	public static final int SHARE_EMOJI = 9;
 	public OnekeyShare() {
 		params = new HashMap<String, Object>();
 		params.put("customers", new ArrayList<CustomerLogo>());
@@ -114,7 +120,9 @@ public class OnekeyShare {
 	public void setSiteUrl(String siteUrl) {
 		params.put("siteUrl", siteUrl);
 	}
-
+	public void setShareType(int ShareType){
+		params.put("shareType", ShareType);
+	}
 	/** foursquare分享时的地方名 */
 	public void setVenueName(String venueName) {
 		params.put("venueName", venueName);
