@@ -24,10 +24,12 @@ import anywheresoftware.b4a.BA;
 import anywheresoftware.b4a.BA.ActivityObject;
 import anywheresoftware.b4a.BA.Author;
 import anywheresoftware.b4a.BA.DependsOn;
+import anywheresoftware.b4a.BA.Events;
 import anywheresoftware.b4a.BA.Permissions;
 import anywheresoftware.b4a.BA.ShortName;
 import anywheresoftware.b4a.BA.Version;
 import anywheresoftware.b4a.objects.collections.List;
+import anywheresoftware.b4a.objects.collections.Map;
 import anywheresoftware.b4a.objects.collections.Map.MyMap;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -35,12 +37,13 @@ import cn.sharesdk.framework.ShareSDK;
 
 @ShortName("OKS")
 @Author("Icefairy333")
-@Version(1.02f)
+@Version(1.1f)
 @Permissions(values={"android.permission.GET_TASKS","android.permission.INTERNET","android.permission.ACCESS_WIFI_STATE","android.permission.ACCESS_NETWORK_STATE","android.permission.CHANGE_WIFI_STATE","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.READ_PHONE_STATE","android.permission.MANAGE_ACCOUNTS","android.permission.GET_ACCOUNTS","android.permission.BLUETOOTH","android.permission.BLUETOOTH_ADMIN"})
 @DependsOn(values={"libammsdk","MobCommons-2016.0426.1819","MobTools-2016.0426.1819","ShareSDK-Core-2.7.2","ShareSDK-QQ-2.7.2","ShareSDK-QZone-2.7.2","ShareSDK-SinaWeibo-2.7.2","ShareSDK-Wechat-2.7.2","ShareSDK-Wechat-Core-2.7.2","ShareSDK-Wechat-Favorite-2.7.2","ShareSDK-Wechat-Moments-2.7.2"})
 @ActivityObject
+@Events(values={"logoclick(title as String)"})
 public class OnekeyShare {
-	private HashMap<String, Object> params;
+	public Map params;
 	private BA mba;
 	public static final int SHARE_TEXT = 1;
 	public static final int SHARE_IMAGE = 2;
@@ -50,15 +53,17 @@ public class OnekeyShare {
 	public static final int SHARE_APPS = 7;
 	public static final int SHARE_FILE = 8;
 	public static final int SHARE_EMOJI = 9;
+	private String EN;
 	public OnekeyShare() {
-		params = new HashMap<String, Object>();
-		params.put("customers", new ArrayList<CustomerLogo>());
-		params.put("hiddenPlatforms", new HashMap<String, String>());
+		params = new Map();
+		params.Initialize();
+		params.Put("customers", new ArrayList<CustomerLogo>());
+		params.Put("hiddenPlatforms", new HashMap<String, String>());
 	}
 
 	/** address是接收人地址，仅在信息和邮件使用，否则可以不提供 */
 	public void setAddress(String address) {
-		params.put("address", address);
+		params.Put("address", address);
 	}
 
 	/**
@@ -66,158 +71,165 @@ public class OnekeyShare {
 	 * 易信（包括好友、朋友圈）、人人网和QQ空间使用，否则可以不提供
 	 */
 	public void setTitle(String title) {
-		params.put("title", title);
+		params.Put("title", title);
 	}
 
 	/** titleUrl是标题的网络链接，仅在人人网和QQ空间使用，否则可以不提供 */
 	public void setTitleUrl(String titleUrl) {
-		params.put("titleUrl", titleUrl);
+		params.Put("titleUrl", titleUrl);
 	}
 
 	/** text是分享文本，所有平台都需要这个字段 */
 	public void setText(String text) {
-		params.put("text", text);
+		params.Put("text", text);
 	}
 
 	/** 获取text字段的值 */
 	public String getText() {
-		return params.containsKey("text") ? String.valueOf(params.get("text")) : null;
+		return params.ContainsKey("text") ? String.valueOf(params.Get("text")) : null;
 	}
 
 	/** imagePath是本地的图片路径，除Linked-In外的所有平台都支持这个字段 */
 	public void setImagePath(String imagePath) {
 		if(!TextUtils.isEmpty(imagePath))
-			params.put("imagePath", imagePath);
+			params.Put("imagePath", imagePath);
 	}
 
 	/** imageUrl是图片的网络路径，新浪微博、人人网、QQ空间和Linked-In支持此字段 */
 	public void setImageUrl(String imageUrl) {
 		if (!TextUtils.isEmpty(imageUrl))
-			params.put("imageUrl", imageUrl);
+			params.Put("imageUrl", imageUrl);
 	}
 
 	/** url在微信（包括好友、朋友圈收藏）和易信（包括好友和朋友圈）中使用，否则可以不提供 */
 	public void setUrl(String url) {
-		params.put("url", url);
+		params.Put("url", url);
 	}
 
 	/** filePath是待分享应用程序的本地路劲，仅在微信（易信）好友和Dropbox中使用，否则可以不提供 */
 	public void setFilePath(String filePath) {
-		params.put("filePath", filePath);
+		params.Put("filePath", filePath);
 	}
 
 	/** comment是我对这条分享的评论，仅在人人网和QQ空间使用，否则可以不提供 */
 	public void setComment(String comment) {
-		params.put("comment", comment);
+		params.Put("comment", comment);
 	}
 
 	/** site是分享此内容的网站名称，仅在QQ空间使用，否则可以不提供 */
 	public void setSite(String site) {
-		params.put("site", site);
+		params.Put("site", site);
 	}
 
 	/** siteUrl是分享此内容的网站地址，仅在QQ空间使用，否则可以不提供 */
 	public void setSiteUrl(String siteUrl) {
-		params.put("siteUrl", siteUrl);
+		params.Put("siteUrl", siteUrl);
 	}
 	public void setShareType(int ShareType){
-		params.put("shareType", ShareType);
+		params.Put("shareType", ShareType);
 	}
 	/** foursquare分享时的地方名 */
 	public void setVenueName(String venueName) {
-		params.put("venueName", venueName);
+		params.Put("venueName", venueName);
 	}
 
 	/** foursquare分享时的地方描述 */
 	public void setVenueDescription(String venueDescription) {
-		params.put("venueDescription", venueDescription);
+		params.Put("venueDescription", venueDescription);
 	}
 
 	/** 分享地纬度，新浪微博、腾讯微博和foursquare支持此字段 */
 	public void setLatitude(float latitude) {
-		params.put("latitude", latitude);
+		params.Put("latitude", latitude);
 	}
 
 	/** 分享地经度，新浪微博、腾讯微博和foursquare支持此字段 */
 	public void setLongitude(float longitude) {
-		params.put("longitude", longitude);
+		params.Put("longitude", longitude);
 	}
 
 	/** 是否直接分享 */
 	public void setSilent(boolean silent) {
-		params.put("silent", silent);
+		params.Put("silent", silent);
 	}
 
 	/** 设置编辑页的初始化选中平台 */
 	public void setPlatform(String platform) {
-		params.put("platform", platform);
+		params.Put("platform", platform);
 	}
 
 	/** 设置KakaoTalk的应用下载地址 */
 	public void setInstallUrl(String installurl) {
-		params.put("installurl", installurl);
+		params.Put("installurl", installurl);
 	}
 
 	/** 设置KakaoTalk的应用打开地址 */
 	public void setExecuteUrl(String executeurl) {
-		params.put("executeurl", executeurl);
+		params.Put("executeurl", executeurl);
 	}
 
 	/** 设置微信分享的音乐的地址 */
 	public void setMusicUrl(String musicUrl) {
-		params.put("musicUrl", musicUrl);
+		params.Put("musicUrl", musicUrl);
 	}
 
 	/** 设置自定义的外部回调 */
 	public void setCallback(PlatformActionListener callback) {
-		params.put("callback", callback);
+		params.Put("callback", callback);
 	}
 
 	/** 返回操作回调 */
 	public PlatformActionListener getCallback() {
-		return R.forceCast(params.get("callback"));
+		return R.forceCast(params.Get("callback"));
 	}
 
 	/** 设置用于分享过程中，根据不同平台自定义分享内容的回调 */
 	public void setShareContentCustomizeCallback(ShareContentCustomizeCallback callback) {
-		params.put("customizeCallback", callback);
+		params.Put("customizeCallback", callback);
 	}
 
 	/** 自定义不同平台分享不同内容的回调 */
 	public ShareContentCustomizeCallback getShareContentCustomizeCallback() {
-		return R.forceCast(params.get("customizeCallback"));
+		return R.forceCast(params.Get("customizeCallback"));
 	}
 
 	/** 设置自己图标和点击事件，可以重复调用添加多次 */
-	public void setCustomerLogo(Bitmap logo, String label, OnClickListener ocl) {
+	public void setCustomerLogo(Bitmap logo, final String label) {
 		CustomerLogo cl = new CustomerLogo();
 		cl.logo = logo;
 		cl.label = label;
-		cl.listener = ocl;
-		ArrayList<CustomerLogo> customers = R.forceCast(params.get("customers"));
+		cl.listener = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				mba.raiseEventFromDifferentThread(this, null, 0, EN+"_logoclick",true, new Object[]{label});
+			}
+		};
+		ArrayList<CustomerLogo> customers = R.forceCast(params.Get("customers"));
 		customers.add(cl);
 	}
 
 	/** 设置一个总开关，用于在分享前若需要授权，则禁用sso功能 */
 	public void disableSSOWhenAuthorize() {
-		params.put("disableSSO", true);
+		params.Put("disableSSO", true);
 	}
 
 	/** 设置视频网络地址 */
 	public void setVideoUrl(String url) {
-		params.put("url", url);
-		params.put("shareType", Platform.SHARE_VIDEO);
+		params.Put("url", url);
+		params.Put("shareType", Platform.SHARE_VIDEO);
 	}
 
 	/** 设置编辑页面的显示模式为Dialog模式 */
 	@Deprecated
 	public void setDialogMode() {
-		params.put("dialogMode", true);
+		params.Put("dialogMode", true);
 	}
 
-	/** 添加一个隐藏的platform */
+	/** 隐藏一个platform */
 	public void addHiddenPlatform(String platform) {
-		HashMap<String, String> hiddenPlatforms = R.forceCast(params.get("hiddenPlatforms"));
+		HashMap<String, String> hiddenPlatforms = R.forceCast(params.Get("hiddenPlatforms"));
 		hiddenPlatforms.put(platform, platform);
 	}
 
@@ -225,7 +237,7 @@ public class OnekeyShare {
 	public void setViewToShare(View viewToShare) {
 		try {
 			Bitmap bm = captureView(viewToShare, viewToShare.getWidth(), viewToShare.getHeight());
-			params.put("viewToShare", bm);
+			params.Put("viewToShare", bm);
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -233,17 +245,19 @@ public class OnekeyShare {
 
 	/** 腾讯微博分享多张图片 */
 	public void setImageArray(String[] imageArray) {
-		params.put("imageArray", imageArray);
+		params.Put("imageArray", imageArray);
 	}
 
 	/** 设置在执行分享到QQ或QZone的同时，分享相同的内容腾讯微博 */
 	public void setShareToTencentWeiboWhenPerformingQQOrQZoneSharing() {
-		params.put("isShareTencentWeibo", true);
+		params.Put("isShareTencentWeibo", true);
 	}
-
+	public void StopSdk() {
+		ShareSDK.stopSDK(mba.context);
+	}
 	/** 设置分享界面的样式，目前只有一种，不需要设置 */
 	public void setTheme(OnekeyShareTheme theme) {
-		params.put("theme", theme.getValue());
+		params.Put("theme", theme.getValue());
 	}
 	/**
 	 * 
@@ -252,13 +266,13 @@ public class OnekeyShare {
 	 * @param Appkey
 	 * @param parms 这是map的list，其中渠道名放在pname中
 	 */
-	public void init(BA ba,String eventname,String Appkey,List parms) {
+	public void init(BA ba,String eventname,String Appkey,List parms,boolean statistics) {
 		mba=ba;
-//		EN=eventname.toLowerCase(BA.cul);
+		EN=eventname.toLowerCase(BA.cul);
 		if(Appkey!=null&&Appkey.length()>0){
-			ShareSDK.initSDK(mba.context, Appkey);	
+			ShareSDK.initSDK(mba.context, Appkey,statistics);	
 		}else{
-			ShareSDK.initSDK(mba.context);
+			ShareSDK.initSDK(mba.context,statistics);
 		}
 		if (parms!=null&&parms.getSize()>0) {
 			for (int i = 0; i < parms.getSize(); i++) {
@@ -275,26 +289,19 @@ public class OnekeyShare {
 				//BA.Log("initPlatforms from code pname:"+cfgmap.get("pname").toString());
 			}
 		}
-		//setObject(new OnekeyShare());
-		//getObject().disableSSOWhenAuthorize();
-//		
-//		Platform[] platforms=ShareSDK.getPlatformList(mba.context);
-//		for (int i = 0; i < platforms.length; i++) {
-//			BA.Log("got:"+platforms[i].getName()+" "+platforms[i].getDevinfo("SortId"));
-//		}
-//		
 	}
 	@SuppressWarnings("unchecked")
 	public void show() {
 		Context context=mba.context;
 		HashMap<String, Object> shareParamsMap = new HashMap<String, Object>();
-		shareParamsMap.putAll(params);
-
-		ShareSDK.initSDK(context);
+		//shareParamsMap.putAll(params.getObject());
+		for(int i=0;i<params.getSize();i++){
+			shareParamsMap.put(params.GetKeyAt(i).toString(), params.GetValueAt(i));
+		}
+		//ShareSDK.initSDK(context);
 
 		// 打开分享菜单的统计
 		ShareSDK.logDemoEvent(1, null);
-
 		int iTheme = 0;
 		try {
 			iTheme = R.parseInt(String.valueOf(shareParamsMap.remove("theme")));

@@ -22,7 +22,7 @@ public class ThirdLogin implements PlatformActionListener {
 	private String EN;
 	public boolean sso;
 	public void init(BA ba,String EventName,String appkey,List parms,boolean ssoEnable) {
-		ShareSDK.initSDK(ba.context,appkey);
+		ShareSDK.initSDK(ba.context,appkey,true);
 		mBa=ba;
 		sso=ssoEnable;
 		EN=EventName.toLowerCase();
