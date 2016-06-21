@@ -1,0 +1,129 @@
+﻿Version=6
+NumberOfModules=1
+Module1=Starter
+Build1=Default,b4a.example
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~'------------ShareSDK~\n~AddApplicationText(<activity~\n~     android:name="com.mob.tools.MobUIShell"~\n~     android:theme="@android:style/Theme.Translucent.NoTitleBar"~\n~     android:configChanges="keyboardHidden|orientation|screenSize"~\n~     android:screenOrientation="portrait"~\n~     android:windowSoftInputMode="stateHidden|adjustResize" >~\n~ ~\n~     <intent-filter>~\n~         <data android:scheme="tencent1105237749" />~\n~         <action android:name="android.intent.action.VIEW" />~\n~         <category android:name="android.intent.category.BROWSABLE" />~\n~         <category android:name="android.intent.category.DEFAULT" />~\n~     </intent-filter>~\n~ ~\n~    <!-- 调用新浪原生SDK，需要注册的回调activity -->~\n~    <intent-filter>~\n~        <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />~\n~        <category android:name="android.intent.category.DEFAULT" />~\n~    </intent-filter>~\n~ </activity>~\n~	<activity~\n~    android:name=".wxapi.WXEntryActivity"~\n~    android:theme="@android:style/Theme.Translucent.NoTitleBar"     ~\n~    android:configChanges="keyboardHidden|orientation|screenSize"     ~\n~    android:exported="true"     ~\n~    android:screenOrientation="portrait" />~\n~	)
+IconFile=
+NumberOfFiles=2
+File1=1.bal
+File2=ico_copy.png
+NumberOfLibraries=3
+Library1=core
+Library2=b4asharesdk
+Library3=clipboard
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: B4A Example
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+'引入资源文件
+#AdditionalRes:..\res\sharesdkres
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Private oks1 As OKS
+	Private S_WEBSITE As String="https://b4xlibs.tk/"
+	Private S_SHARETEXT As String="哈哈哈哈https://b4xlibs.tk/"
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("1")
+	'记得修改manifest里的内容（主要是qq的那个id）
+	oks1.init("oks","appkey",getShareSdkCfgList,True)
+	oks1.addHiddenPlatform("SinaWeibo")'隐藏悄悄出来的微博
+	oks1.setCustomerLogo(LoadBitmap(File.DirAssets,"ico_copy.png"),"复制")
+	oks1.Text=S_SHARETEXT
+	oks1.Title=Application.LabelName
+	oks1.TitleUrl=S_WEBSITE
+	oks1.Url=S_WEBSITE
+	oks1.ImageUrl=S_WEBSITE&"icon.png"
+	oks1.ShareType=oks1.SHARE_WEBPAGE
+	oks1.setDialogMode
+End Sub
+Public Sub getShareSdkCfgList As List
+	Dim lstShareSdkCfg As List
+	lstShareSdkCfg.Initialize
+	Dim m As Map
+	m.Initialize
+	m.Put("pname","Wechat")
+	m.Put("Id","1")
+	m.Put("SortId",1)
+	m.Put("AppId","id")'这里填写你自己申请的key和id ，下同
+	m.Put("AppSecret","sec")
+	m.Put("BypassApproval","false")
+	m.Put("Enable","true")
+	lstShareSdkCfg.Add(m)
+	Dim m As Map
+	m.Initialize
+	m.Put("pname","WechatMoments")
+	m.Put("Id","2")
+	m.Put("SortId",2)
+	m.Put("AppId","id")
+	m.Put("AppSecret","sec")
+	m.Put("BypassApproval","false")
+	m.Put("Enable","true")
+	lstShareSdkCfg.Add(m)
+	Dim m As Map
+	m.Initialize
+	m.Put("pname","WechatFavorite")
+	m.Put("Id","3")
+	m.Put("SortId",3)
+	m.Put("AppId","id")
+	m.Put("AppSecret","sec")
+	m.Put("Enable","true")
+	lstShareSdkCfg.Add(m)
+	Dim m As Map
+	m.Initialize
+	m.Put("pname","QQ")
+	m.Put("Id","4")
+	m.Put("SortId",4)
+	m.Put("AppId","id")
+	m.Put("AppKey","key")
+	m.Put("ShareByAppClient","true")
+	m.Put("Enable","true")
+	lstShareSdkCfg.Add(m)
+	Dim m As Map
+	m.Initialize
+	m.Put("pname","ShortMessage")
+	m.Put("Id","5")
+	m.Put("SortId",5)
+	m.Put("Enable","true")
+	lstShareSdkCfg.Add(m)
+	Return lstShareSdkCfg
+End Sub
+Sub oks_logoclick(title As String)
+	Select title.ToLowerCase
+	Case "复制"
+		Dim clip As BClipboard
+		clip.setText(S_SHARETEXT)
+		ToastMessageShow("已复制",False)
+	End Select
+End Sub
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+
+Sub Button1_Click
+	oks1.show
+End Sub
