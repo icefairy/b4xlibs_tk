@@ -5,6 +5,7 @@
         <name>cn.sharesdk.onekeyshare.OnekeyShare</name>
         <shortname>OKS</shortname>
         <owner>activity</owner>
+        <event>logoclick(title as String)</event>
         <permission>android.permission.GET_TASKS</permission>
         <permission>android.permission.INTERNET</permission>
         <permission>android.permission.ACCESS_WIFI_STATE</permission>
@@ -18,7 +19,7 @@
         <permission>android.permission.BLUETOOTH_ADMIN</permission>
         <method>
             <name>addHiddenPlatform</name>
-            <comment>添加一个隐藏的platform</comment>
+            <comment>隐藏一个platform</comment>
             <returntype>void</returntype>
             <parameter>
                 <name>platform</name>
@@ -49,6 +50,10 @@ parms: 这是map的list，其中渠道名放在pname中</comment>
                 <name>parms</name>
                 <type>anywheresoftware.b4a.objects.collections.List</type>
             </parameter>
+            <parameter>
+                <name>statistics</name>
+                <type>boolean</type>
+            </parameter>
         </method>
         <method>
             <name>disableSSOWhenAuthorize</name>
@@ -72,10 +77,6 @@ parms: 这是map的list，其中渠道名放在pname中</comment>
                 <name>label</name>
                 <type>java.lang.String</type>
             </parameter>
-            <parameter>
-                <name>ocl</name>
-                <type>android.view.View.OnClickListener</type>
-            </parameter>
         </method>
         <method>
             <name>setDialogMode</name>
@@ -85,6 +86,11 @@ parms: 这是map的list，其中渠道名放在pname中</comment>
         <method>
             <name>setShareToTencentWeiboWhenPerformingQQOrQZoneSharing</name>
             <comment>设置在执行分享到QQ或QZone的同时，分享相同的内容腾讯微博</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>StopSdk</name>
+            <comment></comment>
             <returntype>void</returntype>
         </method>
         <property>
@@ -458,7 +464,7 @@ parms: 这是map的list，其中渠道名放在pname中</comment>
             <returntype>boolean</returntype>
         </field>
     </class>
-    <version>1.03</version>
+    <version>1.1</version>
     <author>Icefairy333</author>
     <dependsOn>libammsdk</dependsOn>
     <dependsOn>MobCommons-2016.0426.1819</dependsOn>
