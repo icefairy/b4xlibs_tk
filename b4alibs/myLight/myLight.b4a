@@ -1,0 +1,79 @@
+﻿Version=6
+NumberOfModules=1
+Module1=Starter
+Build1=Default,com.mylight
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
+IconFile=
+NumberOfFiles=1
+File1=1.bal
+NumberOfLibraries=2
+Library1=core
+Library2=advancedcamera
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: 手电筒
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Dim am As AdvancedCamera
+	Private Panel1 As Panel
+	Private Button1 As Button
+	Private bReady as Boolean=False
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("1")
+	am.Initialize(Panel1,"am")
+	
+End Sub
+
+Sub Activity_Resume
+	
+End Sub
+Sub am_Ready (Success As Boolean)
+	bReady=Success
+	If Success Then
+		am.StartPreview
+		Button1_Click
+	Else
+		ToastMessageShow("not ready",False)
+	End If
+End Sub
+Sub Activity_Pause (UserClosed As Boolean)
+	am.FlashOff
+	If UserClosed Then am.Release
+End Sub
+
+
+Sub Button1_Click
+	If Not(bReady) Then
+		ToastMessageShow("相机未就绪",False)
+		Return
+	End If
+	If Button1.Text.EqualsIgnoreCase("开灯") Then
+		am.FlashOn
+		Button1.Text="关灯"
+	Else
+		am.FlashOff
+		Button1.Text="开灯"
+	End If
+End Sub
