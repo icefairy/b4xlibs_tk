@@ -1,0 +1,71 @@
+﻿Version=6
+NumberOfModules=3
+Module1=actZXScanner
+Module2=cvCRZxing
+Module3=CameraExClass
+Build1=Default,com.zxdemo
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddPermission("android.permission.CAMERA")~\n~AddPermission("android.permission.FLASHLIGHT")~\n~AddPermission("android.hardware.camera")~\n~AddManifestText(<uses-feature android:name="android.hardware.telephony" android:required="false" />)~\n~AddManifestText(<uses-feature android:name="android.hardware.camera" android:required="false" />)~\n~AddManifestText(<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />)~\n~AddManifestText(<uses-feature android:name="android.hardware.camera.flash" android:required="false" />)
+IconFile=
+NumberOfFiles=3
+File1=layscanner.bal
+File2=scannerbeep.wav
+File3=scanning_light.png
+NumberOfLibraries=6
+Library1=core
+Library2=camera
+Library3=javaobject
+Library4=reflection
+Library5=animationplus
+Library6=audio
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: zxdemo
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+#AdditionalJar:zxcore-3.2.1.jar
+#AdditionalJar:zxjavase-3.2.1.jar
+Sub Process_Globals
+
+End Sub
+
+Sub Globals
+
+	Dim btn As Button
+	Dim edt As EditText
+End Sub
+'readme
+'本项目依赖的库以及jar：camera2.2 javaobject2.05 reflection2.4  animationplus2.3 以及zxcore-3.2.1.jar zxjavase-3.2.1.jar
+'本项目依赖的类文件：cvCRZxing.bas CameraExClass.bas
+Sub Activity_Create(FirstTime As Boolean)
+	
+	btn.Initialize("btn")
+	btn.Text="scan"
+	edt.Initialize("")
+	edt.SingleLine=False
+	edt.Gravity=Bit.Xor(Gravity.LEFT,Gravity.TOP)
+	Activity.AddView(btn,10%x,10%y,80%x,15%y)
+	Activity.AddView(edt,5%x,30%y,90%x,65%y)
+End Sub
+Sub btn_Click
+	StartActivity(actZXScanner)
+	'
+End Sub
+Sub gotzxresult(str As String)
+	edt.Text=str&CRLF&edt.Text
+End Sub
+Sub Activity_Resume
+	
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+	
+End Sub
