@@ -17,7 +17,7 @@ import io.rong.imlib.RongIMClient.ErrorCode;
 import io.rong.imlib.model.UserInfo;
 
 @ShortName("RongYunIMKit")
-@DependsOn(values={"Rong_IMKit_v2_6_2","android-support-v4",})
+@DependsOn(values={"Rong_IMLib_v2_5_2","android-support-v4",})
 @Events(values={"onSuccess(arg as String)","onError(code as int,msg as String)","onTokenIncorrect","reqUserInfo(userId as String) as UserInfo_ry"})
 @Version(1.10f)
 @Author("Icefairy333")
@@ -30,7 +30,7 @@ public class ryimkitwrapper {
 		mba=ba;
 
 		BA.Log("RongIM Init");
-		RongIM.init(mba.context);
+		RongIM.init(BA.applicationContext);
 		RongIM.setUserInfoProvider(new UserInfoProvider() {
 			
 			@Override

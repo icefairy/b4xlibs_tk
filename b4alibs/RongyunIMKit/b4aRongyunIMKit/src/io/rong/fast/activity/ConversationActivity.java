@@ -37,7 +37,12 @@ public class ConversationActivity extends FragmentActivity {
 				}
 			});
 			tvtitle=(TextView) findViewById(R.id.tvtitle);
-			tvtitle.setText("与"+ryimcaller.userName+"聊天中");
+			if (ryimcaller.userName==null||ryimcaller.userName.length()<1) {
+				tvtitle.setText("与"+ryimcaller.userName+"聊天中");
+			}else{
+				tvtitle.setText("与"+ryimcaller.userName+"聊天中");
+			}
+			
 	    }
 	    @Override
 	    public boolean onKeyDown(int keyCode, KeyEvent event) {
