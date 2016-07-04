@@ -17,9 +17,12 @@ public class ryimcaller {
 	public static ConversationType GROUP=ConversationType.GROUP;
 	@Hide
 	public static String userName="";
+	@Hide
+	public static String userTel="";
 	public static void startChatByUser(BA ba,String user,String title){
 		if (RongIM.getInstance() != null){
 			userName=title;
+			userTel=user;
             RongIM.getInstance().startPrivateChat(ba.context, user, title);
             }
 	}

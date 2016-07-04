@@ -6,16 +6,15 @@
         android:layout_width="match_parent"
         android:background="#009688"
         android:layout_height="50dip">
-        <TextView
-            android:layout_width="wrap_content"
-            android:text=""
-            android:id="@+id/tvback"
+        <ImageView
+            android:layout_width="20dip"
+            android:id="@+id/ivback"
             android:textSize="18sp"
             android:gravity="center"
-            android:textColor="#FFFFFF"
+            android:src="@drawable/btn_back_white"
             android:layout_centerVertical="true"
-            android:paddingLeft="10dip"
-            android:layout_height="match_parent" />
+            android:layout_marginLeft="10dip"
+            android:layout_height="20dip" />
         <TextView
             android:id="@+id/tvtitle"
             android:text=""
