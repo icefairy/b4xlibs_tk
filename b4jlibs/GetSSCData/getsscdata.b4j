@@ -1,0 +1,105 @@
+﻿Version=4.2
+AppType=StandardJava
+NumberOfModules=1
+Module1=getsscdata
+Build1=Default,b4j.example
+NumberOfFiles=0
+NumberOfLibraries=5
+Library1=jcore
+Library2=jserver
+Library3=jokhttputils2_nonui
+Library4=okhttp
+Library5=json
+@EndOfDesignText@
+'Non-UI application (console / server application)
+#Region  Project Attributes 
+	#CommandLineArgs:
+	#MergeLibraries: True 
+#End Region
+
+Sub Process_Globals
+	Public ser As Server
+	Public mData As List
+	Public tmr As Timer
+	Public nShoutTmr As Int=60000,nLongTmr As Int=300000
+	Public sUrl163 As String="http://trend.caipiao.163.com/cqssc/jiben-5xing.html"
+	Public num As Int=30
+	Public sLastQH as String=""
+	Public bLoading As Boolean
+	Public jsg As JSONGenerator
+End Sub
+
+Sub AppStart (Args() As String)
+	initdata
+	ser.Initialize("ser")
+	ser.StaticFilesFolder=File.DirApp&"/www"
+	ser.LogsFileFolder=File.DirTemp
+	ser.Port=888
+	ser.AddHandler("/getsscdata","getsscdata",False)
+	ser.Start
+	tmr.Initialize("getdata",60000)
+	tmr.Enabled=True
+	getdata_Tick
+	StartMessageLoop
+End Sub
+Private Sub initdata
+	mData.Initialize
+End Sub
+Sub getdata_Tick
+	
+	getsscdata163
+End Sub
+Sub JobDone(thj As HttpJob)
+	Log("Job:"&thj.Success)
+	If thj.Success Then
+		mData=ParseSSC_163(thj.GetString)
+		Log("load ok once")
+	Else
+		Log("joberror:"&thj.ErrorMessage)
+	End If	
+	thj.Release
+	bLoading=False
+End Sub
+Private Sub ParseSSC_163(str As String) As List
+	Dim lst As List
+	lst.Initialize
+	Dim mc As Matcher=Regex.Matcher($"\d{9}">\d{5} </span>"$,str)
+	Dim str1 As String
+	Do While mc.Find
+		str1=mc.Match
+		Dim s1 As Map,qh As String,hm As String
+		qh=str1.SubString2(0,str1.IndexOf(""""))
+		hm=str1.SubString2(str1.IndexOf(">")+1,str1.LastIndexOf("<")-1)
+		s1.Initialize
+		s1.Put("qh",qh)
+		s1.Put("hm",hm)
+		lst.InsertAt(0,s1)
+		str1=qh
+	Loop
+	If sLastQH.Length>0 And sLastQH.CompareTo(str1)=0 And str1.Length>0 Then
+		'qh正确且不相等
+		tmr.Interval=nLongTmr
+		sLastQH=str1
+	Else if sLastQH.Length<1 Then
+		sLastQH=str1
+	Else
+		tmr.Interval=nShoutTmr
+	End If
+	Log(tmr.Interval)
+	Return lst
+End Sub
+'regex:\d{5} </span>
+'regex:\d{9}">\d{5} </span>
+'url:http://trend.caipiao.163.com/cqssc/jiben-5xing.html
+Public Sub getsscdata163
+	Log("get once")
+	bLoading=True
+	Dim hj As HttpJob
+	hj.Initialize("getdata",Me)
+	If num<>30 And num<>50 And num<>100 Then num=30
+	hj.Download($"http://trend.caipiao.163.com/cqssc/jiben-5xing.html?periodNumber=${num}"$)
+End Sub
+Public Sub getDataJson As String
+	jsg.Initialize2(mData)
+	Return jsg.ToString
+End Sub
