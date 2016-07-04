@@ -3,6 +3,8 @@ package com.zaiten;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import android.os.IBinder;
+import android.os.RemoteException;
 import anywheresoftware.b4a.BA;
 import anywheresoftware.b4a.BA.Author;
 import anywheresoftware.b4a.BA.DependsOn;
@@ -12,14 +14,22 @@ import anywheresoftware.b4a.BA.ShortName;
 import anywheresoftware.b4a.BA.Version;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.RongIM.UserInfoProvider;
+import io.rong.imlib.OnReceiveMessageListener;
+import io.rong.imlib.RongIMClient;
 import io.rong.imlib.RongIMClient.ConnectCallback;
 import io.rong.imlib.RongIMClient.ErrorCode;
+import io.rong.imlib.model.Message;
+import io.rong.imlib.model.MessageContent;
 import io.rong.imlib.model.UserInfo;
+import io.rong.message.ImageMessage;
+import io.rong.message.RichContentMessage;
+import io.rong.message.TextMessage;
+import io.rong.message.VoiceMessage;
 
 @ShortName("RongYunIMKit")
 @DependsOn(values={"Rong_IMLib_v2_5_2","android-support-v4",})
-@Events(values={"onSuccess(arg as String)","onError(code as int,msg as String)","onTokenIncorrect","reqUserInfo(userId as String) as UserInfo_ry"})
-@Version(1.10f)
+@Events(values={"onIMReceived(msg as String,nLeft as Int)","onSuccess(arg as String)","onError(code as int,msg as String)","onTokenIncorrect","reqUserInfo(userId as String) as UserInfo_ry"})
+@Version(1.20f)
 @Author("Icefairy333")
 @Permissions(values={"android.permission.WRITE_EXTERNAL_STORAGE","android.permission.INTERNET","android.permission.ACCESS_COARSE_LOCATION","android.permission.READ_PHONE_STATE","android.permission.GET_TASKS","android.permission.INTERACT_ACROSS_USERS_FULL","android.permission.ACCESS_WIFI_STATE","android.permission.ACCESS_NETWORK_STATE","android.permission.CAMERA","android.permission.RECORD_AUDIO","android.permission.VIBRATE","android.permission.WAKE_LOCK","android.permission.WRITE_SETTINGS","android.permission.MODIFY_AUDIO_SETTINGS","android.permission.RECEIVE_BOOT_COMPLETED"})
 public class ryimkitwrapper {
@@ -51,8 +61,43 @@ public class ryimkitwrapper {
 				return null;
 			}
 		}, false);
+//		RongIM.getInstance().setMessageAttachedUserInfo(true);
+	}
+	private static class myRec implements RongIMClient.OnReceiveMessageListener{
+		BA ba1;
+		String Eventname;
+		public myRec(BA ba,String en) {
+			super();
+			ba1=ba;
+			Eventname=en.toLowerCase();
+			// TODO Auto-generated constructor stub
+		}
+		@Override
+		public boolean onReceived(Message paramMessage, int paramInt) {
+			// TODO Auto-generated method stub
+			MessageContent mc= paramMessage.getContent();
+			String msg="";
+			if (mc instanceof TextMessage) {
+				msg=((TextMessage)mc).getContent();
+			}else if (mc instanceof ImageMessage) {
+				msg="[图片]";
+			}else if (mc instanceof VoiceMessage){
+				msg="[语音]";
+			}else if (mc instanceof RichContentMessage) {
+				msg="[图文]";
+			}else{
+				msg="[其他]";
+			}
+			ba1.raiseEventFromDifferentThread(this, this, 0, Eventname+"_onIMReceived".toLowerCase(), false, new Object[]{
+					msg,paramInt
+			});
+			return false;
+		}
+
+				
 	}
 	public void Connect(String token) {
+		RongIM.setOnReceiveMessageListener(new myRec(mba,en));
 		RongIM.connect(token, new ConnectCallback() {
 			
 			@Override
