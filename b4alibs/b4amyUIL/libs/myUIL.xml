@@ -5,6 +5,8 @@
         <name>com.myuil.myUIL</name>
         <shortname>myUIL</shortname>
         <owner>process</owner>
+        <event>onLoadingFailed(url As String,Reason As String)</event>
+        <event>onLoadingComplete(url as String,bmp as Bitmap)</event>
         <permission>android.permission.INTERNET</permission>
         <permission>android.permission.ACCESS_NETWORK_STATE</permission>
         <permission>android.permission.WRITE_EXTERNAL_STORAGE</permission>
@@ -107,6 +109,15 @@
                 <type>int</type>
             </parameter>
         </method>
+        <method>
+            <name>DownloadPic</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>url</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
         <field>
             <name>resetViewBeforeLoading</name>
             <comment></comment>
@@ -116,6 +127,11 @@
             <name>MATRIX</name>
             <comment></comment>
             <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>ViewBGTransparent</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
         </field>
         <field>
             <name>delayBeforeLoading</name>
@@ -173,7 +189,7 @@
             <returntype>boolean</returntype>
         </field>
     </class>
-    <version>1.1</version>
+    <version>1.2</version>
     <author>Icefairy333</author>
     <dependsOn>universal-image-loader-1.9.5</dependsOn>
 </root>
