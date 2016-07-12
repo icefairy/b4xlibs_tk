@@ -7,6 +7,7 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
@@ -21,7 +22,7 @@ import anywheresoftware.b4a.objects.ImageViewWrapper;
 import anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper;
 
 @ShortName("myUIL")
-@Version(1.20f)
+@Version(1.30f)
 @Author("Icefairy333")
 @DependsOn(values={"universal-image-loader-1.9.5"})
 @Permissions(values={"android.permission.INTERNET","android.permission.ACCESS_NETWORK_STATE","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.READ_EXTERNAL_STORAGE"})
@@ -44,6 +45,12 @@ public class myUIL {
 	public ScaleType FIT_START=ScaleType.FIT_START;
 	public ScaleType FIT_END=ScaleType.FIT_END;
 	private ImageLoadingListener ill;
+	public Config bitmapCFG_def=Config.RGB_565;
+	public Config bitmapCFG_RGB_565=Config.RGB_565;
+	public Config bitmapCFG_ARGB_4444=Config.ARGB_4444;
+	public Config bitmapCFG_ARGB_8888=Config.ARGB_8888;
+	public Config bitmapCFG_ALPHA_8=Config.ALPHA_8;
+	
 	public void init(BA ba,String eventname) {
 		EN=eventname.toLowerCase();
 		mba=ba;
@@ -95,6 +102,7 @@ public class myUIL {
 		DisplayImageOptions.Builder dio=new DisplayImageOptions.Builder()
 			.cacheOnDisk(diskcache)
 			.cacheInMemory(memcache)
+			.bitmapConfig(bitmapCFG_def)
 			.delayBeforeLoading(delayBeforeLoading)
 			.resetViewBeforeLoading(resetViewBeforeLoading);
 		if(nLoadResId>0){
@@ -115,6 +123,7 @@ public class myUIL {
 		DisplayImageOptions.Builder dio=new DisplayImageOptions.Builder()
 			.cacheOnDisk(diskcache)
 			.cacheInMemory(memcache)
+			.bitmapConfig(bitmapCFG_def)
 			.delayBeforeLoading(delayBeforeLoading)
 			.resetViewBeforeLoading(resetViewBeforeLoading);
 		if(nLoadResId>0){
@@ -136,6 +145,7 @@ public class myUIL {
 		DisplayImageOptions.Builder dio=new DisplayImageOptions.Builder()
 				.cacheOnDisk(diskcache)
 				.cacheInMemory(memcache)
+				.bitmapConfig(bitmapCFG_def)
 				.delayBeforeLoading(delayBeforeLoading)
 				.resetViewBeforeLoading(resetViewBeforeLoading);
 		if(nLoadResId>0){

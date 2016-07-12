@@ -124,9 +124,19 @@
             <returntype>boolean</returntype>
         </field>
         <field>
+            <name>bitmapCFG_ARGB_4444</name>
+            <comment></comment>
+            <returntype EnumType="true">android.graphics.Bitmap.Config</returntype>
+        </field>
+        <field>
             <name>MATRIX</name>
             <comment></comment>
             <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>bitmapCFG_ARGB_8888</name>
+            <comment></comment>
+            <returntype EnumType="true">android.graphics.Bitmap.Config</returntype>
         </field>
         <field>
             <name>ViewBGTransparent</name>
@@ -159,6 +169,11 @@
             <returntype>int</returntype>
         </field>
         <field>
+            <name>bitmapCFG_ALPHA_8</name>
+            <comment></comment>
+            <returntype EnumType="true">android.graphics.Bitmap.Config</returntype>
+        </field>
+        <field>
             <name>FIT_CENTER</name>
             <comment></comment>
             <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
@@ -179,9 +194,19 @@
             <returntype>boolean</returntype>
         </field>
         <field>
+            <name>bitmapCFG_RGB_565</name>
+            <comment></comment>
+            <returntype EnumType="true">android.graphics.Bitmap.Config</returntype>
+        </field>
+        <field>
             <name>FIT_END</name>
             <comment></comment>
             <returntype EnumType="true">android.widget.ImageView.ScaleType</returntype>
+        </field>
+        <field>
+            <name>bitmapCFG_def</name>
+            <comment></comment>
+            <returntype EnumType="true">android.graphics.Bitmap.Config</returntype>
         </field>
         <field>
             <name>diskcache</name>
@@ -189,7 +214,7 @@
             <returntype>boolean</returntype>
         </field>
     </class>
-    <version>1.2</version>
+    <version>1.3</version>
     <author>Icefairy333</author>
     <dependsOn>universal-image-loader-1.9.5</dependsOn>
 </root>
