@@ -8,14 +8,15 @@
  </head>
  <body>
 	<h1>B4X JsonParser</h1>
-	<button id="btnParse" style="{width:200px}"> Parse </button>
+	<button id="btnParse"> Parse </button>
+	<button id="btnParse2java"> Parse2Java </button>
 	<div id="main">
 		<div id="rawTextDiv">
 			<textarea id="textarea">{a:"a",b:1,c:1.1,d:{a:"a",b:1}}</textarea>
 		</div>
 		<div id="treeDiv">
 		</div>
-		<textarea id="codeP">Build 20160615</textarea>
+		<textarea id="codeP">Build 20160714</textarea>
 	</div>
 	<script>
 	$( document ).ready(function() {
@@ -25,6 +26,29 @@
 			$.ajax({
 				type: "POST",
 				url: "jsonHelper",
+				data: $("#textarea").val(), 
+			   success: function(result)
+			   {
+				   if (result.success) {
+						$("#codeP").html(result.code);
+						 $("#treeDiv").html(result.tree);
+						 $("ul li:last-child").addClass('last');
+				   }
+				   else {
+						alert(result.error);
+				   }
+			   },
+				error: function (xhr, ajaxOptions, thrownError) {
+					alert(thrownError);
+				}
+			});
+			
+		});
+			$("#btnParse2java").click(function(e) {
+			e.preventDefault();
+			$.ajax({
+				type: "POST",
+				url: "jsonHelper2java",
 				data: $("#textarea").val(), 
 			   success: function(result)
 			   {

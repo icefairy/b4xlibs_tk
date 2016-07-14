@@ -9,7 +9,13 @@ div {
 #btnParse {
 	position: absolute;
 	left: 110px;
-	width:100px;
+	width:200px;
+	height:30px;
+}
+#btnParse2java {
+	position: absolute;
+	left: 330px;
+	width:200px;
 	height:30px;
 }
 #main {
