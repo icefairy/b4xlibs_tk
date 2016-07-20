@@ -1,0 +1,55 @@
+﻿Version=6
+NumberOfModules=1
+Module1=Starter
+Build1=Default,b4a.example
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
+IconFile=
+NumberOfFiles=2
+File1=Layout1.bal
+File2=tel.png
+NumberOfLibraries=2
+Library1=core
+Library2=richtextutil
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: RichTextDemo
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+#AdditionalRes:../res
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+
+	Private Label1 As Label
+	Private rs As RichTextUtil
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("Layout1")
+	'用html方式调用assets（b4a为files）下的图片需要带上后缀名，如果是调用res\drawable下的则不需要后缀名，本模块会自动先找res下的找不到再去assets目录下找，都找不到就会提供一个白色的小方块~
+	Label1.Text=rs.Inst.addString("普通文本").addColor("红色字",Colors.Red).addDeleteLine("删除的").addSize("40号字",40).addRelativeSize("两倍大的字",2).addstring(CRLF).addHTMLString("<img src='tel.png' />点击我拨打电话(这个小图片是来自assets的)",50,50).addHTMLString("<img src='smile' />笑脸(这个小图是来自res\drawable)",50,50).RichString
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
