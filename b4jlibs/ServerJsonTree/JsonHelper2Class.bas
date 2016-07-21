@@ -5,11 +5,9 @@ B4J=true
 @EndOfDesignText@
 'Class module
 Sub Class_Globals
-	Type TreeItem (Children As List, Text As String)
 	Private resMap As Map
 	Private sIndent As String="    "
-	Type caller(element As Object, parent As TreeItem, code As StringBuilder, _
-		parentName As String, GetFromMap As String, BuildList As Boolean, indent As String)
+	Private lstClass As List
 End Sub
 
 Public Sub Initialize
@@ -20,6 +18,7 @@ Sub Handle(req As ServletRequest, resp As ServletResponse)
 	resp.ContentType = "application/json"
 	resp.CharacterEncoding="UTF-8"
 	resMap.Initialize
+	lstClass.Initialize
 	Try
 		Dim data() As Byte = Bit.InputStreamToBytes(req.InputStream)
 		Dim text As String = BytesToString(data, 0, data.Length, "UTF8")
@@ -62,9 +61,7 @@ Sub Handle(req As ServletRequest, resp As ServletResponse)
 	jg.Initialize(resMap)
 	resp.Write(jg.ToString)
 End Sub
-Sub docaller(co As caller)
-	BuildTree(co.element,co.parent,co.code,co.parentName,co.GetFromMap,co.BuildList,co.indent)
-End Sub
+
 Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		parentName As String, GetFromMap As String, BuildList As Boolean, indent As String)
 	code.Append(indent)
@@ -73,21 +70,7 @@ Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		Dim m As Map = element
 		For Each k As String In m.Keys
 			Dim ti As TreeItem = CreateTreeItem(k)
-		
-			If m.Get(k) Is String Then Log("dim "&parent.Text&"_"&k&" as string")
-			If m.Get(k) Is Int Then Log("dim "&parent.Text&"_"&k&" as int")
-			If m.Get(k) Is Double Then Log("dim "&parent.Text&"_"&k&" as double")
 			parent.Children.Add(ti)
-'			Dim co As caller
-'			co.Initialize
-'			co.element=m.Get(k)
-'			co.parent=ti
-'			co.code=code
-'			co.parentName=k
-'			co.GetFromMap=parentName & ".Get(""" & k & """)"
-'			co.BuildList=False
-'			co.indent=indent
-'			CallSub2(Me,"docaller",co)
 			BuildTree(m.Get(k), ti, code, k, parentName & ".Get(""" & k & """)", False, indent)
 		Next
 	Else If element Is List Then
@@ -105,6 +88,7 @@ Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		Next
 	Else
 		Dim objectType As String
+		'Log(Null=element)
 		If element Is Int Then
 			objectType = "Int"
 		Else If element Is Double Then
