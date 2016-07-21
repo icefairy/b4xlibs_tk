@@ -1,8 +1,9 @@
 ﻿Version=4.2
 AppType=StandardJava
-NumberOfModules=2
+NumberOfModules=3
 Module1=JsonHelper
 Module2=JsonHelper2Java
+Module3=JsonHelper2Class
 Build1=Default,b4j.example
 NumberOfFiles=0
 NumberOfLibraries=3
