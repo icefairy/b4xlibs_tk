@@ -5,7 +5,7 @@ B4J=true
 @EndOfDesignText@
 'Handler class
 Sub Class_Globals
-	Private cmd As String
+	Private cmd As String,typ As String
 	Private mResp As ServletResponse
 End Sub
 
@@ -15,7 +15,10 @@ End Sub
 
 Sub Handle(req As ServletRequest, resp As ServletResponse)
 	mResp=resp
+	mResp.CharacterEncoding="UTF-8"
 	cmd=req.GetParameter("cmd").ToLowerCase
+	typ=req.GetParameter("typ").ToLowerCase
+	If typ.Length<1 Then typ="json"
 	Select cmd
 	Case "1"
 		Dim num As String=req.GetParameter("num")
@@ -54,7 +57,24 @@ Sub JobDone(thj As HttpJob)
 	outputs
 End Sub
 Private Sub outputs
-	mResp.Write(Main.getDataJson)
+	If typ.EqualsIgnoreCase("json") Then
+		mResp.Write(Main.getDataJson)
+	Else
+		Dim sb As StringBuilder
+		sb.Initialize
+		sb.Append(File.ReadString("",File.DirApp&"/www/header.tpl"))
+		sb.Append($"<table><tr><td>期号</td><td>万</td><td>千</td><td>百</td><td>十</td><td>个</td></tr>"$)
+		Dim m As Map
+		Dim hm,qh As String
+		For i=0 To Main.mData.Size-1
+			m=Main.mData.Get(i)
+			qh=m.Get("qh")
+			hm=m.Get("hm")
+			sb.Append($"<tr><td>${qh.SubString(6)}</td><td>${hm.SubString2(0,1)}</td><td>${hm.SubString2(1,2)}</td><td>${hm.SubString2(2,3)}</td><td>${hm.SubString2(3,4)}</td><td>${hm.SubString2(4,5)}</td></tr>"$)
+		Next
+		sb.Append(File.ReadString("",File.DirApp&"/www/footer.tpl"))
+		mResp.Write(sb.ToString)
+	End If
 End Sub
 Private Sub ParseSSC_163(str As String) As List
 	Dim lst As List
