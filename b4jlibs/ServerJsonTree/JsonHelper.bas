@@ -5,11 +5,10 @@ B4J=true
 @EndOfDesignText@
 'Class module
 Sub Class_Globals
-	Type TreeItem (Children As List, Text As String)
+	
 	Private resMap As Map
 	Private sIndent As String="    "
-	Type caller(element As Object, parent As TreeItem, code As StringBuilder, _
-		parentName As String, GetFromMap As String, BuildList As Boolean, indent As String)
+	
 End Sub
 
 Public Sub Initialize

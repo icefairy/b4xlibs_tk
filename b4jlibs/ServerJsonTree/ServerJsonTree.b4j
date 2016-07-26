@@ -1,9 +1,10 @@
 ﻿Version=4.2
 AppType=StandardJava
-NumberOfModules=3
+NumberOfModules=4
 Module1=JsonHelper
 Module2=JsonHelper2Java
-Module3=JsonHelper2Class
+Module3=JsonHelperWithClass
+Module4=common
 Build1=Default,b4j.example
 NumberOfFiles=0
 NumberOfLibraries=3
@@ -35,7 +36,8 @@ Sub AppStart (Args() As String)
 	srvr.StaticFilesFolder=File.DirApp&"/www"
 	
 	srvr.LogsFileFolder=File.DirTemp&"/logs"
-	srvr.AddHandler("/jsonHelper", "JsonHelper", False)
+	'srvr.AddHandler("/jsonHelper", "JsonHelper", False)
+	srvr.AddHandler("/jsonHelper", "JsonHelperWithClass", False)
 	srvr.AddHandler("/jsonHelper2java", "JsonHelper2Java", False)
 	srvr.Start
 	Log("Server started")
