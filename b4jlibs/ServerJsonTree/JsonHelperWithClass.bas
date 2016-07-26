@@ -18,7 +18,7 @@ End Sub
 Sub tmr_Tick
 '	Log("----------"&CRLF&sb_code.ToString&CRLF&"------------")
 '	Log("----------"&CRLF&sbCLS.ToString&CRLF&"------------")
-	resMap.Put("code",sb_code.ToString&CRLF&CRLF&"//types below"&CRLF&sbCLS.ToString)
+	resMap.Put("code",sb_code.ToString&CRLF&CRLF&"'types below"&CRLF&sbCLS.ToString)
 	Dim jg As JSONGenerator
 	jg.Initialize(resMap)
 	mResp.Write(jg.ToString)
@@ -29,30 +29,6 @@ Sub parseJS(jsonstr As String)
 	If jsonstr.Length<1 Then Return
 	nFloor=-1
 	sbCLS.Initialize
-	sbCLS.Append($" //BaseDataTypeConvert
-    class BClass{
-        protected int obj2int(Object str){
-            int ret=0;
-            try{
-                ret=Integer.parseInt(str.toString());
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-            return ret;
-        }
-        protected double obj2double(Object str){
-            double ret=0D;
-            try{
-                ret=Double.parseDouble(str.toString());
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-            return ret;
-        }
-        protected String obj2String(Object str){
-            return str.toString();
-        }
-    }"$)
 	sb_code.Initialize
 	Dim jsp As JSONParser
 '	lstMaps.Initialize
@@ -62,26 +38,18 @@ Sub parseJS(jsonstr As String)
 	Else if jsonstr.CharAt(0)="{" Then
 			isMap=True
 	End If
-	sb_code.Append("try {").Append(CRLF)
-	nFloor=nFloor+1
-	sb_code.Append($"JSONParser parser=new JSONParser();
-parser.Initialize(str);"$).Append(CRLF)
-	'sb_code.Append(getTABS(nFloor)&"Dim jsp As JSONParser"&CRLF&getTABS(nFloor)&"jsp.Initialize(str)"&CRLF&getTABS(nFloor)&"Dim root As ")
+	sb_code.Append(getTABS(nFloor)&"Dim jsp As JSONParser"&CRLF&getTABS(nFloor)&"jsp.Initialize(str)"&CRLF&getTABS(nFloor)&"Dim root As ")
 	Try
 		jsp.Initialize(jsonstr)
 		If isLst Then
-			sb_code.Append(getTABS(nFloor)&"List root=parser.NextArray();"&CRLF)
+			sb_code.Append("List = jsp.NextArray"&CRLF)
 			parseJSO(jsp.NextArray,"root")
 		Else
-			sb_code.Append(getTABS(nFloor)&"Map root=parser.NextObject();"&CRLF)
+			sb_code.Append("Map = jsp.NextObject"&CRLF)
 			parseJSO(jsp.NextObject,"root")
 		End If
-		sb_code.Append(CRLF&$"}catch (Exception jse){
-    mLog.Log("parseJsonError:"+jse.getMessage()+"\n"+str);
-}"$)
 	Catch
 		Log(LastException)
-		resMap.Put("message",LastException.Message)
 	End Try
 	tmr_Tick
 	
@@ -92,85 +60,30 @@ Sub parseJSO(obj As Object,parent As Object)
 	If obj Is List Then
 		Dim lst As List=obj
 		If lst.Size>0 Then
-'			 sb_code.Append(getTABS(nFloor)&$"if (${parent}!=null&& ${parent}.getSize()>0){
-'	for (int i${parent}=0;i${parent}<${parent}.getSize();i${parent}++){"$).Append(CRLF)
-           	sb_code.Append(getTABS(nFloor)&$"if (${parent}!=null&& ${parent}.getSize()>0){
-	for (Object col${parent}1:${parent}.getObject()) {
-        Map col${parent}= (Map) col${parent}1;"$).Append(CRLF)
+			sb_code.Append(getTABS(nFloor)&"For Each col"&parent&" As "&getJOType(lst.Get(0))&" in "&parent&CRLF)
 			parseJSO(lst.Get(0),"col"&parent)
-			sb_code.Append(getTABS(nFloor)&"}"&CRLF&"}"&CRLF)
+			sb_code.Append(getTABS(nFloor)&"Next"&CRLF)
 		Else
-			sb_code.Append(getTABS(nFloor)&"//Empty List"&CRLF)
+			sb_code.Append(getTABS(nFloor)&"'Empty List"&CRLF)
 		End If
 	else if obj Is Map Then
 		flg=flg+1
 		
 		Dim m As Map=obj
 		Dim tobj2 As Object
-		sbCLS.Append(CRLF&"//start of class typ"&parent&CRLF&"class typ"&parent&" extends BClass{"&CRLF)
-		sb_code.Append(getTABS(nFloor)&"typ"&parent&" myItem=new typ"&parent&"();"&CRLF)
+		sbCLS.Append(getTABS(nFloor)&"Type typ"&parent&"(")
+		sb_code.Append(getTABS(nFloor)&"Dim myItem As typ"&parent&CRLF&getTABS(nFloor)&"myItem.Initialize"&CRLF)
 		For Each k As String In m.Keys
 			tobj2=m.Get(k)
-			Dim typ As String=getJOType(tobj2)
-			Select typ.ToLowerCase
-			Case "string"
-				sbCLS.Append($"public String get${getFirstUpper(k)}() {
-        return ${k};
-    }
-    public void set${getFirstUpper(k)}(Object str) {
-        this.${k} = obj2String(${k});
-    }"$).Append(CRLF)
-			Case "int"
-				sbCLS.Append($"public int get${getFirstUpper(k)}() {
-        return ${k};
-    }
-    public void set${getFirstUpper(k)}(Object inta) {
-        this.${k} = obj2int(${k});
-    }"$)
-			Case "double"
-				sbCLS.Append($"public Double get${getFirstUpper(k)}() {
-        return ${k};
-    }
-
-    public void set${getFirstUpper(k)}(Object dou) {
-        this.${k} = obj2double(${k});
-    }"$)
-			Case "map"
-				sbCLS.Append($" public Map get${getFirstUpper(k)}() {
-        return ${k};
-    }
-
-    public void set${getFirstUpper(k)}(Map mmm) {
-        this.${k} = mmm;
-    }"$)
-			Case Else
-				sbCLS.Append($"public Object get${getFirstUpper(k)}() {
-        return ${k};
-    }
-
-    public void set${getFirstUpper(k)}(Object obj) {
-        this.${k} = obj;
-    }"$)
-			
-			End Select
-			sbCLS.Append("private "&typ&" "&k&";").Append(CRLF)
-			sb_code.Append($"${getTABS(nFloor)}myItem.set${getFirstUpper(k)}(${parent&".Get("""&k&"""));"}"$)
-			sbCLS.Append(CRLF)
-			sb_code.Append(CRLF)
+			If "root".CompareTo(parent)=0 Then sbCLS.Append(k&" as "&getJOType(tobj2)&",") Else sbCLS.Append(parent&"_"&k&" as "&getJOType(tobj2)&",")
+			If "root".CompareTo(parent)=0 Then sb_code.Append(getTABS(nFloor)&"myItem."&k&" = "&parent&".Get("""&k&""")"&CRLF) Else sb_code.Append(getTABS(nFloor)&"myItem."&parent&"_"&k&" = "&parent&".Get("""&k&""")"&CRLF)
 			parseJSO(tobj2,parent&"_"&k)
 		Next
-		sbCLS.Append(CRLF&"}//end of typ"&parent&CRLF)		
+		sbCLS.Remove(sbCLS.Length-1,sbCLS.Length)
+		sbCLS.Append(")"&CRLF)		
 	End If	
 	nFloor=nFloor-1
 	Log("nFloor:"&nFloor)
-End Sub
-Private Sub getFirstUpper(str As String) As String
-	Dim ret As String=""
-	If str.Length>0 Then
-		ret=str.SubString(1)
-		ret=str.SubString2(0,1).ToUpperCase&ret
-	End If
-	Return ret
 End Sub
 Sub getTABS(n As Int) As String
 	Dim ret As String=""
@@ -184,7 +97,7 @@ End Sub
 Sub getJOType(obj As Object) As String
 	Dim ret As String
 	If obj Is Int Then
-		ret="int"
+		ret="Int"
 	else if obj Is Double Then
 		ret="Double"
 	Else if obj Is Map Then
@@ -253,10 +166,10 @@ Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		Dim m As Map = element
 		For Each k As String In m.Keys
 			Dim ti As TreeItem = CreateTreeItem(k)
-'		
-'			If m.Get(k) Is String Then Log("dim "&parent.Text&"_"&k&" as string")
-'			If m.Get(k) Is Int Then Log("dim "&parent.Text&"_"&k&" as int")
-'			If m.Get(k) Is Double Then Log("dim "&parent.Text&"_"&k&" as double")
+		
+			If m.Get(k) Is String Then Log("dim "&parent.Text&"_"&k&" as string")
+			If m.Get(k) Is Int Then Log("dim "&parent.Text&"_"&k&" as int")
+			If m.Get(k) Is Double Then Log("dim "&parent.Text&"_"&k&" as double")
 			parent.Children.Add(ti)
 			BuildTree(m.Get(k), ti, code, k, parentName & ".Get(""" & k & """)", False, indent)
 		Next
@@ -318,5 +231,3 @@ Private Sub EscapeXml(Raw As String) As String
    Next
    Return sb.ToString
 End Sub
-
-
