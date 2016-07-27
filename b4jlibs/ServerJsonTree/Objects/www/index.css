@@ -6,15 +6,20 @@ h1 {
 div {
 	border:2px solid #aaa;
 }
+#btns{
+	border:1px solid #eee;
+	width:100%;
+	align:center;
+}
 #btnParse {
-	position: absolute;
-	left: 110px;
+	width:200px;
+	height:30px;
+}
+#btnParsenew {
 	width:200px;
 	height:30px;
 }
 #btnParse2java {
-	position: absolute;
-	left: 330px;
 	width:200px;
 	height:30px;
 }
