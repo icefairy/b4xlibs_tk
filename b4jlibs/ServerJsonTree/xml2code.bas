@@ -59,7 +59,9 @@ Public Sub parseViews(str As String)
 						idname=ids(1).SubString2(0,ids(1).IndexOf(""""))
 						sb_code.Append("private "&typName&" "&idname&";").Append(CRLF)	
 						sb_findcode.Append(idname&" = mFindView(R.id."&idname&");").Append(CRLF)
+						sb_findcode.Append(idname&".setOnClickListener(this);").Append(CRLF)
 						sb_findcode2.Append(idname&" = mFindView(v,R.id."&idname&");").Append(CRLF)
+						sb_findcode2.Append(idname&".setOnClickListener(this);").Append(CRLF)
 					End If
 				End If
 			End If

@@ -26,9 +26,10 @@ Sub Process_Globals
 	Public num As Int=30
 '	Public sLastQH As String=""
 	Public tLastTickets As Long=1
-	Public nReqMinSecond As Int=90
+	Public nReqMinSecond As Int=30
 	Public bLoading As Boolean
 	Public jsg As JSONGenerator
+	Public nApiIdx As Int=0
 End Sub
 
 Sub AppStart (Args() As String)

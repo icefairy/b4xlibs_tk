@@ -1,0 +1,116 @@
+﻿Version=6
+NumberOfModules=1
+Module1=Starter
+Build1=Default,com.icefairy.getssc
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~'------------qq统计 qqmta~\n~AddApplicationText(<meta-data android:name="TA_APPKEY" android:value="A98KK5Y9WHRA" />~\n~<meta-data android:name="InstallChannel" android:value="self" />)~\n~AddApplicationText(<uses-permission android:name="android.permission.INTERNET" />~\n~    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />~\n~    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />~\n~    <uses-permission android:name="android.permission.READ_PHONE_STATE" />~\n~    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />~\n~    <uses-permission android:name="android.permission.WRITE_SETTINGS" />~\n~    <!-- LBS定位权限 -->~\n~    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />~\n~    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />~\n~    ~\n~    ~\n~     <uses-permission android:name="android.permission.GET_TASKS" />)
+IconFile=
+NumberOfFiles=1
+File1=main.bal
+NumberOfLibraries=4
+Library1=core
+Library2=b4aqqmta
+Library3=webviewextras
+Library4=ahswipetorefresh
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: 最新数据
+	#VersionCode: 3
+	#VersionName: 1.2
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Private qqmta As QQMTA
+	Private web As WebView
+	Private wve As WebViewExtras
+	Private sUrl As String="http://www.dwhjb.com:888/getsscdata?cmd=1&typ=html&num=50"
+	Private bExit As Boolean=False
+	Private tmr As Timer
+	Private ahstr As AHSwipeToRefresh
+	Private pbar As ProgressBar
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("main")
+	web.RemoveView
+	ahstr.AddView(web)
+	wve.addWebChromeClient(web,"web")
+	web.LoadUrl(geturl)
+	Activity.AddMenuItem("分享给朋友","share")
+	Activity.AddMenuItem("版本说明","version")
+	Activity.AddMenuItem("帮助信息","help")
+	'qqmta
+	qqmta.Initialize("mta")
+	qqmta.initNativeCrashReport("init so")
+	qqmta.DebugEnable=False
+	qqmta.trackCustomEvent("onCreate")
+	qqmta.AutoExceptionCaught=True
+	qqmta.StatSendStrategy=qqmta.SR_APP_LAUNCH
+	'qqmta end
+End Sub
+Sub web_ProgressChanged(NewProgress As Int)
+	pbar.Progress=NewProgress
+	If NewProgress>90 Then ahstr.Refreshing=False
+End Sub
+Private Sub geturl As String
+	Return sUrl&"&ver="&Application.VersionName&"&apptyp=android"
+End Sub
+Sub help_Click
+	Msgbox("如果偶尔因为网络原因没有自动刷新你可以自己下拉刷新","使用帮助)")
+End Sub
+Sub share_Click
+	Dim in As Intent
+	in.Initialize(in.ACTION_SEND, "")
+	in.PutExtra("android.intent.extra.TEXT", "最新数据App分享给你:https://www.3956cc.com/zxsj.apk")
+	in.SetType("text/plain")
+	in.WrapAsIntentChooser("分享给朋友")
+StartActivity(in)
+End Sub
+Sub version_Click
+	Msgbox("当期程序版本:"&Application.VersionName&" 开发者QQ:860668820欢迎提意见以及发红包^_^","版本信息")
+End Sub
+Sub Activity_KeyPress (KeyCode As Int) As Boolean 'Return True to consume the event
+	If KeyCode=KeyCodes.KEYCODE_BACK Then
+		If bExit Then
+			Return False
+		Else
+			bExit=True
+			tmr.Initialize("tmr",3000)
+			tmr.Enabled=True
+			ToastMessageShow("再按一次返回键退出程序",False)
+			Return True
+		End If
+	End If
+	Return False
+End Sub
+Sub tmr_Tick
+	tmr.Enabled=False
+	bExit=False
+End Sub
+Sub Activity_Resume
+	qqmta.onResume
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+	qqmta.onPause
+End Sub
+
+Sub ahstr_Refresh
+	web.LoadUrl("javascript:window.location.reload( true );")
+End Sub
