@@ -43,42 +43,43 @@ public static long _tlasttickets = 0L;
 public static int _nreqminsecond = 0;
 public static boolean _bloading = false;
 public static anywheresoftware.b4j.objects.collections.JSONParser.JSONGenerator _jsg = null;
+public static int _napiidx = 0;
 public static b4j.example.httputils2service _httputils2service = null;
 public static String  _appstart(String[] _args) throws Exception{
- //BA.debugLineNum = 21;BA.debugLine="Sub AppStart (Args() As String)";
- //BA.debugLineNum = 22;BA.debugLine="initdata";
+ //BA.debugLineNum = 22;BA.debugLine="Sub AppStart (Args() As String)";
+ //BA.debugLineNum = 23;BA.debugLine="initdata";
 _initdata();
- //BA.debugLineNum = 23;BA.debugLine="ser.Initialize(\"ser\")";
+ //BA.debugLineNum = 24;BA.debugLine="ser.Initialize(\"ser\")";
 _ser.Initialize(ba,"ser");
- //BA.debugLineNum = 24;BA.debugLine="ser.StaticFilesFolder=File.DirApp&\"/www\"";
+ //BA.debugLineNum = 25;BA.debugLine="ser.StaticFilesFolder=File.DirApp&\"/www\"";
 _ser.setStaticFilesFolder(anywheresoftware.b4a.keywords.Common.File.getDirApp()+"/www");
- //BA.debugLineNum = 25;BA.debugLine="ser.LogsFileFolder=File.DirTemp";
+ //BA.debugLineNum = 26;BA.debugLine="ser.LogsFileFolder=File.DirTemp";
 _ser.setLogsFileFolder(anywheresoftware.b4a.keywords.Common.File.getDirTemp());
- //BA.debugLineNum = 26;BA.debugLine="ser.Port=888";
+ //BA.debugLineNum = 27;BA.debugLine="ser.Port=888";
 _ser.setPort((int) (888));
- //BA.debugLineNum = 27;BA.debugLine="ser.AddHandler(\"/getsscdata\",\"getsscdata\",False)";
+ //BA.debugLineNum = 28;BA.debugLine="ser.AddHandler(\"/getsscdata\",\"getsscdata\",False)";
 _ser.AddHandler("/getsscdata","getsscdata",anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 28;BA.debugLine="ser.Start";
+ //BA.debugLineNum = 29;BA.debugLine="ser.Start";
 _ser.Start();
- //BA.debugLineNum = 29;BA.debugLine="StartMessageLoop";
+ //BA.debugLineNum = 30;BA.debugLine="StartMessageLoop";
 anywheresoftware.b4a.keywords.Common.StartMessageLoop(ba);
- //BA.debugLineNum = 30;BA.debugLine="End Sub";
+ //BA.debugLineNum = 31;BA.debugLine="End Sub";
 return "";
 }
 public static String  _getdatajson() throws Exception{
- //BA.debugLineNum = 34;BA.debugLine="Public Sub getDataJson As String";
- //BA.debugLineNum = 35;BA.debugLine="jsg.Initialize2(mData)";
+ //BA.debugLineNum = 35;BA.debugLine="Public Sub getDataJson As String";
+ //BA.debugLineNum = 36;BA.debugLine="jsg.Initialize2(mData)";
 _jsg.Initialize2(_mdata);
- //BA.debugLineNum = 36;BA.debugLine="Return jsg.ToString";
+ //BA.debugLineNum = 37;BA.debugLine="Return jsg.ToString";
 if (true) return _jsg.ToString();
- //BA.debugLineNum = 37;BA.debugLine="End Sub";
+ //BA.debugLineNum = 38;BA.debugLine="End Sub";
 return "";
 }
 public static String  _initdata() throws Exception{
- //BA.debugLineNum = 31;BA.debugLine="Private Sub initdata";
- //BA.debugLineNum = 32;BA.debugLine="mData.Initialize";
+ //BA.debugLineNum = 32;BA.debugLine="Private Sub initdata";
+ //BA.debugLineNum = 33;BA.debugLine="mData.Initialize";
 _mdata.Initialize();
- //BA.debugLineNum = 33;BA.debugLine="End Sub";
+ //BA.debugLineNum = 34;BA.debugLine="End Sub";
 return "";
 }
 
@@ -107,13 +108,15 @@ _surl163 = "http://trend.caipiao.163.com/cqssc/jiben-5xing.html";
 _num = (int) (30);
  //BA.debugLineNum = 15;BA.debugLine="Public tLastTickets As Long=1";
 _tlasttickets = (long) (1);
- //BA.debugLineNum = 16;BA.debugLine="Public nReqMinSecond As Int=90";
-_nreqminsecond = (int) (90);
+ //BA.debugLineNum = 16;BA.debugLine="Public nReqMinSecond As Int=30";
+_nreqminsecond = (int) (30);
  //BA.debugLineNum = 17;BA.debugLine="Public bLoading As Boolean";
 _bloading = false;
  //BA.debugLineNum = 18;BA.debugLine="Public jsg As JSONGenerator";
 _jsg = new anywheresoftware.b4j.objects.collections.JSONParser.JSONGenerator();
- //BA.debugLineNum = 19;BA.debugLine="End Sub";
+ //BA.debugLineNum = 19;BA.debugLine="Public nApiIdx As Int=0";
+_napiidx = (int) (0);
+ //BA.debugLineNum = 20;BA.debugLine="End Sub";
 return "";
 }
 }

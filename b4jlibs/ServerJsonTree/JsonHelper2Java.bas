@@ -112,50 +112,49 @@ Sub parseJSO(obj As Object,parent As Object)
 		For Each k As String In m.Keys
 			tobj2=m.Get(k)
 			Dim typ As String=getJOType(tobj2)
-			Select typ.ToLowerCase
-			Case "string"
-				sbCLS.Append($"public String get${getFirstUpper(k)}() {
-        return ${k};
-    }
-    public void set${getFirstUpper(k)}(Object str) {
-        this.${k} = obj2String(${k});
-    }"$).Append(CRLF)
-			Case "int"
-				sbCLS.Append($"public int get${getFirstUpper(k)}() {
-        return ${k};
-    }
-    public void set${getFirstUpper(k)}(Object inta) {
-        this.${k} = obj2int(${k});
-    }"$)
-			Case "double"
-				sbCLS.Append($"public Double get${getFirstUpper(k)}() {
-        return ${k};
-    }
-
-    public void set${getFirstUpper(k)}(Object dou) {
-        this.${k} = obj2double(${k});
-    }"$)
-			Case "map"
-				sbCLS.Append($" public Map get${getFirstUpper(k)}() {
-        return ${k};
-    }
-
-    public void set${getFirstUpper(k)}(Map mmm) {
-        this.${k} = mmm;
-    }"$)
-			Case Else
-				sbCLS.Append($"public Object get${getFirstUpper(k)}() {
-        return ${k};
-    }
-
-    public void set${getFirstUpper(k)}(Object obj) {
-        this.${k} = obj;
-    }"$)
+'			Select typ.ToLowerCase
+'			Case "string"
+'				sbCLS.Append($"public String get${getFirstUpper(k)}() {
+'        return ${k};
+'    }
+'    public void set${getFirstUpper(k)}(Object str) {
+'        this.${k} = obj2String(${k});
+'    }"$).Append(CRLF)
+'			Case "int"
+'				sbCLS.Append($"public int get${getFirstUpper(k)}() {
+'        return ${k};
+'    }
+'    public void set${getFirstUpper(k)}(Object inta) {
+'        this.${k} = obj2int(${k});
+'    }"$)
+'			Case "double"
+'				sbCLS.Append($"public Double get${getFirstUpper(k)}() {
+'        return ${k};
+'    }
+'
+'    public void set${getFirstUpper(k)}(Object dou) {
+'        this.${k} = obj2double(${k});
+'    }"$)
+'			Case "map"
+'				sbCLS.Append($" public Map get${getFirstUpper(k)}() {
+'        return ${k};
+'    }
+'
+'    public void set${getFirstUpper(k)}(Map mmm) {
+'        this.${k} = mmm;
+'    }"$)
+'			Case Else
+'				sbCLS.Append($"public Object get${getFirstUpper(k)}() {
+'        return ${k};
+'    }
+'
+'    public void set${getFirstUpper(k)}(Object obj) {
+'        this.${k} = obj;
+'    }"$)
 			
-			End Select
+'			End Select
 			sbCLS.Append("private "&typ&" "&k&";").Append(CRLF)
 			sb_code.Append($"${getTABS(nFloor)}myItem.set${getFirstUpper(k)}(${parent&".Get("""&k&"""));"}"$)
-			sbCLS.Append(CRLF)
 			sb_code.Append(CRLF)
 			parseJSO(tobj2,parent&"_"&k)
 		Next
