@@ -11,18 +11,11 @@ div {
 	width:100%;
 	align:center;
 }
-#btnParse {
+.btncmd {
 	width:200px;
 	height:30px;
 }
-#btnParsenew {
-	width:200px;
-	height:30px;
-}
-#btnParse2java {
-	width:200px;
-	height:30px;
-}
+
 #main {
 	border: 0px;
 	top: 20px;
