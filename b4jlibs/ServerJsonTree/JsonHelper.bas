@@ -72,21 +72,7 @@ Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		Dim m As Map = element
 		For Each k As String In m.Keys
 			Dim ti As TreeItem = CreateTreeItem(k)
-		
-'			If m.Get(k) Is String Then Log("dim "&parent.Text&"_"&k&" as string")
-'			If m.Get(k) Is Int Then Log("dim "&parent.Text&"_"&k&" as int")
-'			If m.Get(k) Is Double Then Log("dim "&parent.Text&"_"&k&" as double")
 			parent.Children.Add(ti)
-'			Dim co As caller
-'			co.Initialize
-'			co.element=m.Get(k)
-'			co.parent=ti
-'			co.code=code
-'			co.parentName=k
-'			co.GetFromMap=parentName & ".Get(""" & k & """)"
-'			co.BuildList=False
-'			co.indent=indent
-'			CallSub2(Me,"docaller",co)
 			BuildTree(m.Get(k), ti, code, k, parentName & ".Get(""" & k & """)", False, indent)
 		Next
 	Else If element Is List Then
