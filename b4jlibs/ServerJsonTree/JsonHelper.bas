@@ -73,9 +73,9 @@ Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		For Each k As String In m.Keys
 			Dim ti As TreeItem = CreateTreeItem(k)
 		
-			If m.Get(k) Is String Then Log("dim "&parent.Text&"_"&k&" as string")
-			If m.Get(k) Is Int Then Log("dim "&parent.Text&"_"&k&" as int")
-			If m.Get(k) Is Double Then Log("dim "&parent.Text&"_"&k&" as double")
+'			If m.Get(k) Is String Then Log("dim "&parent.Text&"_"&k&" as string")
+'			If m.Get(k) Is Int Then Log("dim "&parent.Text&"_"&k&" as int")
+'			If m.Get(k) Is Double Then Log("dim "&parent.Text&"_"&k&" as double")
 			parent.Children.Add(ti)
 '			Dim co As caller
 '			co.Initialize

@@ -83,7 +83,7 @@ Sub parseJSO(obj As Object,parent As Object)
 		sbCLS.Append(")"&CRLF)		
 	End If	
 	nFloor=nFloor-1
-	Log("nFloor:"&nFloor)
+	'Log("nFloor:"&nFloor)
 End Sub
 Sub getTABS(n As Int) As String
 	Dim ret As String=""
@@ -167,9 +167,9 @@ Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		For Each k As String In m.Keys
 			Dim ti As TreeItem = CreateTreeItem(k)
 		
-			If m.Get(k) Is String Then Log("dim "&parent.Text&"_"&k&" as string")
-			If m.Get(k) Is Int Then Log("dim "&parent.Text&"_"&k&" as int")
-			If m.Get(k) Is Double Then Log("dim "&parent.Text&"_"&k&" as double")
+'			If m.Get(k) Is String Then Log("dim "&parent.Text&"_"&k&" as string")
+'			If m.Get(k) Is Int Then Log("dim "&parent.Text&"_"&k&" as int")
+'			If m.Get(k) Is Double Then Log("dim "&parent.Text&"_"&k&" as double")
 			parent.Children.Add(ti)
 			BuildTree(m.Get(k), ti, code, k, parentName & ".Get(""" & k & """)", False, indent)
 		Next

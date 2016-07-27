@@ -5,11 +5,16 @@
  <link rel="stylesheet" type="text/css" href="index.css" />
  <script src="jquery.min.js"></script>
  <script src="jquery.autosize.js"></script>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+ <meta name="viewport" content="width=device-width">
  </head>
  <body>
 	<h1>B4X JsonParser</h1>
+	<div id='btns'>
 	<button id="btnParse"> Parse </button>
+	<button id="btnParsenew"> ParseNewStyle </button>
 	<button id="btnParse2java"> Parse2Java </button>
+	</div>
 	<div id="main">
 		<div id="rawTextDiv">
 			<textarea id="textarea">{a:"a",b:1,c:1.1,d:{a:"a",b:1},"lst2":[{"a":"1"},{"a":"2"},{"a":"3"},{"a":"4"}]}</textarea>
@@ -49,6 +54,29 @@
 			$.ajax({
 				type: "POST",
 				url: "jsonHelper2java",
+				data: $("#textarea").val(), 
+			   success: function(result)
+			   {
+				   if (result.success) {
+						$("#codeP").html(result.code);
+						 $("#treeDiv").html(result.tree);
+						 $("ul li:last-child").addClass('last');
+				   }
+				   else {
+						alert(result.error);
+				   }
+			   },
+				error: function (xhr, ajaxOptions, thrownError) {
+					alert(thrownError);
+				}
+			});
+			
+		});
+		$("#btnParsenew").click(function(e) {
+			e.preventDefault();
+			$.ajax({
+				type: "POST",
+				url: "jsonHelpernew",
 				data: $("#textarea").val(), 
 			   success: function(result)
 			   {
