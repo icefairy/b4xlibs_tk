@@ -1,14 +1,14 @@
 b4j.example
 0
 0
-main,appstart,0,1,15,25
-,nfloor,,flg,,sbcls,,sb_code,,tmr
+main,appstart,0,0,15,25
+,nfloor,,flg,,sbcls,,sb_code
 ,nfloor,,flg
-,parsejs,,gettabs,,parsejso,,tmr_tick,,getjotype
-main,parsejs,0,0,45,72
-,nfloor,,flg,,sbcls,,sb_code,,tmr
+,parsejs,,gettabs,,parsejso,,getjotype
+main,parsejs,0,0,46,77
+,nfloor,,flg,,sbcls,,sb_code
 ,nfloor,,flg
-,gettabs,,parsejso,,tmr_tick,,getjotype
+,gettabs,,parsejso,,getjotype
 main,getjotype,0,0,123,137
 
 
@@ -17,19 +17,15 @@ main,gettabs,0,0,114,122
 
 
 
-main,parsejso,0,0,73,113
-,sb_code,,nfloor,,flg,,sbcls,,tmr
+main,parsejso,0,0,78,113
+,sb_code,,nfloor,,flg,,sbcls
 ,nfloor,,flg
 ,gettabs,,getjotype,,parsejso
-main,tmr_tick,0,0,38,43
-,sb_code,,sbcls
-
-
 main,process_globals,0,1,7,13
 ,stab
 ,stab
 
-main,test,0,0,26,37
+main,test,0,0,26,44
 
 
 

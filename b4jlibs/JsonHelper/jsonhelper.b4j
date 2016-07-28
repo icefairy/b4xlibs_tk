@@ -15,7 +15,6 @@ Library3=jstringutils
 #End Region
 
 Sub Process_Globals
-	Dim tmr As Timer
 	Dim sb_code As StringBuilder,sbCLS As StringBuilder
 	Dim flg As Int,nFloor As Int
 	Dim sTAB As String="    "
@@ -35,29 +34,23 @@ Sub AppStart (Args() As String)
 '	StartMessageLoop
 End Sub
 Sub test
- Dim jsp As JSONParser
-jsp.Initialize(str)
-Dim root As Map = jsp.NextObject
-Dim myItem As typroot
-myItem.Initialize
-myItem.root_code = root.Get("code")
-myItem.root_data = root.Get("data")
-        Dim myItem As typroot_data
-        myItem.Initialize
-        myItem.root_data_id = root_data.Get("id")
-        myItem.root_data_token = root_data.Get("token")
-myItem.root_message = root.Get("message")
+' Dim jsp As JSONParser
+'jsp.Initialize(str)
+'Dim root As Map = jsp.NextObject
+'Dim myItem As typroot
+'myItem.Initialize
+'myItem.root_code = root.Get("code")
+'myItem.root_data = root.Get("data")
+'        Dim myItem As typroot_data
+'        myItem.Initialize
+'        myItem.root_data_id = root_data.Get("id")
+'        myItem.root_data_token = root_data.Get("token")
+'myItem.root_message = root.Get("message")
 
 
 'types below
 
 
-End Sub
-Sub tmr_Tick
-	Log("----------"&CRLF&sb_code.ToString&CRLF&"------------")
-	Log("----------"&CRLF&sbCLS.ToString&CRLF&"------------")
-'	StopMessageLoop
-	
 End Sub
 
 Sub parseJS(jsonstr As String)
@@ -78,6 +71,9 @@ Sub parseJS(jsonstr As String)
 		jsp.Initialize(jsonstr)
 		If isLst Then
 			sb_code.Append("List = jsp.NextArray"&CRLF)
+			For Each obj As Object In jsp.NextArray
+				parseJSO(obj,obj)
+			Next
 			parseJSO(jsp.NextArray,"root")
 		Else
 			sb_code.Append("Map = jsp.NextObject"&CRLF)
@@ -86,7 +82,8 @@ Sub parseJS(jsonstr As String)
 	Catch
 		Log(LastException)
 	End Try
-	tmr_Tick
+	Log("----------"&CRLF&sb_code.ToString&CRLF&"------------")
+	Log("----------"&CRLF&sbCLS.ToString&CRLF&"------------")
 End Sub
 Sub parseJSO(obj As Object,parent As Object)
 	
@@ -119,12 +116,7 @@ Sub parseJSO(obj As Object,parent As Object)
 		sbCLS.Remove(sbCLS.Length-1,sbCLS.Length)
 		sbCLS.Append(")"&CRLF)
 		flg=flg-1
-		
-		If flg=0 Then
-			tmr.Initialize("tmr",100)
-			tmr.Enabled=True
-			
-		End If
+
 	End If
 '	Log("flg:"&flg)
 	

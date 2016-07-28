@@ -10,6 +10,7 @@ Sub Class_Globals
 	Dim sb_code As StringBuilder,sbCLS As StringBuilder
 	Dim flg As Int,nFloor As Int
 '	Private lstMaps As List
+Private jsg As JSONGenerator
 End Sub
 
 Public Sub Initialize
@@ -29,30 +30,30 @@ Sub parseJS(jsonstr As String)
 	If jsonstr.Length<1 Then Return
 	nFloor=-1
 	sbCLS.Initialize
-	sbCLS.Append($" //BaseDataTypeConvert
-    class BClass{
-        protected int obj2int(Object str){
-            int ret=0;
-            try{
-                ret=Integer.parseInt(str.toString());
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-            return ret;
-        }
-        protected double obj2double(Object str){
-            double ret=0D;
-            try{
-                ret=Double.parseDouble(str.toString());
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-            return ret;
-        }
-        protected String obj2String(Object str){
-            return str.toString();
-        }
-    }"$)
+'	sbCLS.Append($" //BaseDataTypeConvert
+'    class BClass{
+'        protected int obj2int(Object str){
+'            int ret=0;
+'            try{
+'                ret=Integer.parseInt(str.toString());
+'            }catch (Exception e){
+'                e.printStackTrace();
+'            }
+'            return ret;
+'        }
+'        protected double obj2double(Object str){
+'            double ret=0D;
+'            try{
+'                ret=Double.parseDouble(str.toString());
+'            }catch (Exception e){
+'                e.printStackTrace();
+'            }
+'            return ret;
+'        }
+'        protected String obj2String(Object str){
+'            return str.toString();
+'        }
+'    }"$)
 	sb_code.Initialize
 	Dim jsp As JSONParser
 '	lstMaps.Initialize
@@ -64,16 +65,17 @@ Sub parseJS(jsonstr As String)
 	End If
 	sb_code.Append("try {").Append(CRLF)
 	nFloor=nFloor+1
-	sb_code.Append($"JSONParser parser=new JSONParser();
-parser.Initialize(str);"$).Append(CRLF)
+'	sb_code.Append($"JSONParser parser=new JSONParser();
+'parser.Initialize(str);"$).Append(CRLF)
+
 	'sb_code.Append(getTABS(nFloor)&"Dim jsp As JSONParser"&CRLF&getTABS(nFloor)&"jsp.Initialize(str)"&CRLF&getTABS(nFloor)&"Dim root As ")
 	Try
 		jsp.Initialize(jsonstr)
 		If isLst Then
-			sb_code.Append(getTABS(nFloor)&"List root=parser.NextArray();"&CRLF)
+			sb_code.Append(getTABS(nFloor)&"JSONArray root=new JSONArray(js);"&CRLF)
 			parseJSO(jsp.NextArray,"root")
 		Else
-			sb_code.Append(getTABS(nFloor)&"Map root=parser.NextObject();"&CRLF)
+			sb_code.Append(getTABS(nFloor)&" JSONObject root=new JSONObject(js);"&CRLF)
 			parseJSO(jsp.NextObject,"root")
 		End If
 		sb_code.Append(CRLF&$"}catch (Exception jse){
@@ -107,57 +109,41 @@ Sub parseJSO(obj As Object,parent As Object)
 		
 		Dim m As Map=obj
 		Dim tobj2 As Object
-		sbCLS.Append(CRLF&"//start of class typ"&parent&CRLF&"class typ"&parent&" extends BClass{"&CRLF)
-		sb_code.Append(getTABS(nFloor)&"typ"&parent&" myItem=new typ"&parent&"();"&CRLF)
+		jsg.Initialize(obj)
+		sbCLS.Append(CRLF&"//start of class typ"&parent&CRLF&"public static class md"&parent&" {"&CRLF)
+		Dim constr As String=""
+		constr=$"
+public md${parent}(String js) {
+try {
+JSONObject jo=new JSONObject(js);"$
+		
+		sb_code.Append(getTABS(nFloor)&"md"&parent&" myItem=new md"&parent&"();"&CRLF)
+		
 		For Each k As String In m.Keys
 			tobj2=m.Get(k)
 			Dim typ As String=getJOType(tobj2)
-'			Select typ.ToLowerCase
-'			Case "string"
-'				sbCLS.Append($"public String get${getFirstUpper(k)}() {
-'        return ${k};
-'    }
-'    public void set${getFirstUpper(k)}(Object str) {
-'        this.${k} = obj2String(${k});
-'    }"$).Append(CRLF)
-'			Case "int"
-'				sbCLS.Append($"public int get${getFirstUpper(k)}() {
-'        return ${k};
-'    }
-'    public void set${getFirstUpper(k)}(Object inta) {
-'        this.${k} = obj2int(${k});
-'    }"$)
-'			Case "double"
-'				sbCLS.Append($"public Double get${getFirstUpper(k)}() {
-'        return ${k};
-'    }
-'
-'    public void set${getFirstUpper(k)}(Object dou) {
-'        this.${k} = obj2double(${k});
-'    }"$)
-'			Case "map"
-'				sbCLS.Append($" public Map get${getFirstUpper(k)}() {
-'        return ${k};
-'    }
-'
-'    public void set${getFirstUpper(k)}(Map mmm) {
-'        this.${k} = mmm;
-'    }"$)
-'			Case Else
-'				sbCLS.Append($"public Object get${getFirstUpper(k)}() {
-'        return ${k};
-'    }
-'
-'    public void set${getFirstUpper(k)}(Object obj) {
-'        this.${k} = obj;
-'    }"$)
+			Select typ.ToLowerCase
+			Case "string"
+				constr=constr&CRLF&$"this.${k}=jo.optString("${k}","");"$
+			Case "int"
+				constr=constr&CRLF&$"this.${k}=jo.optInt("${k}",-1);"$
+			Case "double"
+				constr=constr&CRLF&$"this.${k}=jo.optDouble("${k}",0d);"$
+			Case "map"
+				constr=constr&CRLF&"//I cannot process map in map"
+			Case Else
+				constr=constr&CRLF&$"this.${k}=jo.opt("${k}");"$
 			
-'			End Select
+			End Select
 			sbCLS.Append("private "&typ&" "&k&";").Append(CRLF)
 			sb_code.Append($"${getTABS(nFloor)}myItem.set${getFirstUpper(k)}(${parent&".Get("""&k&"""));"}"$)
 			sb_code.Append(CRLF)
-			parseJSO(tobj2,parent&"_"&k)
+			'parseJSO(tobj2,parent&"_"&k)
 		Next
+		sbCLS.Append(constr&CRLF&$"} catch (JSONException e1) {
+    e1.printStackTrace();
+}
+}"$)
 		sbCLS.Append(CRLF&"}//end of typ"&parent&CRLF)		
 	End If	
 	nFloor=nFloor-1
