@@ -54,13 +54,12 @@ public boolean isSingleton() {
 		return pcBA;
 	}
 public static RemoteObject __c = RemoteObject.declareNull("anywheresoftware.b4a.keywords.Common");
-public static RemoteObject _tmr = RemoteObject.declareNull("anywheresoftware.b4a.objects.Timer");
 public static RemoteObject _sb_code = RemoteObject.declareNull("anywheresoftware.b4a.keywords.StringBuilderWrapper");
 public static RemoteObject _sbcls = RemoteObject.declareNull("anywheresoftware.b4a.keywords.StringBuilderWrapper");
 public static RemoteObject _flg = RemoteObject.createImmutable(0);
 public static RemoteObject _nfloor = RemoteObject.createImmutable(0);
 public static RemoteObject _stab = RemoteObject.createImmutable("");
   public Object[] GetGlobals() {
-		return new Object[] {"flg",main._flg,"nFloor",main._nfloor,"sb_code",main._sb_code,"sbCLS",main._sbcls,"sTAB",main._stab,"tmr",main._tmr};
+		return new Object[] {"flg",main._flg,"nFloor",main._nfloor,"sb_code",main._sb_code,"sbCLS",main._sbcls,"sTAB",main._stab};
 }
 }
