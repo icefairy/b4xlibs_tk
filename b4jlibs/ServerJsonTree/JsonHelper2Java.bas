@@ -114,6 +114,9 @@ Sub parseJSO(obj As Object,parent As Object)
 		Dim constr As String=""
 		constr=$"
 public md${parent}(String js) {
+ if (js==null||js.length()<1){
+        return;
+    }
 try {
 JSONObject jo=new JSONObject(js);"$
 		
