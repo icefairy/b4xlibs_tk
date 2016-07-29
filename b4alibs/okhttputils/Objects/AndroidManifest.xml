@@ -11,6 +11,8 @@
 	    android:normalScreens="true" 
 	    android:smallScreens="true" 
 	    android:anyDensity="true"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
 	<application
 		android:icon="@drawable/icon"
 		android:label="HttpUtils2"

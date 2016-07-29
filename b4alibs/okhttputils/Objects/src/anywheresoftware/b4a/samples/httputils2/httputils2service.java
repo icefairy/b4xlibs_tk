@@ -117,65 +117,66 @@ public static anywheresoftware.b4h.okhttp.OkHttpClientWrapper _hc = null;
 public static anywheresoftware.b4a.objects.collections.Map _taskidtojob = null;
 public static String _tempfolder = "";
 public static int _taskcounter = 0;
+public anywheresoftware.b4a.samples.httputils2.main _main = null;
 public static String  _completejob(int _taskid,boolean _success,String _errormessage) throws Exception{
 anywheresoftware.b4a.samples.httputils2.httpjob _job = null;
- //BA.debugLineNum = 89;BA.debugLine="Sub CompleteJob(TaskId As Int, success As Boolean,";
- //BA.debugLineNum = 90;BA.debugLine="Dim job As HttpJob = TaskIdToJob.Get(TaskId)";
+ //BA.debugLineNum = 94;BA.debugLine="Sub CompleteJob(TaskId As Int, success As Boolean,";
+ //BA.debugLineNum = 95;BA.debugLine="Dim job As HttpJob = TaskIdToJob.Get(TaskId)";
 _job = (anywheresoftware.b4a.samples.httputils2.httpjob)(_taskidtojob.Get((Object)(_taskid)));
- //BA.debugLineNum = 91;BA.debugLine="TaskIdToJob.Remove(TaskId)";
+ //BA.debugLineNum = 96;BA.debugLine="TaskIdToJob.Remove(TaskId)";
 _taskidtojob.Remove((Object)(_taskid));
- //BA.debugLineNum = 92;BA.debugLine="job.success = success";
+ //BA.debugLineNum = 97;BA.debugLine="job.success = success";
 _job._success = _success;
- //BA.debugLineNum = 93;BA.debugLine="job.errorMessage = errorMessage";
+ //BA.debugLineNum = 98;BA.debugLine="job.errorMessage = errorMessage";
 _job._errormessage = _errormessage;
- //BA.debugLineNum = 94;BA.debugLine="job.Complete(TaskId)";
+ //BA.debugLineNum = 99;BA.debugLine="job.Complete(TaskId)";
 _job._complete(_taskid);
- //BA.debugLineNum = 95;BA.debugLine="End Sub";
+ //BA.debugLineNum = 100;BA.debugLine="End Sub";
 return "";
 }
 public static String  _hc_responseerror(anywheresoftware.b4h.okhttp.OkHttpClientWrapper.OkHttpResponse _response,String _reason,int _statuscode,int _taskid) throws Exception{
- //BA.debugLineNum = 78;BA.debugLine="Sub hc_ResponseError (Response As OkHttpResponse,";
- //BA.debugLineNum = 79;BA.debugLine="Log(\"hc_ResponseError:\"&Reason&\" \"&StatusCode)";
+ //BA.debugLineNum = 83;BA.debugLine="Sub hc_ResponseError (Response As OkHttpResponse,";
+ //BA.debugLineNum = 84;BA.debugLine="Log(\"hc_ResponseError:\"&Reason&\" \"&StatusCode)";
 anywheresoftware.b4a.keywords.Common.Log("hc_ResponseError:"+_reason+" "+BA.NumberToString(_statuscode));
- //BA.debugLineNum = 80;BA.debugLine="If Response <> Null Then";
+ //BA.debugLineNum = 85;BA.debugLine="If Response <> Null Then";
 if (_response!= null) { 
- //BA.debugLineNum = 81;BA.debugLine="Log(Response.ErrorResponse)";
+ //BA.debugLineNum = 86;BA.debugLine="Log(Response.ErrorResponse)";
 anywheresoftware.b4a.keywords.Common.Log(_response.getErrorResponse());
- //BA.debugLineNum = 82;BA.debugLine="Response.Release";
+ //BA.debugLineNum = 87;BA.debugLine="Response.Release";
 _response.Release();
  };
- //BA.debugLineNum = 84;BA.debugLine="CompleteJob(TaskId, False, Reason)";
+ //BA.debugLineNum = 89;BA.debugLine="CompleteJob(TaskId, False, Reason)";
 _completejob(_taskid,anywheresoftware.b4a.keywords.Common.False,_reason);
- //BA.debugLineNum = 85;BA.debugLine="End Sub";
+ //BA.debugLineNum = 90;BA.debugLine="End Sub";
 return "";
 }
 public static String  _hc_responsesuccess(anywheresoftware.b4h.okhttp.OkHttpClientWrapper.OkHttpResponse _response,int _taskid) throws Exception{
 anywheresoftware.b4a.samples.httputils2.httpjob _job = null;
- //BA.debugLineNum = 49;BA.debugLine="Sub hc_ResponseSuccess (Response As OkHttpResponse";
- //BA.debugLineNum = 50;BA.debugLine="Log(\"hc_ResponseSuccess\")";
+ //BA.debugLineNum = 54;BA.debugLine="Sub hc_ResponseSuccess (Response As OkHttpResponse";
+ //BA.debugLineNum = 55;BA.debugLine="Log(\"hc_ResponseSuccess\")";
 anywheresoftware.b4a.keywords.Common.Log("hc_ResponseSuccess");
- //BA.debugLineNum = 51;BA.debugLine="If Response.ContentLength=0 Then";
+ //BA.debugLineNum = 56;BA.debugLine="If Response.ContentLength=0 Then";
 if (_response.getContentLength()==0) { 
- //BA.debugLineNum = 52;BA.debugLine="CompleteJob(TaskId, True, \"\")";
+ //BA.debugLineNum = 57;BA.debugLine="CompleteJob(TaskId, True, \"\")";
 _completejob(_taskid,anywheresoftware.b4a.keywords.Common.True,"");
  }else {
- //BA.debugLineNum = 54;BA.debugLine="Dim job As HttpJob=TaskIdToJob.Get(TaskId)";
+ //BA.debugLineNum = 59;BA.debugLine="Dim job As HttpJob=TaskIdToJob.Get(TaskId)";
 _job = (anywheresoftware.b4a.samples.httputils2.httpjob)(_taskidtojob.Get((Object)(_taskid)));
- //BA.debugLineNum = 55;BA.debugLine="job.response=Response";
+ //BA.debugLineNum = 60;BA.debugLine="job.response=Response";
 _job._response = _response;
- //BA.debugLineNum = 56;BA.debugLine="If job.CookieAutoProcess Then";
+ //BA.debugLineNum = 61;BA.debugLine="If job.CookieAutoProcess Then";
 if (_job._cookieautoprocess) { 
- //BA.debugLineNum = 58;BA.debugLine="File.WriteMap(File.DirInternal,\"mycookie\",Respo";
+ //BA.debugLineNum = 63;BA.debugLine="File.WriteMap(File.DirInternal,\"mycookie\",Respo";
 anywheresoftware.b4a.keywords.Common.File.WriteMap(anywheresoftware.b4a.keywords.Common.File.getDirInternal(),"mycookie",_response.GetHeaders());
  };
- //BA.debugLineNum = 60;BA.debugLine="job.ocos.Initialize(File.OpenOutput(TempFolder,";
+ //BA.debugLineNum = 65;BA.debugLine="job.ocos.Initialize(File.OpenOutput(TempFolder,";
 _job._ocos.Initialize((java.io.OutputStream)(anywheresoftware.b4a.keywords.Common.File.OpenOutput(_tempfolder,BA.NumberToString(_taskid),anywheresoftware.b4a.keywords.Common.False).getObject()));
- //BA.debugLineNum = 61;BA.debugLine="Response.GetAsynchronously(\"response\", job.ocos,";
+ //BA.debugLineNum = 66;BA.debugLine="Response.GetAsynchronously(\"response\", job.ocos,";
 _response.GetAsynchronously(processBA,"response",(java.io.OutputStream)(_job._ocos.getObject()),anywheresoftware.b4a.keywords.Common.True,_taskid);
- //BA.debugLineNum = 63;BA.debugLine="TaskIdToJob.Put(TaskId,job)";
+ //BA.debugLineNum = 68;BA.debugLine="TaskIdToJob.Put(TaskId,job)";
 _taskidtojob.Put((Object)(_taskid),(Object)(_job));
  };
- //BA.debugLineNum = 66;BA.debugLine="End Sub";
+ //BA.debugLineNum = 71;BA.debugLine="End Sub";
 return "";
 }
 public static String  _process_globals() throws Exception{
@@ -192,18 +193,18 @@ _taskcounter = 0;
 return "";
 }
 public static String  _response_streamfinish(boolean _success,int _taskid) throws Exception{
- //BA.debugLineNum = 68;BA.debugLine="Sub Response_StreamFinish (Success As Boolean, Tas";
- //BA.debugLineNum = 69;BA.debugLine="Log(\"Response_StreamFinish\")";
+ //BA.debugLineNum = 73;BA.debugLine="Sub Response_StreamFinish (Success As Boolean, Tas";
+ //BA.debugLineNum = 74;BA.debugLine="Log(\"Response_StreamFinish\")";
 anywheresoftware.b4a.keywords.Common.Log("Response_StreamFinish");
- //BA.debugLineNum = 70;BA.debugLine="If Success Then";
+ //BA.debugLineNum = 75;BA.debugLine="If Success Then";
 if (_success) { 
- //BA.debugLineNum = 71;BA.debugLine="CompleteJob(TaskId, Success, \"\")";
+ //BA.debugLineNum = 76;BA.debugLine="CompleteJob(TaskId, Success, \"\")";
 _completejob(_taskid,_success,"");
  }else {
- //BA.debugLineNum = 73;BA.debugLine="CompleteJob(TaskId, Success, LastException.Messa";
+ //BA.debugLineNum = 78;BA.debugLine="CompleteJob(TaskId, Success, LastException.Messa";
 _completejob(_taskid,_success,anywheresoftware.b4a.keywords.Common.LastException(processBA).getMessage());
  };
- //BA.debugLineNum = 76;BA.debugLine="End Sub";
+ //BA.debugLineNum = 81;BA.debugLine="End Sub";
 return "";
 }
 public static String  _service_create() throws Exception{
@@ -230,6 +231,7 @@ return "";
 public static int  _submitjob(anywheresoftware.b4a.samples.httputils2.httpjob _job) throws Exception{
 anywheresoftware.b4a.objects.collections.Map _ckm = null;
 int _i = 0;
+String _key = "";
  //BA.debugLineNum = 27;BA.debugLine="Public Sub SubmitJob(job As HttpJob) As Int";
  //BA.debugLineNum = 28;BA.debugLine="taskCounter = taskCounter + 1";
 _taskcounter = (int) (_taskcounter+1);
@@ -250,24 +252,32 @@ _ckm.Initialize();
 final int step9 = 1;
 final int limit9 = (int) (_ckm.getSize()-1);
 for (_i = (int) (0) ; (step9 > 0 && _i <= limit9) || (step9 < 0 && _i >= limit9); _i = ((int)(0 + _i + step9)) ) {
- //BA.debugLineNum = 37;BA.debugLine="job.GetRequest.SetHeader(ckm.GetKeyAt(i),ckm.Ge";
+ //BA.debugLineNum = 37;BA.debugLine="Dim key As String=ckm.GetKeyAt(i)";
+_key = BA.ObjectToString(_ckm.GetKeyAt(_i));
+ //BA.debugLineNum = 38;BA.debugLine="If key.ToLowerCase.IndexOf(\"set-cookie\")>-1 The";
+if (_key.toLowerCase().indexOf("set-cookie")>-1) { 
+ //BA.debugLineNum = 39;BA.debugLine="job.GetRequest.SetHeader(\"Cookie\",ckm.GetValue";
+_job._getrequest().SetHeader("Cookie",BA.ObjectToString(_ckm.GetValueAt(_i)));
+ }else {
+ //BA.debugLineNum = 41;BA.debugLine="job.GetRequest.SetHeader(ckm.GetKeyAt(i),ckm.G";
 _job._getrequest().SetHeader(BA.ObjectToString(_ckm.GetKeyAt(_i)),BA.ObjectToString(_ckm.GetValueAt(_i)));
+ };
  }
 };
  };
- //BA.debugLineNum = 40;BA.debugLine="TaskIdToJob.Put(taskCounter, job)";
+ //BA.debugLineNum = 45;BA.debugLine="TaskIdToJob.Put(taskCounter, job)";
 _taskidtojob.Put((Object)(_taskcounter),(Object)(_job));
- //BA.debugLineNum = 41;BA.debugLine="If job.Username <> \"\" And job.Password <> \"\" Then";
+ //BA.debugLineNum = 46;BA.debugLine="If job.Username <> \"\" And job.Password <> \"\" Then";
 if ((_job._username).equals("") == false && (_job._password).equals("") == false) { 
- //BA.debugLineNum = 42;BA.debugLine="hc.ExecuteCredentials(job.GetRequest, taskCounte";
+ //BA.debugLineNum = 47;BA.debugLine="hc.ExecuteCredentials(job.GetRequest, taskCounte";
 _hc.ExecuteCredentials(processBA,_job._getrequest(),_taskcounter,_job._username,_job._password);
  }else {
- //BA.debugLineNum = 44;BA.debugLine="hc.Execute(job.GetRequest, taskCounter)";
+ //BA.debugLineNum = 49;BA.debugLine="hc.Execute(job.GetRequest, taskCounter)";
 _hc.Execute(processBA,_job._getrequest(),_taskcounter);
  };
- //BA.debugLineNum = 46;BA.debugLine="Return taskCounter";
+ //BA.debugLineNum = 51;BA.debugLine="Return taskCounter";
 if (true) return _taskcounter;
- //BA.debugLineNum = 47;BA.debugLine="End Sub";
+ //BA.debugLineNum = 52;BA.debugLine="End Sub";
 return 0;
 }
 }

@@ -39,7 +39,12 @@ Public Sub SubmitJob(job As HttpJob) As Int
 			ckm.Initialize
 		End Try
 		For i=0 To ckm.Size-1
-			job.GetRequest.SetHeader(ckm.GetKeyAt(i),ckm.GetValueAt(i))
+			Dim key As String=ckm.GetKeyAt(i)
+			If key.ToLowerCase.IndexOf("set-cookie")>-1 Then 
+				job.GetRequest.SetHeader("Cookie",ckm.GetValueAt(i))	
+			Else
+				job.GetRequest.SetHeader(ckm.GetKeyAt(i),ckm.GetValueAt(i))
+			End If
 		Next
 	End If
 	TaskIdToJob.Put(taskCounter, job)

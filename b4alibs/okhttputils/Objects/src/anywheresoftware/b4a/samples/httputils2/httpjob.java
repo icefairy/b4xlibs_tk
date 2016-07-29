@@ -38,6 +38,7 @@ public anywheresoftware.b4a.randomaccessfile.CountingStreams.CountingOutput _oco
 public anywheresoftware.b4h.okhttp.OkHttpClientWrapper.OkHttpResponse _response = null;
 public boolean _cookieautoprocess = false;
 public long _ltotalsize = 0L;
+public anywheresoftware.b4a.samples.httputils2.main _main = null;
 public anywheresoftware.b4a.samples.httputils2.httputils2service _httputils2service = null;
 public static class _multipartfiledata{
 public boolean IsInitialized;
