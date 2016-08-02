@@ -139,8 +139,9 @@ JSONObject jo=new JSONObject(js);"$
 			
 			End Select
 			If k.EqualsIgnoreCase("id") Then
-			sbCLS.Append($"@Column(isId = true,name = "${k}")
+			sbCLS.Append($"@Column(isId = true,name = "${k}",autoGen = false)
 "$)
+'@Column(isId = true,name = "id",autoGen = false)
 			Else
 			sbCLS.Append($"@Column(name = "${k}")
 "$)	
