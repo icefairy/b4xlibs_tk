@@ -5,7 +5,7 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-
+import android.graphics.drawable.Drawable;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.view.View;
@@ -22,7 +22,7 @@ import anywheresoftware.b4a.objects.ImageViewWrapper;
 import anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper;
 
 @ShortName("myUIL")
-@Version(1.30f)
+@Version(1.31f)
 @Author("Icefairy333")
 @DependsOn(values={"universal-image-loader-1.9.5"})
 @Permissions(values={"android.permission.INTERNET","android.permission.ACCESS_NETWORK_STATE","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.READ_EXTERNAL_STORAGE"})
@@ -35,8 +35,8 @@ public class myUIL {
 	public boolean resetViewBeforeLoading=false;
 	public boolean ViewBGTransparent=true;
 	public int delayBeforeLoading=0;
-	public int nLoadResId=0;
-	public int nFailResId=0;
+	public Drawable nLoadResId=null;
+	public Drawable nFailResId=null;
 	public ScaleType defScaleType=null;
 	public ScaleType FIT_XY=ScaleType.FIT_XY;
 	public ScaleType FIT_CENTER=ScaleType.FIT_CENTER;
@@ -105,10 +105,10 @@ public class myUIL {
 			.bitmapConfig(bitmapCFG_def)
 			.delayBeforeLoading(delayBeforeLoading)
 			.resetViewBeforeLoading(resetViewBeforeLoading);
-		if(nLoadResId>0){
+		if(nLoadResId!=null){
 			dio.showImageOnLoading(nLoadResId);
 		}
-		if(nFailResId>0){
+		if(nFailResId!=null){
 			dio.showImageOnFail(nFailResId);
 		}
 		if (ViewBGTransparent) {
@@ -126,10 +126,10 @@ public class myUIL {
 			.bitmapConfig(bitmapCFG_def)
 			.delayBeforeLoading(delayBeforeLoading)
 			.resetViewBeforeLoading(resetViewBeforeLoading);
-		if(nLoadResId>0){
+		if(nLoadResId!=null){
 			dio.showImageOnLoading(nLoadResId);
 		}
-		if(nFailResId>0){
+		if(nFailResId!=null){
 			dio.showImageOnFail(nFailResId);
 		}
 		if (ViewBGTransparent) {
@@ -148,10 +148,10 @@ public class myUIL {
 				.bitmapConfig(bitmapCFG_def)
 				.delayBeforeLoading(delayBeforeLoading)
 				.resetViewBeforeLoading(resetViewBeforeLoading);
-		if(nLoadResId>0){
+		if(nLoadResId!=null){
 			dio.showImageOnLoading(nLoadResId);
 		}
-		if(nFailResId>0){
+		if(nFailResId!=null){
 			dio.showImageOnFail(nFailResId);
 		}
 		if (ViewBGTransparent) {

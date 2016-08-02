@@ -138,6 +138,13 @@ JSONObject jo=new JSONObject(js);"$
 				constr=constr&CRLF&$"this.${k}=jo.opt("${k}");"$
 			
 			End Select
+			If k.EqualsIgnoreCase("id") Then
+			sbCLS.Append($"@Column(isId = true,name = "${k}")
+"$)
+			Else
+			sbCLS.Append($"@Column(name = "${k}")
+"$)	
+			End If
 			sbCLS.Append("private "&typ&" "&k&";").Append(CRLF)
 			sb_code.Append($"${getTABS(nFloor)}myItem.set${getFirstUpper(k)}(${parent&".Get("""&k&"""));"}"$)
 			sb_code.Append(CRLF)

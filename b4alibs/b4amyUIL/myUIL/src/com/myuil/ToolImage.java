@@ -14,13 +14,8 @@ import com.nostra13.universalimageloader.utils.StorageUtils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-
-/**
- * 图片加载工具类
- * @author 曾繁添
- * @version 1.0
- *
- */
+import anywheresoftware.b4a.BA.Hide;
+@Hide
 public abstract class ToolImage {
 
 	private static ImageLoader imageLoader;
