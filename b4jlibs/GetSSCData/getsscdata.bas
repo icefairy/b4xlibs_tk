@@ -105,7 +105,7 @@ Private Sub outputs
 		sb.Initialize
 		sb.Append(File.ReadString("",File.DirApp&"/www/header.tpl"))
 		sb.Append(checkver(mExtra.GetDefault("ver",""),mExtra.GetDefault("app","")))
-		sb.Append($"<table><tr><td>期号</td><td>万</td><td>千</td><td>百</td><td>十</td><td>个</td></tr>"$)
+		sb.Append($"<table><tr><td>期号</td><td class='tdwxshui'>万</td><td class='tdwxhuo'>千</td><td class='tdwxmu'>百</td><td class='tdwxjin'>十</td><td class='tdwxtu'>个</td></tr>"$)
 		Dim m As Map
 		Dim hm,qh As String
 		For i=0 To Main.mData.Size-1
