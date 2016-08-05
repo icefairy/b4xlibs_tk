@@ -1,0 +1,83 @@
+﻿Version=6
+NumberOfModules=4
+Module1=Starter
+Module2=comm
+Module3=actmain
+Module4=cowservice
+Build1=Default,xyz.czhuan.niuguaner
+Build2=fnw,xyz.czhuan.fangniuwa
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddPermission(android.permission.INTERNET)~\n~AddPermission(android.permission.READ_EXTERNAL_STORAGE)
+IconFile=
+NumberOfFiles=8
+File1=armv6
+File2=armv7
+File3=blocked.txt
+File4=core.txt
+File5=direct.txt
+File6=layedit.bal
+File7=laymain.bal
+File8=loading.bal
+NumberOfLibraries=6
+Library1=core
+Library2=javaobject
+Library3=threading
+Library4=stringutils
+Library5=richtextutil
+Library6=phone
+@EndOfDesignText@
+#Region  Project Attributes 
+'	If fnw Then
+	#ApplicationLabel: 放牛娃
+'	Else
+'	#ApplicationLabel: 牛倌儿
+'	End If
+	#VersionCode: 1
+	#VersionName: 1.0
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+
+	Private lbltips As Label
+	Private rtu As RichTextUtil
+	Private tipstr As String=$"<big>${Application.LabelName}</big><br>
+本app不提供ss账号，请自行通过其他途径获取ss账号，本程序成功开启后请自行在wifi设置-高级 中设置pac地址为:http://127.0.0.1:7777/pac即可正常使用,因为使用pac特性，所以可能只有Android5.x++才能用，4.x的系统请配合smartproxy一类的软件才可以使用pac特性。
+有啥问题或者建议可以联系Q:860668820<br>
+看完之后点击进入程序"$
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("loading")
+	Activity.Title=Application.LabelName
+	Dim np As Int=10dip
+	comm.SetPadding(lbltips,np,np,np,np)
+	lbltips.Text=rtu.Inst.addHTMLString(tipstr,50,50).RichString
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+Sub lbltips_Click
+	StartActivity(actmain)
+	Activity.Finish
+End Sub
