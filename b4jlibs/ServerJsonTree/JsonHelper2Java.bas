@@ -113,6 +113,7 @@ Sub parseJSO(obj As Object,parent As Object)
 		sbCLS.Append(CRLF&"//start of class typ"&parent&CRLF&"public static class md"&parent&" {"&CRLF)
 		Dim constr As String=""
 		constr=$"
+public md${parent}(){}//this is for xutils.db
 public md${parent}(String js) {
  if (js==null||js.length()<1){
         return;
