@@ -1,0 +1,11 @@
+listen = http://127.0.0.1:7777 127.0.0.1:7777
+#   backup:  默认策略，优先使用第一个指定的二级代理，其他仅作备份使用
+#   hash:    根据请求的 host name，优先使用 hash 到的某一个二级代理
+#   latency: 优先选择连接延迟最低的二级代理
+loadBalance = latency
+#proxy = ss://aes-256-cfb:pass@123.123.123.123:443
+#httpErrorCode =
+# 最多允许使用多少个 CPU 核
+core = 1
+estimateTarget = www.qq.com
+#tunnelAllowedPort = 80, 443
