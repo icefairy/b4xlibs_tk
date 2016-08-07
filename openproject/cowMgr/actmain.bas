@@ -30,6 +30,9 @@ Sub Activity_Create(FirstTime As Boolean)
 	Activity.Title=Application.LabelName
 	sv.Panel.Height=100%y
 	sv.Panel.LoadLayout("layedit")
+	Dim jo As JavaObject
+	jo=edtcontent
+	jo.RunMethod("setHorizontallyScrolling",Array As Object(True))'设置允许横向滚动（不自动换行）
 	comm.SetPaddingCommon(edtcontent)
 	lvcmd.SingleLineLayout.Label.Gravity=Gravity.CENTER
 	If Starter.bCowExist=False Then
@@ -116,6 +119,7 @@ Sub btnreset_Click
 	Else
 		edtcontent.Text=File.ReadString(File.DirAssets,edtFn&".txt")
 	End If
+	
 End Sub
 
 Sub btnsave_Click

@@ -34,7 +34,7 @@
 		<receiver android:name=".starter$starter_BR">
 		</receiver>
 		<activity
-			android:windowSoftInputMode="stateHidden"
+			android:windowSoftInputMode="adjustPan"
 			android:launchMode="singleTop"
 			android:name=".actmain"
 			android:label="放牛娃"
