@@ -137,17 +137,25 @@ public static String  _service_create() throws Exception{
 return "";
 }
 public static String  _service_destroy() throws Exception{
- //BA.debugLineNum = 47;BA.debugLine="Sub Service_Destroy";
- //BA.debugLineNum = 49;BA.debugLine="End Sub";
+ //BA.debugLineNum = 55;BA.debugLine="Sub Service_Destroy";
+ //BA.debugLineNum = 57;BA.debugLine="End Sub";
 return "";
 }
 public static String  _service_start(anywheresoftware.b4a.objects.IntentWrapper _startingintent) throws Exception{
- //BA.debugLineNum = 36;BA.debugLine="Sub Service_Start (StartingIntent As Intent)";
- //BA.debugLineNum = 37;BA.debugLine="thd.Initialise(\"thd\")";
+ //BA.debugLineNum = 40;BA.debugLine="Sub Service_Start (StartingIntent As Intent)";
+ //BA.debugLineNum = 41;BA.debugLine="thd.Initialise(\"thd\")";
 _thd.Initialise(processBA,"thd");
- //BA.debugLineNum = 38;BA.debugLine="thd.Start(Me,\"startcow\",Null)";
+ //BA.debugLineNum = 42;BA.debugLine="thd.Start(Me,\"startcow\",Null)";
 _thd.Start(cowservice.getObject(),"startcow",(Object[])(anywheresoftware.b4a.keywords.Common.Null));
- //BA.debugLineNum = 39;BA.debugLine="End Sub";
+ //BA.debugLineNum = 43;BA.debugLine="End Sub";
+return "";
+}
+public static String  _showmsg(String _msg) throws Exception{
+ //BA.debugLineNum = 30;BA.debugLine="Sub showmsg(msg As String)";
+ //BA.debugLineNum = 31;BA.debugLine="If msg<>Null And msg.Length>0 Then 	comm.TL(msg)";
+if (_msg!= null && _msg.length()>0) { 
+mostCurrent._comm._tl(processBA,_msg);};
+ //BA.debugLineNum = 32;BA.debugLine="End Sub";
 return "";
 }
 public static String  _startcow() throws Exception{
@@ -171,31 +179,35 @@ _noti.SetInfo(processBA,anywheresoftware.b4a.keywords.Common.Application.getLabe
 mostCurrent._service.StartForeground(_notiid,(android.app.Notification)(_noti.getObject()));
  //BA.debugLineNum = 26;BA.debugLine="Dim ret As String =comm.shell(Starter.cowPath&\" -";
 _ret = mostCurrent._comm._shell(processBA,mostCurrent._starter._cowpath+" -rc "+mostCurrent._starter._cfgpath+" -logFile "+mostCurrent._starter._cfgpath.replace("core.txt","logfile.log")+" &");
- //BA.debugLineNum = 27;BA.debugLine="Log(ret)";
-anywheresoftware.b4a.keywords.Common.Log(_ret);
- //BA.debugLineNum = 28;BA.debugLine="End Sub";
+ //BA.debugLineNum = 28;BA.debugLine="CallSubDelayed2(Me,\"showmsg\",ret)";
+anywheresoftware.b4a.keywords.Common.CallSubDelayed2(processBA,cowservice.getObject(),"showmsg",(Object)(_ret));
+ //BA.debugLineNum = 29;BA.debugLine="End Sub";
 return "";
 }
 public static String  _stopcow() throws Exception{
- //BA.debugLineNum = 29;BA.debugLine="Sub stopcow";
- //BA.debugLineNum = 30;BA.debugLine="Service.StopForeground(notiid)";
+ //BA.debugLineNum = 33;BA.debugLine="Sub stopcow";
+ //BA.debugLineNum = 34;BA.debugLine="Service.StopForeground(notiid)";
 mostCurrent._service.StopForeground(_notiid);
- //BA.debugLineNum = 31;BA.debugLine="comm.shell(\"killall cow\")";
+ //BA.debugLineNum = 35;BA.debugLine="comm.shell(\"killall cow\")";
 mostCurrent._comm._shell(processBA,"killall cow");
- //BA.debugLineNum = 32;BA.debugLine="End Sub";
+ //BA.debugLineNum = 36;BA.debugLine="End Sub";
 return "";
 }
 public static String  _thd_ended(boolean _endedok,String _error) throws Exception{
- //BA.debugLineNum = 40;BA.debugLine="Sub thd_Ended(endedOK As Boolean, error As String)";
- //BA.debugLineNum = 41;BA.debugLine="If endedOK Then";
+ //BA.debugLineNum = 44;BA.debugLine="Sub thd_Ended(endedOK As Boolean, error As String)";
+ //BA.debugLineNum = 45;BA.debugLine="If endedOK Then";
 if (_endedok) { 
- //BA.debugLineNum = 42;BA.debugLine="Log(\"thd ended\")";
+ //BA.debugLineNum = 46;BA.debugLine="Log(\"thd ended\")";
 anywheresoftware.b4a.keywords.Common.Log("thd ended");
  }else {
- //BA.debugLineNum = 44;BA.debugLine="Log(\"thd error:\"&error)";
+ //BA.debugLineNum = 48;BA.debugLine="Log(\"thd error:\"&error)";
 anywheresoftware.b4a.keywords.Common.Log("thd error:"+_error);
  };
- //BA.debugLineNum = 46;BA.debugLine="End Sub";
+ //BA.debugLineNum = 51;BA.debugLine="comm.TL(\"核心配置文件可能错误，请仔细检查后再尝试\")";
+mostCurrent._comm._tl(processBA,"核心配置文件可能错误，请仔细检查后再尝试");
+ //BA.debugLineNum = 52;BA.debugLine="stopcow";
+_stopcow();
+ //BA.debugLineNum = 54;BA.debugLine="End Sub";
 return "";
 }
 }

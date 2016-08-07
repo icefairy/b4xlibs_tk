@@ -107,7 +107,10 @@ public Sub shell(cmd As String) As String
 	sh.Shell(cmd,Null,sb,err)
 '	Dim sh As shell
 '	sh.exec(cmd,sb,err,wait)
-	If err.Length>0 Then Log(err.ToString)
+	If err.Length>0 Then
+		Log(err.ToString)
+		Return err.ToString
+	End If
 	Return sb.ToString
 End Sub
 Public Sub sharestr(str As String)

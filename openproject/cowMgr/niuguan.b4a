@@ -6,7 +6,7 @@ Module3=actmain
 Module4=cowservice
 Build1=Default,xyz.czhuan.niuguaner
 Build2=fnw,xyz.czhuan.fangniuwa
-ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddPermission(android.permission.INTERNET)~\n~AddPermission(android.permission.READ_EXTERNAL_STORAGE)
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddPermission(android.permission.INTERNET)~\n~AddPermission(android.permission.READ_EXTERNAL_STORAGE)~\n~SetActivityAttribute(actmain,android:windowSoftInputMode,adjustPan)
 IconFile=
 NumberOfFiles=8
 File1=armv6
@@ -22,8 +22,8 @@ Library1=core
 Library2=javaobject
 Library3=threading
 Library4=stringutils
-Library5=richtextutil
-Library6=phone
+Library5=phone
+Library6=richtextutil
 @EndOfDesignText@
 #Region  Project Attributes 
 '	If fnw Then

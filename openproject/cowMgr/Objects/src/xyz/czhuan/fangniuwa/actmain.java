@@ -336,6 +336,7 @@ public static void initializeProcessGlobals() {
             }
 }
 public static String  _activity_create(boolean _firsttime) throws Exception{
+anywheresoftware.b4j.object.JavaObject _jo = null;
  //BA.debugLineNum = 22;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
  //BA.debugLineNum = 24;BA.debugLine="Activity.LoadLayout(\"laymain\")";
 mostCurrent._activity.LoadLayout("laymain",mostCurrent.activityBA);
@@ -345,115 +346,121 @@ mostCurrent._activity.setTitle((Object)(anywheresoftware.b4a.keywords.Common.App
 mostCurrent._sv.getPanel().setHeight(anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (100),mostCurrent.activityBA));
  //BA.debugLineNum = 27;BA.debugLine="sv.Panel.LoadLayout(\"layedit\")";
 mostCurrent._sv.getPanel().LoadLayout("layedit",mostCurrent.activityBA);
- //BA.debugLineNum = 28;BA.debugLine="comm.SetPaddingCommon(edtcontent)";
+ //BA.debugLineNum = 28;BA.debugLine="Dim jo As JavaObject";
+_jo = new anywheresoftware.b4j.object.JavaObject();
+ //BA.debugLineNum = 29;BA.debugLine="jo=edtcontent";
+_jo.setObject((java.lang.Object)(mostCurrent._edtcontent.getObject()));
+ //BA.debugLineNum = 30;BA.debugLine="jo.RunMethod(\"setHorizontallyScrolling\",Array As";
+_jo.RunMethod("setHorizontallyScrolling",new Object[]{(Object)(anywheresoftware.b4a.keywords.Common.True)});
+ //BA.debugLineNum = 31;BA.debugLine="comm.SetPaddingCommon(edtcontent)";
 mostCurrent._comm._setpaddingcommon(mostCurrent.activityBA,(anywheresoftware.b4a.objects.ConcreteViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ConcreteViewWrapper(), (android.view.View)(mostCurrent._edtcontent.getObject())));
- //BA.debugLineNum = 29;BA.debugLine="lvcmd.SingleLineLayout.Label.Gravity=Gravity.CENT";
+ //BA.debugLineNum = 32;BA.debugLine="lvcmd.SingleLineLayout.Label.Gravity=Gravity.CENT";
 mostCurrent._lvcmd.getSingleLineLayout().Label.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER);
- //BA.debugLineNum = 30;BA.debugLine="If Starter.bCowExist=False Then";
+ //BA.debugLineNum = 33;BA.debugLine="If Starter.bCowExist=False Then";
 if (mostCurrent._starter._bcowexist==anywheresoftware.b4a.keywords.Common.False) { 
- //BA.debugLineNum = 31;BA.debugLine="If Starter.cpu.EqualsIgnoreCase(\"unknow\") Then";
+ //BA.debugLineNum = 34;BA.debugLine="If Starter.cpu.EqualsIgnoreCase(\"unknow\") Then";
 if (mostCurrent._starter._cpu.equalsIgnoreCase("unknow")) { 
- //BA.debugLineNum = 32;BA.debugLine="Msgbox(\"您的设备处理器类型:\"&Starter.cpu&\"不被支持,无法使用本软件。\"";
+ //BA.debugLineNum = 35;BA.debugLine="Msgbox(\"您的设备处理器类型:\"&Starter.cpu&\"不被支持,无法使用本软件。\"";
 anywheresoftware.b4a.keywords.Common.Msgbox("您的设备处理器类型:"+mostCurrent._starter._cpu+"不被支持,无法使用本软件。","不支持",mostCurrent.activityBA);
- //BA.debugLineNum = 33;BA.debugLine="Activity.Finish";
+ //BA.debugLineNum = 36;BA.debugLine="Activity.Finish";
 mostCurrent._activity.Finish();
- //BA.debugLineNum = 34;BA.debugLine="ExitApplication";
+ //BA.debugLineNum = 37;BA.debugLine="ExitApplication";
 anywheresoftware.b4a.keywords.Common.ExitApplication();
- //BA.debugLineNum = 35;BA.debugLine="Return";
+ //BA.debugLineNum = 38;BA.debugLine="Return";
 if (true) return "";
  }else {
- //BA.debugLineNum = 37;BA.debugLine="If Msgbox2(\"现在要初始化吗？\",\"初始化\",\"是\",\"否\",\"\",Null)=Di";
+ //BA.debugLineNum = 40;BA.debugLine="If Msgbox2(\"现在要初始化吗？\",\"初始化\",\"是\",\"否\",\"\",Null)=Di";
 if (anywheresoftware.b4a.keywords.Common.Msgbox2("现在要初始化吗？","初始化","是","否","",(android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.Null),mostCurrent.activityBA)==anywheresoftware.b4a.keywords.Common.DialogResponse.POSITIVE) { 
- //BA.debugLineNum = 38;BA.debugLine="reinit";
+ //BA.debugLineNum = 41;BA.debugLine="reinit";
 _reinit();
  }else {
- //BA.debugLineNum = 40;BA.debugLine="Msgbox(\"不初始化无法使用\",\"退出\")";
+ //BA.debugLineNum = 43;BA.debugLine="Msgbox(\"不初始化无法使用\",\"退出\")";
 anywheresoftware.b4a.keywords.Common.Msgbox("不初始化无法使用","退出",mostCurrent.activityBA);
- //BA.debugLineNum = 41;BA.debugLine="Activity.Finish";
+ //BA.debugLineNum = 44;BA.debugLine="Activity.Finish";
 mostCurrent._activity.Finish();
- //BA.debugLineNum = 42;BA.debugLine="ExitApplication";
+ //BA.debugLineNum = 45;BA.debugLine="ExitApplication";
 anywheresoftware.b4a.keywords.Common.ExitApplication();
  };
  };
  };
- //BA.debugLineNum = 47;BA.debugLine="additem(\"启动\",\"start\")";
+ //BA.debugLineNum = 50;BA.debugLine="additem(\"启动\",\"start\")";
 _additem("启动","start");
- //BA.debugLineNum = 48;BA.debugLine="additem(\"停止\",\"stop\")";
+ //BA.debugLineNum = 51;BA.debugLine="additem(\"停止\",\"stop\")";
 _additem("停止","stop");
- //BA.debugLineNum = 49;BA.debugLine="additem(\"编辑核心配置\",\"core\")";
+ //BA.debugLineNum = 52;BA.debugLine="additem(\"编辑核心配置\",\"core\")";
 _additem("编辑核心配置","core");
- //BA.debugLineNum = 50;BA.debugLine="additem(\"编辑被拦截列表\",\"blocked\")";
+ //BA.debugLineNum = 53;BA.debugLine="additem(\"编辑被拦截列表\",\"blocked\")";
 _additem("编辑被拦截列表","blocked");
- //BA.debugLineNum = 51;BA.debugLine="additem(\"编辑直连列表\",\"direct\")";
+ //BA.debugLineNum = 54;BA.debugLine="additem(\"编辑直连列表\",\"direct\")";
 _additem("编辑直连列表","direct");
- //BA.debugLineNum = 52;BA.debugLine="additem(\"重新初始化\",\"reinit\")";
+ //BA.debugLineNum = 55;BA.debugLine="additem(\"重新初始化\",\"reinit\")";
 _additem("重新初始化","reinit");
- //BA.debugLineNum = 53;BA.debugLine="End Sub";
-return "";
-}
-public static boolean  _activity_keypress(int _keycode) throws Exception{
- //BA.debugLineNum = 99;BA.debugLine="Sub activity_KeyPress (KeyCode As Int) As Boolean";
- //BA.debugLineNum = 100;BA.debugLine="If KeyCode==KeyCodes.KEYCODE_BACK Then";
-if (_keycode==anywheresoftware.b4a.keywords.Common.KeyCodes.KEYCODE_BACK) { 
- //BA.debugLineNum = 101;BA.debugLine="If sv.Visible Then";
-if (mostCurrent._sv.getVisible()) { 
- //BA.debugLineNum = 102;BA.debugLine="sv.Visible=False";
-mostCurrent._sv.setVisible(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 103;BA.debugLine="Return True";
-if (true) return anywheresoftware.b4a.keywords.Common.True;
- };
- };
- //BA.debugLineNum = 106;BA.debugLine="Return False";
-if (true) return anywheresoftware.b4a.keywords.Common.False;
- //BA.debugLineNum = 107;BA.debugLine="End Sub";
-return false;
-}
-public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 69;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 71;BA.debugLine="End Sub";
-return "";
-}
-public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 65;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 67;BA.debugLine="End Sub";
-return "";
-}
-public static String  _additem(String _title,String _val) throws Exception{
- //BA.debugLineNum = 54;BA.debugLine="Sub additem(title As String,val As String)";
- //BA.debugLineNum = 55;BA.debugLine="lvcmd.AddSingleLine2(title,val)";
-mostCurrent._lvcmd.AddSingleLine2(_title,(Object)(_val));
  //BA.debugLineNum = 56;BA.debugLine="End Sub";
 return "";
 }
-public static String  _btnclose_click() throws Exception{
- //BA.debugLineNum = 122;BA.debugLine="Sub btnclose_Click";
- //BA.debugLineNum = 123;BA.debugLine="sv.Visible=False";
+public static boolean  _activity_keypress(int _keycode) throws Exception{
+ //BA.debugLineNum = 102;BA.debugLine="Sub activity_KeyPress (KeyCode As Int) As Boolean";
+ //BA.debugLineNum = 103;BA.debugLine="If KeyCode==KeyCodes.KEYCODE_BACK Then";
+if (_keycode==anywheresoftware.b4a.keywords.Common.KeyCodes.KEYCODE_BACK) { 
+ //BA.debugLineNum = 104;BA.debugLine="If sv.Visible Then";
+if (mostCurrent._sv.getVisible()) { 
+ //BA.debugLineNum = 105;BA.debugLine="sv.Visible=False";
 mostCurrent._sv.setVisible(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 124;BA.debugLine="End Sub";
+ //BA.debugLineNum = 106;BA.debugLine="Return True";
+if (true) return anywheresoftware.b4a.keywords.Common.True;
+ };
+ };
+ //BA.debugLineNum = 109;BA.debugLine="Return False";
+if (true) return anywheresoftware.b4a.keywords.Common.False;
+ //BA.debugLineNum = 110;BA.debugLine="End Sub";
+return false;
+}
+public static String  _activity_pause(boolean _userclosed) throws Exception{
+ //BA.debugLineNum = 72;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+ //BA.debugLineNum = 74;BA.debugLine="End Sub";
+return "";
+}
+public static String  _activity_resume() throws Exception{
+ //BA.debugLineNum = 68;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 70;BA.debugLine="End Sub";
+return "";
+}
+public static String  _additem(String _title,String _val) throws Exception{
+ //BA.debugLineNum = 57;BA.debugLine="Sub additem(title As String,val As String)";
+ //BA.debugLineNum = 58;BA.debugLine="lvcmd.AddSingleLine2(title,val)";
+mostCurrent._lvcmd.AddSingleLine2(_title,(Object)(_val));
+ //BA.debugLineNum = 59;BA.debugLine="End Sub";
+return "";
+}
+public static String  _btnclose_click() throws Exception{
+ //BA.debugLineNum = 126;BA.debugLine="Sub btnclose_Click";
+ //BA.debugLineNum = 127;BA.debugLine="sv.Visible=False";
+mostCurrent._sv.setVisible(anywheresoftware.b4a.keywords.Common.False);
+ //BA.debugLineNum = 128;BA.debugLine="End Sub";
 return "";
 }
 public static String  _btnreset_click() throws Exception{
- //BA.debugLineNum = 108;BA.debugLine="Sub btnreset_Click";
- //BA.debugLineNum = 109;BA.debugLine="If File.Exists(\"\",Starter.cfgPath.Replace(\"core.t";
+ //BA.debugLineNum = 111;BA.debugLine="Sub btnreset_Click";
+ //BA.debugLineNum = 112;BA.debugLine="If File.Exists(\"\",Starter.cfgPath.Replace(\"core.t";
 if (anywheresoftware.b4a.keywords.Common.File.Exists("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"))) { 
- //BA.debugLineNum = 110;BA.debugLine="edtcontent.Text=File.ReadString(\"\",Starter.cfgPa";
+ //BA.debugLineNum = 113;BA.debugLine="edtcontent.Text=File.ReadString(\"\",Starter.cfgPa";
 mostCurrent._edtcontent.setText((Object)(anywheresoftware.b4a.keywords.Common.File.ReadString("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"))));
  }else {
- //BA.debugLineNum = 112;BA.debugLine="edtcontent.Text=File.ReadString(File.DirAssets,e";
+ //BA.debugLineNum = 115;BA.debugLine="edtcontent.Text=File.ReadString(File.DirAssets,e";
 mostCurrent._edtcontent.setText((Object)(anywheresoftware.b4a.keywords.Common.File.ReadString(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),mostCurrent._edtfn+".txt")));
  };
- //BA.debugLineNum = 114;BA.debugLine="End Sub";
+ //BA.debugLineNum = 118;BA.debugLine="End Sub";
 return "";
 }
 public static String  _btnsave_click() throws Exception{
- //BA.debugLineNum = 116;BA.debugLine="Sub btnsave_Click";
- //BA.debugLineNum = 117;BA.debugLine="File.WriteString(\"\",Starter.cfgPath.Replace(\"core";
+ //BA.debugLineNum = 120;BA.debugLine="Sub btnsave_Click";
+ //BA.debugLineNum = 121;BA.debugLine="File.WriteString(\"\",Starter.cfgPath.Replace(\"core";
 anywheresoftware.b4a.keywords.Common.File.WriteString("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"),mostCurrent._edtcontent.getText().trim());
- //BA.debugLineNum = 118;BA.debugLine="comm.TL(\"保存成功\")";
+ //BA.debugLineNum = 122;BA.debugLine="comm.TL(\"保存成功\")";
 mostCurrent._comm._tl(mostCurrent.activityBA,"保存成功");
- //BA.debugLineNum = 119;BA.debugLine="sv.Visible=False";
+ //BA.debugLineNum = 123;BA.debugLine="sv.Visible=False";
 mostCurrent._sv.setVisible(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 120;BA.debugLine="End Sub";
+ //BA.debugLineNum = 124;BA.debugLine="End Sub";
 return "";
 }
 public static String  _globals() throws Exception{
@@ -470,46 +477,46 @@ mostCurrent._sv = new anywheresoftware.b4a.objects.ScrollViewWrapper();
 return "";
 }
 public static String  _initok() throws Exception{
- //BA.debugLineNum = 61;BA.debugLine="Sub initok";
- //BA.debugLineNum = 62;BA.debugLine="ProgressDialogHide";
+ //BA.debugLineNum = 64;BA.debugLine="Sub initok";
+ //BA.debugLineNum = 65;BA.debugLine="ProgressDialogHide";
 anywheresoftware.b4a.keywords.Common.ProgressDialogHide();
- //BA.debugLineNum = 63;BA.debugLine="comm.TL(\"初始化成功\")";
+ //BA.debugLineNum = 66;BA.debugLine="comm.TL(\"初始化成功\")";
 mostCurrent._comm._tl(mostCurrent.activityBA,"初始化成功");
- //BA.debugLineNum = 64;BA.debugLine="End Sub";
+ //BA.debugLineNum = 67;BA.debugLine="End Sub";
 return "";
 }
 public static String  _lvcmd_itemclick(int _position,Object _value) throws Exception{
 String _cmd = "";
- //BA.debugLineNum = 74;BA.debugLine="Sub lvcmd_ItemClick (Position As Int, Value As Obj";
- //BA.debugLineNum = 75;BA.debugLine="Dim cmd As String=Value";
+ //BA.debugLineNum = 77;BA.debugLine="Sub lvcmd_ItemClick (Position As Int, Value As Obj";
+ //BA.debugLineNum = 78;BA.debugLine="Dim cmd As String=Value";
 _cmd = BA.ObjectToString(_value);
- //BA.debugLineNum = 76;BA.debugLine="edtFn=cmd.ToLowerCase";
+ //BA.debugLineNum = 79;BA.debugLine="edtFn=cmd.ToLowerCase";
 mostCurrent._edtfn = _cmd.toLowerCase();
- //BA.debugLineNum = 77;BA.debugLine="Select cmd.ToLowerCase";
+ //BA.debugLineNum = 80;BA.debugLine="Select cmd.ToLowerCase";
 switch (BA.switchObjectToInt(_cmd.toLowerCase(),"start","stop","reinit")) {
 case 0: {
- //BA.debugLineNum = 79;BA.debugLine="StartService(cowservice)";
+ //BA.debugLineNum = 82;BA.debugLine="StartService(cowservice)";
 anywheresoftware.b4a.keywords.Common.StartService(mostCurrent.activityBA,(Object)(mostCurrent._cowservice.getObject()));
- //BA.debugLineNum = 80;BA.debugLine="comm.TL(\"已启动\")";
+ //BA.debugLineNum = 83;BA.debugLine="comm.TL(\"已启动\")";
 mostCurrent._comm._tl(mostCurrent.activityBA,"已启动");
  break; }
 case 1: {
- //BA.debugLineNum = 82;BA.debugLine="CallSubDelayed(cowservice,\"stopcow\")";
+ //BA.debugLineNum = 85;BA.debugLine="CallSubDelayed(cowservice,\"stopcow\")";
 anywheresoftware.b4a.keywords.Common.CallSubDelayed(mostCurrent.activityBA,(Object)(mostCurrent._cowservice.getObject()),"stopcow");
- //BA.debugLineNum = 83;BA.debugLine="comm.TL(\"已停止\")";
+ //BA.debugLineNum = 86;BA.debugLine="comm.TL(\"已停止\")";
 mostCurrent._comm._tl(mostCurrent.activityBA,"已停止");
  break; }
 case 2: {
- //BA.debugLineNum = 85;BA.debugLine="reinit";
+ //BA.debugLineNum = 88;BA.debugLine="reinit";
 _reinit();
  break; }
 default: {
- //BA.debugLineNum = 87;BA.debugLine="showeditor";
+ //BA.debugLineNum = 90;BA.debugLine="showeditor";
 _showeditor();
  break; }
 }
 ;
- //BA.debugLineNum = 89;BA.debugLine="End Sub";
+ //BA.debugLineNum = 92;BA.debugLine="End Sub";
 return "";
 }
 public static String  _process_globals() throws Exception{
@@ -518,29 +525,29 @@ public static String  _process_globals() throws Exception{
 return "";
 }
 public static String  _reinit() throws Exception{
- //BA.debugLineNum = 57;BA.debugLine="Sub reinit";
- //BA.debugLineNum = 58;BA.debugLine="ProgressDialogShow2(\"正在初始化请稍后\",False)";
+ //BA.debugLineNum = 60;BA.debugLine="Sub reinit";
+ //BA.debugLineNum = 61;BA.debugLine="ProgressDialogShow2(\"正在初始化请稍后\",False)";
 anywheresoftware.b4a.keywords.Common.ProgressDialogShow2(mostCurrent.activityBA,"正在初始化请稍后",anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 59;BA.debugLine="CallSubDelayed(Starter,\"initenv\")";
+ //BA.debugLineNum = 62;BA.debugLine="CallSubDelayed(Starter,\"initenv\")";
 anywheresoftware.b4a.keywords.Common.CallSubDelayed(mostCurrent.activityBA,(Object)(mostCurrent._starter.getObject()),"initenv");
- //BA.debugLineNum = 60;BA.debugLine="End Sub";
+ //BA.debugLineNum = 63;BA.debugLine="End Sub";
 return "";
 }
 public static String  _showeditor() throws Exception{
- //BA.debugLineNum = 90;BA.debugLine="Sub showeditor";
- //BA.debugLineNum = 91;BA.debugLine="sv.Visible=True";
+ //BA.debugLineNum = 93;BA.debugLine="Sub showeditor";
+ //BA.debugLineNum = 94;BA.debugLine="sv.Visible=True";
 mostCurrent._sv.setVisible(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 92;BA.debugLine="sv.BringToFront";
+ //BA.debugLineNum = 95;BA.debugLine="sv.BringToFront";
 mostCurrent._sv.BringToFront();
- //BA.debugLineNum = 93;BA.debugLine="If File.Exists(\"\",Starter.cfgPath.Replace(\"core.t";
+ //BA.debugLineNum = 96;BA.debugLine="If File.Exists(\"\",Starter.cfgPath.Replace(\"core.t";
 if (anywheresoftware.b4a.keywords.Common.File.Exists("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"))) { 
- //BA.debugLineNum = 94;BA.debugLine="edtcontent.Text=File.ReadString(\"\",Starter.cfgPa";
+ //BA.debugLineNum = 97;BA.debugLine="edtcontent.Text=File.ReadString(\"\",Starter.cfgPa";
 mostCurrent._edtcontent.setText((Object)(anywheresoftware.b4a.keywords.Common.File.ReadString("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"))));
  }else {
- //BA.debugLineNum = 96;BA.debugLine="edtcontent.Text=File.ReadString(File.DirAssets,e";
+ //BA.debugLineNum = 99;BA.debugLine="edtcontent.Text=File.ReadString(File.DirAssets,e";
 mostCurrent._edtcontent.setText((Object)(anywheresoftware.b4a.keywords.Common.File.ReadString(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),mostCurrent._edtfn+".txt")));
  };
- //BA.debugLineNum = 98;BA.debugLine="End Sub";
+ //BA.debugLineNum = 101;BA.debugLine="End Sub";
 return "";
 }
 }

@@ -187,20 +187,20 @@ return "";
 }
 public static String  _sharestr(anywheresoftware.b4a.BA _ba,String _str) throws Exception{
 anywheresoftware.b4a.objects.IntentWrapper _i = null;
- //BA.debugLineNum = 108;BA.debugLine="Public Sub sharestr(str As String)";
- //BA.debugLineNum = 109;BA.debugLine="Dim i As Intent";
+ //BA.debugLineNum = 111;BA.debugLine="Public Sub sharestr(str As String)";
+ //BA.debugLineNum = 112;BA.debugLine="Dim i As Intent";
 _i = new anywheresoftware.b4a.objects.IntentWrapper();
- //BA.debugLineNum = 110;BA.debugLine="i.Initialize(i.ACTION_SEND,\"\")";
+ //BA.debugLineNum = 113;BA.debugLine="i.Initialize(i.ACTION_SEND,\"\")";
 _i.Initialize(_i.ACTION_SEND,"");
- //BA.debugLineNum = 111;BA.debugLine="i.PutExtra(\"android.intent.extra.TEXT\",str)";
+ //BA.debugLineNum = 114;BA.debugLine="i.PutExtra(\"android.intent.extra.TEXT\",str)";
 _i.PutExtra("android.intent.extra.TEXT",(Object)(_str));
- //BA.debugLineNum = 112;BA.debugLine="i.SetType(\"text/plain\")";
+ //BA.debugLineNum = 115;BA.debugLine="i.SetType(\"text/plain\")";
 _i.SetType("text/plain");
- //BA.debugLineNum = 113;BA.debugLine="i.WrapAsIntentChooser(\"分享\")";
+ //BA.debugLineNum = 116;BA.debugLine="i.WrapAsIntentChooser(\"分享\")";
 _i.WrapAsIntentChooser("分享");
- //BA.debugLineNum = 114;BA.debugLine="StartActivity(i)";
+ //BA.debugLineNum = 117;BA.debugLine="StartActivity(i)";
 anywheresoftware.b4a.keywords.Common.StartActivity(_ba,(Object)(_i.getObject()));
- //BA.debugLineNum = 115;BA.debugLine="End Sub";
+ //BA.debugLineNum = 118;BA.debugLine="End Sub";
 return "";
 }
 public static String  _shell(anywheresoftware.b4a.BA _ba,String _cmd) throws Exception{
@@ -221,12 +221,16 @@ _err.Initialize();
 _sh = new anywheresoftware.b4a.phone.Phone();
  //BA.debugLineNum = 102;BA.debugLine="sh.Shell(cmd,Null,sb,err)";
 _sh.Shell(_cmd,(String[])(anywheresoftware.b4a.keywords.Common.Null),(java.lang.StringBuilder)(_sb.getObject()),(java.lang.StringBuilder)(_err.getObject()));
- //BA.debugLineNum = 105;BA.debugLine="If err.Length>0 Then Log(err.ToString)";
+ //BA.debugLineNum = 105;BA.debugLine="If err.Length>0 Then";
 if (_err.getLength()>0) { 
-anywheresoftware.b4a.keywords.Common.Log(_err.ToString());};
- //BA.debugLineNum = 106;BA.debugLine="Return sb.ToString";
+ //BA.debugLineNum = 106;BA.debugLine="Log(err.ToString)";
+anywheresoftware.b4a.keywords.Common.Log(_err.ToString());
+ //BA.debugLineNum = 107;BA.debugLine="Return err.ToString";
+if (true) return _err.ToString();
+ };
+ //BA.debugLineNum = 109;BA.debugLine="Return sb.ToString";
 if (true) return _sb.ToString();
- //BA.debugLineNum = 107;BA.debugLine="End Sub";
+ //BA.debugLineNum = 110;BA.debugLine="End Sub";
 return "";
 }
 public static String  _showprogress(anywheresoftware.b4a.BA _ba,String _msg) throws Exception{

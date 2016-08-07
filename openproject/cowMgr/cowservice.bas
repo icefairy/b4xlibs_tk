@@ -29,7 +29,11 @@ Sub startcow
 	noti.SetInfo(Application.LabelName,"牛儿正在吃草",actmain)
 	Service.StartForeground(notiid,noti)
 	Dim ret As String =comm.shell(Starter.cowPath&" -rc "&Starter.cfgPath&" -logFile "&Starter.cfgPath.Replace("core.txt","logfile.log")&" &")
-	Log(ret)
+'	Log("ret:"&ret)
+	CallSubDelayed2(Me,"showmsg",ret)'因为这里是在 子线程中所以不能直接toast
+End Sub
+Sub showmsg(msg As String)
+	If msg<>Null And msg.Length>0 Then 	comm.TL(msg)
 End Sub
 Sub stopcow
 	Service.StopForeground(notiid)
@@ -47,7 +51,11 @@ Sub thd_Ended(endedOK As Boolean, error As String) 'The thread has terminated. I
 		Log("thd ended")
 	Else
 		Log("thd error:"&error)
+		
 	End If
+	comm.TL("核心配置文件可能错误，请仔细检查后再尝试")
+	stopcow
+'	comm.TL(comm.shell("netstat -ano|grep 127.0.0.1:7777"))
 End Sub
 Sub Service_Destroy
 
