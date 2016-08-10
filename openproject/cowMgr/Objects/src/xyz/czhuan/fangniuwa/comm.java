@@ -12,6 +12,7 @@ public static Object getObject() {
 }
  public anywheresoftware.b4a.keywords.Common __c = null;
 public static anywheresoftware.b4a.objects.StringUtils _su = null;
+public anywheresoftware.b4a.samples.httputils2.httputils2service _httputils2service = null;
 public xyz.czhuan.fangniuwa.main _main = null;
 public xyz.czhuan.fangniuwa.starter _starter = null;
 public xyz.czhuan.fangniuwa.actmain _actmain = null;

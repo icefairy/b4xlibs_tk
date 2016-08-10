@@ -17,22 +17,20 @@ File5=direct.txt
 File6=layedit.bal
 File7=laymain.bal
 File8=loading.bal
-NumberOfLibraries=6
+NumberOfLibraries=8
 Library1=core
 Library2=javaobject
 Library3=threading
 Library4=stringutils
 Library5=phone
 Library6=richtextutil
+Library7=dialogs
+Library8=httputils2
 @EndOfDesignText@
 #Region  Project Attributes 
-'	If fnw Then
 	#ApplicationLabel: 放牛娃
-'	Else
-'	#ApplicationLabel: 牛倌儿
-'	End If
-	#VersionCode: 1
-	#VersionName: 1.0
+	#VersionCode: 2
+	#VersionName: 1.1
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
 	#SupportedOrientations: portrait
 	#CanInstallToExternalStorage: False

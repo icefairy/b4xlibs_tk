@@ -119,6 +119,7 @@ public static String _cfgpath = "";
 public static boolean _bcowexist = false;
 public static boolean _bcfgexist = false;
 public static String _cowversion = "";
+public anywheresoftware.b4a.samples.httputils2.httputils2service _httputils2service = null;
 public xyz.czhuan.fangniuwa.main _main = null;
 public xyz.czhuan.fangniuwa.comm _comm = null;
 public xyz.czhuan.fangniuwa.actmain _actmain = null;

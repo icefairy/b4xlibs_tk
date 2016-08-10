@@ -57,6 +57,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	additem("编辑核心配置","core")
 	additem("编辑被拦截列表","blocked")
 	additem("编辑直连列表","direct")
+	additem("下载核心配置","download")
 	additem("重新初始化","reinit")
 End Sub
 Sub additem(title As String,val As String)
@@ -91,9 +92,40 @@ Sub lvcmd_ItemClick (Position As Int, Value As Object)
 		comm.TL("已停止")
 	Case "reinit"
 		reinit
+	Case "download"
+		Dim inp As InputDialog
+		inp.Hint="请输入你的用户名用来下载配置文件"
+'		dodown("icefairy")
+		If inp.Show("输入用户名","下载配置","确定","取消","",Null)=DialogResponse.POSITIVE And inp.Input.Trim.Length>0 Then
+			dodown(inp.Input.Trim)
+		End If
+		
 	Case Else
 		showeditor
 	End Select
+End Sub
+Sub dodown(username As String)
+	Dim hj As HttpJob
+	hj.Initialize("down",Me)
+	Dim url As String=$"http://www.3956cc.com/${username}.dat"$
+	Log(url)
+	hj.Download(url)
+'	hj.GetRequest.SetHeader("Content-Type","application/octet-stream")
+'	hj.GetRequest.SetContentEncoding("utf-8")
+End Sub
+Sub JobDone(thj As HttpJob)
+	If thj.Success Then
+		Dim str As String=thj.GetString
+		If str.IndexOf("ss#pass#")>-1 Then
+			'文件内容ok
+			File.Delete("",Starter.cfgPath)
+			File.WriteString("",Starter.cfgPath,str)
+			comm.TL("核心配置更新成功")
+		End If
+	Else
+		comm.TL("网络错误:"&thj.ErrorMessage)
+	End If
+	thj.Release
 End Sub
 Sub showeditor
 	sv.Visible=True
