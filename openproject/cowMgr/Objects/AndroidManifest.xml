@@ -2,8 +2,8 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="xyz.czhuan.fangniuwa"
-	android:versionCode="1"
-	android:versionName="1.0"
+	android:versionCode="2"
+	android:versionName="1.1"
 	android:installLocation="internalOnly">
 	
 	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>
@@ -43,6 +43,10 @@
 		<service android:name=".cowservice">
 		</service>
 		<receiver android:name=".cowservice$cowservice_BR">
+		</receiver>
+		<service android:name="anywheresoftware.b4a.samples.httputils2.httputils2service">
+		</service>
+		<receiver android:name="anywheresoftware.b4a.samples.httputils2.httputils2service$httputils2service_BR">
 		</receiver>
 	</application>
 </manifest>

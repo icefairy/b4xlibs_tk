@@ -116,6 +116,7 @@ public anywheresoftware.b4a.keywords.Common __c = null;
 public static anywheresoftware.b4a.objects.NotificationWrapper _noti = null;
 public static int _notiid = 0;
 public static anywheresoftware.b4a.agraham.threading.Threading _thd = null;
+public anywheresoftware.b4a.samples.httputils2.httputils2service _httputils2service = null;
 public xyz.czhuan.fangniuwa.main _main = null;
 public xyz.czhuan.fangniuwa.starter _starter = null;
 public xyz.czhuan.fangniuwa.comm _comm = null;
@@ -179,7 +180,7 @@ _noti.SetInfo(processBA,anywheresoftware.b4a.keywords.Common.Application.getLabe
 mostCurrent._service.StartForeground(_notiid,(android.app.Notification)(_noti.getObject()));
  //BA.debugLineNum = 26;BA.debugLine="Dim ret As String =comm.shell(Starter.cowPath&\" -";
 _ret = mostCurrent._comm._shell(processBA,mostCurrent._starter._cowpath+" -rc "+mostCurrent._starter._cfgpath+" -logFile "+mostCurrent._starter._cfgpath.replace("core.txt","logfile.log")+" &");
- //BA.debugLineNum = 28;BA.debugLine="CallSubDelayed2(Me,\"showmsg\",ret)";
+ //BA.debugLineNum = 28;BA.debugLine="CallSubDelayed2(Me,\"showmsg\",ret)'因为这里是在 子线程中所以不能";
 anywheresoftware.b4a.keywords.Common.CallSubDelayed2(processBA,cowservice.getObject(),"showmsg",(Object)(_ret));
  //BA.debugLineNum = 29;BA.debugLine="End Sub";
 return "";

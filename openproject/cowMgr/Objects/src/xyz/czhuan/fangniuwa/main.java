@@ -322,6 +322,7 @@ public anywheresoftware.b4a.keywords.Common __c = null;
 public anywheresoftware.b4a.objects.LabelWrapper _lbltips = null;
 public com.icefairy.utils.mRichTextUtil _rtu = null;
 public static String _tipstr = "";
+public anywheresoftware.b4a.samples.httputils2.httputils2service _httputils2service = null;
 public xyz.czhuan.fangniuwa.starter _starter = null;
 public xyz.czhuan.fangniuwa.comm _comm = null;
 public xyz.czhuan.fangniuwa.actmain _actmain = null;
@@ -334,48 +335,48 @@ vis = vis | (actmain.mostCurrent != null);
 return vis;}
 public static String  _activity_create(boolean _firsttime) throws Exception{
 int _np = 0;
- //BA.debugLineNum = 37;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
- //BA.debugLineNum = 39;BA.debugLine="Activity.LoadLayout(\"loading\")";
+ //BA.debugLineNum = 33;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
+ //BA.debugLineNum = 35;BA.debugLine="Activity.LoadLayout(\"loading\")";
 mostCurrent._activity.LoadLayout("loading",mostCurrent.activityBA);
- //BA.debugLineNum = 40;BA.debugLine="Activity.Title=Application.LabelName";
+ //BA.debugLineNum = 36;BA.debugLine="Activity.Title=Application.LabelName";
 mostCurrent._activity.setTitle((Object)(anywheresoftware.b4a.keywords.Common.Application.getLabelName()));
- //BA.debugLineNum = 41;BA.debugLine="Dim np As Int=10dip";
+ //BA.debugLineNum = 37;BA.debugLine="Dim np As Int=10dip";
 _np = anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10));
- //BA.debugLineNum = 42;BA.debugLine="comm.SetPadding(lbltips,np,np,np,np)";
+ //BA.debugLineNum = 38;BA.debugLine="comm.SetPadding(lbltips,np,np,np,np)";
 mostCurrent._comm._setpadding(mostCurrent.activityBA,(anywheresoftware.b4a.objects.ConcreteViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ConcreteViewWrapper(), (android.view.View)(mostCurrent._lbltips.getObject())),_np,_np,_np,_np);
- //BA.debugLineNum = 43;BA.debugLine="lbltips.Text=rtu.Inst.addHTMLString(tipstr,50,50)";
+ //BA.debugLineNum = 39;BA.debugLine="lbltips.Text=rtu.Inst.addHTMLString(tipstr,50,50)";
 mostCurrent._lbltips.setText((Object)(mostCurrent._rtu.getInst().addHTMLString(mostCurrent._tipstr,(int) (50),(int) (50)).getRichString()));
- //BA.debugLineNum = 44;BA.debugLine="End Sub";
+ //BA.debugLineNum = 40;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 50;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 52;BA.debugLine="End Sub";
-return "";
-}
-public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 46;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 46;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
  //BA.debugLineNum = 48;BA.debugLine="End Sub";
 return "";
 }
+public static String  _activity_resume() throws Exception{
+ //BA.debugLineNum = 42;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 44;BA.debugLine="End Sub";
+return "";
+}
 public static String  _globals() throws Exception{
- //BA.debugLineNum = 25;BA.debugLine="Sub Globals";
- //BA.debugLineNum = 29;BA.debugLine="Private lbltips As Label";
+ //BA.debugLineNum = 21;BA.debugLine="Sub Globals";
+ //BA.debugLineNum = 25;BA.debugLine="Private lbltips As Label";
 mostCurrent._lbltips = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 30;BA.debugLine="Private rtu As RichTextUtil";
+ //BA.debugLineNum = 26;BA.debugLine="Private rtu As RichTextUtil";
 mostCurrent._rtu = new com.icefairy.utils.mRichTextUtil();
- //BA.debugLineNum = 31;BA.debugLine="Private tipstr As String=$\"<big>${Application.Lab";
+ //BA.debugLineNum = 27;BA.debugLine="Private tipstr As String=$\"<big>${Application.Lab";
 mostCurrent._tipstr = ("<big>"+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(anywheresoftware.b4a.keywords.Common.Application.getLabelName()))+"</big><br>\n"+"本app不提供ss账号，请自行通过其他途径获取ss账号，本程序成功开启后请自行在wifi设置-高级 中设置pac地址为:http://127.0.0.1:7777/pac即可正常使用,因为使用pac特性，所以可能只有Android5.x++才能用，4.x的系统请配合smartproxy一类的软件才可以使用pac特性。\n"+"有啥问题或者建议可以联系Q:860668820<br>\n"+"看完之后点击进入程序");
- //BA.debugLineNum = 35;BA.debugLine="End Sub";
+ //BA.debugLineNum = 31;BA.debugLine="End Sub";
 return "";
 }
 public static String  _lbltips_click() throws Exception{
- //BA.debugLineNum = 53;BA.debugLine="Sub lbltips_Click";
- //BA.debugLineNum = 54;BA.debugLine="StartActivity(actmain)";
+ //BA.debugLineNum = 49;BA.debugLine="Sub lbltips_Click";
+ //BA.debugLineNum = 50;BA.debugLine="StartActivity(actmain)";
 anywheresoftware.b4a.keywords.Common.StartActivity(mostCurrent.activityBA,(Object)(mostCurrent._actmain.getObject()));
- //BA.debugLineNum = 55;BA.debugLine="Activity.Finish";
+ //BA.debugLineNum = 51;BA.debugLine="Activity.Finish";
 mostCurrent._activity.Finish();
- //BA.debugLineNum = 56;BA.debugLine="End Sub";
+ //BA.debugLineNum = 52;BA.debugLine="End Sub";
 return "";
 }
 
@@ -384,7 +385,8 @@ public static void initializeProcessGlobals() {
     if (main.processGlobalsRun == false) {
 	    main.processGlobalsRun = true;
 		try {
-		        main._process_globals();
+		        anywheresoftware.b4a.samples.httputils2.httputils2service._process_globals();
+main._process_globals();
 starter._process_globals();
 comm._process_globals();
 actmain._process_globals();
@@ -395,8 +397,8 @@ cowservice._process_globals();
 		}
     }
 }public static String  _process_globals() throws Exception{
- //BA.debugLineNum = 19;BA.debugLine="Sub Process_Globals";
- //BA.debugLineNum = 23;BA.debugLine="End Sub";
+ //BA.debugLineNum = 15;BA.debugLine="Sub Process_Globals";
+ //BA.debugLineNum = 19;BA.debugLine="End Sub";
 return "";
 }
 }
