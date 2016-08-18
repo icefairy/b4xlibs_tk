@@ -38,12 +38,13 @@ Sub Handle(req As ServletRequest, resp As ServletResponse)
 	
 End Sub
 Private Sub donetRefush
-	Select Main.nApiIdx
-	Case 0
-		getsscdata163
-	Case 1
-		getsscdatajw
-	End Select
+'	Select Main.nApiIdx
+'	Case 0
+'		getsscdata163
+'	Case 1
+'		getsscdatajw
+'	End Select
+	getsscdata163
 	Main.nApiIdx=Main.nApiIdx+1
 	If Main.nApiIdx=2 Then Main.nApiIdx=0
 End Sub

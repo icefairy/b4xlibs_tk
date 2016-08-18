@@ -1,0 +1,49 @@
+﻿Version=4.2
+AppType=StandardJava
+NumberOfModules=0
+Build1=Default,b4j.example
+NumberOfFiles=0
+NumberOfLibraries=2
+Library1=jcore
+Library2=json
+@EndOfDesignText@
+'Non-UI application (console / server application)
+#Region  Project Attributes 
+	#CommandLineArgs:
+	#MergeLibraries: True 
+#End Region
+
+Sub Process_Globals
+	
+End Sub
+
+Sub AppStart (Args() As String)
+	Dim js As String=$"{"index":0,"random":false,"global":false,"enabled":true,"shareOverLan":false,"isDefault":false,"localPort":1080,"pacUrl":null,"useOnlinePac":false,"reconnectTimes":3,"randomAlgorithm":0,"TTL":0,"proxyEnable":false,"proxyType":0,"proxyHost":null,"proxyPort":0,"proxyAuthUser":null,"proxyAuthPass":null,"authUser":null,"authPass":null,"autoban":false,"configs":[{"remarks":"\u7f8e\u56fd\u6d1b\u6749\u77f6-SS","server":"45.63.50.100","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"576O5Zu95rSb5p2J55+2LVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u7f8e\u56fd\u897f\u96c5\u56fe-SS","server":"45.32.226.152","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"576O5Zu96KW\/6ZuF5Zu+LVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u7f8e\u56fd\u7845\u8c37-SS","server":"104.207.148.199","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"576O5Zu956GF6LC3LVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u65e5\u672c\u4e1c\u4eac-SS","server":"108.61.186.221","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"5pel5pys5Lic5LqsLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u65b0\u52a0\u5761-SS","server":"128.199.209.89","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"5paw5Yqg5Z2hLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u65b0\u52a0\u57611-SS","server":"128.199.70.72","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"5paw5Yqg5Z2hMS1TUw==","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u7f8e\u56fd\u65e7\u91d1\u5c71-SS","server":"138.68.0.27","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"576O5Zu95pen6YeR5bGxLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u65e5\u672c\u4e1c\u4eac1-SS","server":"45.63.124.213","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"5pel5pys5Lic5LqsMS1TUw==","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u97e9\u56fdKT-SS","server":"45.249.90.12","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"6Z+p5Zu9S1QtU1M=","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u65e5\u672c\u5927\u962a-SS","server":"103.204.172.20","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"5pel5pys5aSn6ZiqLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u97e9\u56fdBGP-SS","server":"103.214.68.116","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"6Z+p5Zu9QkdQLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u7f8e\u56fdCN2-SS","server":"107.151.139.226","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"576O5Zu9Q04yLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u9999\u6e2f\u6c99\u7530-SS","server":"103.214.195.87","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"6aaZ5riv5rKZ55SwLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u7f8e\u56fdC3-SS","server":"103.219.193.37","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"576O5Zu9QzMtU1M=","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u9999\u6e2f\u65b0\u4e16\u754c-SS","server":"198.44.190.50","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"6aaZ5riv5paw5LiW55WMLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u82f1\u56fd\u4f26\u6566-SS","server":"104.238.185.74 ","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"6Iux5Zu95Lym5pWmLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u9999\u6e2f\u963f\u91cc\u4e91-SS","server":"47.90.48.169","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"6aaZ5riv6Zi\/6YeM5LqRLVNT","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true},{"remarks":"\u97e9\u56fd\u4f18\u5316KT\uff0c\u6700\u597d\u7684\u97e9\u56fd\u7ebf\u8def-SS","server":"183.110.233.242","server_port":11057,"method":"rc4-md5","obfs":"plain","obfsparam":"","remarks_base64":"6Z+p5Zu95LyY5YyWS1TvvIzmnIDlpb3nmoTpn6nlm73nur\/ot68tU1M=","password":"Z0hRHl","tcp_over_udp":false,"udp_over_tcp":false,"protocol":"origin","obfs_udp":false,"enable":true}]}"$
+	processdata(js)
+End Sub
+Private Sub processdata(js As String)
+	Dim parser As JSONParser 
+	parser.Initialize(js) 
+	Dim root As Map = parser.NextObject 
+	Dim shareOverLan As String = root.GetDefault("shareOverLan","") 
+	Dim configs As List = root.Get("configs") 
+	Dim sb As StringBuilder
+	sb.Initialize
+	For Each colconfigs As Map In configs 
+	    Dim server As String = colconfigs.GetDefault("server","") 
+	    Dim method As String = colconfigs.GetDefault("method","") 
+	    Dim udp_over_tcp As String = colconfigs.GetDefault("udp_over_tcp","") 
+	    Dim tcp_over_udp As String = colconfigs.GetDefault("tcp_over_udp","") 
+	    Dim password As String = colconfigs.GetDefault("password","") 
+	    Dim protocol As String = colconfigs.GetDefault("protocol","") 
+	    Dim obfs As String = colconfigs.GetDefault("obfs","") 
+	    Dim remarks_base64 As String = colconfigs.GetDefault("remarks_base64","") 
+	    Dim obfs_udp As String = colconfigs.GetDefault("obfs_udp","") 
+	    Dim enable As String = colconfigs.GetDefault("enable","") 
+	    Dim server_port As Int = colconfigs.GetDefault("server_port",0) 
+	    Dim obfsparam As String = colconfigs.GetDefault("obfsparam","") 
+	    Dim remarks As String = colconfigs.GetDefault("remarks","") 
+		sb.Append("proxy = ss://"&method&":"&password&"@"&server&":"&server_port&CRLF)
+	Next 
+	Log(sb.ToString)
+End Sub
