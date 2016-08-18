@@ -37,14 +37,14 @@ import cn.sharesdk.framework.ShareSDK;
 
 @ShortName("OKS")
 @Author("Icefairy333")
-@Version(1.1f)
+@Version(1.2f)
 @Permissions(values={"android.permission.GET_TASKS","android.permission.INTERNET","android.permission.ACCESS_WIFI_STATE","android.permission.ACCESS_NETWORK_STATE","android.permission.CHANGE_WIFI_STATE","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.READ_PHONE_STATE","android.permission.MANAGE_ACCOUNTS","android.permission.GET_ACCOUNTS","android.permission.BLUETOOTH","android.permission.BLUETOOTH_ADMIN"})
 @DependsOn(values={"libammsdk","MobCommons-2016.0426.1819","MobTools-2016.0426.1819","ShareSDK-Core-2.7.2","ShareSDK-QQ-2.7.2","ShareSDK-QZone-2.7.2","ShareSDK-SinaWeibo-2.7.2","ShareSDK-Wechat-2.7.2","ShareSDK-Wechat-Core-2.7.2","ShareSDK-Wechat-Favorite-2.7.2","ShareSDK-Wechat-Moments-2.7.2"})
 @ActivityObject
 @Events(values={"logoclick(title as String)"})
 public class OnekeyShare {
 	public Map params;
-	private BA mba;
+	private static BA mba;
 	public static final int SHARE_TEXT = 1;
 	public static final int SHARE_IMAGE = 2;
 	public static final int SHARE_WEBPAGE = 4;
@@ -268,6 +268,7 @@ public class OnekeyShare {
 	 */
 	public void init(BA ba,String eventname,String Appkey,List parms,boolean statistics) {
 		mba=ba;
+		BA.Log("set mba");
 		EN=eventname.toLowerCase(BA.cul);
 		if(Appkey!=null&&Appkey.length()>0){
 			ShareSDK.initSDK(mba.context, Appkey,statistics);	
@@ -290,9 +291,15 @@ public class OnekeyShare {
 			}
 		}
 	}
-	@SuppressWarnings("unchecked")
 	public void show() {
-		Context context=mba.context;
+		Context context;
+		if (mba==null||mba.context==null) {
+			BA.LogError("content null");
+			context=BA.applicationContext;
+		}else{
+			context=mba.context;
+		}
+		
 		HashMap<String, Object> shareParamsMap = new HashMap<String, Object>();
 		//shareParamsMap.putAll(params.getObject());
 		for(int i=0;i<params.getSize();i++){
