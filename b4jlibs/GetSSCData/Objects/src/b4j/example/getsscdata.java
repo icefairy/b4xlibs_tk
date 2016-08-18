@@ -34,35 +34,35 @@ public String  _checkver(String _ver,String _app) throws Exception{
 anywheresoftware.b4j.objects.collections.JSONParser _jsp = null;
 anywheresoftware.b4a.keywords.StringBuilderWrapper _sb = null;
 anywheresoftware.b4a.objects.collections.Map _m = null;
- //BA.debugLineNum = 78;BA.debugLine="Private Sub checkver(ver As String,app As String)";
- //BA.debugLineNum = 79;BA.debugLine="Dim jsp As JSONParser";
+ //BA.debugLineNum = 79;BA.debugLine="Private Sub checkver(ver As String,app As String)";
+ //BA.debugLineNum = 80;BA.debugLine="Dim jsp As JSONParser";
 _jsp = new anywheresoftware.b4j.objects.collections.JSONParser();
- //BA.debugLineNum = 80;BA.debugLine="Dim sb As StringBuilder";
+ //BA.debugLineNum = 81;BA.debugLine="Dim sb As StringBuilder";
 _sb = new anywheresoftware.b4a.keywords.StringBuilderWrapper();
- //BA.debugLineNum = 81;BA.debugLine="sb.Initialize";
+ //BA.debugLineNum = 82;BA.debugLine="sb.Initialize";
 _sb.Initialize();
- //BA.debugLineNum = 82;BA.debugLine="jsp.Initialize(File.ReadString(\"\",File.DirApp&\"/w";
+ //BA.debugLineNum = 83;BA.debugLine="jsp.Initialize(File.ReadString(\"\",File.DirApp&\"/w";
 _jsp.Initialize(__c.File.ReadString("",__c.File.getDirApp()+"/www/version.json"));
- //BA.debugLineNum = 83;BA.debugLine="Dim m As Map=jsp.NextObject";
+ //BA.debugLineNum = 84;BA.debugLine="Dim m As Map=jsp.NextObject";
 _m = new anywheresoftware.b4a.objects.collections.Map();
 _m = _jsp.NextObject();
- //BA.debugLineNum = 84;BA.debugLine="If ver.EqualsIgnoreCase(m.GetDefault(\"release\",\"\"";
+ //BA.debugLineNum = 85;BA.debugLine="If ver.EqualsIgnoreCase(m.GetDefault(\"release\",\"\"";
 if (_ver.equalsIgnoreCase(BA.ObjectToString(_m.GetDefault((Object)("release"),(Object)("")))) || _ver.length()==0) { 
  }else {
- //BA.debugLineNum = 87;BA.debugLine="sb.Append(\"<div id='update' class='update'>\")";
+ //BA.debugLineNum = 88;BA.debugLine="sb.Append(\"<div id='update' class='update'>\")";
 _sb.Append("<div id='update' class='update'>");
- //BA.debugLineNum = 88;BA.debugLine="sb.Append(\"最新版本:\"&m.GetDefault(\"release\",\"\")&\"<b";
+ //BA.debugLineNum = 89;BA.debugLine="sb.Append(\"最新版本:\"&m.GetDefault(\"release\",\"\")&\"<b";
 _sb.Append("最新版本:"+BA.ObjectToString(_m.GetDefault((Object)("release"),(Object)("")))+"<br>");
- //BA.debugLineNum = 89;BA.debugLine="sb.Append(\"你的版本:\"&ver&\"<br>\")";
+ //BA.debugLineNum = 90;BA.debugLine="sb.Append(\"你的版本:\"&ver&\"<br>\")";
 _sb.Append("你的版本:"+_ver+"<br>");
- //BA.debugLineNum = 90;BA.debugLine="sb.Append(\"更新内容:\"&m.GetDefault(\"update\",\"\")&\"<br";
+ //BA.debugLineNum = 91;BA.debugLine="sb.Append(\"更新内容:\"&m.GetDefault(\"update\",\"\")&\"<br";
 _sb.Append("更新内容:"+BA.ObjectToString(_m.GetDefault((Object)("update"),(Object)("")))+"<br>");
- //BA.debugLineNum = 91;BA.debugLine="sb.Append(\"下载地址:<a href='\"&m.GetDefault(\"url\",\"\"";
+ //BA.debugLineNum = 92;BA.debugLine="sb.Append(\"下载地址:<a href='\"&m.GetDefault(\"url\",\"\"";
 _sb.Append("下载地址:<a href='"+BA.ObjectToString(_m.GetDefault((Object)("url"),(Object)("")))+"'>点击下载</a></div>");
  };
- //BA.debugLineNum = 93;BA.debugLine="Return sb.ToString";
+ //BA.debugLineNum = 94;BA.debugLine="Return sb.ToString";
 if (true) return _sb.ToString();
- //BA.debugLineNum = 94;BA.debugLine="End Sub";
+ //BA.debugLineNum = 95;BA.debugLine="End Sub";
 return "";
 }
 public String  _class_globals() throws Exception{
@@ -79,69 +79,59 @@ return "";
 }
 public String  _donetrefush() throws Exception{
  //BA.debugLineNum = 35;BA.debugLine="Private Sub donetRefush";
- //BA.debugLineNum = 36;BA.debugLine="Select Main.nApiIdx";
-switch (BA.switchObjectToInt(_main._napiidx,(int) (0),(int) (1))) {
-case 0: {
- //BA.debugLineNum = 38;BA.debugLine="getsscdata163";
+ //BA.debugLineNum = 42;BA.debugLine="getsscdata163";
 _getsscdata163();
- break; }
-case 1: {
- //BA.debugLineNum = 40;BA.debugLine="getsscdatajw";
-_getsscdatajw();
- break; }
-}
-;
- //BA.debugLineNum = 42;BA.debugLine="Main.nApiIdx=Main.nApiIdx+1";
+ //BA.debugLineNum = 43;BA.debugLine="Main.nApiIdx=Main.nApiIdx+1";
 _main._napiidx = (int) (_main._napiidx+1);
- //BA.debugLineNum = 43;BA.debugLine="If Main.nApiIdx=2 Then Main.nApiIdx=0";
+ //BA.debugLineNum = 44;BA.debugLine="If Main.nApiIdx=2 Then Main.nApiIdx=0";
 if (_main._napiidx==2) { 
 _main._napiidx = (int) (0);};
- //BA.debugLineNum = 44;BA.debugLine="End Sub";
+ //BA.debugLineNum = 45;BA.debugLine="End Sub";
 return "";
 }
 public int  _getcurmin() throws Exception{
- //BA.debugLineNum = 55;BA.debugLine="Private Sub getcurmin As Int";
- //BA.debugLineNum = 56;BA.debugLine="Return DateTime.GetMinute(DateTime.Now) mod 10";
+ //BA.debugLineNum = 56;BA.debugLine="Private Sub getcurmin As Int";
+ //BA.debugLineNum = 57;BA.debugLine="Return DateTime.GetMinute(DateTime.Now) mod 10";
 if (true) return (int) (__c.DateTime.GetMinute(__c.DateTime.getNow())%10);
- //BA.debugLineNum = 57;BA.debugLine="End Sub";
+ //BA.debugLineNum = 58;BA.debugLine="End Sub";
 return 0;
 }
 public String  _getsscdata163() throws Exception{
 b4j.example.httpjob _hj = null;
- //BA.debugLineNum = 183;BA.debugLine="Public Sub getsscdata163";
- //BA.debugLineNum = 184;BA.debugLine="Log(\"get once by 163\")";
+ //BA.debugLineNum = 184;BA.debugLine="Public Sub getsscdata163";
+ //BA.debugLineNum = 185;BA.debugLine="Log(\"get once by 163\")";
 __c.Log("get once by 163");
- //BA.debugLineNum = 185;BA.debugLine="Main.bLoading=True";
+ //BA.debugLineNum = 186;BA.debugLine="Main.bLoading=True";
 _main._bloading = __c.True;
- //BA.debugLineNum = 186;BA.debugLine="Dim hj As HttpJob";
+ //BA.debugLineNum = 187;BA.debugLine="Dim hj As HttpJob";
 _hj = new b4j.example.httpjob();
- //BA.debugLineNum = 187;BA.debugLine="hj.Initialize(\"163\",Me)";
+ //BA.debugLineNum = 188;BA.debugLine="hj.Initialize(\"163\",Me)";
 _hj._initialize(ba,"163",this);
- //BA.debugLineNum = 188;BA.debugLine="If Main.num<>30 And Main.num<>50 And Main.num<>10";
+ //BA.debugLineNum = 189;BA.debugLine="If Main.num<>30 And Main.num<>50 And Main.num<>10";
 if (_main._num!=30 && _main._num!=50 && _main._num!=100) { 
 _main._num = (int) (30);};
- //BA.debugLineNum = 189;BA.debugLine="hj.Download($\"http://trend.caipiao.163.com/cqssc/";
+ //BA.debugLineNum = 190;BA.debugLine="hj.Download($\"http://trend.caipiao.163.com/cqssc/";
 _hj._download(("http://trend.caipiao.163.com/cqssc/jiben-5xing.html?periodNumber="+__c.SmartStringFormatter("",(Object)(_main._num))+""));
- //BA.debugLineNum = 190;BA.debugLine="End Sub";
+ //BA.debugLineNum = 191;BA.debugLine="End Sub";
 return "";
 }
 public String  _getsscdatajw() throws Exception{
 b4j.example.httpjob _hj = null;
- //BA.debugLineNum = 194;BA.debugLine="Public Sub getsscdatajw";
- //BA.debugLineNum = 195;BA.debugLine="Log(\"get once by jw\")";
+ //BA.debugLineNum = 195;BA.debugLine="Public Sub getsscdatajw";
+ //BA.debugLineNum = 196;BA.debugLine="Log(\"get once by jw\")";
 __c.Log("get once by jw");
- //BA.debugLineNum = 196;BA.debugLine="Main.bLoading=True";
+ //BA.debugLineNum = 197;BA.debugLine="Main.bLoading=True";
 _main._bloading = __c.True;
- //BA.debugLineNum = 197;BA.debugLine="Dim hj As HttpJob";
+ //BA.debugLineNum = 198;BA.debugLine="Dim hj As HttpJob";
 _hj = new b4j.example.httpjob();
- //BA.debugLineNum = 198;BA.debugLine="hj.Initialize(\"jw\",Me)";
+ //BA.debugLineNum = 199;BA.debugLine="hj.Initialize(\"jw\",Me)";
 _hj._initialize(ba,"jw",this);
- //BA.debugLineNum = 199;BA.debugLine="If Main.num<>30 And Main.num<>50 And Main.num<>10";
+ //BA.debugLineNum = 200;BA.debugLine="If Main.num<>30 And Main.num<>50 And Main.num<>10";
 if (_main._num!=30 && _main._num!=50 && _main._num!=100) { 
 _main._num = (int) (30);};
- //BA.debugLineNum = 200;BA.debugLine="hj.Download($\"http://web.jw909.com:1688/cpp/ic?op";
+ //BA.debugLineNum = 201;BA.debugLine="hj.Download($\"http://web.jw909.com:1688/cpp/ic?op";
 _hj._download(("http://web.jw909.com:1688/cpp/ic?op=0&lottery_id=1&n="+__c.SmartStringFormatter("",(Object)(_main._num))+""));
- //BA.debugLineNum = 201;BA.debugLine="End Sub";
+ //BA.debugLineNum = 202;BA.debugLine="End Sub";
 return "";
 }
 public String  _handle(anywheresoftware.b4j.object.JServlet.ServletRequestWrapper _req,anywheresoftware.b4j.object.JServlet.ServletResponseWrapper _resp) throws Exception{
@@ -195,61 +185,61 @@ innerInitialize(_ba);
 return "";
 }
 public String  _jobdone(b4j.example.httpjob _thj) throws Exception{
- //BA.debugLineNum = 58;BA.debugLine="Sub JobDone(thj As HttpJob)";
- //BA.debugLineNum = 59;BA.debugLine="Log(\"Job:\"&thj.Success)";
+ //BA.debugLineNum = 59;BA.debugLine="Sub JobDone(thj As HttpJob)";
+ //BA.debugLineNum = 60;BA.debugLine="Log(\"Job:\"&thj.Success)";
 __c.Log("Job:"+BA.ObjectToString(_thj._success));
- //BA.debugLineNum = 60;BA.debugLine="Main.tLastTickets=DateTime.Now";
+ //BA.debugLineNum = 61;BA.debugLine="Main.tLastTickets=DateTime.Now";
 _main._tlasttickets = __c.DateTime.getNow();
- //BA.debugLineNum = 61;BA.debugLine="If thj.Success Then";
+ //BA.debugLineNum = 62;BA.debugLine="If thj.Success Then";
 if (_thj._success) { 
- //BA.debugLineNum = 62;BA.debugLine="Select thj.JobName.ToLowerCase";
+ //BA.debugLineNum = 63;BA.debugLine="Select thj.JobName.ToLowerCase";
 switch (BA.switchObjectToInt(_thj._jobname.toLowerCase(),"163","jw")) {
 case 0: {
- //BA.debugLineNum = 64;BA.debugLine="Main.mData=ParseSSC_163(thj.GetString)";
+ //BA.debugLineNum = 65;BA.debugLine="Main.mData=ParseSSC_163(thj.GetString)";
 _main._mdata = _parsessc_163(_thj._getstring());
  break; }
 case 1: {
- //BA.debugLineNum = 66;BA.debugLine="Main.mData=ParseSSC_jw(thj.GetString)";
+ //BA.debugLineNum = 67;BA.debugLine="Main.mData=ParseSSC_jw(thj.GetString)";
 _main._mdata = _parsessc_jw(_thj._getstring());
  break; }
 }
 ;
- //BA.debugLineNum = 69;BA.debugLine="Log(\"load ok once\")";
+ //BA.debugLineNum = 70;BA.debugLine="Log(\"load ok once\")";
 __c.Log("load ok once");
  }else {
- //BA.debugLineNum = 71;BA.debugLine="Log(\"joberror:\"&thj.ErrorMessage)";
+ //BA.debugLineNum = 72;BA.debugLine="Log(\"joberror:\"&thj.ErrorMessage)";
 __c.Log("joberror:"+_thj._errormessage);
  };
- //BA.debugLineNum = 73;BA.debugLine="thj.Release";
+ //BA.debugLineNum = 74;BA.debugLine="thj.Release";
 _thj._release();
- //BA.debugLineNum = 74;BA.debugLine="Main.bLoading=False";
+ //BA.debugLineNum = 75;BA.debugLine="Main.bLoading=False";
 _main._bloading = __c.False;
- //BA.debugLineNum = 75;BA.debugLine="StopMessageLoop";
+ //BA.debugLineNum = 76;BA.debugLine="StopMessageLoop";
 __c.StopMessageLoop(ba);
- //BA.debugLineNum = 76;BA.debugLine="outputs";
+ //BA.debugLineNum = 77;BA.debugLine="outputs";
 _outputs();
- //BA.debugLineNum = 77;BA.debugLine="End Sub";
+ //BA.debugLineNum = 78;BA.debugLine="End Sub";
 return "";
 }
 public boolean  _needrefush(int _num) throws Exception{
- //BA.debugLineNum = 45;BA.debugLine="Private Sub needrefush(num As Int) As Boolean";
- //BA.debugLineNum = 46;BA.debugLine="If Main.mData.IsInitialized=False Or Main.mData.S";
+ //BA.debugLineNum = 46;BA.debugLine="Private Sub needrefush(num As Int) As Boolean";
+ //BA.debugLineNum = 47;BA.debugLine="If Main.mData.IsInitialized=False Or Main.mData.S";
 if (_main._mdata.IsInitialized()==__c.False || _main._mdata.getSize()==0) { 
 if (true) return __c.True;};
- //BA.debugLineNum = 47;BA.debugLine="If getcurmin=3 Or getcurmin=4 Or getcurmin=5 Or g";
+ //BA.debugLineNum = 48;BA.debugLine="If getcurmin=3 Or getcurmin=4 Or getcurmin=5 Or g";
 if (_getcurmin()==3 || _getcurmin()==4 || _getcurmin()==5 || _getcurmin()==8 || _getcurmin()==9 || _getcurmin()==0) { 
 if (true) return __c.False;};
- //BA.debugLineNum = 48;BA.debugLine="If (DateTime.Now-Main.tLastTickets)>(Main.nReqMin";
+ //BA.debugLineNum = 49;BA.debugLine="If (DateTime.Now-Main.tLastTickets)>(Main.nReqMin";
 if ((__c.DateTime.getNow()-_main._tlasttickets)>(_main._nreqminsecond*1000) || _main._num<_num) { 
- //BA.debugLineNum = 49;BA.debugLine="Main.num=num";
+ //BA.debugLineNum = 50;BA.debugLine="Main.num=num";
 _main._num = _num;
- //BA.debugLineNum = 50;BA.debugLine="Return True";
+ //BA.debugLineNum = 51;BA.debugLine="Return True";
 if (true) return __c.True;
  }else {
- //BA.debugLineNum = 52;BA.debugLine="Return False";
+ //BA.debugLineNum = 53;BA.debugLine="Return False";
 if (true) return __c.False;
  };
- //BA.debugLineNum = 54;BA.debugLine="End Sub";
+ //BA.debugLineNum = 55;BA.debugLine="End Sub";
 return false;
 }
 public String  _outputs() throws Exception{
@@ -259,62 +249,62 @@ String _hm = "";
 String _qh = "";
 int _i = 0;
 int _j = 0;
- //BA.debugLineNum = 95;BA.debugLine="Private Sub outputs";
- //BA.debugLineNum = 96;BA.debugLine="If typ.EqualsIgnoreCase(\"json\") Then";
+ //BA.debugLineNum = 96;BA.debugLine="Private Sub outputs";
+ //BA.debugLineNum = 97;BA.debugLine="If typ.EqualsIgnoreCase(\"json\") Then";
 if (_typ.equalsIgnoreCase("json")) { 
- //BA.debugLineNum = 97;BA.debugLine="mResp.Write(Main.getDataJson)";
+ //BA.debugLineNum = 98;BA.debugLine="mResp.Write(Main.getDataJson)";
 _mresp.Write(_main._getdatajson());
  }else {
- //BA.debugLineNum = 99;BA.debugLine="Dim sb As StringBuilder";
+ //BA.debugLineNum = 100;BA.debugLine="Dim sb As StringBuilder";
 _sb = new anywheresoftware.b4a.keywords.StringBuilderWrapper();
- //BA.debugLineNum = 100;BA.debugLine="sb.Initialize";
+ //BA.debugLineNum = 101;BA.debugLine="sb.Initialize";
 _sb.Initialize();
- //BA.debugLineNum = 101;BA.debugLine="sb.Append(File.ReadString(\"\",File.DirApp&\"/www/h";
+ //BA.debugLineNum = 102;BA.debugLine="sb.Append(File.ReadString(\"\",File.DirApp&\"/www/h";
 _sb.Append(__c.File.ReadString("",__c.File.getDirApp()+"/www/header.tpl"));
- //BA.debugLineNum = 102;BA.debugLine="sb.Append(checkver(mExtra.GetDefault(\"ver\",\"\"),m";
+ //BA.debugLineNum = 103;BA.debugLine="sb.Append(checkver(mExtra.GetDefault(\"ver\",\"\"),m";
 _sb.Append(_checkver(BA.ObjectToString(_mextra.GetDefault((Object)("ver"),(Object)(""))),BA.ObjectToString(_mextra.GetDefault((Object)("app"),(Object)("")))));
- //BA.debugLineNum = 103;BA.debugLine="sb.Append($\"<table><tr class='border_bottom'><td";
+ //BA.debugLineNum = 104;BA.debugLine="sb.Append($\"<table><tr class='border_bottom'><td";
 _sb.Append(("<table><tr class='border_bottom'><td>期号</td><td class='tdwxshui'>万</td><td class='tdwxhuo'>千</td><td class='tdwxmu'>百</td><td class='tdwxjin'>十</td><td class='tdwxtu'>个</td></tr>"));
- //BA.debugLineNum = 104;BA.debugLine="Dim m As Map";
+ //BA.debugLineNum = 105;BA.debugLine="Dim m As Map";
 _m = new anywheresoftware.b4a.objects.collections.Map();
- //BA.debugLineNum = 105;BA.debugLine="Dim hm,qh As String";
+ //BA.debugLineNum = 106;BA.debugLine="Dim hm,qh As String";
 _hm = "";
 _qh = "";
- //BA.debugLineNum = 106;BA.debugLine="For i=0 To Main.mData.Size-1";
+ //BA.debugLineNum = 107;BA.debugLine="For i=0 To Main.mData.Size-1";
 {
 final int step11 = 1;
 final int limit11 = (int) (_main._mdata.getSize()-1);
 for (_i = (int) (0) ; (step11 > 0 && _i <= limit11) || (step11 < 0 && _i >= limit11); _i = ((int)(0 + _i + step11)) ) {
- //BA.debugLineNum = 107;BA.debugLine="m=Main.mData.Get(i)";
+ //BA.debugLineNum = 108;BA.debugLine="m=Main.mData.Get(i)";
 _m.setObject((anywheresoftware.b4a.objects.collections.Map.MyMap)(_main._mdata.Get(_i)));
- //BA.debugLineNum = 108;BA.debugLine="qh=m.Get(\"qh\")";
+ //BA.debugLineNum = 109;BA.debugLine="qh=m.Get(\"qh\")";
 _qh = BA.ObjectToString(_m.Get((Object)("qh")));
- //BA.debugLineNum = 109;BA.debugLine="hm=m.Get(\"hm\")";
+ //BA.debugLineNum = 110;BA.debugLine="hm=m.Get(\"hm\")";
 _hm = BA.ObjectToString(_m.Get((Object)("hm")));
- //BA.debugLineNum = 111;BA.debugLine="If qh.Length>0 And hm.Length=5 Then";
+ //BA.debugLineNum = 112;BA.debugLine="If qh.Length>0 And hm.Length=5 Then";
 if (_qh.length()>0 && _hm.length()==5) { 
- //BA.debugLineNum = 112;BA.debugLine="sb.Append($\"<tr><td>${qh}</td>\"$)";
+ //BA.debugLineNum = 113;BA.debugLine="sb.Append($\"<tr><td>${qh}</td>\"$)";
 _sb.Append(("<tr><td>"+__c.SmartStringFormatter("",(Object)(_qh))+"</td>"));
- //BA.debugLineNum = 113;BA.debugLine="For j=0 To 4";
+ //BA.debugLineNum = 114;BA.debugLine="For j=0 To 4";
 {
 final int step17 = 1;
 final int limit17 = (int) (4);
 for (_j = (int) (0) ; (step17 > 0 && _j <= limit17) || (step17 < 0 && _j >= limit17); _j = ((int)(0 + _j + step17)) ) {
- //BA.debugLineNum = 114;BA.debugLine="sb.Append(withcolor(hm.SubString2(j,j+1)))";
+ //BA.debugLineNum = 115;BA.debugLine="sb.Append(withcolor(hm.SubString2(j,j+1)))";
 _sb.Append(_withcolor(_hm.substring(_j,(int) (_j+1))));
  }
 };
- //BA.debugLineNum = 116;BA.debugLine="sb.Append(\"</tr>\")";
+ //BA.debugLineNum = 117;BA.debugLine="sb.Append(\"</tr>\")";
 _sb.Append("</tr>");
  };
  }
 };
- //BA.debugLineNum = 120;BA.debugLine="sb.Append(File.ReadString(\"\",File.DirApp&\"/www/f";
+ //BA.debugLineNum = 121;BA.debugLine="sb.Append(File.ReadString(\"\",File.DirApp&\"/www/f";
 _sb.Append(__c.File.ReadString("",__c.File.getDirApp()+"/www/footer.tpl"));
- //BA.debugLineNum = 121;BA.debugLine="mResp.Write(sb.ToString)";
+ //BA.debugLineNum = 122;BA.debugLine="mResp.Write(sb.ToString)";
 _mresp.Write(_sb.ToString());
  };
- //BA.debugLineNum = 123;BA.debugLine="End Sub";
+ //BA.debugLineNum = 124;BA.debugLine="End Sub";
 return "";
 }
 public anywheresoftware.b4a.objects.collections.List  _parsessc_163(String _str) throws Exception{
@@ -324,45 +314,45 @@ String _str1 = "";
 anywheresoftware.b4a.objects.collections.Map _s1 = null;
 String _qh = "";
 String _hm = "";
- //BA.debugLineNum = 140;BA.debugLine="Private Sub ParseSSC_163(str As String) As List";
- //BA.debugLineNum = 141;BA.debugLine="Dim lst As List";
+ //BA.debugLineNum = 141;BA.debugLine="Private Sub ParseSSC_163(str As String) As List";
+ //BA.debugLineNum = 142;BA.debugLine="Dim lst As List";
 _lst = new anywheresoftware.b4a.objects.collections.List();
- //BA.debugLineNum = 142;BA.debugLine="lst.Initialize";
+ //BA.debugLineNum = 143;BA.debugLine="lst.Initialize";
 _lst.Initialize();
- //BA.debugLineNum = 143;BA.debugLine="Dim mc As Matcher=Regex.Matcher($\"\\d{9}\">\\d{5} </";
+ //BA.debugLineNum = 144;BA.debugLine="Dim mc As Matcher=Regex.Matcher($\"\\d{9}\">\\d{5} </";
 _mc = new anywheresoftware.b4a.keywords.Regex.MatcherWrapper();
 _mc = __c.Regex.Matcher(("\\d{9}\">\\d{5} </span>"),_str);
- //BA.debugLineNum = 144;BA.debugLine="Dim str1 As String";
+ //BA.debugLineNum = 145;BA.debugLine="Dim str1 As String";
 _str1 = "";
- //BA.debugLineNum = 145;BA.debugLine="Do While mc.Find";
+ //BA.debugLineNum = 146;BA.debugLine="Do While mc.Find";
 while (_mc.Find()) {
- //BA.debugLineNum = 146;BA.debugLine="str1=mc.Match";
+ //BA.debugLineNum = 147;BA.debugLine="str1=mc.Match";
 _str1 = _mc.getMatch();
- //BA.debugLineNum = 147;BA.debugLine="Dim s1 As Map,qh As String,hm As String";
+ //BA.debugLineNum = 148;BA.debugLine="Dim s1 As Map,qh As String,hm As String";
 _s1 = new anywheresoftware.b4a.objects.collections.Map();
 _qh = "";
 _hm = "";
- //BA.debugLineNum = 148;BA.debugLine="qh=str1.SubString2(0,str1.IndexOf(\"\"\"\"))";
+ //BA.debugLineNum = 149;BA.debugLine="qh=str1.SubString2(0,str1.IndexOf(\"\"\"\"))";
 _qh = _str1.substring((int) (0),_str1.indexOf("\""));
- //BA.debugLineNum = 149;BA.debugLine="hm=str1.SubString2(str1.IndexOf(\">\")+1,str1.Last";
+ //BA.debugLineNum = 150;BA.debugLine="hm=str1.SubString2(str1.IndexOf(\">\")+1,str1.Last";
 _hm = _str1.substring((int) (_str1.indexOf(">")+1),(int) (_str1.lastIndexOf("<")-1));
- //BA.debugLineNum = 150;BA.debugLine="qh=qh.SubString(qh.Length-3)";
+ //BA.debugLineNum = 151;BA.debugLine="qh=qh.SubString(qh.Length-3)";
 _qh = _qh.substring((int) (_qh.length()-3));
- //BA.debugLineNum = 151;BA.debugLine="s1.Initialize";
+ //BA.debugLineNum = 152;BA.debugLine="s1.Initialize";
 _s1.Initialize();
- //BA.debugLineNum = 152;BA.debugLine="s1.Put(\"hm\",hm)";
+ //BA.debugLineNum = 153;BA.debugLine="s1.Put(\"hm\",hm)";
 _s1.Put((Object)("hm"),(Object)(_hm));
- //BA.debugLineNum = 153;BA.debugLine="s1.Put(\"qh\",qh)";
+ //BA.debugLineNum = 154;BA.debugLine="s1.Put(\"qh\",qh)";
 _s1.Put((Object)("qh"),(Object)(_qh));
- //BA.debugLineNum = 154;BA.debugLine="lst.InsertAt(0,s1)";
+ //BA.debugLineNum = 155;BA.debugLine="lst.InsertAt(0,s1)";
 _lst.InsertAt((int) (0),(Object)(_s1.getObject()));
- //BA.debugLineNum = 155;BA.debugLine="str1=qh";
+ //BA.debugLineNum = 156;BA.debugLine="str1=qh";
 _str1 = _qh;
  }
 ;
- //BA.debugLineNum = 157;BA.debugLine="Return lst";
+ //BA.debugLineNum = 158;BA.debugLine="Return lst";
 if (true) return _lst;
- //BA.debugLineNum = 158;BA.debugLine="End Sub";
+ //BA.debugLineNum = 159;BA.debugLine="End Sub";
 return null;
 }
 public anywheresoftware.b4a.objects.collections.List  _parsessc_jw(String _str) throws Exception{
@@ -375,94 +365,94 @@ anywheresoftware.b4a.objects.collections.Map _colroot_response_array = null;
 anywheresoftware.b4a.objects.collections.Map _m = null;
 String _hm = "";
 String _qh = "";
- //BA.debugLineNum = 159;BA.debugLine="Private Sub ParseSSC_jw(str As String) As List";
- //BA.debugLineNum = 160;BA.debugLine="Dim lst As List";
+ //BA.debugLineNum = 160;BA.debugLine="Private Sub ParseSSC_jw(str As String) As List";
+ //BA.debugLineNum = 161;BA.debugLine="Dim lst As List";
 _lst = new anywheresoftware.b4a.objects.collections.List();
- //BA.debugLineNum = 161;BA.debugLine="lst.Initialize";
+ //BA.debugLineNum = 162;BA.debugLine="lst.Initialize";
 _lst.Initialize();
- //BA.debugLineNum = 162;BA.debugLine="Dim jsp As JSONParser";
+ //BA.debugLineNum = 163;BA.debugLine="Dim jsp As JSONParser";
 _jsp = new anywheresoftware.b4j.objects.collections.JSONParser();
- //BA.debugLineNum = 163;BA.debugLine="jsp.Initialize(str)";
+ //BA.debugLineNum = 164;BA.debugLine="jsp.Initialize(str)";
 _jsp.Initialize(_str);
- //BA.debugLineNum = 164;BA.debugLine="Dim root As Map = jsp.NextObject";
+ //BA.debugLineNum = 165;BA.debugLine="Dim root As Map = jsp.NextObject";
 _root = new anywheresoftware.b4a.objects.collections.Map();
 _root = _jsp.NextObject();
- //BA.debugLineNum = 165;BA.debugLine="Dim response As Map= root.Get(\"response\")";
+ //BA.debugLineNum = 166;BA.debugLine="Dim response As Map= root.Get(\"response\")";
 _response = new anywheresoftware.b4a.objects.collections.Map();
 _response.setObject((anywheresoftware.b4a.objects.collections.Map.MyMap)(_root.Get((Object)("response"))));
- //BA.debugLineNum = 166;BA.debugLine="Dim lstarray As List=response.Get(\"array\")";
+ //BA.debugLineNum = 167;BA.debugLine="Dim lstarray As List=response.Get(\"array\")";
 _lstarray = new anywheresoftware.b4a.objects.collections.List();
 _lstarray.setObject((java.util.List)(_response.Get((Object)("array"))));
- //BA.debugLineNum = 167;BA.debugLine="For Each colroot_response_array As Map In lsta";
+ //BA.debugLineNum = 168;BA.debugLine="For Each colroot_response_array As Map In lsta";
 _colroot_response_array = new anywheresoftware.b4a.objects.collections.Map();
 final anywheresoftware.b4a.BA.IterableList group8 = _lstarray;
 final int groupLen8 = group8.getSize();
 for (int index8 = 0;index8 < groupLen8 ;index8++){
 _colroot_response_array.setObject((anywheresoftware.b4a.objects.collections.Map.MyMap)(group8.Get(index8)));
- //BA.debugLineNum = 168;BA.debugLine="Dim m As Map,hm As String,qh As String";
+ //BA.debugLineNum = 169;BA.debugLine="Dim m As Map,hm As String,qh As String";
 _m = new anywheresoftware.b4a.objects.collections.Map();
 _hm = "";
 _qh = "";
- //BA.debugLineNum = 169;BA.debugLine="m.Initialize";
+ //BA.debugLineNum = 170;BA.debugLine="m.Initialize";
 _m.Initialize();
- //BA.debugLineNum = 170;BA.debugLine="hm=colroot_response_array.Get(\"code\")";
+ //BA.debugLineNum = 171;BA.debugLine="hm=colroot_response_array.Get(\"code\")";
 _hm = BA.ObjectToString(_colroot_response_array.Get((Object)("code")));
- //BA.debugLineNum = 171;BA.debugLine="hm=hm.Replace(\",\",\"\")";
+ //BA.debugLineNum = 172;BA.debugLine="hm=hm.Replace(\",\",\"\")";
 _hm = _hm.replace(",","");
- //BA.debugLineNum = 172;BA.debugLine="m.Put(\"hm\",hm)";
+ //BA.debugLineNum = 173;BA.debugLine="m.Put(\"hm\",hm)";
 _m.Put((Object)("hm"),(Object)(_hm));
- //BA.debugLineNum = 173;BA.debugLine="qh=colroot_response_array.Get(\"sn\")";
+ //BA.debugLineNum = 174;BA.debugLine="qh=colroot_response_array.Get(\"sn\")";
 _qh = BA.ObjectToString(_colroot_response_array.Get((Object)("sn")));
- //BA.debugLineNum = 174;BA.debugLine="qh=qh.SubString(qh.Length-3)";
+ //BA.debugLineNum = 175;BA.debugLine="qh=qh.SubString(qh.Length-3)";
 _qh = _qh.substring((int) (_qh.length()-3));
- //BA.debugLineNum = 175;BA.debugLine="m.Put(\"qh\",qh)";
+ //BA.debugLineNum = 176;BA.debugLine="m.Put(\"qh\",qh)";
 _m.Put((Object)("qh"),(Object)(_qh));
- //BA.debugLineNum = 176;BA.debugLine="lst.Add(m)";
+ //BA.debugLineNum = 177;BA.debugLine="lst.Add(m)";
 _lst.Add((Object)(_m.getObject()));
  }
 ;
- //BA.debugLineNum = 178;BA.debugLine="Return lst";
+ //BA.debugLineNum = 179;BA.debugLine="Return lst";
 if (true) return _lst;
- //BA.debugLineNum = 179;BA.debugLine="End Sub";
+ //BA.debugLineNum = 180;BA.debugLine="End Sub";
 return null;
 }
 public String  _withcolor(String _n) throws Exception{
 String _ret = "";
- //BA.debugLineNum = 124;BA.debugLine="Private Sub withcolor(n As String) As String";
- //BA.debugLineNum = 125;BA.debugLine="Dim ret As String";
+ //BA.debugLineNum = 125;BA.debugLine="Private Sub withcolor(n As String) As String";
+ //BA.debugLineNum = 126;BA.debugLine="Dim ret As String";
 _ret = "";
- //BA.debugLineNum = 126;BA.debugLine="Select n";
+ //BA.debugLineNum = 127;BA.debugLine="Select n";
 switch (BA.switchObjectToInt(_n,"0","5","1","6","2","7","3","8","4","9")) {
 case 0: 
 case 1: {
- //BA.debugLineNum = 128;BA.debugLine="ret=\"<td class='tdwxtu'>\"&n&\"</td>\"";
+ //BA.debugLineNum = 129;BA.debugLine="ret=\"<td class='tdwxtu'>\"&n&\"</td>\"";
 _ret = "<td class='tdwxtu'>"+_n+"</td>";
  break; }
 case 2: 
 case 3: {
- //BA.debugLineNum = 130;BA.debugLine="ret=\"<td class='tdwxshui'>\"&n&\"</td>\"";
+ //BA.debugLineNum = 131;BA.debugLine="ret=\"<td class='tdwxshui'>\"&n&\"</td>\"";
 _ret = "<td class='tdwxshui'>"+_n+"</td>";
  break; }
 case 4: 
 case 5: {
- //BA.debugLineNum = 132;BA.debugLine="ret=\"<td class='tdwxhuo'>\"&n&\"</td>\"";
+ //BA.debugLineNum = 133;BA.debugLine="ret=\"<td class='tdwxhuo'>\"&n&\"</td>\"";
 _ret = "<td class='tdwxhuo'>"+_n+"</td>";
  break; }
 case 6: 
 case 7: {
- //BA.debugLineNum = 134;BA.debugLine="ret=\"<td class='tdwxmu'>\"&n&\"</td>\"";
+ //BA.debugLineNum = 135;BA.debugLine="ret=\"<td class='tdwxmu'>\"&n&\"</td>\"";
 _ret = "<td class='tdwxmu'>"+_n+"</td>";
  break; }
 case 8: 
 case 9: {
- //BA.debugLineNum = 136;BA.debugLine="ret=\"<td class='tdwxjin'>\"&n&\"</td>\"";
+ //BA.debugLineNum = 137;BA.debugLine="ret=\"<td class='tdwxjin'>\"&n&\"</td>\"";
 _ret = "<td class='tdwxjin'>"+_n+"</td>";
  break; }
 }
 ;
- //BA.debugLineNum = 138;BA.debugLine="Return ret";
+ //BA.debugLineNum = 139;BA.debugLine="Return ret";
 if (true) return _ret;
- //BA.debugLineNum = 139;BA.debugLine="End Sub";
+ //BA.debugLineNum = 140;BA.debugLine="End Sub";
 return "";
 }
 public Object callSub(String sub, Object sender, Object[] args) throws Exception {
