@@ -6,7 +6,7 @@
  * Copyright (c) 2013年 mob.com. All rights reserved.
  */
 
-package com.zaiten.kpjj.wxapi;
+package com.zaiten;
 
 import android.content.Intent;
 import android.widget.Toast;
