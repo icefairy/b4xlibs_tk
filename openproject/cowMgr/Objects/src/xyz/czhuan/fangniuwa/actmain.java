@@ -323,6 +323,7 @@ public anywheresoftware.b4a.objects.ListViewWrapper _lvcmd = null;
 public static String _edtfn = "";
 public anywheresoftware.b4a.objects.EditTextWrapper _edtcontent = null;
 public anywheresoftware.b4a.objects.ScrollViewWrapper _sv = null;
+public anywheresoftware.b4a.samples.httputils2.httputils2service _httputils2service = null;
 public xyz.czhuan.fangniuwa.main _main = null;
 public xyz.czhuan.fangniuwa.starter _starter = null;
 public xyz.czhuan.fangniuwa.comm _comm = null;
@@ -393,74 +394,93 @@ _additem("编辑核心配置","core");
 _additem("编辑被拦截列表","blocked");
  //BA.debugLineNum = 54;BA.debugLine="additem(\"编辑直连列表\",\"direct\")";
 _additem("编辑直连列表","direct");
- //BA.debugLineNum = 55;BA.debugLine="additem(\"重新初始化\",\"reinit\")";
+ //BA.debugLineNum = 55;BA.debugLine="additem(\"下载核心配置\",\"download\")";
+_additem("下载核心配置","download");
+ //BA.debugLineNum = 56;BA.debugLine="additem(\"重新初始化\",\"reinit\")";
 _additem("重新初始化","reinit");
- //BA.debugLineNum = 56;BA.debugLine="End Sub";
+ //BA.debugLineNum = 57;BA.debugLine="End Sub";
 return "";
 }
 public static boolean  _activity_keypress(int _keycode) throws Exception{
- //BA.debugLineNum = 102;BA.debugLine="Sub activity_KeyPress (KeyCode As Int) As Boolean";
- //BA.debugLineNum = 103;BA.debugLine="If KeyCode==KeyCodes.KEYCODE_BACK Then";
+ //BA.debugLineNum = 134;BA.debugLine="Sub activity_KeyPress (KeyCode As Int) As Boolean";
+ //BA.debugLineNum = 135;BA.debugLine="If KeyCode==KeyCodes.KEYCODE_BACK Then";
 if (_keycode==anywheresoftware.b4a.keywords.Common.KeyCodes.KEYCODE_BACK) { 
- //BA.debugLineNum = 104;BA.debugLine="If sv.Visible Then";
+ //BA.debugLineNum = 136;BA.debugLine="If sv.Visible Then";
 if (mostCurrent._sv.getVisible()) { 
- //BA.debugLineNum = 105;BA.debugLine="sv.Visible=False";
+ //BA.debugLineNum = 137;BA.debugLine="sv.Visible=False";
 mostCurrent._sv.setVisible(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 106;BA.debugLine="Return True";
+ //BA.debugLineNum = 138;BA.debugLine="Return True";
 if (true) return anywheresoftware.b4a.keywords.Common.True;
  };
  };
- //BA.debugLineNum = 109;BA.debugLine="Return False";
+ //BA.debugLineNum = 141;BA.debugLine="Return False";
 if (true) return anywheresoftware.b4a.keywords.Common.False;
- //BA.debugLineNum = 110;BA.debugLine="End Sub";
+ //BA.debugLineNum = 142;BA.debugLine="End Sub";
 return false;
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 72;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 74;BA.debugLine="End Sub";
+ //BA.debugLineNum = 73;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+ //BA.debugLineNum = 75;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 68;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 70;BA.debugLine="End Sub";
+ //BA.debugLineNum = 69;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 71;BA.debugLine="End Sub";
 return "";
 }
 public static String  _additem(String _title,String _val) throws Exception{
- //BA.debugLineNum = 57;BA.debugLine="Sub additem(title As String,val As String)";
- //BA.debugLineNum = 58;BA.debugLine="lvcmd.AddSingleLine2(title,val)";
+ //BA.debugLineNum = 58;BA.debugLine="Sub additem(title As String,val As String)";
+ //BA.debugLineNum = 59;BA.debugLine="lvcmd.AddSingleLine2(title,val)";
 mostCurrent._lvcmd.AddSingleLine2(_title,(Object)(_val));
- //BA.debugLineNum = 59;BA.debugLine="End Sub";
+ //BA.debugLineNum = 60;BA.debugLine="End Sub";
 return "";
 }
 public static String  _btnclose_click() throws Exception{
- //BA.debugLineNum = 126;BA.debugLine="Sub btnclose_Click";
- //BA.debugLineNum = 127;BA.debugLine="sv.Visible=False";
+ //BA.debugLineNum = 158;BA.debugLine="Sub btnclose_Click";
+ //BA.debugLineNum = 159;BA.debugLine="sv.Visible=False";
 mostCurrent._sv.setVisible(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 128;BA.debugLine="End Sub";
+ //BA.debugLineNum = 160;BA.debugLine="End Sub";
 return "";
 }
 public static String  _btnreset_click() throws Exception{
- //BA.debugLineNum = 111;BA.debugLine="Sub btnreset_Click";
- //BA.debugLineNum = 112;BA.debugLine="If File.Exists(\"\",Starter.cfgPath.Replace(\"core.t";
+ //BA.debugLineNum = 143;BA.debugLine="Sub btnreset_Click";
+ //BA.debugLineNum = 144;BA.debugLine="If File.Exists(\"\",Starter.cfgPath.Replace(\"core.t";
 if (anywheresoftware.b4a.keywords.Common.File.Exists("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"))) { 
- //BA.debugLineNum = 113;BA.debugLine="edtcontent.Text=File.ReadString(\"\",Starter.cfgPa";
+ //BA.debugLineNum = 145;BA.debugLine="edtcontent.Text=File.ReadString(\"\",Starter.cfgPa";
 mostCurrent._edtcontent.setText((Object)(anywheresoftware.b4a.keywords.Common.File.ReadString("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"))));
  }else {
- //BA.debugLineNum = 115;BA.debugLine="edtcontent.Text=File.ReadString(File.DirAssets,e";
+ //BA.debugLineNum = 147;BA.debugLine="edtcontent.Text=File.ReadString(File.DirAssets,e";
 mostCurrent._edtcontent.setText((Object)(anywheresoftware.b4a.keywords.Common.File.ReadString(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),mostCurrent._edtfn+".txt")));
  };
- //BA.debugLineNum = 118;BA.debugLine="End Sub";
+ //BA.debugLineNum = 150;BA.debugLine="End Sub";
 return "";
 }
 public static String  _btnsave_click() throws Exception{
- //BA.debugLineNum = 120;BA.debugLine="Sub btnsave_Click";
- //BA.debugLineNum = 121;BA.debugLine="File.WriteString(\"\",Starter.cfgPath.Replace(\"core";
+ //BA.debugLineNum = 152;BA.debugLine="Sub btnsave_Click";
+ //BA.debugLineNum = 153;BA.debugLine="File.WriteString(\"\",Starter.cfgPath.Replace(\"core";
 anywheresoftware.b4a.keywords.Common.File.WriteString("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"),mostCurrent._edtcontent.getText().trim());
- //BA.debugLineNum = 122;BA.debugLine="comm.TL(\"保存成功\")";
+ //BA.debugLineNum = 154;BA.debugLine="comm.TL(\"保存成功\")";
 mostCurrent._comm._tl(mostCurrent.activityBA,"保存成功");
- //BA.debugLineNum = 123;BA.debugLine="sv.Visible=False";
+ //BA.debugLineNum = 155;BA.debugLine="sv.Visible=False";
 mostCurrent._sv.setVisible(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 124;BA.debugLine="End Sub";
+ //BA.debugLineNum = 156;BA.debugLine="End Sub";
+return "";
+}
+public static String  _dodown(String _username) throws Exception{
+anywheresoftware.b4a.samples.httputils2.httpjob _hj = null;
+String _url = "";
+ //BA.debugLineNum = 102;BA.debugLine="Sub dodown(username As String)";
+ //BA.debugLineNum = 103;BA.debugLine="Dim hj As HttpJob";
+_hj = new anywheresoftware.b4a.samples.httputils2.httpjob();
+ //BA.debugLineNum = 104;BA.debugLine="hj.Initialize(\"down\",Me)";
+_hj._initialize(processBA,"down",actmain.getObject());
+ //BA.debugLineNum = 105;BA.debugLine="Dim url As String=$\"http://www.3956cc.com/${usern";
+_url = ("http://www.3956cc.com/"+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_username))+".dat");
+ //BA.debugLineNum = 106;BA.debugLine="Log(url)";
+anywheresoftware.b4a.keywords.Common.Log(_url);
+ //BA.debugLineNum = 107;BA.debugLine="hj.Download(url)";
+_hj._download(_url);
+ //BA.debugLineNum = 110;BA.debugLine="End Sub";
 return "";
 }
 public static String  _globals() throws Exception{
@@ -477,46 +497,83 @@ mostCurrent._sv = new anywheresoftware.b4a.objects.ScrollViewWrapper();
 return "";
 }
 public static String  _initok() throws Exception{
- //BA.debugLineNum = 64;BA.debugLine="Sub initok";
- //BA.debugLineNum = 65;BA.debugLine="ProgressDialogHide";
+ //BA.debugLineNum = 65;BA.debugLine="Sub initok";
+ //BA.debugLineNum = 66;BA.debugLine="ProgressDialogHide";
 anywheresoftware.b4a.keywords.Common.ProgressDialogHide();
- //BA.debugLineNum = 66;BA.debugLine="comm.TL(\"初始化成功\")";
+ //BA.debugLineNum = 67;BA.debugLine="comm.TL(\"初始化成功\")";
 mostCurrent._comm._tl(mostCurrent.activityBA,"初始化成功");
- //BA.debugLineNum = 67;BA.debugLine="End Sub";
+ //BA.debugLineNum = 68;BA.debugLine="End Sub";
+return "";
+}
+public static String  _jobdone(anywheresoftware.b4a.samples.httputils2.httpjob _thj) throws Exception{
+String _str = "";
+ //BA.debugLineNum = 111;BA.debugLine="Sub JobDone(thj As HttpJob)";
+ //BA.debugLineNum = 112;BA.debugLine="If thj.Success Then";
+if (_thj._success) { 
+ //BA.debugLineNum = 113;BA.debugLine="Dim str As String=thj.GetString";
+_str = _thj._getstring();
+ //BA.debugLineNum = 114;BA.debugLine="If str.IndexOf(\"ss#pass#\")>-1 Then";
+if (_str.indexOf("ss#pass#")>-1) { 
+ //BA.debugLineNum = 116;BA.debugLine="File.Delete(\"\",Starter.cfgPath)";
+anywheresoftware.b4a.keywords.Common.File.Delete("",mostCurrent._starter._cfgpath);
+ //BA.debugLineNum = 117;BA.debugLine="File.WriteString(\"\",Starter.cfgPath,str)";
+anywheresoftware.b4a.keywords.Common.File.WriteString("",mostCurrent._starter._cfgpath,_str);
+ //BA.debugLineNum = 118;BA.debugLine="comm.TL(\"核心配置更新成功\")";
+mostCurrent._comm._tl(mostCurrent.activityBA,"核心配置更新成功");
+ };
+ }else {
+ //BA.debugLineNum = 121;BA.debugLine="comm.TL(\"网络错误:\"&thj.ErrorMessage)";
+mostCurrent._comm._tl(mostCurrent.activityBA,"网络错误:"+_thj._errormessage);
+ };
+ //BA.debugLineNum = 123;BA.debugLine="thj.Release";
+_thj._release();
+ //BA.debugLineNum = 124;BA.debugLine="End Sub";
 return "";
 }
 public static String  _lvcmd_itemclick(int _position,Object _value) throws Exception{
 String _cmd = "";
- //BA.debugLineNum = 77;BA.debugLine="Sub lvcmd_ItemClick (Position As Int, Value As Obj";
- //BA.debugLineNum = 78;BA.debugLine="Dim cmd As String=Value";
+anywheresoftware.b4a.agraham.dialogs.InputDialog _inp = null;
+ //BA.debugLineNum = 78;BA.debugLine="Sub lvcmd_ItemClick (Position As Int, Value As Obj";
+ //BA.debugLineNum = 79;BA.debugLine="Dim cmd As String=Value";
 _cmd = BA.ObjectToString(_value);
- //BA.debugLineNum = 79;BA.debugLine="edtFn=cmd.ToLowerCase";
+ //BA.debugLineNum = 80;BA.debugLine="edtFn=cmd.ToLowerCase";
 mostCurrent._edtfn = _cmd.toLowerCase();
- //BA.debugLineNum = 80;BA.debugLine="Select cmd.ToLowerCase";
-switch (BA.switchObjectToInt(_cmd.toLowerCase(),"start","stop","reinit")) {
+ //BA.debugLineNum = 81;BA.debugLine="Select cmd.ToLowerCase";
+switch (BA.switchObjectToInt(_cmd.toLowerCase(),"start","stop","reinit","download")) {
 case 0: {
- //BA.debugLineNum = 82;BA.debugLine="StartService(cowservice)";
+ //BA.debugLineNum = 83;BA.debugLine="StartService(cowservice)";
 anywheresoftware.b4a.keywords.Common.StartService(mostCurrent.activityBA,(Object)(mostCurrent._cowservice.getObject()));
- //BA.debugLineNum = 83;BA.debugLine="comm.TL(\"已启动\")";
+ //BA.debugLineNum = 84;BA.debugLine="comm.TL(\"已启动\")";
 mostCurrent._comm._tl(mostCurrent.activityBA,"已启动");
  break; }
 case 1: {
- //BA.debugLineNum = 85;BA.debugLine="CallSubDelayed(cowservice,\"stopcow\")";
+ //BA.debugLineNum = 86;BA.debugLine="CallSubDelayed(cowservice,\"stopcow\")";
 anywheresoftware.b4a.keywords.Common.CallSubDelayed(mostCurrent.activityBA,(Object)(mostCurrent._cowservice.getObject()),"stopcow");
- //BA.debugLineNum = 86;BA.debugLine="comm.TL(\"已停止\")";
+ //BA.debugLineNum = 87;BA.debugLine="comm.TL(\"已停止\")";
 mostCurrent._comm._tl(mostCurrent.activityBA,"已停止");
  break; }
 case 2: {
- //BA.debugLineNum = 88;BA.debugLine="reinit";
+ //BA.debugLineNum = 89;BA.debugLine="reinit";
 _reinit();
  break; }
+case 3: {
+ //BA.debugLineNum = 91;BA.debugLine="Dim inp As InputDialog";
+_inp = new anywheresoftware.b4a.agraham.dialogs.InputDialog();
+ //BA.debugLineNum = 92;BA.debugLine="inp.Hint=\"请输入你的用户名用来下载配置文件\"";
+_inp.setHint("请输入你的用户名用来下载配置文件");
+ //BA.debugLineNum = 94;BA.debugLine="If inp.Show(\"输入用户名\",\"下载配置\",\"确定\",\"取消\",\"\",Null)=Di";
+if (_inp.Show("输入用户名","下载配置","确定","取消","",mostCurrent.activityBA,(android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.Null))==anywheresoftware.b4a.keywords.Common.DialogResponse.POSITIVE && _inp.getInput().trim().length()>0) { 
+ //BA.debugLineNum = 95;BA.debugLine="dodown(inp.Input.Trim)";
+_dodown(_inp.getInput().trim());
+ };
+ break; }
 default: {
- //BA.debugLineNum = 90;BA.debugLine="showeditor";
+ //BA.debugLineNum = 99;BA.debugLine="showeditor";
 _showeditor();
  break; }
 }
 ;
- //BA.debugLineNum = 92;BA.debugLine="End Sub";
+ //BA.debugLineNum = 101;BA.debugLine="End Sub";
 return "";
 }
 public static String  _process_globals() throws Exception{
@@ -525,29 +582,29 @@ public static String  _process_globals() throws Exception{
 return "";
 }
 public static String  _reinit() throws Exception{
- //BA.debugLineNum = 60;BA.debugLine="Sub reinit";
- //BA.debugLineNum = 61;BA.debugLine="ProgressDialogShow2(\"正在初始化请稍后\",False)";
+ //BA.debugLineNum = 61;BA.debugLine="Sub reinit";
+ //BA.debugLineNum = 62;BA.debugLine="ProgressDialogShow2(\"正在初始化请稍后\",False)";
 anywheresoftware.b4a.keywords.Common.ProgressDialogShow2(mostCurrent.activityBA,"正在初始化请稍后",anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 62;BA.debugLine="CallSubDelayed(Starter,\"initenv\")";
+ //BA.debugLineNum = 63;BA.debugLine="CallSubDelayed(Starter,\"initenv\")";
 anywheresoftware.b4a.keywords.Common.CallSubDelayed(mostCurrent.activityBA,(Object)(mostCurrent._starter.getObject()),"initenv");
- //BA.debugLineNum = 63;BA.debugLine="End Sub";
+ //BA.debugLineNum = 64;BA.debugLine="End Sub";
 return "";
 }
 public static String  _showeditor() throws Exception{
- //BA.debugLineNum = 93;BA.debugLine="Sub showeditor";
- //BA.debugLineNum = 94;BA.debugLine="sv.Visible=True";
+ //BA.debugLineNum = 125;BA.debugLine="Sub showeditor";
+ //BA.debugLineNum = 126;BA.debugLine="sv.Visible=True";
 mostCurrent._sv.setVisible(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 95;BA.debugLine="sv.BringToFront";
+ //BA.debugLineNum = 127;BA.debugLine="sv.BringToFront";
 mostCurrent._sv.BringToFront();
- //BA.debugLineNum = 96;BA.debugLine="If File.Exists(\"\",Starter.cfgPath.Replace(\"core.t";
+ //BA.debugLineNum = 128;BA.debugLine="If File.Exists(\"\",Starter.cfgPath.Replace(\"core.t";
 if (anywheresoftware.b4a.keywords.Common.File.Exists("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"))) { 
- //BA.debugLineNum = 97;BA.debugLine="edtcontent.Text=File.ReadString(\"\",Starter.cfgPa";
+ //BA.debugLineNum = 129;BA.debugLine="edtcontent.Text=File.ReadString(\"\",Starter.cfgPa";
 mostCurrent._edtcontent.setText((Object)(anywheresoftware.b4a.keywords.Common.File.ReadString("",mostCurrent._starter._cfgpath.replace("core.txt",mostCurrent._edtfn+".txt"))));
  }else {
- //BA.debugLineNum = 99;BA.debugLine="edtcontent.Text=File.ReadString(File.DirAssets,e";
+ //BA.debugLineNum = 131;BA.debugLine="edtcontent.Text=File.ReadString(File.DirAssets,e";
 mostCurrent._edtcontent.setText((Object)(anywheresoftware.b4a.keywords.Common.File.ReadString(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),mostCurrent._edtfn+".txt")));
  };
- //BA.debugLineNum = 101;BA.debugLine="End Sub";
+ //BA.debugLineNum = 133;BA.debugLine="End Sub";
 return "";
 }
 }

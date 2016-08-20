@@ -1,0 +1,49 @@
+﻿Version=4.2
+AppType=StandardJava
+NumberOfModules=0
+Build1=Default,b4j.example
+NumberOfFiles=0
+NumberOfLibraries=2
+Library1=jcore
+Library2=threading
+@EndOfDesignText@
+'Non-UI application (console / server application)
+#Region  Project Attributes 
+	#CommandLineArgs:
+	#MergeLibraries: True 
+#End Region
+
+Sub Process_Globals
+	Dim thd1,thd2 As Thread
+	Dim a=1 As Int
+	Private lck As Lock
+End Sub
+
+Sub AppStart (Args() As String)
+	thd1.Initialise("thd1")
+	thd1.Name="A"
+	thd2.Initialise("thd2")
+	thd2.Name="B"
+	'lck.Initialize(True)
+	'thd1.Start(Me,"printint",Null)
+	printint
+	thd2.Start(Me,"printint",Null)
+	StartMessageLoop
+End Sub
+Sub printint
+	Do While a>0
+		Log(a)
+		'lck.Wait
+		
+		a=a+1
+		'lck.Unlock
+		If a>99 Then
+			Exit
+		End If	
+	Loop
+	CallSubDelayed(Me,"endall")
+End Sub
+
+Sub endall
+	StopMessageLoop
+End Sub
