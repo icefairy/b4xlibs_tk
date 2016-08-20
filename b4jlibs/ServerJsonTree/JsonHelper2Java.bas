@@ -19,7 +19,7 @@ End Sub
 Sub tmr_Tick
 '	Log("----------"&CRLF&sb_code.ToString&CRLF&"------------")
 '	Log("----------"&CRLF&sbCLS.ToString&CRLF&"------------")
-	resMap.Put("code",sb_code.ToString&CRLF&CRLF&"//types below"&CRLF&sbCLS.ToString)
+	resMap.Put("code","//types below"&CRLF&sbCLS.ToString)
 	Dim jg As JSONGenerator
 	jg.Initialize(resMap)
 	mResp.Write(jg.ToString)
@@ -130,7 +130,7 @@ JSONObject jo=new JSONObject(js);"$
 			Case "string"
 				constr=constr&CRLF&$"this.${k}=jo.optString("${k}","");"$
 			Case "int"
-				constr=constr&CRLF&$"this.${k}=jo.optInt("${k}",-1);"$
+				constr=constr&CRLF&$"this.${k}=jo.optInt("${k}",0);"$
 			Case "double"
 				constr=constr&CRLF&$"this.${k}=jo.optDouble("${k}",0d);"$
 			Case "map"
