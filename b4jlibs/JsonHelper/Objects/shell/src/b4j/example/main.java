@@ -54,12 +54,12 @@ public boolean isSingleton() {
 		return pcBA;
 	}
 public static RemoteObject __c = RemoteObject.declareNull("anywheresoftware.b4a.keywords.Common");
-public static RemoteObject _sb_code = RemoteObject.declareNull("anywheresoftware.b4a.keywords.StringBuilderWrapper");
-public static RemoteObject _sbcls = RemoteObject.declareNull("anywheresoftware.b4a.keywords.StringBuilderWrapper");
-public static RemoteObject _flg = RemoteObject.createImmutable(0);
-public static RemoteObject _nfloor = RemoteObject.createImmutable(0);
-public static RemoteObject _stab = RemoteObject.createImmutable("");
+public static RemoteObject _fx = RemoteObject.declareNull("anywheresoftware.b4j.objects.JFX");
+public static RemoteObject _mainform = RemoteObject.declareNull("anywheresoftware.b4j.objects.Form");
+public static RemoteObject _edtjson = RemoteObject.declareNull("anywheresoftware.b4j.objects.TextInputControlWrapper.TextAreaWrapper");
+public static RemoteObject _edtcode = RemoteObject.declareNull("anywheresoftware.b4j.objects.TextInputControlWrapper.TextAreaWrapper");
+public static RemoteObject _sindent = RemoteObject.createImmutable("");
   public Object[] GetGlobals() {
-		return new Object[] {"flg",main._flg,"nFloor",main._nfloor,"sb_code",main._sb_code,"sbCLS",main._sbcls,"sTAB",main._stab};
+		return new Object[] {"edtcode",main._edtcode,"edtJson",main._edtjson,"fx",main._fx,"MainForm",main._mainform,"sIndent",main._sindent};
 }
 }
