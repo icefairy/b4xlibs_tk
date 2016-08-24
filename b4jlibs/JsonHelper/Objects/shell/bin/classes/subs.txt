@@ -1,31 +1,51 @@
 b4j.example
 0
 0
-main,appstart,0,0,15,25
-,nfloor,,flg,,sbcls,,sb_code
-,nfloor,,flg
-,parsejs,,gettabs,,parsejso,,getjotype
-main,parsejs,0,0,46,77
-,nfloor,,flg,,sbcls,,sb_code
-,nfloor,,flg
-,gettabs,,parsejso,,getjotype
-main,getjotype,0,0,123,137
+main,appstart,1,0,15,21
+,mainform,,edtcode,,edtjson
+,mainform,,edtcode,,edtjson
+,disablescrollbar
+main,disablescrollbar,0,0,49,64
 
 
 
-main,gettabs,0,0,114,122
+main,askexit,1,0,36,41
+,fx,,mainform
 
 
+main,buildtree_b4x,0,0,103,143
+,sindent
 
-main,parsejso,0,0,78,113
-,sb_code,,nfloor,,flg,,sbcls
-,nfloor,,flg
-,gettabs,,getjotype,,parsejso
-main,process_globals,0,1,7,13
-,stab
-,stab
+,writecodehelper_b4x,,buildtree_b4x
+main,writecodehelper_b4x,0,0,144,164
+,sindent
 
-main,test,0,0,26,44
+
+main,exit_action,1,0,33,35
+,fx,,mainform
+
+,askexit
+main,mainform_closerequest,1,0,42,44
+,fx,,mainform
+
+,askexit
+main,parsetob4x,0,0,67,95
+,sindent
+
+,buildtree_b4x,,writecodehelper_b4x
+main,process_globals,0,1,6,13
+,sindent
+,sindent
+
+main,reset_action,0,0,45,48
+,edtjson,,edtcode
+
+
+main,tob4x_action,1,0,22,29
+,edtjson,,fx,,mainform,,edtcode,,sindent
+
+,parsetob4x,,buildtree_b4x,,writecodehelper_b4x
+main,tojava_action,0,0,30,32
 
 
 
