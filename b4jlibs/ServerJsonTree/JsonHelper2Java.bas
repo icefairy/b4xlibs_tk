@@ -5,203 +5,24 @@ B4J=true
 @EndOfDesignText@
 'Class module
 Sub Class_Globals
-	Private mResp As ServletResponse
+	
 	Private resMap As Map
-	Dim sb_code As StringBuilder,sbCLS As StringBuilder
-	Dim flg As Int,nFloor As Int
-'	Private lstMaps As List
-Private jsg As JSONGenerator
+	Private sIndent As String="    "
+	Private mData As Map
 End Sub
 
 Public Sub Initialize
 	
 End Sub
-Sub tmr_Tick
-'	Log("----------"&CRLF&sb_code.ToString&CRLF&"------------")
-'	Log("----------"&CRLF&sbCLS.ToString&CRLF&"------------")
-	resMap.Put("code",sb_code.ToString&CRLF&CRLF&"//types below"&CRLF&sbCLS.ToString)
-	Dim jg As JSONGenerator
-	jg.Initialize(resMap)
-	mResp.Write(jg.ToString)
-	
-End Sub
 
-Sub parseJS(jsonstr As String)
-	If jsonstr.Length<1 Then Return
-	nFloor=-1
-	sbCLS.Initialize
-'	sbCLS.Append($" //BaseDataTypeConvert
-'    class BClass{
-'        protected int obj2int(Object str){
-'            int ret=0;
-'            try{
-'                ret=Integer.parseInt(str.toString());
-'            }catch (Exception e){
-'                e.printStackTrace();
-'            }
-'            return ret;
-'        }
-'        protected double obj2double(Object str){
-'            double ret=0D;
-'            try{
-'                ret=Double.parseDouble(str.toString());
-'            }catch (Exception e){
-'                e.printStackTrace();
-'            }
-'            return ret;
-'        }
-'        protected String obj2String(Object str){
-'            return str.toString();
-'        }
-'    }"$)
-	sb_code.Initialize
-	Dim jsp As JSONParser
-'	lstMaps.Initialize
-	Dim isLst As Boolean=False,isMap As Boolean=False
-	If jsonstr.CharAt(0)="[" Then
-		isLst=True
-	Else if jsonstr.CharAt(0)="{" Then
-			isMap=True
-	End If
-	sb_code.Append("try {").Append(CRLF)
-	nFloor=nFloor+1
-'	sb_code.Append($"JSONParser parser=new JSONParser();
-'parser.Initialize(str);"$).Append(CRLF)
-
-	'sb_code.Append(getTABS(nFloor)&"Dim jsp As JSONParser"&CRLF&getTABS(nFloor)&"jsp.Initialize(str)"&CRLF&getTABS(nFloor)&"Dim root As ")
-	Try
-		jsp.Initialize(jsonstr)
-		If isLst Then
-			sb_code.Append(getTABS(nFloor)&"JSONArray root=new JSONArray(js);"&CRLF)
-			parseJSO(jsp.NextArray,"root")
-		Else
-			sb_code.Append(getTABS(nFloor)&" JSONObject root=new JSONObject(js);"&CRLF)
-			parseJSO(jsp.NextObject,"root")
-		End If
-		sb_code.Append(CRLF&$"}catch (Exception jse){
-    mLog.Log("parseJsonError:"+jse.getMessage()+"\n"+str);
-}"$)
-	Catch
-		Log(LastException)
-		resMap.Put("message",LastException.Message)
-	End Try
-	tmr_Tick
-	
-End Sub
-'分层级
-Sub parseJSO(obj As Object,parent As Object)
-	nFloor=nFloor+1
-	If obj Is List Then
-		Dim lst As List=obj
-		If lst.Size>0 Then
-'			 sb_code.Append(getTABS(nFloor)&$"if (${parent}!=null&& ${parent}.getSize()>0){
-'	for (int i${parent}=0;i${parent}<${parent}.getSize();i${parent}++){"$).Append(CRLF)
-           	sb_code.Append(getTABS(nFloor)&$"if (${parent}!=null&& ${parent}.getSize()>0){
-	for (Object col${parent}1:${parent}.getObject()) {
-        Map col${parent}= (Map) col${parent}1;"$).Append(CRLF)
-			parseJSO(lst.Get(0),"col"&parent)
-			sb_code.Append(getTABS(nFloor)&"}"&CRLF&"}"&CRLF)
-		Else
-			sb_code.Append(getTABS(nFloor)&"//Empty List"&CRLF)
-		End If
-	else if obj Is Map Then
-		flg=flg+1
-		
-		Dim m As Map=obj
-		Dim tobj2 As Object
-		jsg.Initialize(obj)
-		sbCLS.Append(CRLF&"//start of class typ"&parent&CRLF&"public static class md"&parent&" {"&CRLF)
-		Dim constr As String=""
-		constr=$"
-public md${parent}(){}//this is for xutils.db
-public md${parent}(String js) {
- if (js==null||js.length()<1){
-        return;
-    }
-try {
-JSONObject jo=new JSONObject(js);"$
-		
-		sb_code.Append(getTABS(nFloor)&"md"&parent&" myItem=new md"&parent&"();"&CRLF)
-		
-		For Each k As String In m.Keys
-			tobj2=m.Get(k)
-			Dim typ As String=getJOType(tobj2)
-			Select typ.ToLowerCase
-			Case "string"
-				constr=constr&CRLF&$"this.${k}=jo.optString("${k}","");"$
-			Case "int"
-				constr=constr&CRLF&$"this.${k}=jo.optInt("${k}",-1);"$
-			Case "double"
-				constr=constr&CRLF&$"this.${k}=jo.optDouble("${k}",0d);"$
-			Case "map"
-				constr=constr&CRLF&"//I cannot process map in map"
-			Case Else
-				constr=constr&CRLF&$"this.${k}=jo.opt("${k}");"$
-			
-			End Select
-			If k.EqualsIgnoreCase("id") Then
-			sbCLS.Append($"@Column(isId = true,name = "${k}",autoGen = false)
-"$)
-'@Column(isId = true,name = "id",autoGen = false)
-			Else
-			sbCLS.Append($"@Column(name = "${k}")
-"$)	
-			End If
-			sbCLS.Append("private "&typ&" "&k&";").Append(CRLF)
-			sb_code.Append($"${getTABS(nFloor)}myItem.set${getFirstUpper(k)}(${parent&".Get("""&k&"""));"}"$)
-			sb_code.Append(CRLF)
-			'parseJSO(tobj2,parent&"_"&k)
-		Next
-		sbCLS.Append(constr&CRLF&$"} catch (JSONException e1) {
-    e1.printStackTrace();
-}
-}"$)
-		sbCLS.Append(CRLF&"}//end of typ"&parent&CRLF)		
-	End If	
-	nFloor=nFloor-1
-	Log("nFloor:"&nFloor)
-End Sub
-Private Sub getFirstUpper(str As String) As String
-	Dim ret As String=""
-	If str.Length>0 Then
-		ret=str.SubString(1)
-		ret=str.SubString2(0,1).ToUpperCase&ret
-	End If
-	Return ret
-End Sub
-Sub getTABS(n As Int) As String
-	Dim ret As String=""
-	If n>0 Then
-		For i=0 To n
-			ret=ret&"    "
-		Next
-	End If
-	Return ret
-End Sub
-Sub getJOType(obj As Object) As String
-	Dim ret As String
-	If obj Is Int Then
-		ret="int"
-	else if obj Is Double Then
-		ret="Double"
-	Else if obj Is Map Then
-		ret="Map"
-	Else if obj Is String Then
-		ret="String"
-	Else 
-		ret="Object"
-	End If
-	Return ret
-End Sub
 Sub Handle(req As ServletRequest, resp As ServletResponse)
 	resp.ContentType = "application/json"
 	resp.CharacterEncoding="UTF-8"
-	mResp=resp
 	resMap.Initialize
+	mData.Initialize
 	Try
 		Dim data() As Byte = Bit.InputStreamToBytes(req.InputStream)
 		Dim text As String = BytesToString(data, 0, data.Length, "UTF8")
-		
 		Dim parser As JSONParser
 		parser.Initialize(text)
 		Dim squareBracketFound As Boolean
@@ -221,43 +42,128 @@ Sub Handle(req As ServletRequest, resp As ServletResponse)
 		code.Append("Dim root As ")
 		Dim root As TreeItem = CreateTreeItem ("")
 		If squareBracketFound Then
+			code.Append("List = parser.NextArray").Append(" "&CRLF)
 			BuildTree(parser.NextArray, root, code, "root", "", False, "")
 		Else
+			code.Append("Map = parser.NextObject").Append(" "&CRLF)
 			BuildTree(parser.NextObject, root, code, "root", "", False, "")
 		End If
-		Dim sb As StringBuilder
+		Dim sb,sbCLS As StringBuilder
 		sb.Initialize
+		code.Initialize
 		ConvertTreeToHtml(sb, root, True)
+		sbCLS.Initialize
+		For i=0 To mData.Size-1
+			Dim m As Map=str2map(mData.Get(mData.GetKeyAt(i)))
+			sbCLS.Append($"/**
+ * Created by icefairy on ${getdate}.
+ */
+@Table(name = "tab_${mData.GetKeyAt(i)}")"$).Append(CRLF)
+			sbCLS.Append("class md"&mData.GetKeyAt(i)).Append("{").Append(CRLF)
+			sbCLS.Append(map2code(m)).Append(CRLF)
+			sbCLS.Append(sIndent&"md"& mData.GetKeyAt(i)&"(){/* this is for xutils3 db module */}").Append(CRLF).Append($"${sIndent&"md"& mData.GetKeyAt(i)}(String js){
+		if (js==null||js.length()<1){
+		        return;
+		    }
+		try {
+			JSONObject jo=new JSONObject(js);
+${map2code2(m)}
+		} catch (JSONException e1) {
+		    e1.printStackTrace();
+		}
+	}"$).Append(CRLF)
+			sbCLS.Append("}").Append(CRLF).Append(CRLF)
+		Next
 		resMap.Put("tree", sb.ToString)
 		resMap.Put("success", True)
-		parseJS(text)
+		resMap.Put("code", sbCLS.ToString)
 	Catch
 		resMap.Put("success", False)
-		resMap.Put("error", "Error parsing string:" & CRLF & LastException.Message&" str:"&text)
-		Dim jg As JSONGenerator
-		jg.Initialize(resMap)
-		mResp.Write(jg.ToString)
+		resMap.Put("error", "Error parsing string:" & CRLF & LastException.Message)
+	End Try
+	Dim jg As JSONGenerator
+	jg.Initialize(resMap)
+	resp.Write(jg.ToString)
+End Sub
+Sub getdate As String
+	DateTime.DateFormat="yyyy-MM-dd"
+	Return DateTime.Date(DateTime.Now)
+End Sub
+Sub map2code(m As Map) As String
+	If m.IsInitialized=False Then Return ""
+	Dim sb As StringBuilder
+	sb.Initialize
+	For Each k As String In m.Keys
+		sb.Append(sIndent)
+		Dim obj As Object=m.Get(k)
+		If obj Is Int Then
+			If k.EqualsIgnoreCase("id") Then
+				sb.Append("@Column(name = """&k&""",isId = true,autoGen = false)"&CRLF&sIndent&"private int "&k&";").Append(CRLF)
+			Else
+				sb.Append("@Column(name = """&k&""")"&CRLF&sIndent&"private int "&k&";").Append(CRLF)
+			End If
+			
+		Else If obj Is Double Then
+			sb.Append("@Column(name = """&k&""")"&CRLF&sIndent&"private double"&k&";").Append(CRLF)
+		Else
+			sb.Append("@Column(name = """&k&""")"&CRLF&sIndent&"private String "&k&";").Append(CRLF)
+		End If	
+	Next
+	Return sb.ToString
+End Sub
+'生成模型构造器
+Sub map2code2(m As Map) As String
+	If m.IsInitialized=False Then Return ""
+	Dim sb As StringBuilder
+	sb.Initialize
+	For Each k As String In m.Keys
+		sb.Append(sIndent).Append(sIndent).Append(sIndent)
+		Dim obj As Object=m.Get(k)
+		If obj Is Int Then
+			sb.Append("this."&k&"=jo.optInt("""&k&""",0);")
+		Else If obj Is Double Then
+			sb.Append("this."&k&"=jo.optDouble("""&k&""",0d);")
+		Else
+			sb.Append("this."&k&"=jo.optString("""&k&""","""");")
+		End If	
+		sb.Append(CRLF)
+	Next
+	Return sb.ToString
+End Sub
+Sub map2str(m As Map) As String
+	Dim ret As String
+	Dim jsg As JSONGenerator
+	jsg.Initialize(m)
+	ret=jsg.ToString
+	Log(ret)
+	Return ret
+End Sub
+Sub str2map(s As String) As Map
+	Dim ret As Map
+	Try
+		Dim jsp As JSONParser
+		jsp.Initialize(s)
+		ret=jsp.NextObject
+	Catch
+		ret.Initialize
 	End Try
 	
-	
+	Return ret
 End Sub
-'Sub docaller(co As caller)
-'	BuildTree(co.element,co.parent,co.code,co.parentName,co.GetFromMap,co.BuildList,co.indent)
-'End Sub
 Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		parentName As String, GetFromMap As String, BuildList As Boolean, indent As String)
+	code.Append(indent)
 	If element Is Map Then
+		indent = WriteCodeHelper("Map", code, parentName, GetFromMap, BuildList, indent)
 		Dim m As Map = element
+		If parentName.EqualsIgnoreCase("root")=False Then mData.Put(parentName,map2str(m))
 		For Each k As String In m.Keys
 			Dim ti As TreeItem = CreateTreeItem(k)
-'		
-'			If m.Get(k) Is String Then Log("dim "&parent.Text&"_"&k&" as string")
-'			If m.Get(k) Is Int Then Log("dim "&parent.Text&"_"&k&" as int")
-'			If m.Get(k) Is Double Then Log("dim "&parent.Text&"_"&k&" as double")
 			parent.Children.Add(ti)
 			BuildTree(m.Get(k), ti, code, k, parentName & ".Get(""" & k & """)", False, indent)
 		Next
 	Else If element Is List Then
+		indent = WriteCodeHelper("List", code, parentName, GetFromMap, BuildList, indent)
 		Dim l As List = element
 		Dim index As Int = 0
 		For Each e As Object In l
@@ -266,12 +172,47 @@ Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 			Dim stubCode As StringBuilder
 			'only write the code for the first item
 			If index = 0 Then stubCode = code Else stubCode.Initialize
-			BuildTree(e, ti, stubCode, "col" & parentName ,"", index = 0, indent)
+			BuildTree(e, ti, stubCode, parentName ,"", index = 0, indent)
 			index = index + 1
 		Next
 	Else
+		Dim objectType As String
+		If element Is Int Then
+			objectType = "Int"
+		Else If element Is Double Then
+			objectType = "Double"
+		Else
+			objectType = "String"
+		End If
+		indent = WriteCodeHelper(objectType, code, parentName, GetFromMap, BuildList, indent)
 		parent.Text = parent.Text & ": " & element
 	End If
+	If BuildList Then
+		'Log(indent)
+		code.Append(indent.SubString(sIndent.Length)).Append("Next").Append(" "&CRLF)
+	End If
+End Sub
+
+Sub WriteCodeHelper (ObjectType As String, code As StringBuilder, _
+	parentName As String, GetFromMap As String, BuildList As Boolean, indent As String) As String
+	
+	If GetFromMap.Length > 0 Then
+		Select ObjectType.ToLowerCase
+		Case "int"
+			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap.Replace("Get","GetDefault").Replace(")",",0)")).Append(" "&CRLF)
+		Case "double"
+			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap.Replace("Get","GetDefault").Replace(")",",0)")).Append(" "&CRLF)
+		Case "string"
+			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap.Replace("Get","GetDefault").Replace(")",","""")")).Append(" "&CRLF)
+		Case Else
+			'Log(ObjectType)
+			code.Append("Dim " & parentName & " As " & ObjectType & " = " & GetFromMap&" "&CRLF)
+		End Select		
+	Else If BuildList Then
+		code.Append("For Each " & parentName & " As " & ObjectType & " In " & parentName.SubString(3)).Append(" "&CRLF)
+		indent = indent & sIndent
+	End If
+	Return indent
 End Sub
 
 Private Sub ConvertTreeToHtml(sb As StringBuilder, parent As TreeItem, isRoot As Boolean)
@@ -315,5 +256,3 @@ Private Sub EscapeXml(Raw As String) As String
    Next
    Return sb.ToString
 End Sub
-
-

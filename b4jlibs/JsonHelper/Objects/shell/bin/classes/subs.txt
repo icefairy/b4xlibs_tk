@@ -1,51 +1,51 @@
 b4j.example
 0
 0
-main,appstart,1,0,15,21
+main,appstart,1,0,14,20
 ,mainform,,edtcode,,edtjson
 ,mainform,,edtcode,,edtjson
 ,disablescrollbar
-main,disablescrollbar,0,0,49,64
+main,disablescrollbar,0,0,48,63
 
 
 
-main,askexit,1,0,36,41
+main,askexit,1,0,35,40
 ,fx,,mainform
 
 
-main,buildtree_b4x,0,0,103,143
+main,buildtree_b4x,0,0,96,136
 ,sindent
 
 ,writecodehelper_b4x,,buildtree_b4x
-main,writecodehelper_b4x,0,0,144,164
+main,writecodehelper_b4x,0,0,137,156
 ,sindent
 
 
-main,exit_action,1,0,33,35
+main,exit_action,1,0,32,34
 ,fx,,mainform
 
 ,askexit
-main,mainform_closerequest,1,0,42,44
+main,mainform_closerequest,1,0,41,43
 ,fx,,mainform
 
 ,askexit
-main,parsetob4x,0,0,67,95
+main,parsetob4x,0,0,66,94
 ,sindent
 
 ,buildtree_b4x,,writecodehelper_b4x
-main,process_globals,0,1,6,13
+main,process_globals,0,1,6,12
 ,sindent
 ,sindent
 
-main,reset_action,0,0,45,48
+main,reset_action,0,0,44,47
 ,edtjson,,edtcode
 
 
-main,tob4x_action,1,0,22,29
+main,tob4x_action,1,0,21,28
 ,edtjson,,fx,,mainform,,edtcode,,sindent
 
 ,parsetob4x,,buildtree_b4x,,writecodehelper_b4x
-main,tojava_action,0,0,30,32
+main,tojava_action,0,0,29,31
 
 
 
