@@ -5,9 +5,20 @@ import com.amap.api.maps2d.model.MarkerOptions;
 
 import anywheresoftware.b4a.AbsObjectWrapper;
 import anywheresoftware.b4a.BA.ShortName;
+import anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper;
 
 @ShortName("MarkerOptions")
 public class MarkerOptionsWrap extends AbsObjectWrapper<MarkerOptions> {
+	public static final float HUE_RED = 0.0F;
+	public static final float HUE_ORANGE = 30.0F;
+	public static final float HUE_YELLOW = 60.0F;
+	public static final float HUE_GREEN = 120.0F;
+	public static final float HUE_CYAN = 180.0F;
+	public static final float HUE_AZURE = 210.0F;
+	public static final float HUE_BLUE = 240.0F;
+	public static final float HUE_VIOLET = 270.0F;
+	public static final float HUE_MAGENTA = 300.0F;
+	public static final float HUE_ROSE = 330.0F;
 	public void init() {
 		setObject(new MarkerOptions());
 	}
@@ -21,6 +32,14 @@ public class MarkerOptionsWrap extends AbsObjectWrapper<MarkerOptions> {
 	}
 	public MarkerOptionsWrap iconfromfile(String paramString) {
 		getObject().icon(BitmapDescriptorFactory.fromFile(paramString));
+		return this;
+	}
+	public MarkerOptionsWrap iconfrombmp(BitmapWrapper bw) {
+		getObject().icon(BitmapDescriptorFactory.fromBitmap(bw.getObject()));
+		return this;
+	}
+	public MarkerOptionsWrap icondefault2(float  hue) {
+		getObject().icon(BitmapDescriptorFactory.defaultMarker(hue));
 		return this;
 	}
 	public MarkerOptionsWrap draggable(boolean paramBoolean) {
