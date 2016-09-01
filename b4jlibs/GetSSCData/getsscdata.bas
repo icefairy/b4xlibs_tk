@@ -40,11 +40,14 @@ End Sub
 Private Sub donetRefush
 '	Select Main.nApiIdx
 '	Case 0
-'		getsscdata163
+'		getsscdatacjcp
 '	Case 1
-'		getsscdatajw
+'		getsscdata360
 '	End Select
-	getsscdata163
+'	Main.nRemain=1'三个数据源最少完成2个然后比对
+	getsscdatacjcp
+'	getsscdata163
+'	getsscdata360
 	Main.nApiIdx=Main.nApiIdx+1
 	If Main.nApiIdx=2 Then Main.nApiIdx=0
 End Sub
@@ -62,14 +65,26 @@ Private Sub getcurmin As Int
 	Return DateTime.GetMinute(DateTime.Now) mod 10
 End Sub
 Sub JobDone(thj As HttpJob)
-	Log("Job:"&thj.Success)
+	Log("Job:"&thj.JobName&" "&thj.Success)
 	Main.tLastTickets=DateTime.Now
 	If thj.Success Then
+		Dim str As String=thj.GetString
+		Dim lst As List
 		Select thj.JobName.ToLowerCase
 		Case "163"
-			Main.mData=ParseSSC_163(thj.GetString)
+			lst=ParseSSC_163(str)
+			Main.mData=lst
+			
 		Case "jw"
-			Main.mData=ParseSSC_jw(thj.GetString)
+			lst=ParseSSC_jw(str)
+			Main.mData=lst
+			
+		Case "cjcp"
+			lst=ParseSSC_cjcp(str)
+			Main.mData=lst
+		Case "360"
+			lst=ParseSSC_360(str)
+			Main.mData=lst
 		End Select
 		
 		Log("load ok once")
@@ -78,6 +93,11 @@ Sub JobDone(thj As HttpJob)
 	End If	
 	thj.Release
 	Main.bLoading=False
+'	If Main.nRemain=0 Then
+'		StopMessageLoop	
+'	Else
+'		Main.nRemain=Main.nRemain-1
+'	End If
 	StopMessageLoop
 	outputs
 End Sub
@@ -183,6 +203,45 @@ Private Sub ParseSSC_jw(str As String) As List
     Next
 	Return lst
 End Sub
+Private Sub ParseSSC_cjcp(str As String) As List
+	Dim lst As List
+	lst.Initialize
+	Dim mc As Matcher=Regex.Matcher($"\d{11}</td><td class='z_bg_13'>\d{5}"$,str)
+	Dim str1 As String
+	Do While mc.Find
+		str1=mc.Match
+		Dim s1 As Map,qh As String,hm As String
+		qh=str1.SubString2(0,str1.IndexOf("<"))
+		hm=str1.SubString2(str1.LastIndexOf(">")+1,str1.Length)
+		qh=qh.SubString(qh.Length-3)
+		s1.Initialize
+		s1.Put("hm",hm)
+		s1.Put("qh",qh)
+		lst.InsertAt(0,s1)
+		str1=qh
+	Loop
+	Return lst
+End Sub
+Private Sub ParseSSC_360(str As String) As List
+	Dim lst As List
+	lst.Initialize
+	Dim mc As Matcher=Regex.Matcher($"\d{6}-\d{3}</td><td class='tdbdr'></td><td class='tdbg_1' ><strong class='num'>\d{5}"$,str)
+	Dim str1 As String
+	Do While mc.Find
+		str1=mc.Match
+		Dim s1 As Map,qh As String,hm As String
+		qh=str1.SubString2(0,str1.IndexOf("<"))
+		qh=qh.Replace("-","")
+		hm=str1.SubString2(str1.LastIndexOf(">")+1,str1.Length)
+		qh=qh.SubString(qh.Length-3)
+		s1.Initialize
+		s1.Put("hm",hm)
+		s1.Put("qh",qh)
+		lst.InsertAt(0,s1)
+		str1=qh
+	Loop
+	Return lst
+End Sub
 'regex:\d{5} </span>
 'regex:\d{9}">\d{5} </span>
 'url:http://trend.caipiao.163.com/cqssc/jiben-5xing.html
@@ -204,4 +263,24 @@ Public Sub getsscdatajw
 	hj.Initialize("jw",Me)
 	If Main.num<>30 And Main.num<>50 And Main.num<>100 Then Main.num=30
 	hj.Download($"http://web.jw909.com:1688/cpp/ic?op=0&lottery_id=1&n=${Main.num}"$)
+End Sub
+'\d{6}-\d{3}</td><td class='tdbdr'></td><td class='tdbg_1' ><strong class='num'>\d{5}
+'http://chart.cp.360.cn/zst/getchartdata?lotId=255401&chartType=x5&spanType=0&span=30
+Public Sub getsscdata360
+	Log("get once by 360")
+	Main.bLoading=True
+	Dim hj As HttpJob
+	hj.Initialize("360",Me)
+	If Main.num<>30 And Main.num<>50 And Main.num<>100 Then Main.num=30
+	hj.Download($"http://chart.cp.360.cn/zst/getchartdata?lotId=255401&chartType=x5&spanType=0&span=${Main.num}"$)
+End Sub
+'\d{11}</td><td class='z_bg_13'>\d{5}
+'http://zst.cjcp.com.cn/cjwssc/view/ssc_zonghe-zonghe-5-chongqinssc-0-3-100.html
+Public Sub getsscdatacjcp
+	Log("get once by cjcp")
+	Main.bLoading=True
+	Dim hj As HttpJob
+	hj.Initialize("cjcp",Me)
+	If Main.num<>30 And Main.num<>50 And Main.num<>100 Then Main.num=30
+	hj.Download($"http://zst.cjcp.com.cn/cjwssc/view/ssc_zonghe-zonghe-5-chongqinssc-0-3-${Main.num}.html"$)
 End Sub

@@ -61,9 +61,7 @@ Sub Handle(req As ServletRequest, resp As ServletResponse)
 	jg.Initialize(resMap)
 	resp.Write(jg.ToString)
 End Sub
-Sub docaller(co As caller)
-	BuildTree(co.element,co.parent,co.code,co.parentName,co.GetFromMap,co.BuildList,co.indent)
-End Sub
+
 Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 		parentName As String, GetFromMap As String, BuildList As Boolean, indent As String)
 	code.Append(indent)

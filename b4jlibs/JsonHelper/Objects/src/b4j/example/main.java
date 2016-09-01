@@ -4,7 +4,7 @@ package b4j.example;
 import anywheresoftware.b4a.BA;
 import anywheresoftware.b4a.debug.*;
 
-public class main extends Object{
+public class main extends javafx.application.Application{
 public static main mostCurrent = new main();
 
 public static BA ba;
@@ -12,7 +12,7 @@ static {
 		ba = new  anywheresoftware.b4a.ShellBA("b4j.example", "b4j.example.main", null);
 		ba.loadHtSubs(main.class);
         if (ba.getClass().getName().endsWith("ShellBA")) {
-			anywheresoftware.b4a.ShellBA.delegateBA = new anywheresoftware.b4a.StandardBA("b4j.example", null, null);
+			anywheresoftware.b4a.ShellBA.delegateBA = new anywheresoftware.b4j.objects.FxBA("b4j.example", null, null);
 			ba.raiseEvent2(null, true, "SHELL", false);
 			ba.raiseEvent2(null, true, "CREATE", true, "b4j.example.main", ba);
 		}
@@ -22,16 +22,21 @@ static {
 	}
 
  
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
+    	launch(args);
+    }
+    public void start (javafx.stage.Stage stage) {
         try {
-            anywheresoftware.b4a.keywords.Common.LogDebug("Program started.");
+            anywheresoftware.b4j.objects.FxBA.application = this;
+		    anywheresoftware.b4a.keywords.Common.setDensity(javafx.stage.Screen.getPrimary().getDpi());
+            BA.Log("Program started.");
             initializeProcessGlobals();
-            ba.raiseEvent(null, "appstart", (Object)args);
+            anywheresoftware.b4j.objects.Form frm = new anywheresoftware.b4j.objects.Form();
+            frm.initWithStage(ba, stage, 1024, 768);
+            ba.raiseEvent(null, "appstart", frm, (String[])getParameters().getRaw().toArray(new String[0]));
         } catch (Throwable t) {
-			BA.printException(t, true);
-		
-        } finally {
-            anywheresoftware.b4a.keywords.Common.LogDebug("Program terminated (StartMessageLoop was not called).");
+            BA.printException(t, true);
+            System.exit(1);
         }
     }
 
@@ -47,336 +52,439 @@ public static void initializeProcessGlobals() {
 			throw new RuntimeException(e);
 		}
     }
-}public static class _typroot{
-public boolean IsInitialized;
-public String root_code;
-public anywheresoftware.b4a.objects.collections.Map root_data;
-public String root_message;
-public void Initialize() {
-IsInitialized = true;
-root_code = "";
-root_data = new anywheresoftware.b4a.objects.collections.Map();
-root_message = "";
-}
-@Override
-		public String toString() {
-			return BA.TypeToString(this, false);
-		}}
-public static class _typroot_data{
-public boolean IsInitialized;
-public int root_data_id;
-public String root_data_token;
-public void Initialize() {
-IsInitialized = true;
-root_data_id = 0;
-root_data_token = "";
-}
-@Override
-		public String toString() {
-			return BA.TypeToString(this, false);
-		}}
-public static anywheresoftware.b4a.keywords.Common __c = null;
-public static anywheresoftware.b4a.keywords.StringBuilderWrapper _sb_code = null;
-public static anywheresoftware.b4a.keywords.StringBuilderWrapper _sbcls = null;
-public static int _flg = 0;
-public static int _nfloor = 0;
-public static String _stab = "";
-public static String  _appstart(String[] _args) throws Exception{
+}public static anywheresoftware.b4a.keywords.Common __c = null;
+public static anywheresoftware.b4j.objects.JFX _fx = null;
+public static anywheresoftware.b4j.objects.Form _mainform = null;
+public static anywheresoftware.b4j.objects.TextInputControlWrapper.TextAreaWrapper _edtjson = null;
+public static anywheresoftware.b4j.objects.TextInputControlWrapper.TextAreaWrapper _edtcode = null;
+public static String _sindent = "";
+public static String  _appstart(anywheresoftware.b4j.objects.Form _form1,String[] _args) throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(ba, "appstart"))
-	return (String) Debug.delegate(ba, "appstart", new Object[] {_args});
+	return (String) Debug.delegate(ba, "appstart", new Object[] {_form1,_args});
 RDebugUtils.currentLine=65536;
- //BA.debugLineNum = 65536;BA.debugLine="Sub AppStart (Args() As String)";
+ //BA.debugLineNum = 65536;BA.debugLine="Sub AppStart (Form1 As Form, Args() As String)";
+RDebugUtils.currentLine=65537;
+ //BA.debugLineNum = 65537;BA.debugLine="MainForm = Form1";
+_mainform = _form1;
+RDebugUtils.currentLine=65538;
+ //BA.debugLineNum = 65538;BA.debugLine="MainForm.SetFormStyle(\"UNIFIED\")";
+_mainform.SetFormStyle("UNIFIED");
 RDebugUtils.currentLine=65539;
- //BA.debugLineNum = 65539;BA.debugLine="parseJS($\"[{\"hm\":\"91303\",\"qh\":\"160722011\"},{\"hm\":";
-_parsejs(("[{\"hm\":\"91303\",\"qh\":\"160722011\"},{\"hm\":\"53406\",\"qh\":\"160722010\"},{\"hm\":\"77068\",\"qh\":\"160722009\"},{\"hm\":\"90171\",\"qh\":\"160722008\"},{\"hm\":\"61654\",\"qh\":\"160722007\"},{\"hm\":\"62801\",\"qh\":\"160722006\"},{\"hm\":\"59684\",\"qh\":\"160722005\"},{\"hm\":\"54893\",\"qh\":\"160722004\"},{\"hm\":\"31088\",\"qh\":\"160722003\"},{\"hm\":\"89318\",\"qh\":\"160722002\"},{\"hm\":\"70477\",\"qh\":\"160722001\"},{\"hm\":\"88706\",\"qh\":\"160721120\"},{\"hm\":\"86000\",\"qh\":\"160721119\"},{\"hm\":\"79789\",\"qh\":\"160721118\"},{\"hm\":\"69259\",\"qh\":\"160721117\"},{\"hm\":\"96768\",\"qh\":\"160721116\"},{\"hm\":\"99474\",\"qh\":\"160721115\"},{\"hm\":\"46306\",\"qh\":\"160721114\"},{\"hm\":\"93003\",\"qh\":\"160721113\"},{\"hm\":\"59815\",\"qh\":\"160721112\"},{\"hm\":\"57466\",\"qh\":\"160721111\"},{\"hm\":\"72474\",\"qh\":\"160721110\"},{\"hm\":\"48415\",\"qh\":\"160721109\"},{\"hm\":\"53427\",\"qh\":\"160721108\"},{\"hm\":\"96927\",\"qh\":\"160721107\"},{\"hm\":\"47812\",\"qh\":\"160721106\"},{\"hm\":\"19450\",\"qh\":\"160721105\"},{\"hm\":\"13996\",\"qh\":\"160721104\"},{\"hm\":\"76800\",\"qh\":\"160721103\"},{\"hm\":\"70838\",\"qh\":\"160721102\"},{\"hm\":\"34749\",\"qh\":\"160721101\"},{\"hm\":\"31098\",\"qh\":\"160721100\"},{\"hm\":\"37343\",\"qh\":\"160721099\"},{\"hm\":\"44242\",\"qh\":\"160721098\"},{\"hm\":\"33339\",\"qh\":\"160721097\"},{\"hm\":\"46211\",\"qh\":\"160721096\"},{\"hm\":\"04961\",\"qh\":\"160721095\"},{\"hm\":\"58449\",\"qh\":\"160721094\"},{\"hm\":\"09489\",\"qh\":\"160721093\"},{\"hm\":\"45038\",\"qh\":\"160721092\"},{\"hm\":\"56327\",\"qh\":\"160721091\"},{\"hm\":\"75340\",\"qh\":\"160721090\"},{\"hm\":\"38417\",\"qh\":\"160721089\"},{\"hm\":\"25467\",\"qh\":\"160721088\"},{\"hm\":\"29947\",\"qh\":\"160721087\"},{\"hm\":\"52782\",\"qh\":\"160721086\"},{\"hm\":\"76322\",\"qh\":\"160721085\"},{\"hm\":\"15484\",\"qh\":\"160721084\"},{\"hm\":\"47466\",\"qh\":\"160721083\"},{\"hm\":\"51710\",\"qh\":\"160721082\"}]"));
-RDebugUtils.currentLine=65546;
- //BA.debugLineNum = 65546;BA.debugLine="End Sub";
+ //BA.debugLineNum = 65539;BA.debugLine="MainForm.RootPane.LoadLayout(\"laymain\") 'Load the";
+_mainform.getRootPane().LoadLayout(ba,"laymain");
+RDebugUtils.currentLine=65540;
+ //BA.debugLineNum = 65540;BA.debugLine="MainForm.Show";
+_mainform.Show();
+RDebugUtils.currentLine=65541;
+ //BA.debugLineNum = 65541;BA.debugLine="DisableScrollBar(edtJson,True,False)";
+_disablescrollbar(_edtjson,anywheresoftware.b4a.keywords.Common.True,anywheresoftware.b4a.keywords.Common.False);
+RDebugUtils.currentLine=65542;
+ //BA.debugLineNum = 65542;BA.debugLine="End Sub";
 return "";
 }
-public static String  _parsejs(String _jsonstr) throws Exception{
+public static String  _disablescrollbar(anywheresoftware.b4j.objects.TextInputControlWrapper.TextAreaWrapper _ta,boolean _showvertical,boolean _showhorizontal) throws Exception{
 RDebugUtils.currentModule="main";
-if (Debug.shouldDelegate(ba, "parsejs"))
-	return (String) Debug.delegate(ba, "parsejs", new Object[] {_jsonstr});
-anywheresoftware.b4j.objects.collections.JSONParser _jsp = null;
-boolean _islst = false;
-boolean _ismap = false;
-Object _obj = null;
-RDebugUtils.currentLine=262144;
- //BA.debugLineNum = 262144;BA.debugLine="Sub parseJS(jsonstr As String)";
-RDebugUtils.currentLine=262145;
- //BA.debugLineNum = 262145;BA.debugLine="If jsonstr.Length<1 Then Return";
-if (_jsonstr.length()<1) { 
-if (true) return "";};
-RDebugUtils.currentLine=262146;
- //BA.debugLineNum = 262146;BA.debugLine="nFloor=1";
-_nfloor = (int) (1);
-RDebugUtils.currentLine=262147;
- //BA.debugLineNum = 262147;BA.debugLine="flg=0";
-_flg = (int) (0);
-RDebugUtils.currentLine=262148;
- //BA.debugLineNum = 262148;BA.debugLine="sbCLS.Initialize";
-_sbcls.Initialize();
-RDebugUtils.currentLine=262149;
- //BA.debugLineNum = 262149;BA.debugLine="sb_code.Initialize";
-_sb_code.Initialize();
-RDebugUtils.currentLine=262150;
- //BA.debugLineNum = 262150;BA.debugLine="Dim jsp As JSONParser";
-_jsp = new anywheresoftware.b4j.objects.collections.JSONParser();
-RDebugUtils.currentLine=262151;
- //BA.debugLineNum = 262151;BA.debugLine="Dim isLst As Boolean=False,isMap As Boolean=False";
-_islst = anywheresoftware.b4a.keywords.Common.False;
-_ismap = anywheresoftware.b4a.keywords.Common.False;
-RDebugUtils.currentLine=262152;
- //BA.debugLineNum = 262152;BA.debugLine="If jsonstr.CharAt(0)=\"[\" Then";
-if (_jsonstr.charAt((int) (0))==BA.ObjectToChar("[")) { 
-RDebugUtils.currentLine=262153;
- //BA.debugLineNum = 262153;BA.debugLine="isLst=True";
-_islst = anywheresoftware.b4a.keywords.Common.True;
- }else 
-{RDebugUtils.currentLine=262154;
- //BA.debugLineNum = 262154;BA.debugLine="Else if jsonstr.CharAt(0)=\"{\" Then";
-if (_jsonstr.charAt((int) (0))==BA.ObjectToChar("{")) { 
-RDebugUtils.currentLine=262155;
- //BA.debugLineNum = 262155;BA.debugLine="isMap=True";
-_ismap = anywheresoftware.b4a.keywords.Common.True;
- }};
-RDebugUtils.currentLine=262157;
- //BA.debugLineNum = 262157;BA.debugLine="sb_code.Append(getTABS(nFloor)&\"Dim jsp As JSONPa";
-_sb_code.Append(_gettabs(_nfloor)+"Dim jsp As JSONParser"+anywheresoftware.b4a.keywords.Common.CRLF+_gettabs(_nfloor)+"jsp.Initialize(str)"+anywheresoftware.b4a.keywords.Common.CRLF+_gettabs(_nfloor)+"Dim root As ");
-RDebugUtils.currentLine=262158;
- //BA.debugLineNum = 262158;BA.debugLine="Try";
-try {RDebugUtils.currentLine=262159;
- //BA.debugLineNum = 262159;BA.debugLine="jsp.Initialize(jsonstr)";
-_jsp.Initialize(_jsonstr);
-RDebugUtils.currentLine=262160;
- //BA.debugLineNum = 262160;BA.debugLine="If isLst Then";
-if (_islst) { 
-RDebugUtils.currentLine=262161;
- //BA.debugLineNum = 262161;BA.debugLine="sb_code.Append(\"List = jsp.NextArray\"&CRLF)";
-_sb_code.Append("List = jsp.NextArray"+anywheresoftware.b4a.keywords.Common.CRLF);
-RDebugUtils.currentLine=262162;
- //BA.debugLineNum = 262162;BA.debugLine="For Each obj As Object In jsp.NextArray";
-final anywheresoftware.b4a.BA.IterableList group18 = _jsp.NextArray();
-final int groupLen18 = group18.getSize();
-for (int index18 = 0;index18 < groupLen18 ;index18++){
-_obj = group18.Get(index18);
-RDebugUtils.currentLine=262163;
- //BA.debugLineNum = 262163;BA.debugLine="parseJSO(obj,obj)";
-_parsejso(_obj,_obj);
+if (Debug.shouldDelegate(ba, "disablescrollbar"))
+	return (String) Debug.delegate(ba, "disablescrollbar", new Object[] {_ta,_showvertical,_showhorizontal});
+anywheresoftware.b4j.object.JavaObject _jo = null;
+anywheresoftware.b4j.object.JavaObject _scrollbarver = null;
+anywheresoftware.b4j.object.JavaObject _scrollbarhor = null;
+double _d_d = 0;
+double _d_e = 0;
+RDebugUtils.currentLine=524288;
+ //BA.debugLineNum = 524288;BA.debugLine="Sub DisableScrollBar(ta As TextArea,showvertical A";
+RDebugUtils.currentLine=524289;
+ //BA.debugLineNum = 524289;BA.debugLine="Dim jo As JavaObject = ta";
+_jo = new anywheresoftware.b4j.object.JavaObject();
+_jo.setObject((java.lang.Object)(_ta.getObject()));
+RDebugUtils.currentLine=524290;
+ //BA.debugLineNum = 524290;BA.debugLine="Dim scrollbarver As JavaObject = jo.RunMethod(\"lo";
+_scrollbarver = new anywheresoftware.b4j.object.JavaObject();
+_scrollbarver.setObject((java.lang.Object)(_jo.RunMethod("lookup",new Object[]{(Object)(".scroll-bar:vertical")})));
+RDebugUtils.currentLine=524291;
+ //BA.debugLineNum = 524291;BA.debugLine="Dim scrollbarhor As JavaObject = jo.RunMethod(\"lo";
+_scrollbarhor = new anywheresoftware.b4j.object.JavaObject();
+_scrollbarhor.setObject((java.lang.Object)(_jo.RunMethod("lookup",new Object[]{(Object)(".scroll-bar:horizontal")})));
+RDebugUtils.currentLine=524292;
+ //BA.debugLineNum = 524292;BA.debugLine="Dim d_d As Double = 1,d_e As Double=0";
+_d_d = 1;
+_d_e = 0;
+RDebugUtils.currentLine=524293;
+ //BA.debugLineNum = 524293;BA.debugLine="If showvertical Then";
+if (_showvertical) { 
+RDebugUtils.currentLine=524294;
+ //BA.debugLineNum = 524294;BA.debugLine="scrollbarver.RunMethod(\"setOpacity\", Array(d_";
+_scrollbarver.RunMethod("setOpacity",new Object[]{(Object)(_d_e)});
+ }else {
+RDebugUtils.currentLine=524296;
+ //BA.debugLineNum = 524296;BA.debugLine="scrollbarver.RunMethod(\"setOpacity\", Array(d_d))";
+_scrollbarver.RunMethod("setOpacity",new Object[]{(Object)(_d_d)});
+ };
+RDebugUtils.currentLine=524298;
+ //BA.debugLineNum = 524298;BA.debugLine="If showhorizontal Then";
+if (_showhorizontal) { 
+RDebugUtils.currentLine=524299;
+ //BA.debugLineNum = 524299;BA.debugLine="scrollbarhor.RunMethod(\"setOpacity\", Array(d_e))";
+_scrollbarhor.RunMethod("setOpacity",new Object[]{(Object)(_d_e)});
+ }else {
+RDebugUtils.currentLine=524301;
+ //BA.debugLineNum = 524301;BA.debugLine="scrollbarhor.RunMethod(\"setOpacity\", Array(d_d))";
+_scrollbarhor.RunMethod("setOpacity",new Object[]{(Object)(_d_d)});
+ };
+RDebugUtils.currentLine=524303;
+ //BA.debugLineNum = 524303;BA.debugLine="End Sub";
+return "";
+}
+public static boolean  _askexit() throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(ba, "askexit"))
+	return (Boolean) Debug.delegate(ba, "askexit", null);
+RDebugUtils.currentLine=327680;
+ //BA.debugLineNum = 327680;BA.debugLine="Private Sub askexit As Boolean";
+RDebugUtils.currentLine=327681;
+ //BA.debugLineNum = 327681;BA.debugLine="If fx.Msgbox2(MainForm,\"Sure to exit?\",\"exit\",\"Ye";
+if (_fx.Msgbox2(_mainform,"Sure to exit?","exit","Yes","No","",_fx.MSGBOX_CONFIRMATION)==_fx.DialogResponse.POSITIVE) { 
+RDebugUtils.currentLine=327682;
+ //BA.debugLineNum = 327682;BA.debugLine="Return True";
+if (true) return anywheresoftware.b4a.keywords.Common.True;
+ };
+RDebugUtils.currentLine=327684;
+ //BA.debugLineNum = 327684;BA.debugLine="Return False";
+if (true) return anywheresoftware.b4a.keywords.Common.False;
+RDebugUtils.currentLine=327685;
+ //BA.debugLineNum = 327685;BA.debugLine="End Sub";
+return false;
+}
+public static String  _buildtree_b4x(Object _element,anywheresoftware.b4a.keywords.StringBuilderWrapper _code,String _parentname,String _getfrommap,boolean _buildlist,String _indent) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(ba, "buildtree_b4x"))
+	return (String) Debug.delegate(ba, "buildtree_b4x", new Object[] {_element,_code,_parentname,_getfrommap,_buildlist,_indent});
+anywheresoftware.b4a.objects.collections.Map _m = null;
+String _k = "";
+anywheresoftware.b4a.objects.collections.List _l = null;
+int _index = 0;
+Object _e = null;
+anywheresoftware.b4a.keywords.StringBuilderWrapper _stubcode = null;
+String _objecttype = "";
+RDebugUtils.currentLine=655360;
+ //BA.debugLineNum = 655360;BA.debugLine="Sub BuildTree_b4x(element As Object,code As String";
+RDebugUtils.currentLine=655362;
+ //BA.debugLineNum = 655362;BA.debugLine="code.Append(indent)";
+_code.Append(_indent);
+RDebugUtils.currentLine=655363;
+ //BA.debugLineNum = 655363;BA.debugLine="If element Is Map Then";
+if (_element instanceof anywheresoftware.b4a.objects.collections.Map.MyMap) { 
+RDebugUtils.currentLine=655364;
+ //BA.debugLineNum = 655364;BA.debugLine="indent = WriteCodeHelper_b4x(\"Map\", code, parent";
+_indent = _writecodehelper_b4x("Map",_code,_parentname,_getfrommap,_buildlist,_indent);
+RDebugUtils.currentLine=655365;
+ //BA.debugLineNum = 655365;BA.debugLine="Dim m As Map = element";
+_m = new anywheresoftware.b4a.objects.collections.Map();
+_m.setObject((anywheresoftware.b4a.objects.collections.Map.MyMap)(_element));
+RDebugUtils.currentLine=655366;
+ //BA.debugLineNum = 655366;BA.debugLine="For Each k As String In m.Keys";
+final anywheresoftware.b4a.BA.IterableList group5 = _m.Keys();
+final int groupLen5 = group5.getSize();
+for (int index5 = 0;index5 < groupLen5 ;index5++){
+_k = BA.ObjectToString(group5.Get(index5));
+RDebugUtils.currentLine=655369;
+ //BA.debugLineNum = 655369;BA.debugLine="BuildTree_b4x(m.Get(k),  code, k, parentName &";
+_buildtree_b4x(_m.Get((Object)(_k)),_code,_k,_parentname+".Get(\""+_k+"\")",anywheresoftware.b4a.keywords.Common.False,_indent);
  }
 ;
-RDebugUtils.currentLine=262165;
- //BA.debugLineNum = 262165;BA.debugLine="parseJSO(jsp.NextArray,\"root\")";
-_parsejso((Object)(_jsp.NextArray().getObject()),(Object)("root"));
+ }else 
+{RDebugUtils.currentLine=655371;
+ //BA.debugLineNum = 655371;BA.debugLine="Else If element Is List Then";
+if (_element instanceof java.util.List) { 
+RDebugUtils.currentLine=655372;
+ //BA.debugLineNum = 655372;BA.debugLine="indent = WriteCodeHelper_b4x(\"List\", code, paren";
+_indent = _writecodehelper_b4x("List",_code,_parentname,_getfrommap,_buildlist,_indent);
+RDebugUtils.currentLine=655373;
+ //BA.debugLineNum = 655373;BA.debugLine="Dim l As List = element";
+_l = new anywheresoftware.b4a.objects.collections.List();
+_l.setObject((java.util.List)(_element));
+RDebugUtils.currentLine=655374;
+ //BA.debugLineNum = 655374;BA.debugLine="Dim index As Int = 0";
+_index = (int) (0);
+RDebugUtils.currentLine=655375;
+ //BA.debugLineNum = 655375;BA.debugLine="For Each e As Object In l";
+final anywheresoftware.b4a.BA.IterableList group12 = _l;
+final int groupLen12 = group12.getSize();
+for (int index12 = 0;index12 < groupLen12 ;index12++){
+_e = group12.Get(index12);
+RDebugUtils.currentLine=655378;
+ //BA.debugLineNum = 655378;BA.debugLine="Dim stubCode As StringBuilder";
+_stubcode = new anywheresoftware.b4a.keywords.StringBuilderWrapper();
+RDebugUtils.currentLine=655380;
+ //BA.debugLineNum = 655380;BA.debugLine="If index = 0 Then stubCode = code Else stubCode";
+if (_index==0) { 
+_stubcode = _code;}
+else {
+_stubcode.Initialize();};
+RDebugUtils.currentLine=655381;
+ //BA.debugLineNum = 655381;BA.debugLine="BuildTree_b4x(e,  stubCode, \"col\" & parentName";
+_buildtree_b4x(_e,_stubcode,"col"+_parentname,"",_index==0,_indent);
+RDebugUtils.currentLine=655382;
+ //BA.debugLineNum = 655382;BA.debugLine="index = index + 1";
+_index = (int) (_index+1);
+ }
+;
  }else {
-RDebugUtils.currentLine=262167;
- //BA.debugLineNum = 262167;BA.debugLine="sb_code.Append(\"Map = jsp.NextObject\"&CRLF)";
-_sb_code.Append("Map = jsp.NextObject"+anywheresoftware.b4a.keywords.Common.CRLF);
-RDebugUtils.currentLine=262168;
- //BA.debugLineNum = 262168;BA.debugLine="parseJSO(jsp.NextObject,\"root\")";
-_parsejso((Object)(_jsp.NextObject().getObject()),(Object)("root"));
+RDebugUtils.currentLine=655385;
+ //BA.debugLineNum = 655385;BA.debugLine="Dim objectType As String";
+_objecttype = "";
+RDebugUtils.currentLine=655386;
+ //BA.debugLineNum = 655386;BA.debugLine="If element Is Int Then";
+if (_element instanceof Integer) { 
+RDebugUtils.currentLine=655387;
+ //BA.debugLineNum = 655387;BA.debugLine="objectType = \"Int\"";
+_objecttype = "Int";
+ }else 
+{RDebugUtils.currentLine=655388;
+ //BA.debugLineNum = 655388;BA.debugLine="Else If element Is Double Then";
+if (_element instanceof Double) { 
+RDebugUtils.currentLine=655389;
+ //BA.debugLineNum = 655389;BA.debugLine="objectType = \"Double\"";
+_objecttype = "Double";
+ }else {
+RDebugUtils.currentLine=655391;
+ //BA.debugLineNum = 655391;BA.debugLine="objectType = \"String\"";
+_objecttype = "String";
+ }};
+RDebugUtils.currentLine=655393;
+ //BA.debugLineNum = 655393;BA.debugLine="indent = WriteCodeHelper_b4x(objectType, code, p";
+_indent = _writecodehelper_b4x(_objecttype,_code,_parentname,_getfrommap,_buildlist,_indent);
+ }};
+RDebugUtils.currentLine=655396;
+ //BA.debugLineNum = 655396;BA.debugLine="If BuildList Then";
+if (_buildlist) { 
+RDebugUtils.currentLine=655398;
+ //BA.debugLineNum = 655398;BA.debugLine="code.Append(indent.SubString(sIndent.Length)).Ap";
+_code.Append(_indent.substring(_sindent.length())).Append("Next").Append(" "+anywheresoftware.b4a.keywords.Common.CRLF);
  };
- } 
-       catch (Exception e27) {
-			ba.setLastException(e27);RDebugUtils.currentLine=262171;
- //BA.debugLineNum = 262171;BA.debugLine="Log(LastException)";
-anywheresoftware.b4a.keywords.Common.Log(BA.ObjectToString(anywheresoftware.b4a.keywords.Common.LastException(ba)));
- };
-RDebugUtils.currentLine=262173;
- //BA.debugLineNum = 262173;BA.debugLine="Log(\"----------\"&CRLF&sb_code.ToString&CRLF&\"----";
-anywheresoftware.b4a.keywords.Common.Log("----------"+anywheresoftware.b4a.keywords.Common.CRLF+_sb_code.ToString()+anywheresoftware.b4a.keywords.Common.CRLF+"------------");
-RDebugUtils.currentLine=262174;
- //BA.debugLineNum = 262174;BA.debugLine="Log(\"----------\"&CRLF&sbCLS.ToString&CRLF&\"------";
-anywheresoftware.b4a.keywords.Common.Log("----------"+anywheresoftware.b4a.keywords.Common.CRLF+_sbcls.ToString()+anywheresoftware.b4a.keywords.Common.CRLF+"------------");
-RDebugUtils.currentLine=262175;
- //BA.debugLineNum = 262175;BA.debugLine="End Sub";
+RDebugUtils.currentLine=655400;
+ //BA.debugLineNum = 655400;BA.debugLine="End Sub";
 return "";
 }
-public static String  _getjotype(Object _obj) throws Exception{
+public static String  _writecodehelper_b4x(String _objecttype,anywheresoftware.b4a.keywords.StringBuilderWrapper _code,String _parentname,String _getfrommap,boolean _buildlist,String _indent) throws Exception{
 RDebugUtils.currentModule="main";
-if (Debug.shouldDelegate(ba, "getjotype"))
-	return (String) Debug.delegate(ba, "getjotype", new Object[] {_obj});
-String _ret = "";
-RDebugUtils.currentLine=458752;
- //BA.debugLineNum = 458752;BA.debugLine="Sub getJOType(obj As Object) As String";
-RDebugUtils.currentLine=458753;
- //BA.debugLineNum = 458753;BA.debugLine="Dim ret As String";
-_ret = "";
-RDebugUtils.currentLine=458754;
- //BA.debugLineNum = 458754;BA.debugLine="If obj Is Int Then";
-if (_obj instanceof Integer) { 
-RDebugUtils.currentLine=458755;
- //BA.debugLineNum = 458755;BA.debugLine="ret=\"Int\"";
-_ret = "Int";
+if (Debug.shouldDelegate(ba, "writecodehelper_b4x"))
+	return (String) Debug.delegate(ba, "writecodehelper_b4x", new Object[] {_objecttype,_code,_parentname,_getfrommap,_buildlist,_indent});
+RDebugUtils.currentLine=720896;
+ //BA.debugLineNum = 720896;BA.debugLine="Sub WriteCodeHelper_b4x (ObjectType As String, cod";
+RDebugUtils.currentLine=720898;
+ //BA.debugLineNum = 720898;BA.debugLine="If GetFromMap.Length > 0 Then";
+if (_getfrommap.length()>0) { 
+RDebugUtils.currentLine=720899;
+ //BA.debugLineNum = 720899;BA.debugLine="Select ObjectType.ToLowerCase";
+switch (BA.switchObjectToInt(_objecttype.toLowerCase(),"int","double","string")) {
+case 0: {
+RDebugUtils.currentLine=720901;
+ //BA.debugLineNum = 720901;BA.debugLine="code.Append(\"Dim \" & parentName & \" As \" & Obje";
+_code.Append("Dim "+_parentname+" As "+_objecttype+" = "+_getfrommap.replace("Get","GetDefault").replace(")",",0)")).Append(" "+anywheresoftware.b4a.keywords.Common.CRLF);
+ break; }
+case 1: {
+RDebugUtils.currentLine=720903;
+ //BA.debugLineNum = 720903;BA.debugLine="code.Append(\"Dim \" & parentName & \" As \" & Obje";
+_code.Append("Dim "+_parentname+" As "+_objecttype+" = "+_getfrommap.replace("Get","GetDefault").replace(")",",0)")).Append(" "+anywheresoftware.b4a.keywords.Common.CRLF);
+ break; }
+case 2: {
+RDebugUtils.currentLine=720905;
+ //BA.debugLineNum = 720905;BA.debugLine="code.Append(\"Dim \" & parentName & \" As \" & Obje";
+_code.Append("Dim "+_parentname+" As "+_objecttype+" = "+_getfrommap.replace("Get","GetDefault").replace(")",",\"\")")).Append(" "+anywheresoftware.b4a.keywords.Common.CRLF);
+ break; }
+default: {
+RDebugUtils.currentLine=720908;
+ //BA.debugLineNum = 720908;BA.debugLine="code.Append(\"Dim \" & parentName & \" As \" & Obje";
+_code.Append("Dim "+_parentname+" As "+_objecttype+" = "+_getfrommap+" "+anywheresoftware.b4a.keywords.Common.CRLF);
+ break; }
+}
+;
  }else 
-{RDebugUtils.currentLine=458756;
- //BA.debugLineNum = 458756;BA.debugLine="else if obj Is Double Then";
-if (_obj instanceof Double) { 
-RDebugUtils.currentLine=458757;
- //BA.debugLineNum = 458757;BA.debugLine="ret=\"Double\"";
-_ret = "Double";
- }else 
-{RDebugUtils.currentLine=458758;
- //BA.debugLineNum = 458758;BA.debugLine="Else if obj Is Map Then";
-if (_obj instanceof anywheresoftware.b4a.objects.collections.Map.MyMap) { 
-RDebugUtils.currentLine=458759;
- //BA.debugLineNum = 458759;BA.debugLine="ret=\"Map\"";
-_ret = "Map";
- }else 
-{RDebugUtils.currentLine=458760;
- //BA.debugLineNum = 458760;BA.debugLine="Else if obj Is String Then";
-if (_obj instanceof String) { 
-RDebugUtils.currentLine=458761;
- //BA.debugLineNum = 458761;BA.debugLine="ret=\"String\"";
-_ret = "String";
- }else {
-RDebugUtils.currentLine=458763;
- //BA.debugLineNum = 458763;BA.debugLine="ret=\"Object\"";
-_ret = "Object";
- }}}};
-RDebugUtils.currentLine=458765;
- //BA.debugLineNum = 458765;BA.debugLine="Return ret";
-if (true) return _ret;
-RDebugUtils.currentLine=458766;
- //BA.debugLineNum = 458766;BA.debugLine="End Sub";
+{RDebugUtils.currentLine=720910;
+ //BA.debugLineNum = 720910;BA.debugLine="Else If BuildList Then";
+if (_buildlist) { 
+RDebugUtils.currentLine=720911;
+ //BA.debugLineNum = 720911;BA.debugLine="code.Append(\"For Each \" & parentName & \" As \" &";
+_code.Append("For Each "+_parentname+" As "+_objecttype+" In "+_parentname.substring((int) (3))).Append(" "+anywheresoftware.b4a.keywords.Common.CRLF);
+RDebugUtils.currentLine=720912;
+ //BA.debugLineNum = 720912;BA.debugLine="indent = indent & sIndent";
+_indent = _indent+_sindent;
+ }};
+RDebugUtils.currentLine=720914;
+ //BA.debugLineNum = 720914;BA.debugLine="Return indent";
+if (true) return _indent;
+RDebugUtils.currentLine=720915;
+ //BA.debugLineNum = 720915;BA.debugLine="End Sub";
 return "";
 }
-public static String  _gettabs(int _n) throws Exception{
+public static String  _exit_action() throws Exception{
 RDebugUtils.currentModule="main";
-if (Debug.shouldDelegate(ba, "gettabs"))
-	return (String) Debug.delegate(ba, "gettabs", new Object[] {_n});
-String _ret = "";
-int _i = 0;
+if (Debug.shouldDelegate(ba, "exit_action"))
+	return (String) Debug.delegate(ba, "exit_action", null);
+RDebugUtils.currentLine=262144;
+ //BA.debugLineNum = 262144;BA.debugLine="Sub exit_Action";
+RDebugUtils.currentLine=262145;
+ //BA.debugLineNum = 262145;BA.debugLine="If askexit Then ExitApplication";
+if (_askexit()) { 
+anywheresoftware.b4a.keywords.Common.ExitApplication();};
+RDebugUtils.currentLine=262146;
+ //BA.debugLineNum = 262146;BA.debugLine="End Sub";
+return "";
+}
+public static String  _mainform_closerequest(anywheresoftware.b4j.objects.NodeWrapper.ConcreteEventWrapper _eventdata) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(ba, "mainform_closerequest"))
+	return (String) Debug.delegate(ba, "mainform_closerequest", new Object[] {_eventdata});
 RDebugUtils.currentLine=393216;
- //BA.debugLineNum = 393216;BA.debugLine="Sub getTABS(n As Int) As String";
+ //BA.debugLineNum = 393216;BA.debugLine="Sub MainForm_CloseRequest (EventData As Event)";
 RDebugUtils.currentLine=393217;
- //BA.debugLineNum = 393217;BA.debugLine="Dim ret As String=\"\"";
-_ret = "";
+ //BA.debugLineNum = 393217;BA.debugLine="If askexit=False Then EventData.Consume";
+if (_askexit()==anywheresoftware.b4a.keywords.Common.False) { 
+_eventdata.Consume();};
 RDebugUtils.currentLine=393218;
- //BA.debugLineNum = 393218;BA.debugLine="If n>0 Then";
-if (_n>0) { 
-RDebugUtils.currentLine=393219;
- //BA.debugLineNum = 393219;BA.debugLine="For i=0 To n";
+ //BA.debugLineNum = 393218;BA.debugLine="End Sub";
+return "";
+}
+public static String  _parsetob4x(String _str) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(ba, "parsetob4x"))
+	return (String) Debug.delegate(ba, "parsetob4x", new Object[] {_str});
+String _text = "";
+anywheresoftware.b4j.objects.collections.JSONParser _parser = null;
+boolean _squarebracketfound = false;
+int _i = 0;
+anywheresoftware.b4a.keywords.StringBuilderWrapper _code = null;
+RDebugUtils.currentLine=589824;
+ //BA.debugLineNum = 589824;BA.debugLine="Sub parsetob4x(str As String) As String";
+RDebugUtils.currentLine=589825;
+ //BA.debugLineNum = 589825;BA.debugLine="Dim text As String = str";
+_text = _str;
+RDebugUtils.currentLine=589826;
+ //BA.debugLineNum = 589826;BA.debugLine="Dim parser As JSONParser";
+_parser = new anywheresoftware.b4j.objects.collections.JSONParser();
+RDebugUtils.currentLine=589827;
+ //BA.debugLineNum = 589827;BA.debugLine="parser.Initialize(text)";
+_parser.Initialize(_text);
+RDebugUtils.currentLine=589828;
+ //BA.debugLineNum = 589828;BA.debugLine="Dim squareBracketFound As Boolean";
+_squarebracketfound = false;
+RDebugUtils.currentLine=589830;
+ //BA.debugLineNum = 589830;BA.debugLine="For i = 0 To text.Length";
 {
-final int step3 = 1;
-final int limit3 = _n;
-for (_i = (int) (0) ; (step3 > 0 && _i <= limit3) || (step3 < 0 && _i >= limit3); _i = ((int)(0 + _i + step3)) ) {
-RDebugUtils.currentLine=393220;
- //BA.debugLineNum = 393220;BA.debugLine="ret=ret&\"    \"";
-_ret = _ret+"    ";
+final int step5 = 1;
+final int limit5 = _text.length();
+for (_i = (int) (0) ; (step5 > 0 && _i <= limit5) || (step5 < 0 && _i >= limit5); _i = ((int)(0 + _i + step5)) ) {
+RDebugUtils.currentLine=589831;
+ //BA.debugLineNum = 589831;BA.debugLine="If text.CharAt(i) = \"[\" Then";
+if (_text.charAt(_i)==BA.ObjectToChar("[")) { 
+RDebugUtils.currentLine=589832;
+ //BA.debugLineNum = 589832;BA.debugLine="squareBracketFound = True";
+_squarebracketfound = anywheresoftware.b4a.keywords.Common.True;
+RDebugUtils.currentLine=589833;
+ //BA.debugLineNum = 589833;BA.debugLine="Exit";
+if (true) break;
+ }else 
+{RDebugUtils.currentLine=589834;
+ //BA.debugLineNum = 589834;BA.debugLine="Else If text.CharAt(i) = \"{\" Then";
+if (_text.charAt(_i)==BA.ObjectToChar("{")) { 
+RDebugUtils.currentLine=589835;
+ //BA.debugLineNum = 589835;BA.debugLine="Exit";
+if (true) break;
+ }};
  }
 };
- };
-RDebugUtils.currentLine=393223;
- //BA.debugLineNum = 393223;BA.debugLine="Return ret";
-if (true) return _ret;
-RDebugUtils.currentLine=393224;
- //BA.debugLineNum = 393224;BA.debugLine="End Sub";
-return "";
-}
-public static String  _parsejso(Object _obj,Object _parent) throws Exception{
-RDebugUtils.currentModule="main";
-if (Debug.shouldDelegate(ba, "parsejso"))
-	return (String) Debug.delegate(ba, "parsejso", new Object[] {_obj,_parent});
-anywheresoftware.b4a.objects.collections.List _lst = null;
-anywheresoftware.b4a.objects.collections.Map _m = null;
-Object _tobj2 = null;
-String _k = "";
-RDebugUtils.currentLine=327680;
- //BA.debugLineNum = 327680;BA.debugLine="Sub parseJSO(obj As Object,parent As Object)";
-RDebugUtils.currentLine=327682;
- //BA.debugLineNum = 327682;BA.debugLine="If obj Is List Then";
-if (_obj instanceof java.util.List) { 
-RDebugUtils.currentLine=327683;
- //BA.debugLineNum = 327683;BA.debugLine="Dim lst As List=obj";
-_lst = new anywheresoftware.b4a.objects.collections.List();
-_lst.setObject((java.util.List)(_obj));
-RDebugUtils.currentLine=327684;
- //BA.debugLineNum = 327684;BA.debugLine="If lst.Size>0 Then";
-if (_lst.getSize()>0) { 
-RDebugUtils.currentLine=327685;
- //BA.debugLineNum = 327685;BA.debugLine="sb_code.Append(getTABS(nFloor)&\"For Each col\"&p";
-_sb_code.Append(_gettabs(_nfloor)+"For Each col"+BA.ObjectToString(_parent)+" As "+_getjotype(_lst.Get((int) (0)))+" in "+BA.ObjectToString(_parent)+anywheresoftware.b4a.keywords.Common.CRLF);
-RDebugUtils.currentLine=327686;
- //BA.debugLineNum = 327686;BA.debugLine="nFloor=nFloor+1";
-_nfloor = (int) (_nfloor+1);
-RDebugUtils.currentLine=327687;
- //BA.debugLineNum = 327687;BA.debugLine="parseJSO(lst.Get(0),\"col\"&parent)";
-_parsejso(_lst.Get((int) (0)),(Object)("col"+BA.ObjectToString(_parent)));
-RDebugUtils.currentLine=327688;
- //BA.debugLineNum = 327688;BA.debugLine="nFloor=nFloor-1";
-_nfloor = (int) (_nfloor-1);
-RDebugUtils.currentLine=327689;
- //BA.debugLineNum = 327689;BA.debugLine="sb_code.Append(getTABS(nFloor)&\"Next\"&CRLF)";
-_sb_code.Append(_gettabs(_nfloor)+"Next"+anywheresoftware.b4a.keywords.Common.CRLF);
+RDebugUtils.currentLine=589838;
+ //BA.debugLineNum = 589838;BA.debugLine="Dim code As StringBuilder";
+_code = new anywheresoftware.b4a.keywords.StringBuilderWrapper();
+RDebugUtils.currentLine=589839;
+ //BA.debugLineNum = 589839;BA.debugLine="code.Initialize";
+_code.Initialize();
+RDebugUtils.currentLine=589840;
+ //BA.debugLineNum = 589840;BA.debugLine="code.Append(\"Dim parser As JSONParser\").Append(\"";
+_code.Append("Dim parser As JSONParser").Append(" "+anywheresoftware.b4a.keywords.Common.CRLF);
+RDebugUtils.currentLine=589841;
+ //BA.debugLineNum = 589841;BA.debugLine="code.Append(\"parser.Initialize(str)\").Append(\" \"";
+_code.Append("parser.Initialize(str)").Append(" "+anywheresoftware.b4a.keywords.Common.CRLF);
+RDebugUtils.currentLine=589842;
+ //BA.debugLineNum = 589842;BA.debugLine="code.Append(\"Dim root As \")";
+_code.Append("Dim root As ");
+RDebugUtils.currentLine=589844;
+ //BA.debugLineNum = 589844;BA.debugLine="If squareBracketFound Then";
+if (_squarebracketfound) { 
+RDebugUtils.currentLine=589845;
+ //BA.debugLineNum = 589845;BA.debugLine="code.Append(\"List = parser.NextArray\").Append(\"";
+_code.Append("List = parser.NextArray").Append(" "+anywheresoftware.b4a.keywords.Common.CRLF);
+RDebugUtils.currentLine=589846;
+ //BA.debugLineNum = 589846;BA.debugLine="BuildTree_b4x(parser.NextArray, code, \"root\", \"";
+_buildtree_b4x((Object)(_parser.NextArray().getObject()),_code,"root","",anywheresoftware.b4a.keywords.Common.False,"");
  }else {
-RDebugUtils.currentLine=327691;
- //BA.debugLineNum = 327691;BA.debugLine="sb_code.Append(getTABS(nFloor)&\"'Empty List\"&CR";
-_sb_code.Append(_gettabs(_nfloor)+"'Empty List"+anywheresoftware.b4a.keywords.Common.CRLF);
+RDebugUtils.currentLine=589848;
+ //BA.debugLineNum = 589848;BA.debugLine="code.Append(\"Map = parser.NextObject\").Append(\"";
+_code.Append("Map = parser.NextObject").Append(" "+anywheresoftware.b4a.keywords.Common.CRLF);
+RDebugUtils.currentLine=589849;
+ //BA.debugLineNum = 589849;BA.debugLine="BuildTree_b4x(parser.NextObject,  code, \"root\",";
+_buildtree_b4x((Object)(_parser.NextObject().getObject()),_code,"root","",anywheresoftware.b4a.keywords.Common.False,"");
  };
- }else 
-{RDebugUtils.currentLine=327693;
- //BA.debugLineNum = 327693;BA.debugLine="else if obj Is Map Then";
-if (_obj instanceof anywheresoftware.b4a.objects.collections.Map.MyMap) { 
-RDebugUtils.currentLine=327694;
- //BA.debugLineNum = 327694;BA.debugLine="flg=flg+1";
-_flg = (int) (_flg+1);
-RDebugUtils.currentLine=327696;
- //BA.debugLineNum = 327696;BA.debugLine="Dim m As Map=obj";
-_m = new anywheresoftware.b4a.objects.collections.Map();
-_m.setObject((anywheresoftware.b4a.objects.collections.Map.MyMap)(_obj));
-RDebugUtils.currentLine=327697;
- //BA.debugLineNum = 327697;BA.debugLine="Dim tobj2 As Object";
-_tobj2 = new Object();
-RDebugUtils.currentLine=327698;
- //BA.debugLineNum = 327698;BA.debugLine="sbCLS.Append(getTABS(nFloor)&\"Type typ\"&parent&\"";
-_sbcls.Append(_gettabs(_nfloor)+"Type typ"+BA.ObjectToString(_parent)+"(");
-RDebugUtils.currentLine=327699;
- //BA.debugLineNum = 327699;BA.debugLine="sb_code.Append(getTABS(nFloor)&\"Dim myItem As ty";
-_sb_code.Append(_gettabs(_nfloor)+"Dim myItem As typ"+BA.ObjectToString(_parent)+anywheresoftware.b4a.keywords.Common.CRLF+_gettabs(_nfloor)+"myItem.Initialize"+anywheresoftware.b4a.keywords.Common.CRLF);
-RDebugUtils.currentLine=327700;
- //BA.debugLineNum = 327700;BA.debugLine="For Each k As String In m.Keys";
-final anywheresoftware.b4a.BA.IterableList group18 = _m.Keys();
-final int groupLen18 = group18.getSize();
-for (int index18 = 0;index18 < groupLen18 ;index18++){
-_k = BA.ObjectToString(group18.Get(index18));
-RDebugUtils.currentLine=327701;
- //BA.debugLineNum = 327701;BA.debugLine="tobj2=m.Get(k)";
-_tobj2 = _m.Get((Object)(_k));
-RDebugUtils.currentLine=327702;
- //BA.debugLineNum = 327702;BA.debugLine="sbCLS.Append(parent&\"_\"&k&\" as \"&getJOType(tobj";
-_sbcls.Append(BA.ObjectToString(_parent)+"_"+_k+" as "+_getjotype(_tobj2)+",");
-RDebugUtils.currentLine=327703;
- //BA.debugLineNum = 327703;BA.debugLine="sb_code.Append(getTABS(nFloor)&\"myItem.\"&parent";
-_sb_code.Append(_gettabs(_nfloor)+"myItem."+BA.ObjectToString(_parent)+"_"+_k+" = "+BA.ObjectToString(_parent)+".Get(\""+_k+"\")"+anywheresoftware.b4a.keywords.Common.CRLF);
-RDebugUtils.currentLine=327705;
- //BA.debugLineNum = 327705;BA.debugLine="parseJSO(tobj2,parent&\"_\"&k)";
-_parsejso(_tobj2,(Object)(BA.ObjectToString(_parent)+"_"+_k));
- }
-;
-RDebugUtils.currentLine=327708;
- //BA.debugLineNum = 327708;BA.debugLine="sbCLS.Remove(sbCLS.Length-1,sbCLS.Length)";
-_sbcls.Remove((int) (_sbcls.getLength()-1),_sbcls.getLength());
-RDebugUtils.currentLine=327709;
- //BA.debugLineNum = 327709;BA.debugLine="sbCLS.Append(\")\"&CRLF)";
-_sbcls.Append(")"+anywheresoftware.b4a.keywords.Common.CRLF);
-RDebugUtils.currentLine=327710;
- //BA.debugLineNum = 327710;BA.debugLine="flg=flg-1";
-_flg = (int) (_flg-1);
- }};
-RDebugUtils.currentLine=327715;
- //BA.debugLineNum = 327715;BA.debugLine="End Sub";
+RDebugUtils.currentLine=589851;
+ //BA.debugLineNum = 589851;BA.debugLine="Return code.ToString";
+if (true) return _code.ToString();
+RDebugUtils.currentLine=589852;
+ //BA.debugLineNum = 589852;BA.debugLine="End Sub";
 return "";
 }
-public static String  _test() throws Exception{
+public static String  _reset_action() throws Exception{
 RDebugUtils.currentModule="main";
-if (Debug.shouldDelegate(ba, "test"))
-	return (String) Debug.delegate(ba, "test", null);
+if (Debug.shouldDelegate(ba, "reset_action"))
+	return (String) Debug.delegate(ba, "reset_action", null);
+RDebugUtils.currentLine=458752;
+ //BA.debugLineNum = 458752;BA.debugLine="Sub reset_Action";
+RDebugUtils.currentLine=458753;
+ //BA.debugLineNum = 458753;BA.debugLine="edtJson.Text=\"\"";
+_edtjson.setText("");
+RDebugUtils.currentLine=458754;
+ //BA.debugLineNum = 458754;BA.debugLine="edtcode.Text=\"\"";
+_edtcode.setText("");
+RDebugUtils.currentLine=458755;
+ //BA.debugLineNum = 458755;BA.debugLine="End Sub";
+return "";
+}
+public static String  _tob4x_action() throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(ba, "tob4x_action"))
+	return (String) Debug.delegate(ba, "tob4x_action", null);
 RDebugUtils.currentLine=131072;
- //BA.debugLineNum = 131072;BA.debugLine="Sub test";
-RDebugUtils.currentLine=131090;
- //BA.debugLineNum = 131090;BA.debugLine="End Sub";
+ //BA.debugLineNum = 131072;BA.debugLine="Sub tob4x_Action";
+RDebugUtils.currentLine=131073;
+ //BA.debugLineNum = 131073;BA.debugLine="Log(\"tob4x\")";
+anywheresoftware.b4a.keywords.Common.Log("tob4x");
+RDebugUtils.currentLine=131074;
+ //BA.debugLineNum = 131074;BA.debugLine="If edtJson.Text.Length<1 Then";
+if (_edtjson.getText().length()<1) { 
+RDebugUtils.currentLine=131075;
+ //BA.debugLineNum = 131075;BA.debugLine="fx.Msgbox(MainForm,\"JSON string is empty\",\"Empty";
+_fx.Msgbox(_mainform,"JSON string is empty","Empty");
+ }else {
+RDebugUtils.currentLine=131077;
+ //BA.debugLineNum = 131077;BA.debugLine="edtcode.Text= parsetob4x(edtJson.Text)";
+_edtcode.setText(_parsetob4x(_edtjson.getText()));
+ };
+RDebugUtils.currentLine=131079;
+ //BA.debugLineNum = 131079;BA.debugLine="End Sub";
+return "";
+}
+public static String  _tojava_action() throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(ba, "tojava_action"))
+	return (String) Debug.delegate(ba, "tojava_action", null);
+RDebugUtils.currentLine=196608;
+ //BA.debugLineNum = 196608;BA.debugLine="Sub tojava_Action";
+RDebugUtils.currentLine=196609;
+ //BA.debugLineNum = 196609;BA.debugLine="Log(\"tojava\")";
+anywheresoftware.b4a.keywords.Common.Log("tojava");
+RDebugUtils.currentLine=196610;
+ //BA.debugLineNum = 196610;BA.debugLine="End Sub";
 return "";
 }
 }
