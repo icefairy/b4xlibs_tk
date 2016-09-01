@@ -9,6 +9,16 @@ import anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper;
 
 @ShortName("MyLocationStyle")
 public class MyLocationStyleWrapper extends AbsObjectWrapper<MyLocationStyle> {
+	public static final float HUE_RED = 0.0F;
+	public static final float HUE_ORANGE = 30.0F;
+	public static final float HUE_YELLOW = 60.0F;
+	public static final float HUE_GREEN = 120.0F;
+	public static final float HUE_CYAN = 180.0F;
+	public static final float HUE_AZURE = 210.0F;
+	public static final float HUE_BLUE = 240.0F;
+	public static final float HUE_VIOLET = 270.0F;
+	public static final float HUE_MAGENTA = 300.0F;
+	public static final float HUE_ROSE = 330.0F;
 	public void init() {
 		setObject(new MyLocationStyle());
 	}
@@ -20,7 +30,15 @@ public class MyLocationStyleWrapper extends AbsObjectWrapper<MyLocationStyle> {
 		getObject().myLocationIcon(BitmapDescriptorFactory.fromBitmap(bw.getObject()));
 		return this;
 	}
+	public MyLocationStyleWrapper icondefault2(float hue) {
+		getObject().myLocationIcon(BitmapDescriptorFactory.defaultMarker(hue));
+		return this;
+	}
 	public MyLocationStyleWrapper icondefault() {
+		getObject().myLocationIcon(BitmapDescriptorFactory.defaultMarker());
+		return this;
+	}
+	public MyLocationStyleWrapper icondefault2() {
 		getObject().myLocationIcon(BitmapDescriptorFactory.defaultMarker());
 		return this;
 	}

@@ -37,7 +37,7 @@ import anywheresoftware.b4a.objects.collections.Map;
 @DependsOn(values={"AMap_2DMap_V2.9.0_20160525","android-support-v4","AMap_Location_core"})
 @Permissions(values={"android.permission.INTERNET","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.ACCESS_COARSE_LOCATION","android.permission.ACCESS_NETWORK_STATE","android.permission.ACCESS_FINE_LOCATION","android.permission.READ_PHONE_STATE","android.permission.CHANGE_WIFI_STATE","android.permission.ACCESS_WIFI_STATE","android.permission.CHANGE_CONFIGURATION","android.permission.WAKE_LOCK"})
 @ActivityObject
-@Version(1.20f)
+@Version(1.30f)
 @Events(values={"onmapclick(pos as LatLng)","onmaplongclick(pos as LatLng)","oncamerachangestart(pos as LatLng)","oncamerachangeover(pos as LatLng)","OnMarkerClick(markerid as String,markertitle as String,markerpos as Latlng) as Boolean"})
 public class mapviewwrapper extends ViewWrapper<com.amap.api.maps2d.MapView> implements DesignerCustomView, LocationSource, AMapLocationListener {
 	private String En;
