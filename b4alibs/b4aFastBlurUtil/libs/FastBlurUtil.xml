@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.04</doclet-version-NOT-library-version>
+    <class>
+        <name>com.icefairy.utils.FastBlurUtil</name>
+        <shortname>FastBlurUtil</shortname>
+        <comment>Created by jay on 11/7/15.</comment>
+        <owner>process</owner>
+        <permission>android.permission.INTERNET</permission>
+        <method>
+            <name>doBlur</name>
+            <comment></comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>sentBitmap</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+            <parameter>
+                <name>radius</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>canReuseInBitmap</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetUrlBitmap</name>
+            <comment>using this in thread
+url: 
+scaleRatio: 
+Return type: @return:</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>url</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>scaleRatio</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>toBlur</name>
+            <comment>using this to process bmp</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>originBitmap</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+            <parameter>
+                <name>scaleRatio</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <field>
+            <name>IO_BUFFER_SIZE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <version>1.0</version>
+    <author>Icefairy333</author>
+</root>
