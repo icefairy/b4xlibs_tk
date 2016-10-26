@@ -1,5 +1,19 @@
 package com.zxdemo;
 
+import java.util.Hashtable;
+import java.util.Vector;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Reader;
+import com.google.zxing.Result;
+import com.google.zxing.common.HybridBinarizer;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import anywheresoftware.b4a.B4AMenuItem;
 import android.app.Activity;
@@ -32,7 +46,7 @@ public class main extends Activity implements B4AActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (isFirst) {
-			processBA = new BA(this.getApplicationContext(), null, null, "com.zxdemo", "com.zxdemo.main");
+			processBA = new anywheresoftware.b4a.ShellBA(this.getApplicationContext(), null, null, "com.zxdemo", "com.zxdemo.main");
 			processBA.loadHtSubs(this.getClass());
 	        float deviceScale = getApplicationContext().getResources().getDisplayMetrics().density;
 	        BALayout.setDeviceScale(deviceScale);
@@ -199,6 +213,8 @@ public class main extends Activity implements B4AActivity{
     private Boolean onKeyUpSubExist = null;
 	@Override
 	public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
+        if (processBA.runHook("onkeydown", this, new Object[] {keyCode, event}))
+            return true;
 		if (onKeySubExist == null)
 			onKeySubExist = processBA.subExists("activity_keypress");
 		if (onKeySubExist) {
@@ -237,6 +253,8 @@ public class main extends Activity implements B4AActivity{
 	}
     @Override
 	public boolean onKeyUp(int keyCode, android.view.KeyEvent event) {
+        if (processBA.runHook("onkeyup", this, new Object[] {keyCode, event}))
+            return true;
 		if (onKeyUpSubExist == null)
 			onKeyUpSubExist = processBA.subExists("activity_keyup");
 		if (onKeyUpSubExist) {
@@ -318,84 +336,207 @@ public class main extends Activity implements B4AActivity{
             
     }
 
-public anywheresoftware.b4a.keywords.Common __c = null;
-public anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
-public anywheresoftware.b4a.objects.EditTextWrapper _edt = null;
-public com.zxdemo.actzxscanner _actzxscanner = null;
 
-public static boolean isAnyActivityVisible() {
-    boolean vis = false;
-vis = vis | (main.mostCurrent != null);
-vis = vis | (actzxscanner.mostCurrent != null);
-return vis;}
-public static String  _activity_create(boolean _firsttime) throws Exception{
- //BA.debugLineNum = 28;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
- //BA.debugLineNum = 30;BA.debugLine="btn.Initialize(\"btn\")";
-mostCurrent._btn.Initialize(mostCurrent.activityBA,"btn");
- //BA.debugLineNum = 31;BA.debugLine="btn.Text=\"scan\"";
-mostCurrent._btn.setText((Object)("scan"));
- //BA.debugLineNum = 32;BA.debugLine="edt.Initialize(\"\")";
-mostCurrent._edt.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 33;BA.debugLine="edt.SingleLine=False";
-mostCurrent._edt.setSingleLine(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 34;BA.debugLine="edt.Gravity=Bit.Xor(Gravity.LEFT,Gravity.TOP)";
-mostCurrent._edt.setGravity(anywheresoftware.b4a.keywords.Common.Bit.Xor(anywheresoftware.b4a.keywords.Common.Gravity.LEFT,anywheresoftware.b4a.keywords.Common.Gravity.TOP));
- //BA.debugLineNum = 35;BA.debugLine="Activity.AddView(btn,10%x,10%y,80%x,15%y)";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._btn.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (10),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (80),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (15),mostCurrent.activityBA));
- //BA.debugLineNum = 36;BA.debugLine="Activity.AddView(edt,5%x,30%y,90%x,65%y)";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._edt.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (30),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (90),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (65),mostCurrent.activityBA));
- //BA.debugLineNum = 37;BA.debugLine="End Sub";
-return "";
-}
-public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 49;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 51;BA.debugLine="End Sub";
-return "";
-}
-public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 45;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 47;BA.debugLine="End Sub";
-return "";
-}
-public static String  _btn_click() throws Exception{
- //BA.debugLineNum = 38;BA.debugLine="Sub btn_Click";
- //BA.debugLineNum = 39;BA.debugLine="StartActivity(actZXScanner)";
-anywheresoftware.b4a.keywords.Common.StartActivity(mostCurrent.activityBA,(Object)(mostCurrent._actzxscanner.getObject()));
- //BA.debugLineNum = 41;BA.debugLine="End Sub";
-return "";
-}
-public static String  _globals() throws Exception{
- //BA.debugLineNum = 20;BA.debugLine="Sub Globals";
- //BA.debugLineNum = 22;BA.debugLine="Dim btn As Button";
-mostCurrent._btn = new anywheresoftware.b4a.objects.ButtonWrapper();
- //BA.debugLineNum = 23;BA.debugLine="Dim edt As EditText";
-mostCurrent._edt = new anywheresoftware.b4a.objects.EditTextWrapper();
- //BA.debugLineNum = 24;BA.debugLine="End Sub";
-return "";
-}
-public static String  _gotzxresult(String _str) throws Exception{
- //BA.debugLineNum = 42;BA.debugLine="Sub gotzxresult(str As String)";
- //BA.debugLineNum = 43;BA.debugLine="edt.Text=str&CRLF&edt.Text";
-mostCurrent._edt.setText((Object)(_str+anywheresoftware.b4a.keywords.Common.CRLF+mostCurrent._edt.getText()));
- //BA.debugLineNum = 44;BA.debugLine="End Sub";
-return "";
-}
 
 public static void initializeProcessGlobals() {
     
     if (main.processGlobalsRun == false) {
 	    main.processGlobalsRun = true;
 		try {
-		        main._process_globals();
-actzxscanner._process_globals();
-		
+		        		
         } catch (Exception e) {
 			throw new RuntimeException(e);
 		}
     }
-}public static String  _process_globals() throws Exception{
- //BA.debugLineNum = 16;BA.debugLine="Sub Process_Globals";
- //BA.debugLineNum = 18;BA.debugLine="End Sub";
+}
+public static boolean isAnyActivityVisible() {
+    boolean vis = false;
+vis = vis | (main.mostCurrent != null);
+return vis;}
+
+private static BA killProgramHelper(BA ba) {
+    if (ba == null)
+        return null;
+    anywheresoftware.b4a.BA.SharedProcessBA sharedProcessBA = ba.sharedProcessBA;
+    if (sharedProcessBA == null || sharedProcessBA.activityBA == null)
+        return null;
+    return sharedProcessBA.activityBA.get();
+}
+public static void killProgram() {
+     {
+            Activity __a = null;
+            if (main.previousOne != null) {
+				__a = main.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(main.mostCurrent == null ? null : main.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+}
+public anywheresoftware.b4a.keywords.Common __c = null;
+public anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
+public anywheresoftware.b4a.objects.EditTextWrapper _edt = null;
+public ice.zxing.b4aZXingLib _b4azx = null;
+public anywheresoftware.b4j.object.JavaObject _jo = null;
+public static String  _activity_create(boolean _firsttime) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_create"))
+	return (String) Debug.delegate(mostCurrent.activityBA, "activity_create", new Object[] {_firsttime});
+RDebugUtils.currentLine=131072;
+ //BA.debugLineNum = 131072;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
+RDebugUtils.currentLine=131073;
+ //BA.debugLineNum = 131073;BA.debugLine="jo=Me";
+mostCurrent._jo.setObject((java.lang.Object)(main.getObject()));
+RDebugUtils.currentLine=131074;
+ //BA.debugLineNum = 131074;BA.debugLine="btn.Initialize(\"btn\")";
+mostCurrent._btn.Initialize(mostCurrent.activityBA,"btn");
+RDebugUtils.currentLine=131075;
+ //BA.debugLineNum = 131075;BA.debugLine="btn.Text=\"scan\"";
+mostCurrent._btn.setText((Object)("scan"));
+RDebugUtils.currentLine=131076;
+ //BA.debugLineNum = 131076;BA.debugLine="edt.Initialize(\"\")";
+mostCurrent._edt.Initialize(mostCurrent.activityBA,"");
+RDebugUtils.currentLine=131077;
+ //BA.debugLineNum = 131077;BA.debugLine="edt.SingleLine=False";
+mostCurrent._edt.setSingleLine(anywheresoftware.b4a.keywords.Common.False);
+RDebugUtils.currentLine=131078;
+ //BA.debugLineNum = 131078;BA.debugLine="edt.Gravity=Bit.Xor(Gravity.LEFT,Gravity.TOP)";
+mostCurrent._edt.setGravity(anywheresoftware.b4a.keywords.Common.Bit.Xor(anywheresoftware.b4a.keywords.Common.Gravity.LEFT,anywheresoftware.b4a.keywords.Common.Gravity.TOP));
+RDebugUtils.currentLine=131079;
+ //BA.debugLineNum = 131079;BA.debugLine="Activity.AddView(btn,10%x,10%y,80%x,15%y)";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._btn.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (10),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (80),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (15),mostCurrent.activityBA));
+RDebugUtils.currentLine=131080;
+ //BA.debugLineNum = 131080;BA.debugLine="Activity.AddView(edt,5%x,30%y,90%x,65%y)";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._edt.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (30),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (90),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (65),mostCurrent.activityBA));
+RDebugUtils.currentLine=131081;
+ //BA.debugLineNum = 131081;BA.debugLine="End Sub";
 return "";
 }
+public static String  _activity_pause(boolean _userclosed) throws Exception{
+RDebugUtils.currentModule="main";
+RDebugUtils.currentLine=393216;
+ //BA.debugLineNum = 393216;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+RDebugUtils.currentLine=393218;
+ //BA.debugLineNum = 393218;BA.debugLine="End Sub";
+return "";
+}
+public static String  _activity_resume() throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_resume"))
+	return (String) Debug.delegate(mostCurrent.activityBA, "activity_resume", null);
+RDebugUtils.currentLine=327680;
+ //BA.debugLineNum = 327680;BA.debugLine="Sub Activity_Resume";
+RDebugUtils.currentLine=327682;
+ //BA.debugLineNum = 327682;BA.debugLine="End Sub";
+return "";
+}
+public static String  _btn_click() throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "btn_click"))
+	return (String) Debug.delegate(mostCurrent.activityBA, "btn_click", null);
+anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper _bmp = null;
+String _ret = "";
+RDebugUtils.currentLine=196608;
+ //BA.debugLineNum = 196608;BA.debugLine="Sub btn_Click";
+RDebugUtils.currentLine=196611;
+ //BA.debugLineNum = 196611;BA.debugLine="Dim bmp As Bitmap=LoadBitmap(File.DirAssets,\"ewm.";
+_bmp = new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper();
+_bmp = anywheresoftware.b4a.keywords.Common.LoadBitmap(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"ewm.png");
+RDebugUtils.currentLine=196612;
+ //BA.debugLineNum = 196612;BA.debugLine="Dim ret As String=jo.RunMethod(\"readQRCode\",Array";
+_ret = BA.ObjectToString(mostCurrent._jo.RunMethod("readQRCode",new Object[]{(Object)(_bmp.getObject())}));
+RDebugUtils.currentLine=196613;
+ //BA.debugLineNum = 196613;BA.debugLine="Log(ret)";
+anywheresoftware.b4a.keywords.Common.Log(_ret);
+RDebugUtils.currentLine=196614;
+ //BA.debugLineNum = 196614;BA.debugLine="End Sub";
+return "";
+}
+public static String  _gotzxresult(String _str) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "gotzxresult"))
+	return (String) Debug.delegate(mostCurrent.activityBA, "gotzxresult", new Object[] {_str});
+RDebugUtils.currentLine=262144;
+ //BA.debugLineNum = 262144;BA.debugLine="Sub gotzxresult(str As String)";
+RDebugUtils.currentLine=262145;
+ //BA.debugLineNum = 262145;BA.debugLine="edt.Text=str&CRLF&edt.Text";
+mostCurrent._edt.setText((Object)(_str+anywheresoftware.b4a.keywords.Common.CRLF+mostCurrent._edt.getText()));
+RDebugUtils.currentLine=262146;
+ //BA.debugLineNum = 262146;BA.debugLine="End Sub";
+return "";
+}
+public static String  _zx_result(String _atype,String _values,byte[] _bts) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "zx_result"))
+	return (String) Debug.delegate(mostCurrent.activityBA, "zx_result", new Object[] {_atype,_values,_bts});
+RDebugUtils.currentLine=4325376;
+ //BA.debugLineNum = 4325376;BA.debugLine="Sub zx_result(atype As String,Values As String,bts";
+RDebugUtils.currentLine=4325377;
+ //BA.debugLineNum = 4325377;BA.debugLine="Log(Values)";
+anywheresoftware.b4a.keywords.Common.Log(_values);
+RDebugUtils.currentLine=4325378;
+ //BA.debugLineNum = 4325378;BA.debugLine="End Sub";
+return "";
+}
+
+
+static final Vector<BarcodeFormat> PRODUCT_FORMATS = new Vector(5);
+	   static  Vector<BarcodeFormat> ONE_D_FORMATS;
+	   static  Vector<BarcodeFormat> QR_CODE_FORMATS;
+	   static  Vector<BarcodeFormat> DATA_MATRIX_FORMATS;
+	   static int a=0;
+		public static void init()
+		{
+		a=1;
+	     PRODUCT_FORMATS.add(BarcodeFormat.UPC_A);
+	     PRODUCT_FORMATS.add(BarcodeFormat.UPC_E);
+	     PRODUCT_FORMATS.add(BarcodeFormat.EAN_13);
+	     PRODUCT_FORMATS.add(BarcodeFormat.EAN_8);
+	     PRODUCT_FORMATS.add(BarcodeFormat.RSS_14);
+	     ONE_D_FORMATS = new Vector(PRODUCT_FORMATS.size() + 4);
+	     ONE_D_FORMATS.addAll(PRODUCT_FORMATS);
+	     ONE_D_FORMATS.add(BarcodeFormat.CODE_39);
+	     ONE_D_FORMATS.add(BarcodeFormat.CODE_93);
+	     ONE_D_FORMATS.add(BarcodeFormat.CODE_128);
+	     ONE_D_FORMATS.add(BarcodeFormat.ITF);
+	     QR_CODE_FORMATS = new Vector(1);
+	     QR_CODE_FORMATS.add(BarcodeFormat.QR_CODE);
+	     DATA_MATRIX_FORMATS = new Vector(1);
+	     DATA_MATRIX_FORMATS.add(BarcodeFormat.DATA_MATRIX);
+	   }
+public static String readQRCode(Bitmap bMap)
+     {
+	 if(a==0){
+	 init();
+	 }
+		 int[] intArray = new int[bMap.getWidth() * bMap.getHeight()];
+		 bMap.getPixels(intArray, 0, bMap.getWidth(), 0, 0, bMap.getWidth(), bMap.getHeight());  
+		 LuminanceSource source = new RGBLuminanceSource(bMap.getWidth(), bMap.getHeight(), intArray);
+		 BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+		 MultiFormatReader reader = new MultiFormatReader(); // use this otherwise ChecksumException
+		 Hashtable<DecodeHintType, Object> hints;
+		 hints = new Hashtable(3);
+		 Vector<BarcodeFormat> decodeFormats = null;
+
+		      decodeFormats = new Vector();
+		      decodeFormats.addAll(ONE_D_FORMATS);
+		      decodeFormats.addAll(QR_CODE_FORMATS);
+		      decodeFormats.addAll(DATA_MATRIX_FORMATS);
+		    
+		    hints.put(DecodeHintType.POSSIBLE_FORMATS, decodeFormats);
+		    reader.setHints(hints);
+			    Result result=null;
+				try {
+					result = reader.decodeWithState(bitmap);
+					return result.getText();
+				} catch (Exception e) {
+					Log.e("B4A", "Error:"+e.getMessage());
+					e.printStackTrace();
+					
+				}
+   return null;
+ }
 }

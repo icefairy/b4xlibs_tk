@@ -11,6 +11,8 @@
 //~shortname:firstlib
 //~author:icefairy333
 //~event:gotmsg(msg as String)
+//~event:noparam
+//~event:gotmsg2(msg as String,code as Int)
 //~version:1.01
 @interface firstlib :B4IObjectWrapper
 - (void)Initialize:(B4I *)bi :(NSString *)EventName :(NSString *)param ;

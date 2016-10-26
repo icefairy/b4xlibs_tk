@@ -16,11 +16,20 @@
 	<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
 	<uses-feature android:name="android.hardware.camera.flash" android:required="false" />
 	<uses-permission android:name="android.permission.CAMERA"/>
-	<uses-permission android:name="android.permission.FLASHLIGHT"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.hardware.camera"/>
+	<uses-permission android:name="android.hardware.camera.autofocus"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.FLASHLIGHT"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
 	<application
 		android:icon="@drawable/icon"
 		android:label="zxdemo">
+		
+		<activity android:name="ice.zxing.CaptureActivity"
+					android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden"
+					android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+					android:windowSoftInputMode="stateAlwaysHidden"></activity>
 		<activity
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
@@ -32,13 +41,6 @@
 			   <category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 			
-		</activity>
-		<activity
-			android:windowSoftInputMode="stateHidden"
-			android:launchMode="singleTop"
-			android:name=".actzxscanner"
-			android:label="zxdemo"
-			android:screenOrientation="unspecified">
 		</activity>
 	</application>
 </manifest>
