@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>iFaceDetect</name>
+        <shortname>iFaceDetect</shortname>
+        <comment>iFaceDetect.h
+  iFaceDetect
+
+  Created by icefairy on 16/10/2.
+  Copyright © 2016年 icefairy. All rights reserved.</comment>
+        <event>gotimg(imgBase64 As String)</event>
+        <event>goterr(msg As String)</event>
+        <event>gotresult</event>
+        <method>
+            <name DesignerName="IsInitialized">IsInitialized</name>
+            <comment>Tests whether this object was initialized.</comment>
+            <returntype>BOOL</returntype>
+        </method>
+        <method>
+            <name DesignerName="Initialize">Initialize:::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>bi</name>
+                <type>B4I*</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>nav</name>
+                <type>B4INavigationControllerWrapper*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="runwithcfg">runwithcfg:</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>xmlstr</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <property>
+            <name>Tag</name>
+            <comment>Gets or sets the Tag object. This is a placeholder for any object you like to tie to this object.</comment>
+            <returntype>NSObject*</returntype>
+            <parameter>
+                <name>p</name>
+                <type>NSObject*</type>
+            </parameter>
+        </property>
+        <property>
+            <name>xmlSTR</name>
+            <returntype>NSString*</returntype>
+            <parameter>
+                <name>p</name>
+                <type>NSString*</type>
+            </parameter>
+        </property>
+        <property>
+            <name>switchCAMERAA</name>
+            <returntype>BOOL</returntype>
+            <parameter>
+                <name>p</name>
+                <type>BOOL</type>
+            </parameter>
+        </property>
+    </class>
+    <version>1.01</version>
+    <dependsOn>AVFoundation.framework</dependsOn>
+    <dependsOn>CoreMedia.framework</dependsOn>
+    <dependsOn>CoreGraphics.framework</dependsOn>
+    <dependsOn>ImageIO.framework</dependsOn>
+    <dependsOn>UIKit.framework</dependsOn>
+    <dependsOn>MobileCoreServices.framework</dependsOn>
+    <dependsOn>YYFaceWidget</dependsOn>
+</root>

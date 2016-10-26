@@ -50,10 +50,13 @@ Sub btncalllib_Click
 	Log("btncalllib_Click")
 	fb.Initialize("fb","testparam")
 End Sub
-Sub gotmsg(msg As String)
-	Log("gotmsg:"&msg)
+Sub fb_noparam
+	Log("fb_noparam")
+End Sub
+Sub fb_gotmsg2(msg As String,code As Int)
+	Log("fb_gotmsg2:"&msg&" code:"&code)
 End Sub
 Sub fb_gotmsg(msg As String)
 	Log("fb_gotmsg:"&msg)
-	Msgbox(msg,"got")
+'	Msgbox(msg,"got")
 End Sub

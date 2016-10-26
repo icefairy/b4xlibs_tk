@@ -1,5 +1,5 @@
 ﻿Type=Class
-Version=6
+Version=6.25
 ModulesStructureVersion=1
 B4A=true
 @EndOfDesignText@
@@ -75,7 +75,7 @@ Private Sub SetDisplayOrientation
 	Else
 		previewResult = (orientation - degrees + 360) Mod 360
 		result = previewResult
-		Log(previewResult)
+		Log("previewResult:"&previewResult)
 	End If
 	r.target = nativeCam
 	r.RunMethod2("setDisplayOrientation", previewResult, "java.lang.int")
@@ -140,6 +140,7 @@ Public Sub GetParameter(Key As String) As String
 End Sub
 
 Public Sub CommitParameters
+	Log("CommitParameters")
 	Try
 		r.target = nativeCam
 		r.RunMethod4("setParameters", Array As Object(parameters), Array As String("android.hardware.Camera$Parameters"))

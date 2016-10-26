@@ -1,5 +1,5 @@
 ﻿Type=Class
-Version=6
+Version=6.25
 ModulesStructureVersion=1
 B4A=true
 @EndOfDesignText@
@@ -48,13 +48,15 @@ Sub tmr_Tick
 End Sub
 
 Sub cam_PictureTaken (Data() As Byte)
+	Log("cam_PictureTaken")
 	Dim inp As InputStream
 	inp.InitializeFromBytesArray(Data,0,Data.Length)
-	bmpToDecode=Null
+'	bmpToDecode=Null
 	bmpToDecode.Initialize2(inp)
 	Dim str As String
 	
 	str=decodeBitmap(bmpToDecode)
+	Log("str:"&str)
 	If str<>Null And str<>"null" And str.Length>0 Then
 		CallSubDelayed2(CallBack,EventName&"_onZxDecResult",str)
 		mp.Play
@@ -84,12 +86,27 @@ Public Sub GetBase As Panel
 	Return mBase
 End Sub
 Public Sub decodeBitmap(bmp As Bitmap) As String
-	Return jo.RunMethod("decodeBitmap2",Array As Object(bmp))
+	Log("will decode bmp:"&bmp.Width&"*"&bmp.Height)
+	Dim ret As String=jo.RunMethod("decodeBitmap2",Array As Object(bmp))
+'	Dim buf() As Byte=jo.RunMethod("decodeBitmap2",Array As Object(bmp))
+'	Log("buf.length:"&buf.Length)
+Log(ret)
+Return ret
+'	Return BytesToString(buf,0,buf.Length,"utf-8")
 End Sub
 #If java
 import java.io.File;
+import java.io.FileInputStream;
+import java.util.EnumMap;
+import java.util.Map;
 
+import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.Result;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.QRCodeReader;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.FormatException;
 import com.google.zxing.LuminanceSource;
@@ -97,14 +114,14 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Reader;
-import com.google.zxing.Result;
-import com.google.zxing.common.HybridBinarizer;
 
 import android.graphics.Bitmap;
 	public String decodeBitmap2(Bitmap bMap) {
-	    String contents = null;
+	String contents = "";
 		byte[] rawBytes=null;
 	    int[] intArray = new int[bMap.getWidth() * bMap.getHeight()];
+	try{
+	    
 	    
 	    //copy pixel data from the Bitmap into the 'intArray' array  
 	    bMap.getPixels(intArray, 0, bMap.getWidth(), 0, 0, bMap.getWidth(), bMap.getHeight());  
@@ -112,24 +129,30 @@ import android.graphics.Bitmap;
 	    LuminanceSource source = new RGBLuminanceSource(bMap.getWidth(), bMap.getHeight(), intArray);
 	    BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
 
-	    Reader reader = new MultiFormatReader(); // use this otherwise ChecksumException
-	    
-	    try {
-	        Result result = reader.decode(bitmap);
+	    QRCodeReader reader = new QRCodeReader(); // use this otherwise ChecksumException
+	    Map < DecodeHintType, Object > tmpHintsMap = new EnumMap < DecodeHintType, Object > (
+				        DecodeHintType.class);
+
+				    tmpHintsMap.put(DecodeHintType.PURE_BARCODE, Boolean.TRUE);
+		    //tmpHintsMap.put(DecodeHintType.TRY_HARDER,Boolean.TRUE);
+		   
+
+	        Result result = reader.decode(bitmap,tmpHintsMap);
 	        rawBytes = result.getRawBytes(); 
+			contents = result.getText(); 	
+			//Log.i("B4A","rawlength:"+rawBytes.length);
+			//__c.Log("raw:"+rawBytes.length);
 			if(rawBytes==null||rawBytes.length==0){
 				contents="";
 			}else {
 				contents = result.getText(); 	
 			}
-	        //rawBytes = result.getRawBytes(); 
 	        //BarcodeFormat format = result.getBarcodeFormat(); 
 	        //ResultPoint[] points = result.getResultPoints();
-	        
-	    } catch (NotFoundException e) { e.printStackTrace(); } 
-	    catch (ChecksumException e) { e.printStackTrace(); }
-	    catch (FormatException e) { e.printStackTrace(); }
-	    bitmap=null;
+	        bitmap=null;
+	    } catch (Exception e) { 
+		__c.Log("发生错误："+e.getMessage());
+		e.printStackTrace(); } 
 		bMap=null;
 	    return contents;
 	}
