@@ -45,19 +45,21 @@ Private Sub donetRefush
 '		getsscdata360
 '	End Select
 '	Main.nRemain=1'三个数据源最少完成2个然后比对
-	getsscdatacjcp
-'	getsscdata163
+'	getsscdatacjcp
+	getsscdata163
 '	getsscdata360
-	Main.nApiIdx=Main.nApiIdx+1
-	If Main.nApiIdx=2 Then Main.nApiIdx=0
+'	Main.nApiIdx=Main.nApiIdx+1
+'	If Main.nApiIdx=2 Then Main.nApiIdx=0
 End Sub
 Private Sub needrefush(num As Int) As Boolean
 	If Main.mData.IsInitialized=False Or Main.mData.Size=0 Then Return True
 	If getcurmin=3 Or getcurmin=4 Or getcurmin=5 Or getcurmin=8 Or getcurmin=9 Or getcurmin=0 Then Return False '只要1 2 6 7获取数据
 	If (DateTime.Now-Main.tLastTickets)>(Main.nReqMinSecond*1000) Or Main.num<num Then
 		Main.num=num
+		Log("loadfromnet")
 		Return True
 	Else
+		Log("loadfromloc")
 		Return False
 	End If
 End Sub
@@ -239,6 +241,7 @@ Private Sub ParseSSC_360(str As String) As List
 		s1.Put("qh",qh)
 		lst.InsertAt(0,s1)
 		str1=qh
+		Log(qh&" "&hm)
 	Loop
 	Return lst
 End Sub
