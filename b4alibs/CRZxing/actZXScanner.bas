@@ -1,5 +1,5 @@
 ﻿Type=Activity
-Version=6
+Version=6.25
 ModulesStructureVersion=1
 B4A=true
 @EndOfDesignText@

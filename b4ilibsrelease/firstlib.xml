@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>firstlib</name>
+        <shortname>firstlib</shortname>
+        <comment>firstlib.h
+  firstlib
+
+  Created by kaopuedu on 16/10/26.
+  Copyright © 2016年 kaopuedu. All rights reserved.</comment>
+        <event>gotmsg(msg as String)</event>
+        <event>noparam</event>
+        <event>gotmsg2(msg as String,code as Int)</event>
+        <method>
+            <name DesignerName="IsInitialized">IsInitialized</name>
+            <comment>Tests whether this object was initialized.</comment>
+            <returntype>BOOL</returntype>
+        </method>
+        <method>
+            <name DesignerName="Initialize">Initialize:::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>bi</name>
+                <type>B4I*</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>param</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <property>
+            <name>Tag</name>
+            <comment>Gets or sets the Tag object. This is a placeholder for any object you like to tie to this object.</comment>
+            <returntype>NSObject*</returntype>
+            <parameter>
+                <name>p</name>
+                <type>NSObject*</type>
+            </parameter>
+        </property>
+    </class>
+    <version>1.01</version>
+    <author>icefairy333</author>
+</root>
