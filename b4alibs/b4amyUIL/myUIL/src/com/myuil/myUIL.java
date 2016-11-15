@@ -7,6 +7,7 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import android.graphics.drawable.Drawable;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Bitmap.Config;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,7 +23,7 @@ import anywheresoftware.b4a.objects.ImageViewWrapper;
 import anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper;
 
 @ShortName("myUIL")
-@Version(1.31f)
+@Version(1.4f)
 @Author("Icefairy333")
 @DependsOn(values={"universal-image-loader-1.9.5"})
 @Permissions(values={"android.permission.INTERNET","android.permission.ACCESS_NETWORK_STATE","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.READ_EXTERNAL_STORAGE"})
@@ -102,6 +103,7 @@ public class myUIL {
 		DisplayImageOptions.Builder dio=new DisplayImageOptions.Builder()
 			.cacheOnDisk(diskcache)
 			.cacheInMemory(memcache)
+			.decodingOptions(getimgdecopt())
 			.bitmapConfig(bitmapCFG_def)
 			.delayBeforeLoading(delayBeforeLoading)
 			.resetViewBeforeLoading(resetViewBeforeLoading);
@@ -116,6 +118,13 @@ public class myUIL {
 		}
 		ToolImage.getImageLoader().displayImage(uri, iv,dio.build());
 	}
+    private BitmapFactory.Options getimgdecopt(){
+        BitmapFactory.Options opt = new BitmapFactory.Options();
+//        opt.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        opt.inPurgeable = true;
+        opt.inInputShareable = true;
+        return opt;
+    }
 	public void ShowCircleImage(ImageView iv,String uri,int strokeColor,int strokeWidth) {
 		if (defScaleType!=null) {
 			iv.setScaleType(defScaleType);
@@ -123,6 +132,7 @@ public class myUIL {
 		DisplayImageOptions.Builder dio=new DisplayImageOptions.Builder()
 			.cacheOnDisk(diskcache)
 			.cacheInMemory(memcache)
+			.decodingOptions(getimgdecopt())
 			.bitmapConfig(bitmapCFG_def)
 			.delayBeforeLoading(delayBeforeLoading)
 			.resetViewBeforeLoading(resetViewBeforeLoading);
@@ -145,6 +155,7 @@ public class myUIL {
 		DisplayImageOptions.Builder dio=new DisplayImageOptions.Builder()
 				.cacheOnDisk(diskcache)
 				.cacheInMemory(memcache)
+				.decodingOptions(getimgdecopt())
 				.bitmapConfig(bitmapCFG_def)
 				.delayBeforeLoading(delayBeforeLoading)
 				.resetViewBeforeLoading(resetViewBeforeLoading);
