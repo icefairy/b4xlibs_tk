@@ -80,6 +80,12 @@ public class starter extends android.app.Service {
         processBA.runHook("onstartcommand", this, new Object[] {intent, flags, startId});
 		return android.app.Service.START_NOT_STICKY;
     }
+    public void onTaskRemoved(android.content.Intent rootIntent) {
+        super.onTaskRemoved(rootIntent);
+        if (true)
+            processBA.raiseEvent(null, "service_taskremoved");
+            
+    }
     private void handleStart(android.content.Intent intent) {
     	BA.LogInfo("** Service (starter) Start **");
     	java.lang.reflect.Method startEvent = processBA.htSubs.get("service_start");

@@ -151,7 +151,7 @@
         <field>
             <name>nFailResId</name>
             <comment></comment>
-            <returntype>int</returntype>
+            <returntype>android.graphics.drawable.Drawable</returntype>
         </field>
         <field>
             <name>FIT_XY</name>
@@ -166,7 +166,7 @@
         <field>
             <name>nLoadResId</name>
             <comment></comment>
-            <returntype>int</returntype>
+            <returntype>android.graphics.drawable.Drawable</returntype>
         </field>
         <field>
             <name>bitmapCFG_ALPHA_8</name>
@@ -214,7 +214,7 @@
             <returntype>boolean</returntype>
         </field>
     </class>
-    <version>1.3</version>
+    <version>1.4</version>
     <author>Icefairy333</author>
     <dependsOn>universal-image-loader-1.9.5</dependsOn>
 </root>
