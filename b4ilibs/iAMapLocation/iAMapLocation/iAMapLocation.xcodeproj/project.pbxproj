@@ -8,30 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		9CA4B95D1DC998FB0022E060 /* iAMapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4B95C1DC998FB0022E060 /* iAMapLocation.m */; };
-		9CA4B95E1DC998FB0022E060 /* iAMapLocation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CA4B95B1DC998FB0022E060 /* iAMapLocation.h */; };
-		9CA4B9691DC99C430022E060 /* libiAMapLocation.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CA4B9581DC998FB0022E060 /* libiAMapLocation.a */; };
+		9CA4B95E1DC998FB0022E060 /* iAMapLocation.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CA4B95B1DC998FB0022E060 /* iAMapLocation.h */; };
+		9CA4B9691DC99C430022E060 /* libiAMapLocation.a in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CA4B9581DC998FB0022E060 /* libiAMapLocation.a */; };
 		9CA4B96C1DC99D360022E060 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B96B1DC99D360022E060 /* JavaScriptCore.framework */; };
 		9CA4B96E1DC99D430022E060 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B96D1DC99D430022E060 /* SystemConfiguration.framework */; };
 		9CA4B9781DC99DF80022E060 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B9771DC99DF80022E060 /* Security.framework */; };
 		9CA4B97A1DC9A36F0022E060 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B9791DC9A36F0022E060 /* AMapLocationKit.framework */; };
 		9CA4B97C1DC9A47F0022E060 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B97B1DC9A47F0022E060 /* AMapFoundationKit.framework */; };
-		9CA4B97D1DC9A49C0022E060 /* AMapFoundationKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CA4B97B1DC9A47F0022E060 /* AMapFoundationKit.framework */; };
-		9CA4B97E1DC9A4A10022E060 /* AMapLocationKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CA4B9791DC9A36F0022E060 /* AMapLocationKit.framework */; };
+		9CA4B97D1DC9A49C0022E060 /* AMapFoundationKit.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CA4B97B1DC9A47F0022E060 /* AMapFoundationKit.framework */; };
+		9CA4B97E1DC9A4A10022E060 /* AMapLocationKit.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CA4B9791DC9A36F0022E060 /* AMapLocationKit.framework */; };
 		9CA4B9881DC9E9CC0022E060 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B96F1DC99D530022E060 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9CA4B9561DC998FB0022E060 /* CopyFiles */ = {
+		9CA4B9561DC998FB0022E060 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
 			dstSubfolderSpec = 0;
 			files = (
-				9CA4B97E1DC9A4A10022E060 /* AMapLocationKit.framework in CopyFiles */,
-				9CA4B97D1DC9A49C0022E060 /* AMapFoundationKit.framework in CopyFiles */,
-				9CA4B9691DC99C430022E060 /* libiAMapLocation.a in CopyFiles */,
-				9CA4B95E1DC998FB0022E060 /* iAMapLocation.h in CopyFiles */,
+				9CA4B97E1DC9A4A10022E060 /* AMapLocationKit.framework in Copy Files */,
+				9CA4B97D1DC9A49C0022E060 /* AMapFoundationKit.framework in Copy Files */,
+				9CA4B9691DC99C430022E060 /* libiAMapLocation.a in Copy Files */,
+				9CA4B95E1DC998FB0022E060 /* iAMapLocation.h in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -115,7 +116,7 @@
 			buildPhases = (
 				9CA4B9541DC998FB0022E060 /* Sources */,
 				9CA4B9551DC998FB0022E060 /* Frameworks */,
-				9CA4B9561DC998FB0022E060 /* CopyFiles */,
+				9CA4B9561DC998FB0022E060 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -324,6 +325,7 @@
 				9CA4B9631DC998FB0022E060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
