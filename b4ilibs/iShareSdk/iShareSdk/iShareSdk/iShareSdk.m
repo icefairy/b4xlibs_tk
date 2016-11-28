@@ -15,23 +15,31 @@
 //腾讯开放平台（对应QQ和QQ空间）SDK头文件
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
-
+#import <ShareSDKExtension/SSEThirdPartyLoginHelper.h>
 //微信SDK头文件
 #import "WXApi.h"
 @implementation iShareSdk
+{
+    NSString *EN,*gqqkey,*gqqappid,*gwxappid,*gwxkey;
+}
+-(void)Initialize:(B4I *)bi :(NSString *)eventname{
+    [B4IObjectWrapper setBIAndEventName:self :bi :eventname];
+    EN=eventname.ToLowerCase;
+}
 -(void)RegisterApp:(NSString *)qqappid :(NSString *)qqkey :(NSString *)wxappid :(NSString *)wxkey
 {
+    gqqkey=qqkey;
+    gqqappid=qqappid;
+    gwxkey=wxkey;
+    gwxappid=wxappid;
     [ShareSDK registerApp:@"iosv1101"
      
           activePlatforms:@[
-                            @(SSDKPlatformTypeSinaWeibo),
                             @(SSDKPlatformTypeMail),
                             @(SSDKPlatformTypeSMS),
                             @(SSDKPlatformTypeCopy),
                             @(SSDKPlatformTypeWechat),
-                            @(SSDKPlatformTypeQQ),
-                            @(SSDKPlatformTypeRenren),
-                            @(SSDKPlatformTypeGooglePlus)]
+                            @(SSDKPlatformTypeQQ)]
                  onImport:^(SSDKPlatformType platformType)
      {
          switch (platformType)
@@ -68,7 +76,7 @@
 -(void)ShowShare:(NSString *)title :(NSString *)weburl :(NSString *)sharecontent :(NSString *)imgurl
 {
     //1、创建分享参数
-    NSArray* imageArray = images:@[imgurl];//    （注意：图片必须要在Xcode左边目录里面，名称必须要传正确，如果要分享网络图片，可以这样传iamge参数 images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]）
+    NSArray* imageArray = [NSArray arrayWithObjects:imgurl, nil]; //images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"];//    （注意：图片必须要在Xcode左边目录里面，名称必须要传正确，如果要分享网络图片，可以这样传iamge参数 images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]）
     if (imageArray) {
         
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
@@ -110,4 +118,47 @@
                    }
          ];}
 }
+//1=success 2=unsuccess 3=cancle
+-(void)LoginByQQ{
+    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ
+                                   onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
+                                       
+                                       //在此回调中可以将社交平台用户信息与自身用户系统进行绑定，最后使用一个唯一用户标识来关联此用户信息。
+                                       //在此示例中没有跟用户系统关联，则使用一个社交用户对应一个系统用户的方式。将社交用户的uid作为关联ID传入associateHandler。
+                                       associateHandler (user.uid, user, user);
+                                       NSLog(@"dd%@",user.rawData);
+                                       NSLog(@"dd%@",user.credential);
+                                       
+                                   }
+                                onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
+                                    [B4IObjectWrapper raiseEvent:self :@"_onLoginResult::::" : [NSArray arrayWithObjects:@"qq",state,user,error, nil]];
+                                    if (state == SSDKResponseStateSuccess)
+                                    {
+                                        
+                                    }
+                                    
+                                }];
+}
+//1=success 2=unsuccess 3=cancle
+-(void)LoginByWx{
+    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeDropbox
+                                   onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
+                                       
+                                       //在此回调中可以将社交平台用户信息与自身用户系统进行绑定，最后使用一个唯一用户标识来关联此用户信息。
+                                       //在此示例中没有跟用户系统关联，则使用一个社交用户对应一个系统用户的方式。将社交用户的uid作为关联ID传入associateHandler。
+                                       associateHandler (user.uid, user, user);
+                                       NSLog(@"dd%@",user.rawData);
+                                       NSLog(@"dd%@",user.credential);
+                                       
+                                   }
+                                onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
+                                    [B4IObjectWrapper raiseEvent:self :@"_onLoginResult::::" : [NSArray arrayWithObjects:@"wx",state,user,error, nil]];
+                                    if (state == SSDKResponseStateSuccess)
+                                    {
+                                        
+                                    }
+                                    
+                                }];
+}
+
 @end
