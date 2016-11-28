@@ -10,8 +10,8 @@
 #import "iCore.h"
 @class B4I;
 //~shortname:iShareSdk
-//~event:gotimg(imgBase64 As String)
-//~event:goterr(msg As String)
+//~event:onUserSync
+//~event:onLoginResult(Platform As String,state As int,user as Object,err as String)
 //~event:gotresult
 //~version:1.00
 //~dependson:ShareSDK.framework.3
@@ -34,6 +34,9 @@
 //~dependson:JavaScriptCore.framework
 //~dependson:libsqlite3.tbd
 @interface iShareSdk : NSObject
--(void)RegisterApp:(NSString *)qqappid:(NSString *)qqkey:(NSString *)wxappid:(NSString *)wxkey;
--(void)ShowShare:(NSString *)title:(NSString *)weburl:(NSString *)sharecontent:(NSString *)imgurl;
+- (void)Initialize:(B4I *)bi :(NSString *)eventname;
+- (void)RegisterApp:(NSString *)qqappid :(NSString *)qqkey :(NSString *)wxappid :(NSString *)wxkey;
+- (void)ShowShare :(NSString *)title :(NSString *)weburl :(NSString *)sharecontent :(NSString *)imgurl;
+- (void)LoginByQQ;
+- (void)LoginByWx;
 @end
