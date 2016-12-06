@@ -38,6 +38,7 @@ B4INavigationControllerWrapper *nav;
         [nav setNavigationBarVisible:true];
     }
 }
+
 //重写RCConversationListViewController的onSelectedTableRow事件
 - (void)onSelectedTableRow:(RCConversationModelType)conversationModelType
          conversationModel:(RCConversationModel *)model
