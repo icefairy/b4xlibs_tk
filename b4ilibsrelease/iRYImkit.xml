@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>iRYImkit</name>
+        <shortname>iRYImkit</shortname>
+        <comment>iRYImkit.h
+  iRYImkit
+
+  Created by kaopuedu on 2016/11/28.
+  Copyright © 2016年 kaopuedu. All rights reserved.</comment>
+        <event>onSuccess(userid as String)</event>
+        <event>onError(code as Int)</event>
+        <event>onTokenIncorrect</event>
+        <method>
+            <name DesignerName="Initialize">Initialize:::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>bi</name>
+                <type>B4I*</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>apikey</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="Connect">Connect:</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>token</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="ChatWith">ChatWith:::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>targetid</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>title</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>nav</name>
+                <type>B4INavigationControllerWrapper*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="ShowChatList">ShowChatList:</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>nav</name>
+                <type>B4INavigationControllerWrapper*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="ChatWithCustomerService">ChatWithCustomerService::::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>clientid</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>nav</name>
+                <type>B4INavigationControllerWrapper*</type>
+            </parameter>
+            <parameter>
+                <name>selfnick</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>selfimg</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+    </class>
+    <version>1.1</version>
+    <author>icefairy333</author>
+    <dependsOn>AssetsLibrary.framework</dependsOn>
+    <dependsOn>AudioToolbox.framework</dependsOn>
+    <dependsOn>AVFoundation.framework</dependsOn>
+    <dependsOn>CFNetwork.framework</dependsOn>
+    <dependsOn>CoreAudio.framework</dependsOn>
+    <dependsOn>CoreGraphics.framework</dependsOn>
+    <dependsOn>CoreLocation.framework</dependsOn>
+    <dependsOn>CoreMedia.framework</dependsOn>
+    <dependsOn>CoreTelephony.framework</dependsOn>
+    <dependsOn>CoreVideo.framework</dependsOn>
+    <dependsOn>ImageIO.framework</dependsOn>
+    <dependsOn>libc++.tbd</dependsOn>
+    <dependsOn>libc++abi.tbd</dependsOn>
+    <dependsOn>libsqlite3.tbd</dependsOn>
+    <dependsOn>libstdc++.tbd</dependsOn>
+    <dependsOn>libxml2.tbd</dependsOn>
+    <dependsOn>libz.tbd</dependsOn>
+    <dependsOn>MapKit.framework</dependsOn>
+    <dependsOn>OpenGLES.framework</dependsOn>
+    <dependsOn>QuartzCore.framework</dependsOn>
+    <dependsOn>SystemConfiguration.framework</dependsOn>
+    <dependsOn>UIKit.framework</dependsOn>
+    <dependsOn>Photos.framework</dependsOn>
+    <dependsOn>SafariServices.framework</dependsOn>
+    <dependsOn>RongIMKit.framework.3</dependsOn>
+    <dependsOn>RongIMLib.framework.3</dependsOn>
+    <dependsOn>opencore-amrnb</dependsOn>
+</root>
