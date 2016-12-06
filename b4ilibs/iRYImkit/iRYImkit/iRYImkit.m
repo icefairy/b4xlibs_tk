@@ -16,8 +16,10 @@
     [[RCIM sharedRCIM] initWithAppKey:apikey];
 }
 - (void)Connect:(NSString *)token{
+    
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
         NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+        [[RCIM sharedRCIM] setUserInfoDataSource:self];
         [B4IObjectWrapper raiseEvent:self :@"_onSuccess::" :[NSArray arrayWithObjects:userId, nil]];
     } error:^(RCConnectErrorCode status) {
         NSLog(@"登陆的错误码为:%d", status);
@@ -30,6 +32,24 @@
         NSLog(@"token错误");
         [B4IObjectWrapper raiseEvent:self :@"_onTokenIncorrect:" :nil];
     }];
+}
+/**
+ *此方法中要提供给融云用户的信息，建议缓存到本地，然后改方法每次从您的缓存返回
+ */
+- (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion
+{
+    NSLog(@"need userinfo");
+    B4IMap *ui= [B4IObjectWrapper raiseEvent:self :@"_requserinfo:" :@[userId]];
+    RCUserInfo *user = [[RCUserInfo alloc]init];
+    user.userId=userId;
+    if ([ui IsInitialized]) {
+        user.name=[ui GetDefault:@"name" :userId];
+        user.portraitUri=[ui GetDefault:@"image" :@""];
+    }
+    return completion(user);
+}
+- (void)Disconnect{
+    [[RCIM sharedRCIM] disconnect];
 }
 
 - (void)ChatWith:(NSString *)targetid :(NSString *)title :(B4INavigationControllerWrapper *)nav

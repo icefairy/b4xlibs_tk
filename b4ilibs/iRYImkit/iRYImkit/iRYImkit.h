@@ -7,13 +7,14 @@
 //
 #import <Foundation/Foundation.h>
 #import "iCore.h"
-
+#import <RongIMKit/RongIMKit.h>
 @class B4I;
 //~shortname:iRYImkit
 //~author:icefairy333
 //~event:onSuccess(userid as String)
 //~event:onError(code as Int)
 //~event:onTokenIncorrect
+//~event:reqUserInfo(userId as String) As Map
 //~version:1.10
 //~dependson:AssetsLibrary.framework
 //~dependson:AudioToolbox.framework
@@ -41,8 +42,8 @@
 //~dependson:SafariServices.framework
 //~dependson:RongIMKit.framework.3
 //~dependson:RongIMLib.framework.3
-//~dependson:libopencore-amrnb.a
-@interface iRYImkit : NSObject
+//~dependson:opencore-amrnb
+@interface iRYImkit : NSObject<RCIMUserInfoDataSource>
 - (void)Initialize:(B4I *)bi :(NSString *)EventName :(NSString *)apikey;
 /*!
  建立连接返回的错误码
@@ -55,6 +56,8 @@
  RC_DISCONN_KICK, RC_CLIENT_NOT_INIT, RC_INVALID_PARAMETER, RC_INVALID_ARGUMENT
  */
 - (void)Connect:(NSString *)token;
+
+- (void)Disconnect;
 
 - (void)ChatWith:(NSString *)targetid :(NSString *)title :(B4INavigationControllerWrapper *)nav;
 
