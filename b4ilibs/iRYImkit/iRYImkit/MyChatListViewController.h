@@ -8,10 +8,10 @@
 
 #ifndef MyChatListViewController_h
 #define MyChatListViewController_h
-
+#import "iCore.h"
 
 #endif /* MyChatListViewController_h */
 #import <RongIMKit/RongIMKit.h>
 @interface MyChatListViewController : RCConversationListViewController
-
+    - (void)setNav:(B4INavigationControllerWrapper *)navtmp;
 @end

@@ -41,9 +41,9 @@
 //~dependson:SafariServices.framework
 //~dependson:RongIMKit.framework.3
 //~dependson:RongIMLib.framework.3
+//~dependson:libopencore-amrnb.a
 @interface iRYImkit : NSObject
 - (void)Initialize:(B4I *)bi :(NSString *)EventName :(NSString *)apikey;
-#pragma mark RCConnectErrorCode - 建立连接返回的错误码
 /*!
  建立连接返回的错误码
  tokenerror=1

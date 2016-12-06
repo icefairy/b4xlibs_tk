@@ -21,18 +21,19 @@
 @implementation iShareSdk
 {
     NSString *EN,*gqqkey,*gqqappid,*gwxappid,*gwxkey;
+    B4I *loginbi;
 }
 -(void)Initialize:(B4I *)bi :(NSString *)eventname{
     [B4IObjectWrapper setBIAndEventName:self :bi :eventname];
     EN=eventname.ToLowerCase;
 }
--(void)RegisterApp:(NSString *)qqappid :(NSString *)qqkey :(NSString *)wxappid :(NSString *)wxkey
+- (void) RegisterApp:(NSString *)mobappkey :(NSString *)qqappid :(NSString *)qqkey :(NSString *)wxappid :(NSString *)wxkey
 {
     gqqkey=qqkey;
     gqqappid=qqappid;
     gwxkey=wxkey;
     gwxappid=wxappid;
-    [ShareSDK registerApp:@"iosv1101"
+    [ShareSDK registerApp:mobappkey
      
           activePlatforms:@[
                             @(SSDKPlatformTypeMail),
@@ -72,6 +73,7 @@
                  break;
          }
      }];
+    
 }
 -(void)ShowShare:(NSString *)title :(NSString *)weburl :(NSString *)sharecontent :(NSString *)imgurl
 {
@@ -119,7 +121,10 @@
          ];}
 }
 //1=success 2=unsuccess 3=cancle
--(void)LoginByQQ{
+-(void)LoginByQQ :(B4I *)bi :(NSString *)eventname{
+    [B4IObjectWrapper setBIAndEventName:self :bi :eventname];
+    B4IMap *usermap=[[B4IMap alloc]init];
+    [usermap Initialize];
     [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ
                                    onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
                                        
@@ -127,37 +132,62 @@
                                        //在此示例中没有跟用户系统关联，则使用一个社交用户对应一个系统用户的方式。将社交用户的uid作为关联ID传入associateHandler。
                                        associateHandler (user.uid, user, user);
                                        NSLog(@"dd%@",user.rawData);
-                                       NSLog(@"dd%@",user.credential);
+                                       NSLog(@"dd%@",user.credential.rawData);
+                                       B4IMap *userdata=[[B4IMap alloc]init];
+                                       userdata=[B4IMap convertToMap:user.credential.rawData];
+                                       [usermap Put:@"user" :userdata];
+//                                       [usermap setDict:user.rawData];
+//                                       usermap=[B4IMap convertToMap:user.rawData];
                                        
                                    }
                                 onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
-                                    [B4IObjectWrapper raiseEvent:self :@"_onLoginResult::::" : [NSArray arrayWithObjects:@"qq",state,user,error, nil]];
-                                    if (state == SSDKResponseStateSuccess)
-                                    {
-                                        
-                                    }
+                                    [usermap Put:@"pt" :@"qzone"];
+//                                    NSNumber *st=[NSNumber numberWithInt:state];
+//                                    switch (state) {
+//                                        case SSDKResponseStateSuccess:
+//                                            [usermap Put:@"success" :@"state"];
+//                                            break;
+//                                        case SSDKResponseStateFail:
+//                                            [usermap Put:@"error" :@"state"];
+//                                            break;
+//                                        case SSDKResponseStateCancel:
+//                                            [usermap Put:@"cancel" :@"state"];
+//                                            break;
+//                                        default:
+//                                            [usermap Put:@"other" :@"state"];
+//                                            break;
+//                                    }
+                                    [usermap Put:@"state" :[NSNumber numberWithInt:state]];
+                                    [usermap Put:@"error" :error];
+                                    [B4IObjectWrapper raiseUIEvent:self :@"_onloginresult:" : @[usermap]];
                                     
                                 }];
+
 }
 //1=success 2=unsuccess 3=cancle
--(void)LoginByWx{
-    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeDropbox
+-(void)LoginByWx :(B4I *)bi :(NSString *)eventname{
+    [B4IObjectWrapper setBIAndEventName:self :bi :eventname];
+    B4IMap *usermap=[[B4IMap alloc]init];
+    [usermap Initialize];
+    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeWechat
                                    onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
                                        
                                        //在此回调中可以将社交平台用户信息与自身用户系统进行绑定，最后使用一个唯一用户标识来关联此用户信息。
                                        //在此示例中没有跟用户系统关联，则使用一个社交用户对应一个系统用户的方式。将社交用户的uid作为关联ID传入associateHandler。
                                        associateHandler (user.uid, user, user);
                                        NSLog(@"dd%@",user.rawData);
-                                       NSLog(@"dd%@",user.credential);
+//                                       NSLog(@"dd%@",user.credential);
+                                       B4IMap *userdata=[[B4IMap alloc]init];
+                                       userdata=[B4IMap convertToMap:user.credential.rawData];
+                                       [usermap Put:@"user" :userdata];
                                        
                                    }
                                 onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
-                                    [B4IObjectWrapper raiseEvent:self :@"_onLoginResult::::" : [NSArray arrayWithObjects:@"wx",state,user,error, nil]];
-                                    if (state == SSDKResponseStateSuccess)
-                                    {
-                                        
-                                    }
-                                    
+                                    [usermap Put:@"pt" :@"wechat"];
+                                    [usermap Put:@"state":[NSNumber numberWithInt:state]];
+                                    [usermap Put:@"error" :error];
+                                    [B4IObjectWrapper raiseUIEvent:self :@"_onloginresult:" : @[usermap]];
+
                                 }];
 }
 
