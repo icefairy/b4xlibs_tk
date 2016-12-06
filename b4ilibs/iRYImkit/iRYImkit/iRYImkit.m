@@ -34,19 +34,33 @@
 
 - (void)ChatWith:(NSString *)targetid :(NSString *)title :(B4INavigationControllerWrapper *)nav
 {
+//    modChatting *chat=[[modChatting alloc] init];
+//    //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+//    chat.conversationType = ConversationType_PRIVATE;
+//    //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+//    chat.targetId = targetid;
+//    //设置聊天会话界面要显示的标题
+//    chat.title = title;
+//    [nav setNavigationBarVisible:true];//show titlebar
+//    //显示聊天会话界面
+//    [nav ShowPage:chat];
     RCConversationViewController *chat = [[RCConversationViewController alloc]init];
     //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
     chat.conversationType = ConversationType_PRIVATE;
     //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
-    chat.targetId = @"targetIdYouWillChatIn";
+    chat.targetId = targetid;
     //设置聊天会话界面要显示的标题
-    chat.title = @"想显示的会话标题";
+    chat.title = title;
+    [nav setNavigationBarVisible:true];//show titlebar
     //显示聊天会话界面
     [nav ShowPage:chat];
 }
 
 - (void)ShowChatList:(B4INavigationControllerWrapper *)nav{
     MyChatListViewController *chatlist=[[MyChatListViewController alloc] init];
+    [chatlist setTitle:@"会话列表"];
+    [chatlist setNav:nav];
+    [nav setNavigationBarVisible:true];//show titlebar
     [nav ShowPage:chatlist];
 }
 
@@ -60,6 +74,7 @@
     [csinfo setNickName:selfnick];
     [csinfo setPortraitUrl:selfimg];
     chatService.csInfo = csinfo; //用户的详细信息，此数据用于上传用户信息到客服后台，数据的nickName和portraitUrl必须填写。(目前该字段暂时没用到，客服后台显示的用户信息是你获取token时传的参数，之后会用到）
+    [nav setNavigationBarVisible:true];//show titlebar
     [nav ShowPage:chatService];
 }
 @end

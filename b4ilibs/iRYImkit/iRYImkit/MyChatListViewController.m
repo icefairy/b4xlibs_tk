@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "MyChatListViewController.h"
+#import "iCore.h"
 @interface MyChatListViewController()
 
 @end
 
 @implementation MyChatListViewController
-
+B4INavigationControllerWrapper *nav;
 - (void)viewDidLoad {
     //重写显示相关的接口，必须先调用super，否则会屏蔽SDK默认的处理
     [super viewDidLoad];
@@ -29,7 +30,14 @@
     [self setCollectionConversationType:@[@(ConversationType_DISCUSSION),
                                           @(ConversationType_GROUP)]];
 }
-
+- (void)setNav:(B4INavigationControllerWrapper *)navtmp{
+    
+}
+- (void)viewDidAppear:(BOOL)animated{
+    if (nav!=nil) {
+        [nav setNavigationBarVisible:true];
+    }
+}
 //重写RCConversationListViewController的onSelectedTableRow事件
 - (void)onSelectedTableRow:(RCConversationModelType)conversationModelType
          conversationModel:(RCConversationModel *)model

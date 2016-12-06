@@ -23,31 +23,32 @@
 		9CAD34031DEC3029007EFAA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAD34021DEC3029007EFAA8 /* QuartzCore.framework */; };
 		9CAD34051DEC3030007EFAA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAD34041DEC3030007EFAA8 /* SystemConfiguration.framework */; };
 		9CAD34071DEC3036007EFAA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAD34061DEC3036007EFAA8 /* UIKit.framework */; };
-		9CAD340E1DEC3226007EFAA8 /* libiRYImkit.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CD96C0D1DEC1C5E00F365DB /* libiRYImkit.a */; };
-		9CAD340F1DEC3226007EFAA8 /* libopencore-amrnb.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CAD34081DEC3215007EFAA8 /* libopencore-amrnb.a */; };
-		9CAD34101DEC322C007EFAA8 /* RongIMKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CAD34091DEC3215007EFAA8 /* RongIMKit.framework */; };
-		9CAD34111DEC322C007EFAA8 /* RongIMLib.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CAD340A1DEC3215007EFAA8 /* RongIMLib.framework */; };
+		9CAD34101DEC322C007EFAA8 /* RongIMKit.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CAD34091DEC3215007EFAA8 /* RongIMKit.framework */; };
+		9CAD34111DEC322C007EFAA8 /* RongIMLib.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CAD340A1DEC3215007EFAA8 /* RongIMLib.framework */; };
 		9CAD34141DEC3270007EFAA8 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAD34121DEC3270007EFAA8 /* RongIMKit.framework */; };
 		9CAD34151DEC3270007EFAA8 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAD34131DEC3270007EFAA8 /* RongIMLib.framework */; };
 		9CAD34181DEC38E4007EFAA8 /* MyChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD34171DEC38E4007EFAA8 /* MyChatListViewController.m */; };
 		9CAD341A1DEC3DA3007EFAA8 /* RCDCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD34191DEC3DA3007EFAA8 /* RCDCustomerServiceViewController.m */; };
+		9CAD34751DF136AA007EFAA8 /* libiRYImkit.a in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CD96C0D1DEC1C5E00F365DB /* libiRYImkit.a */; };
+		9CAD34761DF136AA007EFAA8 /* libopencore-amrnb.a in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CAD34081DEC3215007EFAA8 /* libopencore-amrnb.a */; };
 		9CD96C121DEC1C5E00F365DB /* iRYImkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD96C111DEC1C5E00F365DB /* iRYImkit.m */; };
-		9CD96C131DEC1C5E00F365DB /* iRYImkit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CD96C101DEC1C5E00F365DB /* iRYImkit.h */; };
+		9CD96C131DEC1C5E00F365DB /* iRYImkit.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CD96C101DEC1C5E00F365DB /* iRYImkit.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9CD96C0B1DEC1C5E00F365DB /* CopyFiles */ = {
+		9CD96C0B1DEC1C5E00F365DB /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
 			dstSubfolderSpec = 0;
 			files = (
-				9CAD34101DEC322C007EFAA8 /* RongIMKit.framework in CopyFiles */,
-				9CAD34111DEC322C007EFAA8 /* RongIMLib.framework in CopyFiles */,
-				9CAD340E1DEC3226007EFAA8 /* libiRYImkit.a in CopyFiles */,
-				9CAD340F1DEC3226007EFAA8 /* libopencore-amrnb.a in CopyFiles */,
-				9CD96C131DEC1C5E00F365DB /* iRYImkit.h in CopyFiles */,
+				9CAD34751DF136AA007EFAA8 /* libiRYImkit.a in Copy Files */,
+				9CAD34761DF136AA007EFAA8 /* libopencore-amrnb.a in Copy Files */,
+				9CAD34101DEC322C007EFAA8 /* RongIMKit.framework in Copy Files */,
+				9CAD34111DEC322C007EFAA8 /* RongIMLib.framework in Copy Files */,
+				9CD96C131DEC1C5E00F365DB /* iRYImkit.h in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -181,7 +182,7 @@
 			buildPhases = (
 				9CD96C091DEC1C5E00F365DB /* Sources */,
 				9CD96C0A1DEC1C5E00F365DB /* Frameworks */,
-				9CD96C0B1DEC1C5E00F365DB /* CopyFiles */,
+				9CD96C0B1DEC1C5E00F365DB /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -214,6 +215,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 9CD96C041DEC1C5E00F365DB;
 			productRefGroup = 9CD96C0E1DEC1C5E00F365DB /* Products */;
@@ -279,10 +281,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos10.1;
+				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
@@ -320,9 +323,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos10.1;
+				SKIP_INSTALL = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -339,9 +344,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/libfiles",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Debug;
 		};
@@ -357,9 +368,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/libfiles",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Release;
 		};

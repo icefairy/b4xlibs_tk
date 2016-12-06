@@ -44,7 +44,7 @@
 		9CD96B931DE83A9200F365DB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
+			dstPath = /Users/kaopuedu/Documents/b4ilibs/iShareSdk/iShareSdk/copy2b4i/libs;
 			dstSubfolderSpec = 0;
 			files = (
 				9CD96BF31DE851E900F365DB /* MailConnector.framework in CopyFiles */,
@@ -391,6 +391,7 @@
 				9CD96BA01DE83A9200F365DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
