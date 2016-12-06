@@ -44,7 +44,7 @@
 		9CD96B931DE83A9200F365DB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /Users/kaopuedu/Documents/b4ilibs/iShareSdk/iShareSdk/copy2b4i/libs;
+			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
 			dstSubfolderSpec = 0;
 			files = (
 				9CD96BF31DE851E900F365DB /* MailConnector.framework in CopyFiles */,
