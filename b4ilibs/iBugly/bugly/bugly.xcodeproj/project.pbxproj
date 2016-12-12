@@ -14,21 +14,17 @@
 		9CD956241DF68A2A00A85750 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD956231DF68A2900A85750 /* Bugly.framework */; };
 		9CD956251DF68C8D00A85750 /* Bugly.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CD956231DF68A2900A85750 /* Bugly.framework */; };
 		9CD956261DF68C8D00A85750 /* libbugly.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CD9560D1DF6887000A85750 /* libbugly.a */; };
-		9CD956271DF68C8D00A85750 /* Security.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CD9561E1DF6896D00A85750 /* Security.framework */; };
-		9CD956281DF68C8D00A85750 /* SystemConfiguration.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CD9561C1DF6895C00A85750 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9CD9560B1DF6887000A85750 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /Users/kaopuedu/Documents/b4ilibs/iBugly/copy2bi/libs;
+			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
 			dstSubfolderSpec = 0;
 			files = (
 				9CD956251DF68C8D00A85750 /* Bugly.framework in CopyFiles */,
 				9CD956261DF68C8D00A85750 /* libbugly.a in CopyFiles */,
-				9CD956271DF68C8D00A85750 /* Security.framework in CopyFiles */,
-				9CD956281DF68C8D00A85750 /* SystemConfiguration.framework in CopyFiles */,
 				9CD956131DF6887000A85750 /* bugly.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +294,7 @@
 				9CD956181DF6887000A85750 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
