@@ -12,6 +12,7 @@
         <event>onSuccess(userid as String)</event>
         <event>onError(code as Int)</event>
         <event>onTokenIncorrect</event>
+        <event>reqUserInfo(userId as String) As Map</event>
         <method>
             <name DesignerName="Initialize">Initialize:::</name>
             <returntype>void</returntype>
@@ -35,6 +36,10 @@
                 <name>token</name>
                 <type>NSString*</type>
             </parameter>
+        </method>
+        <method>
+            <name DesignerName="Disconnect">Disconnect</name>
+            <returntype>void</returntype>
         </method>
         <method>
             <name DesignerName="ChatWith">ChatWith:::</name>
