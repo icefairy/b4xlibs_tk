@@ -70,7 +70,7 @@
     }];}
 -(void)configLocationManager
 {
-//        NSLog(@"configLocationManager");
+    [[AMapServices sharedServices] setEnableHTTPS:YES];
     self.locationManager = [[AMapLocationManager alloc] init];
 //    NSLog(@"configLocationManager2");
     [self.locationManager setDelegate:self];

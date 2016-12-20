@@ -13,11 +13,11 @@
 		9CA4B96C1DC99D360022E060 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B96B1DC99D360022E060 /* JavaScriptCore.framework */; };
 		9CA4B96E1DC99D430022E060 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B96D1DC99D430022E060 /* SystemConfiguration.framework */; };
 		9CA4B9781DC99DF80022E060 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B9771DC99DF80022E060 /* Security.framework */; };
-		9CA4B97A1DC9A36F0022E060 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B9791DC9A36F0022E060 /* AMapLocationKit.framework */; };
-		9CA4B97C1DC9A47F0022E060 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B97B1DC9A47F0022E060 /* AMapFoundationKit.framework */; };
-		9CA4B97D1DC9A49C0022E060 /* AMapFoundationKit.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CA4B97B1DC9A47F0022E060 /* AMapFoundationKit.framework */; };
-		9CA4B97E1DC9A4A10022E060 /* AMapLocationKit.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CA4B9791DC9A36F0022E060 /* AMapLocationKit.framework */; };
 		9CA4B9881DC9E9CC0022E060 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA4B96F1DC99D530022E060 /* CoreTelephony.framework */; };
+		9CD956311E093ABD00A85750 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD9562F1E093ABD00A85750 /* AMapFoundationKit.framework */; };
+		9CD956321E093ABD00A85750 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD956301E093ABD00A85750 /* AMapLocationKit.framework */; };
+		9CD956331E093AC600A85750 /* AMapFoundationKit.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CD9562F1E093ABD00A85750 /* AMapFoundationKit.framework */; };
+		9CD956341E093AC600A85750 /* AMapLocationKit.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9CD956301E093ABD00A85750 /* AMapLocationKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,8 +27,8 @@
 			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
 			dstSubfolderSpec = 0;
 			files = (
-				9CA4B97E1DC9A4A10022E060 /* AMapLocationKit.framework in Copy Files */,
-				9CA4B97D1DC9A49C0022E060 /* AMapFoundationKit.framework in Copy Files */,
+				9CD956331E093AC600A85750 /* AMapFoundationKit.framework in Copy Files */,
+				9CD956341E093AC600A85750 /* AMapLocationKit.framework in Copy Files */,
 				9CA4B9691DC99C430022E060 /* libiAMapLocation.a in Copy Files */,
 				9CA4B95E1DC998FB0022E060 /* iAMapLocation.h in Copy Files */,
 			);
@@ -46,8 +46,8 @@
 		9CA4B96D1DC99D430022E060 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9CA4B96F1DC99D530022E060 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9CA4B9771DC99DF80022E060 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		9CA4B9791DC9A36F0022E060 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
-		9CA4B97B1DC9A47F0022E060 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
+		9CD9562F1E093ABD00A85750 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
+		9CD956301E093ABD00A85750 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,10 +57,10 @@
 			files = (
 				9CA4B9881DC9E9CC0022E060 /* CoreTelephony.framework in Frameworks */,
 				9CA4B9781DC99DF80022E060 /* Security.framework in Frameworks */,
-				9CA4B97C1DC9A47F0022E060 /* AMapFoundationKit.framework in Frameworks */,
-				9CA4B97A1DC9A36F0022E060 /* AMapLocationKit.framework in Frameworks */,
 				9CA4B96E1DC99D430022E060 /* SystemConfiguration.framework in Frameworks */,
+				9CD956321E093ABD00A85750 /* AMapLocationKit.framework in Frameworks */,
 				9CA4B96C1DC99D360022E060 /* JavaScriptCore.framework in Frameworks */,
+				9CD956311E093ABD00A85750 /* AMapFoundationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,8 +70,8 @@
 		9CA4B94F1DC998FB0022E060 = {
 			isa = PBXGroup;
 			children = (
-				9CA4B97B1DC9A47F0022E060 /* AMapFoundationKit.framework */,
-				9CA4B9791DC9A36F0022E060 /* AMapLocationKit.framework */,
+				9CD9562F1E093ABD00A85750 /* AMapFoundationKit.framework */,
+				9CD956301E093ABD00A85750 /* AMapLocationKit.framework */,
 				9CA4B95A1DC998FB0022E060 /* iAMapLocation */,
 				9CA4B9591DC998FB0022E060 /* Products */,
 				9CA4B96A1DC99D360022E060 /* Frameworks */,
