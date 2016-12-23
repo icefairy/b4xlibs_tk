@@ -1,0 +1,51 @@
+﻿Version=3.48
+NumberOfModules=1
+Module1=cviZoomableImageView
+Build1=Default,com.zoomableivtest
+NumberOfFiles=2
+File1=1.bil
+File2=img.jpg
+NumberOfLibraries=1
+Library1=icore
+@EndOfDesignText@
+'Code module
+#Region  Project Attributes 
+	#ApplicationLabel: B4i Example
+	#Version: 1.0.0 
+	'Orientation possible values: Portrait, LandscapeLeft, LandscapeRight and PortraitUpsideDown
+	#iPhoneOrientations: Portrait, LandscapeLeft, LandscapeRight
+	#iPadOrientations: Portrait, LandscapeLeft, LandscapeRight, PortraitUpsideDown
+	#Target: iPhone, iPad
+	#ATSEnabled: True
+	#MinVersion: 7
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'Public variables can be accessed from all modules.
+	Public App As Application
+	Public NavControl As NavigationController
+	Private Page1 As Page
+	Private cviZoomableImageView1 As cviZoomableImageView
+End Sub
+
+Private Sub Application_Start (Nav As NavigationController)
+	NavControl = Nav
+	Page1.Initialize("Page1")
+	Page1.RootPanel.LoadLayout("1")
+	Page1.Title = "ZoomableImageView"
+	NavControl.ShowPage(Page1)
+	'first setting param, if you donot need zoom you can set both min and max =1
+	cviZoomableImageView1.MinScale=0.3
+	cviZoomableImageView1.MaxScale=2
+	'at last set the bitmap
+	cviZoomableImageView1.Bitmap=LoadBitmap(File.DirAssets,"img.jpg")
+End Sub
+
+Private Sub Page1_Resize(Width As Int, Height As Int)
+	
+End Sub
+
+Private Sub Application_Background
+	
+End Sub
