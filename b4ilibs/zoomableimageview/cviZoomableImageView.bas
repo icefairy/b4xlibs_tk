@@ -178,14 +178,16 @@ Public Sub setBitmap (Image As Bitmap)
 	iv.Width=Image.Width
 '	iv.ContentMode=iv.MODE_CENTER
 '	iv.Top=sc.ContentHeight/2-Image.Height/2
-	Dim f As Float=Max(sc.Width/iv.Bitmap.Width,sc.Height/iv.Bitmap.Height)
+	Dim f As Float=Min(sc.Width/iv.Bitmap.Width,sc.Height/iv.Bitmap.Height)
 	If f>1 Then f=1
 	If mnScale=0 Then
-		EnableZoom(sc,f,1)
+		EnableZoom(sc,f,mxScale)
 	Else
 		EnableZoom(sc,mnScale,mxScale)
+		Log("use custom")
 	End If
 	UnZOOM(False)
+'	iv.Width=GetBase.Width
 '	refush
 End Sub
 Public Sub getBitmap As Bitmap
