@@ -5,6 +5,7 @@
         <name>com.bugly.buglywrapper</name>
         <shortname>bugly</shortname>
         <owner>process</owner>
+        <permission>android.permission.WRITE_EXTERNAL_STORAGE</permission>
         <permission>android.permission.READ_PHONE_STATE</permission>
         <permission>android.permission.INTERNET</permission>
         <permission>android.permission.ACCESS_NETWORK_STATE</permission>
@@ -24,8 +25,21 @@
             <comment></comment>
             <returntype>void</returntype>
         </method>
+        <method>
+            <name>checkUpgrade</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>isManual</name>
+                <type>boolean</type>
+            </parameter>
+            <parameter>
+                <name>isSilence</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
     </class>
-    <version>1.0</version>
+    <version>2.0</version>
     <author>icefairy333</author>
-    <dependsOn>bugly_crash_release__2.1.3</dependsOn>
+    <dependsOn>bugly_crashreport_upgrade-1.2.1</dependsOn>
 </root>
