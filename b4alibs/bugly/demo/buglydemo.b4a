@@ -12,7 +12,7 @@ Library2=b4abugly
 #Region  Project Attributes 
 	#ApplicationLabel: B4A Example
 	#VersionCode: 1
-	#VersionName: 
+	#VersionName: 1.0
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
 	#SupportedOrientations: unspecified
 	#CanInstallToExternalStorage: False
