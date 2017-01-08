@@ -1,4 +1,4 @@
-﻿Version=5.8
+﻿Version=6.48
 NumberOfModules=1
 Module1=Starter
 Build1=Default,b4a.example
@@ -12,7 +12,7 @@ Library2=b4abugly
 #Region  Project Attributes 
 	#ApplicationLabel: B4A Example
 	#VersionCode: 1
-	#VersionName: 
+	#VersionName: 1.0
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
 	#SupportedOrientations: unspecified
 	#CanInstallToExternalStorage: False
@@ -34,13 +34,42 @@ Sub Globals
 	'These variables can only be accessed from this module.
 
 End Sub
+'配置说明
+'使用说明：https://beta.bugly.qq.com
+'将下面的内容（取消注释后）粘贴到manifest editor最后面
+''----------bugly with update
+'AddApplicationText(<Activity
+'    android:name="com.tencent.bugly.beta.ui.BetaActivity"
+'    android:theme="@android:style/Theme.Translucent" />
+'	)
+'AddManifestText(<provider
+'    android:name="android.support.v4.content.FileProvider"
+'    android:authorities="$PACKAGE$.fileProvider"
+'    android:exported="false"
+'    android:grantUriPermissions="true">
+'    <meta-data
+'        android:name="android.support.FILE_PROVIDER_PATHS"
+'        android:resource="@xml/provider_paths"/>
+'</provider>)
+'CreateResource(xml,provider_paths.xml,<?xml version="1.0" encoding="utf-8"?>
+'<paths xmlns:android="http://schemas.android.com/apk/res/android">
+'    <!-- /storage/emulated/0/Download/${applicationId}/.beta/apk-->
+'    <external-path name="beta_external_path" path="Download/"/>
+'    <!--/storage/emulated/0/Android/data/${applicationId}/files/apk/-->
+'    <external-path name="beta_external_files_path" path="Android/data/"/>
+'</paths>)
+''----------bugly with update--end------
 
+'配置说明结束
 Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
 	'Activity.LoadLayout("Layout1")
 
 End Sub
-
+'手工检测更新
+Sub checkupdate_Click
+	Starter.bugly.checkUpgrade(True,False)
+End Sub
 Sub Activity_Resume
 
 End Sub

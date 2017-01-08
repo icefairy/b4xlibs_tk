@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9CD956121DF6887000A85750 /* bugly.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD956111DF6887000A85750 /* bugly.m */; };
+		9CD956131DF6887000A85750 /* bugly.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CD956101DF6887000A85750 /* bugly.h */; };
+		9CD9561D1DF6895C00A85750 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD9561C1DF6895C00A85750 /* SystemConfiguration.framework */; };
+		9CD9561F1DF6896D00A85750 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD9561E1DF6896D00A85750 /* Security.framework */; };
+		9CD956241DF68A2A00A85750 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD956231DF68A2900A85750 /* Bugly.framework */; };
+		9CD956251DF68C8D00A85750 /* Bugly.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CD956231DF68A2900A85750 /* Bugly.framework */; };
+		9CD956261DF68C8D00A85750 /* libbugly.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CD9560D1DF6887000A85750 /* libbugly.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9CD9560B1DF6887000A85750 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
+			dstSubfolderSpec = 0;
+			files = (
+				9CD956251DF68C8D00A85750 /* Bugly.framework in CopyFiles */,
+				9CD956261DF68C8D00A85750 /* libbugly.a in CopyFiles */,
+				9CD956131DF6887000A85750 /* bugly.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9CD9560D1DF6887000A85750 /* libbugly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libbugly.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD956101DF6887000A85750 /* bugly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bugly.h; sourceTree = "<group>"; };
+		9CD956111DF6887000A85750 /* bugly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bugly.m; sourceTree = "<group>"; };
+		9CD9561A1DF6890A00A85750 /* iCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCore.h; sourceTree = "<group>"; };
+		9CD9561C1DF6895C00A85750 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9CD9561E1DF6896D00A85750 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9CD956231DF68A2900A85750 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9CD9560A1DF6887000A85750 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD956241DF68A2A00A85750 /* Bugly.framework in Frameworks */,
+				9CD9561F1DF6896D00A85750 /* Security.framework in Frameworks */,
+				9CD9561D1DF6895C00A85750 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9CD956041DF6887000A85750 = {
+			isa = PBXGroup;
+			children = (
+				9CD956231DF68A2900A85750 /* Bugly.framework */,
+				9CD9560F1DF6887000A85750 /* bugly */,
+				9CD9560E1DF6887000A85750 /* Products */,
+				9CD9561B1DF6895C00A85750 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9CD9560E1DF6887000A85750 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CD9560D1DF6887000A85750 /* libbugly.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CD9560F1DF6887000A85750 /* bugly */ = {
+			isa = PBXGroup;
+			children = (
+				9CD9561A1DF6890A00A85750 /* iCore.h */,
+				9CD956101DF6887000A85750 /* bugly.h */,
+				9CD956111DF6887000A85750 /* bugly.m */,
+			);
+			path = bugly;
+			sourceTree = "<group>";
+		};
+		9CD9561B1DF6895C00A85750 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CD9561E1DF6896D00A85750 /* Security.framework */,
+				9CD9561C1DF6895C00A85750 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9CD9560C1DF6887000A85750 /* bugly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD956161DF6887000A85750 /* Build configuration list for PBXNativeTarget "bugly" */;
+			buildPhases = (
+				9CD956091DF6887000A85750 /* Sources */,
+				9CD9560A1DF6887000A85750 /* Frameworks */,
+				9CD9560B1DF6887000A85750 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = bugly;
+			productName = bugly;
+			productReference = 9CD9560D1DF6887000A85750 /* libbugly.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9CD956051DF6887000A85750 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = kaopuedu;
+				TargetAttributes = {
+					9CD9560C1DF6887000A85750 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = Z8469PN86Z;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9CD956081DF6887000A85750 /* Build configuration list for PBXProject "bugly" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9CD956041DF6887000A85750;
+			productRefGroup = 9CD9560E1DF6887000A85750 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9CD9560C1DF6887000A85750 /* bugly */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9CD956091DF6887000A85750 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD956121DF6887000A85750 /* bugly.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9CD956141DF6887000A85750 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9CD956151DF6887000A85750 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9CD956171DF6887000A85750 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Z8469PN86Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9CD956181DF6887000A85750 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Z8469PN86Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9CD956081DF6887000A85750 /* Build configuration list for PBXProject "bugly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD956141DF6887000A85750 /* Debug */,
+				9CD956151DF6887000A85750 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CD956161DF6887000A85750 /* Build configuration list for PBXNativeTarget "bugly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD956171DF6887000A85750 /* Debug */,
+				9CD956181DF6887000A85750 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9CD956051DF6887000A85750 /* Project object */;
+}

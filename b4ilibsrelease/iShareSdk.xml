@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>iShareSdk</name>
+        <shortname>iShareSdk</shortname>
+        <comment>iShareSdk.h
+  iShareSdk
+
+  Created by kaopuedu on 2016/11/25.
+  Copyright © 2016年 kaopuedu. All rights reserved.</comment>
+        <event>onUserSync</event>
+        <event>onLoginResult(mret As Map)</event>
+        <event>gotresult</event>
+        <method>
+            <name DesignerName="Initialize">Initialize::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>bi</name>
+                <type>B4I*</type>
+            </parameter>
+            <parameter>
+                <name>eventname</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="RegisterApp">RegisterApp:::::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>mobappkey</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>qqappid</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>qqkey</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>wxappid</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>wxkey</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="ShowShare">ShowShare::::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>title</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>weburl</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>sharecontent</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>imgurl</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="LoginByQQ">LoginByQQ::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>bi</name>
+                <type>B4I*</type>
+            </parameter>
+            <parameter>
+                <name>eventname</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="LoginByWx">LoginByWx::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>bi</name>
+                <type>B4I*</type>
+            </parameter>
+            <parameter>
+                <name>eventname</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+    </class>
+    <version>1</version>
+    <dependsOn>ShareSDK.framework.3</dependsOn>
+    <dependsOn>MOBFoundation.framework.3</dependsOn>
+    <dependsOn>ShareSDKConnector.framework.3</dependsOn>
+    <dependsOn>ShareSDKExtension.framework.3</dependsOn>
+    <dependsOn>CopyConnector.framework.3</dependsOn>
+    <dependsOn>MailConnector.framework.3</dependsOn>
+    <dependsOn>QQConnector.framework.3</dependsOn>
+    <dependsOn>SMSConnector.framework.3</dependsOn>
+    <dependsOn>WechatConnector.framework.3</dependsOn>
+    <dependsOn>WeChatSDK</dependsOn>
+    <dependsOn>MessageUI.framework</dependsOn>
+    <dependsOn>ShareSDKUI.framework.3</dependsOn>
+    <dependsOn>ShareSDKConfigFile.framework.3</dependsOn>
+    <dependsOn>TencentOpenAPI.framework.3</dependsOn>
+    <dependsOn>libicucore.tbd</dependsOn>
+    <dependsOn>libz.tbd</dependsOn>
+    <dependsOn>libstdc++.tbd</dependsOn>
+    <dependsOn>JavaScriptCore.framework</dependsOn>
+    <dependsOn>libsqlite3.tbd</dependsOn>
+</root>

@@ -1,0 +1,64 @@
+﻿Version=3.48
+NumberOfModules=3
+Module1=cviZoomableImageView
+Module2=picviewer
+Module3=cropimage
+Build1=Default,com.zoomableivtest
+NumberOfFiles=4
+File1=1.bil
+File2=crop.bil
+File3=img.jpg
+File4=main.bil
+NumberOfLibraries=1
+Library1=icore
+@EndOfDesignText@
+'Code module
+#Region  Project Attributes 
+	#ApplicationLabel: B4i Example
+	#Version: 1.0.0 
+	'Orientation possible values: Portrait, LandscapeLeft, LandscapeRight and PortraitUpsideDown
+	#iPhoneOrientations: Portrait, LandscapeLeft, LandscapeRight
+	#iPadOrientations: Portrait, LandscapeLeft, LandscapeRight, PortraitUpsideDown
+	#Target: iPhone, iPad
+	#ATSEnabled: True
+	#MinVersion: 7
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'Public variables can be accessed from all modules.
+	Public App As Application
+	Public NavControl As NavigationController
+	Private pg As Page
+	Private btncrop As Button
+	Private btnpicviewer As Button
+	Private ImageView1 As ImageView
+End Sub
+
+Private Sub Application_Start (Nav As NavigationController)
+	NavControl = Nav
+	pg.Initialize("pg")
+	pg.RootPanel.LoadLayout("main")
+	Nav.ShowPage(pg)
+End Sub
+
+Private Sub Page1_Resize(Width As Int, Height As Int)
+	
+End Sub
+
+Private Sub Application_Background
+	
+End Sub
+
+
+Sub btnpicviewer_Click
+	picviewer.show
+End Sub
+
+Sub btncrop_Click
+	cropimage.show
+End Sub
+Sub gotimg(img As Bitmap)
+	ImageView1.Bitmap=img
+	ImageView1.ContentMode=ImageView1.MODE_FILL
+End Sub

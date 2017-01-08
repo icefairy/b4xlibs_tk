@@ -14,7 +14,7 @@
 //~author:icefairy333
 //~event:gotloc(iloc as iLocation)
 //~event:onlocerror(merr as Map)
-//~version:1.10
+//~version:1.20
 //~dependson:AMapLocationKit.framework.3
 //~dependson:AMapFoundationKit.framework.3
 //~dependson:JavaScriptcore.framework
