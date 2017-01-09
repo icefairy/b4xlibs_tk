@@ -77,6 +77,7 @@ Private Sub showPicker(num As Int)
 	Dim tfc As ThemeConfig_gf
 	tfc.setCheckSelectedColor(Colors.LightGray)
 	tfc.setCheckNornalColor(Colors.Gray)
+	tfc.setTitleBarBgColor(Colors.Red)
 	gf.Init("gf",tfc.build)
 	
 	If num = 1 Then
@@ -98,7 +99,7 @@ Private Sub showPicker(num As Int)
 		lsts.Add(photoinfo(0))
 		lsts.Add(photoinfo(1))
 		lsts.Add(photoinfo(2))
-		gf.PhotoViewMuti(5,lsts,gffc)
+		gf.PhotoViewMuti(5,2,lsts,gffc)
 	Else
 		gf.openGallerySingle(1)
 	End If

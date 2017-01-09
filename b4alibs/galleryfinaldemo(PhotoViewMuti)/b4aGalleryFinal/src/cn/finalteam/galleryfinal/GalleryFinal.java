@@ -18,6 +18,7 @@ package cn.finalteam.galleryfinal;
 
 import android.content.Intent;
 import android.widget.Toast;
+import anywheresoftware.b4a.BA;
 
 import java.io.File;
 import java.io.IOException;
@@ -353,12 +354,16 @@ public class GalleryFinal {
      * @param list
 	 */
 	public static void PhotoViewMuti(int requestCode, FunctionConfig config,
-			ArrayList<PhotoInfo> resultList) {
+			ArrayList<PhotoInfo> resultList,int curindex) {
 		// TODO Auto-generated method stub
         mCurrentFunctionConfig = config;
 		Intent intent = new Intent(mCoreConfig.getContext(), PhotoPreviewActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(PhotoPreviewActivity.PHOTO_LIST, resultList);
+        ArrayList<Integer> mlist = new ArrayList<Integer>();
+//        mlist.add(10, 1);
+		mlist.add(curindex);
+        intent.putIntegerArrayListExtra(PhotoPreviewActivity.INDEX, mlist);
         mCoreConfig.getContext().startActivity(intent);
 	}
     /**

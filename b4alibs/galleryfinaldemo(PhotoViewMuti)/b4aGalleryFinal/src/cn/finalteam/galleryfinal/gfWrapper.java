@@ -120,10 +120,12 @@ public class gfWrapper {
 	 *		lsts.Add(photoinfo(0))
 	 *		lsts.Add(photoinfo(1))
 	 *		lsts.Add(photoinfo(2))
-	 *		gf.PhotoViewMuti(ret,lsts,gffc)
+	 *		dim curindex as int=2 '当前ID(从0开始)
+	 *		gf.PhotoViewMuti(ret,curindex,lsts,gffc)
 	 */
-	public void PhotoViewMuti(int requestCode,ArrayList<PhotoInfo> resultList, FCWrapper con){
+	public void PhotoViewMuti(int requestCode,int curindex,ArrayList<PhotoInfo> resultList, FCWrapper con){
 		BA.Log("PhotoViewMuti");
-		GalleryFinal.PhotoViewMuti(requestCode, con.Build(), resultList);
+		BA.Log("PhotoViewMuti-index:"+curindex);
+		GalleryFinal.PhotoViewMuti(requestCode, con.Build(), resultList, curindex);
 	}
 }

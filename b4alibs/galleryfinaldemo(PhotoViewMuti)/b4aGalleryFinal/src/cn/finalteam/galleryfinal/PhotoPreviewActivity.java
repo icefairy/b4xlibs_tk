@@ -1,14 +1,18 @@
 package cn.finalteam.galleryfinal;
 
+import android.R.integer;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import anywheresoftware.b4a.BA;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import cn.finalteam.galleryfinal.R.string;
 import cn.finalteam.galleryfinal.adapter.PhotoPreviewAdapter;
 import cn.finalteam.galleryfinal.model.PhotoInfo;
 import cn.finalteam.galleryfinal.widget.GFViewPager;
@@ -21,7 +25,8 @@ import cn.finalteam.galleryfinal.widget.GFViewPager;
 public class PhotoPreviewActivity extends PhotoBaseActivity implements ViewPager.OnPageChangeListener{
 
     static final String PHOTO_LIST = "photo_list";
-
+    static final String INDEX = "index";
+    
     private RelativeLayout mTitleBar;
     private ImageView mIvBack;
     private TextView mTvTitle;
@@ -29,6 +34,7 @@ public class PhotoPreviewActivity extends PhotoBaseActivity implements ViewPager
 
     private GFViewPager mVpPager;
     private List<PhotoInfo> mPhotoList;
+    private ArrayList<Integer> mlist;
     private PhotoPreviewAdapter mPhotoPreviewAdapter;
 
     private ThemeConfig mThemeConfig;
@@ -46,11 +52,22 @@ public class PhotoPreviewActivity extends PhotoBaseActivity implements ViewPager
             setTheme();
 
             mPhotoList = (List<PhotoInfo>) getIntent().getSerializableExtra(PHOTO_LIST);
+            mlist =(ArrayList<Integer>) getIntent().getIntegerArrayListExtra(INDEX);
             mPhotoPreviewAdapter = new PhotoPreviewAdapter(this, mPhotoList);
+            
+            
             mVpPager.setAdapter(mPhotoPreviewAdapter);
+    		BA.Log("PhotoViewMuti-index333:"+mlist.get(0));
+    		
+	        if(mPhotoList.size() >= mlist.get(0) && mlist.get(0) > 0){
+	            set_page_cur(mlist.get(0));//切到指定
+		    }
         }
     }
 
+    private void set_page_cur(int index){
+    	mVpPager.setCurrentItem(index);
+    }
     private void findViews() {
         mTitleBar = (RelativeLayout) findViewById(R.id.titlebar);
         mIvBack = (ImageView) findViewById(R.id.iv_back);
@@ -89,7 +106,7 @@ public class PhotoPreviewActivity extends PhotoBaseActivity implements ViewPager
 
     @Override
     public void onPageSelected(int position) {
-
+    	
     }
 
     @Override

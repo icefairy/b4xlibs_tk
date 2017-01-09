@@ -1022,10 +1022,15 @@ height: </comment>
 		lsts.Add(photoinfo(0))
 		lsts.Add(photoinfo(1))
 		lsts.Add(photoinfo(2))
-		gf.PhotoViewMuti(ret,lsts,gffc)</comment>
+		dim curindex as int=2 '当前ID(从0开始)
+		gf.PhotoViewMuti(ret,curindex,lsts,gffc)</comment>
             <returntype>void</returntype>
             <parameter>
                 <name>requestCode</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>curindex</name>
                 <type>int</type>
             </parameter>
             <parameter>

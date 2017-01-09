@@ -357,62 +357,62 @@ mostCurrent._simgurl[(int) (3)] = "http://ottmag.com/wp-content/uploads/2016/07/
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 111;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 113;BA.debugLine="End Sub";
+ //BA.debugLineNum = 112;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+ //BA.debugLineNum = 114;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 107;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 109;BA.debugLine="End Sub";
+ //BA.debugLineNum = 108;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 110;BA.debugLine="End Sub";
 return "";
 }
 public static String  _button1_click() throws Exception{
- //BA.debugLineNum = 116;BA.debugLine="Sub Button1_Click";
- //BA.debugLineNum = 117;BA.debugLine="showPicker(3)";
+ //BA.debugLineNum = 117;BA.debugLine="Sub Button1_Click";
+ //BA.debugLineNum = 118;BA.debugLine="showPicker(3)";
 _showpicker((int) (3));
- //BA.debugLineNum = 118;BA.debugLine="End Sub";
+ //BA.debugLineNum = 119;BA.debugLine="End Sub";
 return "";
 }
 public static String  _button2_click() throws Exception{
- //BA.debugLineNum = 120;BA.debugLine="Sub Button2_Click";
- //BA.debugLineNum = 121;BA.debugLine="showPicker(5)";
+ //BA.debugLineNum = 121;BA.debugLine="Sub Button2_Click";
+ //BA.debugLineNum = 122;BA.debugLine="showPicker(5)";
 _showpicker((int) (5));
- //BA.debugLineNum = 122;BA.debugLine="End Sub";
+ //BA.debugLineNum = 123;BA.debugLine="End Sub";
 return "";
 }
 public static String  _button3_click() throws Exception{
- //BA.debugLineNum = 124;BA.debugLine="Sub Button3_Click";
- //BA.debugLineNum = 125;BA.debugLine="StartActivity(PhotoViewSingle)";
+ //BA.debugLineNum = 125;BA.debugLine="Sub Button3_Click";
+ //BA.debugLineNum = 126;BA.debugLine="StartActivity(PhotoViewSingle)";
 anywheresoftware.b4a.keywords.Common.StartActivity(mostCurrent.activityBA,(Object)(mostCurrent._photoviewsingle.getObject()));
- //BA.debugLineNum = 126;BA.debugLine="End Sub";
+ //BA.debugLineNum = 127;BA.debugLine="End Sub";
 return "";
 }
 public static String  _gf_onhanlderfailure(int _requestcode,String _errormsg) throws Exception{
- //BA.debugLineNum = 91;BA.debugLine="Sub gf_onHanlderFailure(requestCode As Int,errorMs";
- //BA.debugLineNum = 92;BA.debugLine="ToastMessageShow(\"SelectPicErr:\"&errorMsg,True)";
+ //BA.debugLineNum = 92;BA.debugLine="Sub gf_onHanlderFailure(requestCode As Int,errorMs";
+ //BA.debugLineNum = 93;BA.debugLine="ToastMessageShow(\"SelectPicErr:\"&errorMsg,True)";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow("SelectPicErr:"+_errormsg,anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 93;BA.debugLine="End Sub";
+ //BA.debugLineNum = 94;BA.debugLine="End Sub";
 return "";
 }
 public static String  _gf_onhanldersuccess(int _reqeustcode,anywheresoftware.b4a.objects.collections.List _resultlist) throws Exception{
 int _i = 0;
 cn.finalteam.galleryfinal.model.PhotoInfo _tp = null;
- //BA.debugLineNum = 94;BA.debugLine="Sub gf_onHanlderSuccess(reqeustCode As Int,resultL";
- //BA.debugLineNum = 95;BA.debugLine="If resultList.Size>0 Then";
+ //BA.debugLineNum = 95;BA.debugLine="Sub gf_onHanlderSuccess(reqeustCode As Int,resultL";
+ //BA.debugLineNum = 96;BA.debugLine="If resultList.Size>0 Then";
 if (_resultlist.getSize()>0) { 
- //BA.debugLineNum = 96;BA.debugLine="For i=0 To resultList.Size-1";
+ //BA.debugLineNum = 97;BA.debugLine="For i=0 To resultList.Size-1";
 {
 final int step2 = 1;
 final int limit2 = (int) (_resultlist.getSize()-1);
 for (_i = (int) (0) ; (step2 > 0 && _i <= limit2) || (step2 < 0 && _i >= limit2); _i = ((int)(0 + _i + step2)) ) {
- //BA.debugLineNum = 97;BA.debugLine="Dim tp As PhotoInfo=resultList.Get(i)";
+ //BA.debugLineNum = 98;BA.debugLine="Dim tp As PhotoInfo=resultList.Get(i)";
 _tp = (cn.finalteam.galleryfinal.model.PhotoInfo)(_resultlist.Get(_i));
- //BA.debugLineNum = 98;BA.debugLine="TL(\"Selected:\"&tp.PhotoPath)";
+ //BA.debugLineNum = 99;BA.debugLine="TL(\"Selected:\"&tp.PhotoPath)";
 _tl("Selected:"+_tp.getPhotoPath());
  }
 };
  };
- //BA.debugLineNum = 102;BA.debugLine="End Sub";
+ //BA.debugLineNum = 103;BA.debugLine="End Sub";
 return "";
 }
 public static String  _globals() throws Exception{
@@ -492,14 +492,16 @@ _tfc = new cn.finalteam.galleryfinal.ThemeConfig.Builder();
 _tfc.setCheckSelectedColor(anywheresoftware.b4a.keywords.Common.Colors.LightGray);
  //BA.debugLineNum = 64;BA.debugLine="tfc.setCheckNornalColor(Colors.Gray)";
 _tfc.setCheckNornalColor(anywheresoftware.b4a.keywords.Common.Colors.Gray);
- //BA.debugLineNum = 65;BA.debugLine="gf.Init(\"gf\",tfc.build)";
+ //BA.debugLineNum = 65;BA.debugLine="tfc.setTitleBarBgColor(Colors.Red)";
+_tfc.setTitleBarBgColor(anywheresoftware.b4a.keywords.Common.Colors.Red);
+ //BA.debugLineNum = 66;BA.debugLine="gf.Init(\"gf\",tfc.build)";
 mostCurrent._gf.Init(processBA,"gf",_tfc.build());
- //BA.debugLineNum = 67;BA.debugLine="If num = 1 Then";
+ //BA.debugLineNum = 68;BA.debugLine="If num = 1 Then";
 if (_num==1) { 
- //BA.debugLineNum = 68;BA.debugLine="gf.openGalleryMuti(1,num)";
+ //BA.debugLineNum = 69;BA.debugLine="gf.openGalleryMuti(1,num)";
 mostCurrent._gf.openGalleryMuti((int) (1),_num);
  }else if(_num==5) { 
- //BA.debugLineNum = 70;BA.debugLine="Dim photoinfo(3) As PhotoInfo";
+ //BA.debugLineNum = 71;BA.debugLine="Dim photoinfo(3) As PhotoInfo";
 _photoinfo = new cn.finalteam.galleryfinal.model.PhotoInfo[(int) (3)];
 {
 int d0 = _photoinfo.length;
@@ -508,46 +510,46 @@ _photoinfo[i0] = new cn.finalteam.galleryfinal.model.PhotoInfo();
 }
 }
 ;
- //BA.debugLineNum = 71;BA.debugLine="Dim lsts As List";
+ //BA.debugLineNum = 72;BA.debugLine="Dim lsts As List";
 _lsts = new anywheresoftware.b4a.objects.collections.List();
- //BA.debugLineNum = 72;BA.debugLine="lsts.Initialize";
+ //BA.debugLineNum = 73;BA.debugLine="lsts.Initialize";
 _lsts.Initialize();
- //BA.debugLineNum = 73;BA.debugLine="photoinfo(0).PhotoPath = simgurl(1)";
+ //BA.debugLineNum = 74;BA.debugLine="photoinfo(0).PhotoPath = simgurl(1)";
 _photoinfo[(int) (0)].setPhotoPath(mostCurrent._simgurl[(int) (1)]);
- //BA.debugLineNum = 74;BA.debugLine="photoinfo(0).PhotoId = Rnd(11111,99999)";
+ //BA.debugLineNum = 75;BA.debugLine="photoinfo(0).PhotoId = Rnd(11111,99999)";
 _photoinfo[(int) (0)].setPhotoId(anywheresoftware.b4a.keywords.Common.Rnd((int) (11111),(int) (99999)));
- //BA.debugLineNum = 75;BA.debugLine="photoinfo(1).PhotoPath = simgurl(2)";
+ //BA.debugLineNum = 76;BA.debugLine="photoinfo(1).PhotoPath = simgurl(2)";
 _photoinfo[(int) (1)].setPhotoPath(mostCurrent._simgurl[(int) (2)]);
- //BA.debugLineNum = 76;BA.debugLine="photoinfo(1).PhotoId = Rnd(11111,99999)";
+ //BA.debugLineNum = 77;BA.debugLine="photoinfo(1).PhotoId = Rnd(11111,99999)";
 _photoinfo[(int) (1)].setPhotoId(anywheresoftware.b4a.keywords.Common.Rnd((int) (11111),(int) (99999)));
- //BA.debugLineNum = 77;BA.debugLine="photoinfo(2).PhotoPath = simgurl(3)";
+ //BA.debugLineNum = 78;BA.debugLine="photoinfo(2).PhotoPath = simgurl(3)";
 _photoinfo[(int) (2)].setPhotoPath(mostCurrent._simgurl[(int) (3)]);
- //BA.debugLineNum = 81;BA.debugLine="Log(photoinfo(2).PhotoPath)";
+ //BA.debugLineNum = 82;BA.debugLine="Log(photoinfo(2).PhotoPath)";
 anywheresoftware.b4a.keywords.Common.Log(_photoinfo[(int) (2)].getPhotoPath());
- //BA.debugLineNum = 82;BA.debugLine="photoinfo(2).PhotoId = Rnd(11111,99999)";
+ //BA.debugLineNum = 83;BA.debugLine="photoinfo(2).PhotoId = Rnd(11111,99999)";
 _photoinfo[(int) (2)].setPhotoId(anywheresoftware.b4a.keywords.Common.Rnd((int) (11111),(int) (99999)));
- //BA.debugLineNum = 83;BA.debugLine="lsts.Add(photoinfo(0))";
+ //BA.debugLineNum = 84;BA.debugLine="lsts.Add(photoinfo(0))";
 _lsts.Add((Object)(_photoinfo[(int) (0)]));
- //BA.debugLineNum = 84;BA.debugLine="lsts.Add(photoinfo(1))";
+ //BA.debugLineNum = 85;BA.debugLine="lsts.Add(photoinfo(1))";
 _lsts.Add((Object)(_photoinfo[(int) (1)]));
- //BA.debugLineNum = 85;BA.debugLine="lsts.Add(photoinfo(2))";
+ //BA.debugLineNum = 86;BA.debugLine="lsts.Add(photoinfo(2))";
 _lsts.Add((Object)(_photoinfo[(int) (2)]));
- //BA.debugLineNum = 86;BA.debugLine="gf.PhotoViewMuti(5,lsts,gffc)";
-mostCurrent._gf.PhotoViewMuti((int) (5),(java.util.ArrayList)(_lsts.getObject()),mostCurrent._gffc);
+ //BA.debugLineNum = 87;BA.debugLine="gf.PhotoViewMuti(5,2,lsts,gffc)";
+mostCurrent._gf.PhotoViewMuti((int) (5),(int) (2),(java.util.ArrayList)(_lsts.getObject()),mostCurrent._gffc);
  }else {
- //BA.debugLineNum = 88;BA.debugLine="gf.openGallerySingle(1)";
+ //BA.debugLineNum = 89;BA.debugLine="gf.openGallerySingle(1)";
 mostCurrent._gf.openGallerySingle((int) (1));
  };
- //BA.debugLineNum = 90;BA.debugLine="End Sub";
+ //BA.debugLineNum = 91;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tl(String _msg) throws Exception{
- //BA.debugLineNum = 103;BA.debugLine="Private Sub TL(msg As String)";
- //BA.debugLineNum = 104;BA.debugLine="Log(msg)";
+ //BA.debugLineNum = 104;BA.debugLine="Private Sub TL(msg As String)";
+ //BA.debugLineNum = 105;BA.debugLine="Log(msg)";
 anywheresoftware.b4a.keywords.Common.Log(_msg);
- //BA.debugLineNum = 105;BA.debugLine="ToastMessageShow(msg,False)";
+ //BA.debugLineNum = 106;BA.debugLine="ToastMessageShow(msg,False)";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(_msg,anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 106;BA.debugLine="End Sub";
+ //BA.debugLineNum = 107;BA.debugLine="End Sub";
 return "";
 }
 }
