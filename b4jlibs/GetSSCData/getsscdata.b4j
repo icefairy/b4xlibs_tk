@@ -30,6 +30,7 @@ Sub Process_Globals
 	Public bLoading As Boolean
 	Public jsg As JSONGenerator
 	Public nApiIdx As Int=0
+	Public sLastQh As String="",nRemain=2 As Int
 End Sub
 
 Sub AppStart (Args() As String)
