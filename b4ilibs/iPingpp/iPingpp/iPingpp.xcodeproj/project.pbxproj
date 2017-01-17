@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C1635861E2479F5007EF00E /* iPingppWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1635851E2479F5007EF00E /* iPingppWrapper.m */; };
+		9C1635871E2479F5007EF00E /* iPingppWrapper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C1635841E2479F5007EF00E /* iPingppWrapper.h */; };
+		9C1635A01E247E06007EF00E /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1635911E247E06007EF00E /* AlipaySDK.framework */; };
+		9C1635A11E247E06007EF00E /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1635921E247E06007EF00E /* libpingpp+alipay.a */; };
+		9C1635A31E247E06007EF00E /* libpingpp+network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1635971E247E06007EF00E /* libpingpp+network.a */; };
+		9C1635A41E247E06007EF00E /* libpingpp+webview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C16359A1E247E06007EF00E /* libpingpp+webview.a */; };
+		9C1635A51E247E06007EF00E /* libpingppcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C16359B1E247E06007EF00E /* libpingppcore.a */; };
+		9C1635A61E247E06007EF00E /* libpingpp+one.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C16359D1E247E06007EF00E /* libpingpp+one.a */; };
+		9C1635A71E247E80007EF00E /* AlipaySDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C1635911E247E06007EF00E /* AlipaySDK.framework */; };
+		9C1635A81E247E80007EF00E /* libpingpp+alipay.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C1635921E247E06007EF00E /* libpingpp+alipay.a */; };
+		9C1635A91E247E80007EF00E /* libpingpp+network.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C1635971E247E06007EF00E /* libpingpp+network.a */; };
+		9C1635AA1E247E80007EF00E /* PingppURLResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C1635981E247E06007EF00E /* PingppURLResponse.h */; };
+		9C1635AB1E247E80007EF00E /* libpingpp+webview.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C16359A1E247E06007EF00E /* libpingpp+webview.a */; };
+		9C1635AC1E247E80007EF00E /* libpingppcore.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C16359B1E247E06007EF00E /* libpingppcore.a */; };
+		9C1635AD1E247E80007EF00E /* libpingpp+one.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C16359D1E247E06007EF00E /* libpingpp+one.a */; };
+		9C1635AE1E247E80007EF00E /* Pingpp+One.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C16359E1E247E06007EF00E /* Pingpp+One.h */; };
+		9C1635AF1E247E80007EF00E /* Pingpp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C16359F1E247E06007EF00E /* Pingpp.h */; };
+		9C1635B01E248A2B007EF00E /* libiPingppWrapper.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C1635811E2479F5007EF00E /* libiPingppWrapper.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C16357F1E2479F5007EF00E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
+			dstSubfolderSpec = 0;
+			files = (
+				9C1635B01E248A2B007EF00E /* libiPingppWrapper.a in CopyFiles */,
+				9C1635A71E247E80007EF00E /* AlipaySDK.framework in CopyFiles */,
+				9C1635A81E247E80007EF00E /* libpingpp+alipay.a in CopyFiles */,
+				9C1635A91E247E80007EF00E /* libpingpp+network.a in CopyFiles */,
+				9C1635AA1E247E80007EF00E /* PingppURLResponse.h in CopyFiles */,
+				9C1635AB1E247E80007EF00E /* libpingpp+webview.a in CopyFiles */,
+				9C1635AC1E247E80007EF00E /* libpingppcore.a in CopyFiles */,
+				9C1635AD1E247E80007EF00E /* libpingpp+one.a in CopyFiles */,
+				9C1635AE1E247E80007EF00E /* Pingpp+One.h in CopyFiles */,
+				9C1635AF1E247E80007EF00E /* Pingpp.h in CopyFiles */,
+				9C1635871E2479F5007EF00E /* iPingppWrapper.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9C1635811E2479F5007EF00E /* libiPingppWrapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiPingppWrapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C1635841E2479F5007EF00E /* iPingppWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iPingppWrapper.h; sourceTree = "<group>"; };
+		9C1635851E2479F5007EF00E /* iPingppWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iPingppWrapper.m; sourceTree = "<group>"; };
+		9C16358D1E247B16007EF00E /* iCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCore.h; sourceTree = "<group>"; };
+		9C1635911E247E06007EF00E /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		9C1635921E247E06007EF00E /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
+		9C1635971E247E06007EF00E /* libpingpp+network.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+network.a"; sourceTree = "<group>"; };
+		9C1635981E247E06007EF00E /* PingppURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingppURLResponse.h; sourceTree = "<group>"; };
+		9C16359A1E247E06007EF00E /* libpingpp+webview.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+webview.a"; sourceTree = "<group>"; };
+		9C16359B1E247E06007EF00E /* libpingppcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpingppcore.a; sourceTree = "<group>"; };
+		9C16359D1E247E06007EF00E /* libpingpp+one.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+one.a"; sourceTree = "<group>"; };
+		9C16359E1E247E06007EF00E /* Pingpp+One.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pingpp+One.h"; sourceTree = "<group>"; };
+		9C16359F1E247E06007EF00E /* Pingpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pingpp.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C16357E1E2479F5007EF00E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C1635A31E247E06007EF00E /* libpingpp+network.a in Frameworks */,
+				9C1635A41E247E06007EF00E /* libpingpp+webview.a in Frameworks */,
+				9C1635A51E247E06007EF00E /* libpingppcore.a in Frameworks */,
+				9C1635A01E247E06007EF00E /* AlipaySDK.framework in Frameworks */,
+				9C1635A61E247E06007EF00E /* libpingpp+one.a in Frameworks */,
+				9C1635A11E247E06007EF00E /* libpingpp+alipay.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C1635781E2479F5007EF00E = {
+			isa = PBXGroup;
+			children = (
+				9C16358E1E247E06007EF00E /* lib */,
+				9C1635831E2479F5007EF00E /* iPingpp */,
+				9C1635821E2479F5007EF00E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9C1635821E2479F5007EF00E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C1635811E2479F5007EF00E /* libiPingppWrapper.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C1635831E2479F5007EF00E /* iPingpp */ = {
+			isa = PBXGroup;
+			children = (
+				9C16358D1E247B16007EF00E /* iCore.h */,
+				9C1635841E2479F5007EF00E /* iPingppWrapper.h */,
+				9C1635851E2479F5007EF00E /* iPingppWrapper.m */,
+			);
+			path = iPingpp;
+			sourceTree = "<group>";
+		};
+		9C16358E1E247E06007EF00E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				9C16358F1E247E06007EF00E /* Channels */,
+				9C1635951E247E06007EF00E /* Dependencies */,
+				9C16359B1E247E06007EF00E /* libpingppcore.a */,
+				9C16359C1E247E06007EF00E /* One */,
+				9C16359F1E247E06007EF00E /* Pingpp.h */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		9C16358F1E247E06007EF00E /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				9C1635901E247E06007EF00E /* Alipay */,
+			);
+			path = Channels;
+			sourceTree = "<group>";
+		};
+		9C1635901E247E06007EF00E /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				9C1635911E247E06007EF00E /* AlipaySDK.framework */,
+				9C1635921E247E06007EF00E /* libpingpp+alipay.a */,
+			);
+			path = Alipay;
+			sourceTree = "<group>";
+		};
+		9C1635951E247E06007EF00E /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				9C1635961E247E06007EF00E /* Network */,
+				9C1635991E247E06007EF00E /* WebView */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		9C1635961E247E06007EF00E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9C1635971E247E06007EF00E /* libpingpp+network.a */,
+				9C1635981E247E06007EF00E /* PingppURLResponse.h */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9C1635991E247E06007EF00E /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				9C16359A1E247E06007EF00E /* libpingpp+webview.a */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		9C16359C1E247E06007EF00E /* One */ = {
+			isa = PBXGroup;
+			children = (
+				9C16359D1E247E06007EF00E /* libpingpp+one.a */,
+				9C16359E1E247E06007EF00E /* Pingpp+One.h */,
+			);
+			path = One;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C1635801E2479F5007EF00E /* iPingppWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C16358A1E2479F5007EF00E /* Build configuration list for PBXNativeTarget "iPingppWrapper" */;
+			buildPhases = (
+				9C16357D1E2479F5007EF00E /* Sources */,
+				9C16357E1E2479F5007EF00E /* Frameworks */,
+				9C16357F1E2479F5007EF00E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPingppWrapper;
+			productName = iPingpp;
+			productReference = 9C1635811E2479F5007EF00E /* libiPingppWrapper.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C1635791E2479F5007EF00E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = kaopuedu;
+				TargetAttributes = {
+					9C1635801E2479F5007EF00E = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = Z8469PN86Z;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9C16357C1E2479F5007EF00E /* Build configuration list for PBXProject "iPingpp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9C1635781E2479F5007EF00E;
+			productRefGroup = 9C1635821E2479F5007EF00E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C1635801E2479F5007EF00E /* iPingppWrapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C16357D1E2479F5007EF00E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C1635861E2479F5007EF00E /* iPingppWrapper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9C1635881E2479F5007EF00E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9C1635891E2479F5007EF00E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C16358B1E2479F5007EF00E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Z8469PN86Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/Channels/Alipay",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/Channels/Alipay",
+					"$(PROJECT_DIR)/lib/Channels/QQWallet",
+					"$(PROJECT_DIR)/lib/Dependencies/Network",
+					"$(PROJECT_DIR)/lib/Dependencies/WebView",
+					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/lib/One",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+			};
+			name = Debug;
+		};
+		9C16358C1E2479F5007EF00E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Z8469PN86Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/Channels/Alipay",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/Channels/Alipay",
+					"$(PROJECT_DIR)/lib/Channels/QQWallet",
+					"$(PROJECT_DIR)/lib/Dependencies/Network",
+					"$(PROJECT_DIR)/lib/Dependencies/WebView",
+					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/lib/One",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C16357C1E2479F5007EF00E /* Build configuration list for PBXProject "iPingpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C1635881E2479F5007EF00E /* Debug */,
+				9C1635891E2479F5007EF00E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C16358A1E2479F5007EF00E /* Build configuration list for PBXNativeTarget "iPingppWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C16358B1E2479F5007EF00E /* Debug */,
+				9C16358C1E2479F5007EF00E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C1635791E2479F5007EF00E /* Project object */;
+}
