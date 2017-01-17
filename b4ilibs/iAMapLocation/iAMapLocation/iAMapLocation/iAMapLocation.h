@@ -14,13 +14,20 @@
 //~author:icefairy333
 //~event:gotloc(iloc as iLocation)
 //~event:onlocerror(merr as Map)
-//~version:1.20
+//~version:1.30
 //~dependson:AMapLocationKit.framework.3
 //~dependson:AMapFoundationKit.framework.3
+//~dependson:MAMapKit.framework.3
 //~dependson:JavaScriptcore.framework
 //~dependson:SystemConfiguration.framework
 //~dependson:CoreTelephony.framework
 //~dependson:Security.framework
+//~dependson:UIKit.framework
+//~dependson:Foundation.framework
+//~dependson:CoreGraphics.framework
+//~dependson:QuartzCore.framework
+//~dependson:CoreLocation.framework
+//~dependson:AdSupport.framework
 //~dependson:libz.tbd
 //~dependson:libc++.tbd
 //~dependson:libstdc++.6.0.9.tbd
@@ -31,8 +38,19 @@
 - (void)stoplocation;
 @end
 
-//~shortname:iLocation
+//~shortname:iAMapViewer
 //~author:icefairy333
+@interface iAMap : B4IViewWrapper
+- (void)Initialize:(B4I *)bi :(NSString *)EventName :(NSString *)apikey;
+- (void)add2Parent:(B4IPanelView *)p;
+- (void)showMyLoc:(BOOL *)show;
+- (void)showCompass:(BOOL *)show;
+- (void)showScale:(BOOL *)show;
+- (void)setZoomLevel:(double *)lv :(BOOL *)animated;
+- (void)setCenterCoordinate:(double *)lat :(double *)lng :(BOOL *)animated;
+@end
+//~shortname:iLocation
+//~author:icefairy333   
 @interface iLocation : NSObject<NSCopying,NSCoding>
 
 @property (nonatomic, copy) NSString *formattedAddress;//!< 格式化地址

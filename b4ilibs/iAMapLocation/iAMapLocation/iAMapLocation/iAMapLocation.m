@@ -19,6 +19,7 @@
 
 -(void)Initialize:(B4I *)bi :(NSString *)EventName :(NSString *)apikey {
     [B4IObjectWrapper setBIAndEventName:self :bi :EventName];
+    [[AMapServices sharedServices] setEnableHTTPS:YES];
     [AMapServices sharedServices].apiKey =apikey;
 //    nLocTimeout=6;
 //    nAdrTimeout=3;
@@ -70,7 +71,6 @@
     }];}
 -(void)configLocationManager
 {
-    [[AMapServices sharedServices] setEnableHTTPS:YES];
     self.locationManager = [[AMapLocationManager alloc] init];
 //    NSLog(@"configLocationManager2");
     [self.locationManager setDelegate:self];
