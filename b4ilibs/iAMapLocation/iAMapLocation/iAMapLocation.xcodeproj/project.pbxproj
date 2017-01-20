@@ -23,7 +23,7 @@
 		9CA4B9561DC998FB0022E060 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /Users/kaaopuedu/Documents/macserver/Libs;
+			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
 			dstSubfolderSpec = 0;
 			files = (
 				9CEC1DC71E0BBBF600B5B7B3 /* MAMapKit.framework in Copy Files */,

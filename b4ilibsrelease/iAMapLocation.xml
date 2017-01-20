@@ -61,6 +61,8 @@
     <class>
         <name>iAMap</name>
         <shortname>iAMapViewer</shortname>
+        <event>markerselect(idx As Int,Title As String,subTitle As String)</event>
+        <event>markerdeselect(idx As Int,Title As String,subTitle As String)</event>
         <event>Click</event>
         <event>LongClick</event>
         <method>
@@ -236,6 +238,7 @@ Horizontal - Horizontal offset. Can be a positive or negative value.</comment>
         </method>
         <method>
             <name DesignerName="Initialize">Initialize:::</name>
+            <comment>@property (nonatomic)BOOL ZoomLevel;</comment>
             <returntype>void</returntype>
             <parameter>
                 <name>bi</name>
@@ -259,56 +262,49 @@ Horizontal - Horizontal offset. Can be a positive or negative value.</comment>
             </parameter>
         </method>
         <method>
-            <name DesignerName="showMyLoc">showMyLoc:</name>
-            <returntype>void</returntype>
-            <parameter>
-                <name>show</name>
-                <type>BOOL*</type>
-            </parameter>
-        </method>
-        <method>
-            <name DesignerName="showCompass">showCompass:</name>
-            <returntype>void</returntype>
-            <parameter>
-                <name>show</name>
-                <type>BOOL*</type>
-            </parameter>
-        </method>
-        <method>
-            <name DesignerName="showScale">showScale:</name>
-            <returntype>void</returntype>
-            <parameter>
-                <name>show</name>
-                <type>BOOL*</type>
-            </parameter>
-        </method>
-        <method>
-            <name DesignerName="setZoomLevel">setZoomLevel::</name>
-            <returntype>void</returntype>
-            <parameter>
-                <name>lv</name>
-                <type>double*</type>
-            </parameter>
-            <parameter>
-                <name>animated</name>
-                <type>BOOL*</type>
-            </parameter>
-        </method>
-        <method>
             <name DesignerName="setCenterCoordinate">setCenterCoordinate:::</name>
+            <comment>set map center</comment>
             <returntype>void</returntype>
             <parameter>
                 <name>lat</name>
-                <type>double*</type>
+                <type>double</type>
             </parameter>
             <parameter>
                 <name>lng</name>
-                <type>double*</type>
+                <type>double</type>
             </parameter>
             <parameter>
                 <name>animated</name>
-                <type>BOOL*</type>
+                <type>BOOL</type>
             </parameter>
+        </method>
+        <method>
+            <name DesignerName="addMarker">addMarker::::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>lat</name>
+                <type>double</type>
+            </parameter>
+            <parameter>
+                <name>lng</name>
+                <type>double</type>
+            </parameter>
+            <parameter>
+                <name>title</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>subtitle</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="showMarkers">showMarkers</name>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name DesignerName="clearMarkers">clearMarkers</name>
+            <returntype>void</returntype>
         </method>
         <property>
             <name>Tag</name>
@@ -409,6 +405,46 @@ Horizontal - Horizontal offset. Can be a positive or negative value.</comment>
             <name>Parent</name>
             <comment>Returns the views parent. The returned view can be uninitialized (if there is no parent).</comment>
             <returntype>B4IViewWrapper*</returntype>
+        </property>
+        <property>
+            <name>SHOWMYLOC</name>
+            <returntype>BOOL</returntype>
+            <parameter>
+                <name>p</name>
+                <type>BOOL</type>
+            </parameter>
+        </property>
+        <property>
+            <name>ZOOMLEVEL</name>
+            <returntype>double</returntype>
+            <parameter>
+                <name>p</name>
+                <type>double</type>
+            </parameter>
+        </property>
+        <property>
+            <name>SHOWSCALE</name>
+            <returntype>BOOL</returntype>
+            <parameter>
+                <name>p</name>
+                <type>BOOL</type>
+            </parameter>
+        </property>
+        <property>
+            <name>SHOWCOMPASS</name>
+            <returntype>BOOL</returntype>
+            <parameter>
+                <name>p</name>
+                <type>BOOL</type>
+            </parameter>
+        </property>
+        <property>
+            <name>TestPro</name>
+            <returntype>BOOL</returntype>
+            <parameter>
+                <name>p</name>
+                <type>BOOL</type>
+            </parameter>
         </property>
     </class>
     <class>

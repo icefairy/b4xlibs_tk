@@ -40,14 +40,22 @@
 
 //~shortname:iAMapViewer
 //~author:icefairy333
+//~event:markerselect(idx As Int,Title As String,subTitle As String)
+//~event:markerdeselect(idx As Int,Title As String,subTitle As String)
 @interface iAMap : B4IViewWrapper
+@property (nonatomic,assign)BOOL SHOWMYLOC;
+@property (nonatomic,assign)double ZOOMLEVEL;
+@property (nonatomic,assign)BOOL SHOWSCALE;
+@property (nonatomic,assign)BOOL SHOWCOMPASS;
+@property (nonatomic,assign)BOOL TestPro;
+//@property (nonatomic)BOOL ZoomLevel;
 - (void)Initialize:(B4I *)bi :(NSString *)EventName :(NSString *)apikey;
 - (void)add2Parent:(B4IPanelView *)p;
-- (void)showMyLoc:(BOOL *)show;
-- (void)showCompass:(BOOL *)show;
-- (void)showScale:(BOOL *)show;
-- (void)setZoomLevel:(double *)lv :(BOOL *)animated;
-- (void)setCenterCoordinate:(double *)lat :(double *)lng :(BOOL *)animated;
+//set map center
+- (void)setCenterCoordinate:(double)lat :(double)lng :(BOOL)animated;
+- (void)addMarker:(double)lat :(double)lng :(NSString *)title :(NSString *)subtitle;
+- (void)showMarkers;
+- (void)clearMarkers;
 @end
 //~shortname:iLocation
 //~author:icefairy333   
