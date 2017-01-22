@@ -11,8 +11,12 @@
  <body>
 	<h1>B4X JsonParser</h1>
 	<div id='btns'>
-	<button id="btnParse" class='btncmd'> Parse </button>
-	<button id="btnParse2java" class='btncmd'> Parse2Java </button>
+	<ul class='btn'>
+	<li><a id="btnParse" href='#'> Parse </a></li>
+	<li><a id="btnParse2type" href='#'> Parse2Type </a></li>
+	<li><a id="btnParse2java" href='#'> Parse2Java </a></li>
+	<li><a id="btnParseview" href='#'> xml2code </a></li>
+	</ul>
 	</div>
 	<div id="main">
 		<div id="rawTextDiv">
@@ -35,6 +39,29 @@ changelog:
 			$.ajax({
 				type: "POST",
 				url: "jsonHelper",
+				data: $("#textarea").val(), 
+			   success: function(result)
+			   {
+				   if (result.success) {
+						$("#codeP").html(result.code);
+						 $("#treeDiv").html(result.tree);
+						 $("ul li:last-child").addClass('last');
+				   }
+				   else {
+						alert(result.error);
+				   }
+			   },
+				error: function (xhr, ajaxOptions, thrownError) {
+					alert(thrownError);
+				}
+			});
+			
+		});
+			$("#btnParse2type").click(function(e) {
+			e.preventDefault();
+			$.ajax({
+				type: "POST",
+				url: "json2type",
 				data: $("#textarea").val(), 
 			   success: function(result)
 			   {
