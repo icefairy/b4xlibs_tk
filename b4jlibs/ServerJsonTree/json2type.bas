@@ -5,9 +5,7 @@ B4J=true
 @EndOfDesignText@
 'Class module
 Sub Class_Globals
-	
 	Private resMap As Map
-	Private sIndent As String="    "
 	Private code,convertCode As StringBuilder
 End Sub
 
@@ -52,6 +50,8 @@ Private Sub map2typecode(m As Map,keyname As String)
 	If keyname=Null Or keyname.Length<1 Then keyname="root"
 	keyname="typ"&getFirstUpper(keyname)
 	sb.Append("Type "&keyname&"(")
+	convertSb.Append("Sub parseStr2"&keyname&"(str As String) As "&keyname).Append(CRLF)
+	convertSb.Append(TAB&"Dim parser As JSONParser"&CRLF&TAB&"parser.Initialize(str)"&CRLF&TAB&"Return map2"&keyname&"(parser.NextObject)"&CRLF&"End Sub"&CRLF)
 	convertSb.Append("Sub map2"&keyname&"(m As Map) As "&keyname).Append(CRLF)
 	convertSb.Append(TAB&"Dim ret As "&keyname).Append(CRLF).Append(TAB&"ret.Initialize").Append(CRLF)
 	For i=0 To m.Size-1
