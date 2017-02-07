@@ -119,7 +119,7 @@
 
 │  │  └─libs<br>
 │  ├─getui<br>
-> 个推(http://www.getui.com/cn/index.html)推送支持库 + 例程
+> 个推(getui.com) 推送支持库 + 例程
 
 │  │  ├─b4agetui<br>
 > 支持库源码
