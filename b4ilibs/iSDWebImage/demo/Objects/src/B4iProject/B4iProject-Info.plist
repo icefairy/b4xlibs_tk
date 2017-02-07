@@ -114,7 +114,7 @@
 		</array>
 	
 	
-	<key>CFBundleURLTypes</key><array><dict><key>CFBundleURLSchemes</key><array><string>b4idebug1</string></array></dict>
+	<key>CFBundleURLTypes</key><array><dict><key>CFBundleURLSchemes</key><array><string>b4i.sdimagedemo</string></array></dict>
 </array>
 	
 	

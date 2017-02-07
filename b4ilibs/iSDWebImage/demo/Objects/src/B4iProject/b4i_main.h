@@ -1,6 +1,5 @@
 #import "iCore.h"
 #import "iSDWebImage.h"
-#import "iDebug2.h"
 @interface b4i_main : B4IStaticModule
 - (NSString*)  _application_background;
 - (NSString*)  _application_start:(B4INavigationControllerWrapper*) _nav;
