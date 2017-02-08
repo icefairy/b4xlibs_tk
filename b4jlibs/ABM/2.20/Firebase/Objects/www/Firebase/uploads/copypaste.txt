@@ -1,0 +1,4 @@
+"SELECT tGroup.grpID, tGroup.grpCode, tGroup.grpdescription, tGroup.grpComment, tGroup.grpParentID, TGroup_Address.grpaddrID, TGroup_Address.grpaddrName, TGroup_Address.grpaddrStreet, TGroup_Address.grpaddrStreetNumber, TGroup_Address.grpaddrPostalcode, TGroup_Address.grpaddrCity, TGroup_Address.grpaddrCountry, TGroup_Address.grpaddrCommunication FROM tGroup INNER JOIN TGroup_Address ON tGroup.grpID = TGroup_Address.grpaddrGrpID WHERE tGroup.grpId = " & ActiveGroupClient1grpID
+
+SELECT Count(grpID) as IDS FROM FROM tGroup INNER JOIN TGroup_Address ON tGroup.grpID = TGroup_Address.grpaddrGrpID  WHERE tGroup.OTID=4 AND tGroup.grpStatus>0 AND tGroup.grpGrpTypID=2 
+
