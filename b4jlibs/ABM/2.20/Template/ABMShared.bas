@@ -7,7 +7,7 @@ B4J=true
 Sub Process_Globals
 	Public MyTheme As ABMTheme	
 	Private ABM As ABMaterial 'ignore	
-	Public NeedsAuthorization As Boolean = True
+	Public NeedsAuthorization As Boolean = False
 	Public AppVersion As String = DateTime.now ' NEW 2.01 this helps to get the latest js/css files when the app is started/restarted
 	Public AppPublishedStartURL As String = ""
 	Public AppName As String = ""
