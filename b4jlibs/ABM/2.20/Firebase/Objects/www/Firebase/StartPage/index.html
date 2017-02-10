@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- This WebApp/WebSite was generated using ABMaterial, a B4X library written by Alain Bailleul 2015-2016. See http://alwaysbusycorner.com/abmaterial -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.01">
+<meta http-equiv="expires" content="Wed, 22 Jun 2016 22:00:00 GMT">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="description" content="">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="" />
+<title></title>
+<meta name="msapplication-TileColor" content="##ffffff">
+<meta name="theme-color" content="#03a9f4">
+<meta name="msapplication-config" content="none" />
+<link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+<style>.isloading{display:hidden;visibility:hidden}</style>
+<style>
+</style>
+<link type="text/css" rel="stylesheet" href="StartPage.css"  media="screen,projection"/>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script><script>var config = {apiKey: "AIzaSyDKZfPY31sFAaCGyAcryYMvJD7zgBcdM8w",authDomain: "project-3666844930973071900.firebaseapp.com",databaseURL: "https://project-3666844930973071900.firebaseio.com",storageBucket: "project-3666844930973071900.appspot.com",};firebase.initializeApp(config);firebase.auth().onAuthStateChanged(function(user) {if (user) {b4j_raiseEvent('page_parseevent', {'eventname': 'page_firebaseauthstatechanged','eventparams':'isloggedin','isloggedin':true});} else {b4j_raiseEvent('page_parseevent', {'eventname': 'page_firebaseauthstatechanged','eventparams':'isloggedin','isloggedin':false});}});</script></head>
+<body class="white">
+<div id="loader-wrapper">
+<div id="loader"></div>
+<div class="loader-section section-left"></div>
+<div class="loader-section section-right"></div>
+</div>
+<div id="isloaderwrapper" class="isloading"><main class="" style="padding-top: 0px;padding-bottom: 0px">
+<div class="container">
+<div id="r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="page.cell(1,1)" id="r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+</main>
+<script type="text/javascript" src="../../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.stylesheet.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.stylesheet-animate.min.js"></script>
+<script type="text/javascript" src="../../js/reconnecting-websocket.min.js"></script>
+<script type="text/javascript" src="../../js/b4j_ws.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.initialize.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script type="text/javascript" src="../../js/cookies.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.inputmask.bundle.min.js"></script>
+<script type="text/javascript" src="StartPage.js"></script>
+<script type="text/javascript" src="../../js/jquery.knob.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.iframe-transport.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.fileupload.min.js"></script>
+<script type="text/javascript" src="../../js/html2canvas.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.scrollIntoView.min.js"></script>
+<script>
+var DOMReady = function(a,b,c){b=document,c='addEventListener';b[c]?b[c]('DOMContentLoaded',a):window.attachEvent('onload',a)}
+DOMReady(function () {setTimeout(function() {b4j_raiseEvent('page_parseevent', {'eventname':'page_ready','eventparams':''});},500);});
+function cookieGet(key) {if (Cookies.enabled) {return Cookies.get(key);}return "";};function runautocomplete(id, theme, stype) {var $input = $('#' + id);var searchtype=stype;if ($input.hasClass('autocomplete')) {var $array = $input.data('array'),$inputDiv = $input.closest('.input-field');if ($array !== '') {var $html = '<ul id="' + id + '-autocomp" class="autocomplete-content' + theme + ' hide">';var $prevDiv = $inputDiv.children('#' + id + '-autocomp').remove();for (var i = 0; i < $array.length; i++) {if ($array[i]['path'] !== '' && $array[i]['path'] !== undefined && $array[i]['path'] !== null && $array[i]['class'] !== undefined && $array[i]['class'] !== '') {$html += '<li class="autocomplete-option"><img src="' + $array[i]['path'] + '" class="' + $array[i]['class'] + '"><h6>' + $array[i]['value'] + '</h6></li>';} else {$html += '<li class="autocomplete-option"><h6>' + $array[i]['value'] + '</h6></li>';}}$html += '</ul>';$inputDiv.append($html);function checkme() {var $val = $input.val().trim();var tmpId = $input.attr('id');var $select = $('#' + tmpId + '-autocomp');$select.css('width', $input.width());if ($val != '') {$select.children('li').addClass('hide');$select.children('li').filter(function() {$select.removeClass('hide');var check = false;if (searchtype=='contains') {if ($(this).text().toLowerCase().indexOf($val.toLowerCase()) >= 0) check = true;} else {if ($(this).text().toLowerCase().indexOf($val.toLowerCase()) == 0) check = true;}if (check) {var matchStart = $(this).text().toLowerCase().indexOf("" + $val.toLowerCase() + ""),matchEnd = matchStart + $val.length - 1,beforeMatch = $(this).text().slice(0, matchStart),matchText = $(this).text().slice(matchStart, matchEnd + 1),afterMatch = $(this).text().slice(matchEnd + 1);$(this).html("<h6>" + beforeMatch + "<b>" + matchText + "</b>" + afterMatch + "</h6>");}return check ? $(this).text().toLowerCase().indexOf($val.toLowerCase()) !== -1 : false;}).removeClass('hide');} else {$select.children('li').addClass('hide');}};$input.blur(function() {var tmpId = $(this).attr('id');var $select = $('#' + tmpId + '-autocomp');$select.children('li').addClass('hide');});$input.focus(function() {checkme();var tmpId = $(this).attr('id');var $select = $('#' + tmpId + '-autocomp');var tmpFound = $select.children('li').not('.hide').length;var $val = $input.val().trim();if (tmpFound==1 && $val==$select.children('li').not('.hide').text()) {$select.children('li').addClass('hide');}});$input.closest('.input-field').children('ul').children('li').on('mousedown', function() {$input.val($(this).text().trim());var tmpId = $input.attr('id');var $select = $('#' + tmpId + '-autocomp');$select.addClass('hide');});$(document).on('keyup', $input, function() {if ($input.is(":focus") == false) {return;}checkme();});} else {return false;}}};var googleac={};$('.pac-container').initialize( function(){$('.pac-container').css('z-index', '9999');});var activetablerows={};autoplay = false;function updatefields() {Materialize.updateTextFields();};$(document).ready(function() {b4j_connect("/ws/Firebase/StartPage");initplugins();$('.tableinteractive td').on('mouseup touchend', function(e) {if (e.stopPropagation){e.stopPropagation();}else if(window.event){window.event.cancelBubble=true;}var tablename=$(this).attr('name');var evname=$(this).attr('evname');b4j_raiseEvent('page_parseevent', {'eventname': evname + '_clicked','eventparams':'abmistable,target','abmistable':'abmistable','target':$(this).attr('id')});});$(":input").inputmask();$('[data-abminputmask="1"]').inputmask();});$(".button-collapse").sideNav({menuWidth:240});$('.toggle-fullscreen').click(function(){toggleFullScreen();});function ShowPage() {}$('.materialboxed').materialbox();function runupload() {};function SaveNavigationBarPosition() {return $('#nav-mobile').scrollTop();}function RestoreNavigationBarPosition(value) {$('#nav-mobile').scrollTop(value);}function SaveTablePosition(id) {return $('#' + id).scrollTop();}function RestoreTablePosition(id, value) {$('#' + id).scrollTop(value);}function getplatform() {var ret=platform.manufacturer+';ABM;'+platform.name+';ABM;'+platform.prerelease+';ABM;'+platform.product+';ABM;'+platform.version+';ABM;'+platform.os.architecture+';ABM;'+platform.os.family+';ABM;'+platform.os.version+';ABM;'+platform.description+';ABM;'+platform.ua;return ret;}
+function PauseApp() {$('body').removeClass('loaded');$('body').prepend('<div id="loader-wrappertemp"><div id="loader"></div><div class="loader-section section-left"></div><div class="loader-section section-right"></div></div>');};function ResumeApp() {$('body').addClass('loaded');$('#loader-wrappertemp').remove();};</script><script type="text/javascript">function nextcontent(id,offset) {var opts=[{'selector': '#' + id,offset: offset, callback: 'b4j_raiseEvent("page_parseevent", {"eventname":"page_nextcontent","eventparams":"triggercomponent", "triggercomponent": "' + id + '"})'}];Materialize.scrollFire(opts);};</script></div>
+</body>
+</html>

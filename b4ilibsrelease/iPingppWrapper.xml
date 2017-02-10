@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>iPingppWrapper</name>
+        <shortname>iPingpp</shortname>
+        <comment>iPingpp.h
+  iPingpp
+
+  Created by kaopuedu on 2017/1/10.
+  Copyright © 2017年 kaopuedu. All rights reserved.</comment>
+        <event>onPayResult(merr as Map)</event>
+        <method>
+            <name DesignerName="IsInitialized">IsInitialized</name>
+            <comment>Tests whether this object was initialized.</comment>
+            <returntype>BOOL</returntype>
+        </method>
+        <method>
+            <name DesignerName="Initinlize">Initinlize::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>bi</name>
+                <type>B4I*</type>
+            </parameter>
+            <parameter>
+                <name>eventname</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="createPayment">createPayment::</name>
+            <returntype>void</returntype>
+            <parameter>
+                <name>charge</name>
+                <type>NSString*</type>
+            </parameter>
+            <parameter>
+                <name>kUrlScheme</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <method>
+            <name DesignerName="HandleOpenUrl">HandleOpenUrl:</name>
+            <returntype>BOOL</returntype>
+            <parameter>
+                <name>url</name>
+                <type>NSString*</type>
+            </parameter>
+        </method>
+        <property>
+            <name>Tag</name>
+            <comment>Gets or sets the Tag object. This is a placeholder for any object you like to tie to this object.</comment>
+            <returntype>NSObject*</returntype>
+            <parameter>
+                <name>p</name>
+                <type>NSObject*</type>
+            </parameter>
+        </property>
+    </class>
+    <version>1</version>
+    <author>icefairy333</author>
+    <dependsOn>CFNetwork.framework</dependsOn>
+    <dependsOn>SystemConfiguration.framework</dependsOn>
+    <dependsOn>Security.framework</dependsOn>
+    <dependsOn>QuartzCore.framework</dependsOn>
+    <dependsOn>CoreTelephony.framework</dependsOn>
+    <dependsOn>CoreMotion.framework</dependsOn>
+    <dependsOn>AlipaySDK.framework.3</dependsOn>
+    <dependsOn>libc++.tbd</dependsOn>
+    <dependsOn>libz.tbd</dependsOn>
+    <dependsOn>libsqlite3.0.tbd</dependsOn>
+    <dependsOn>libstdc++.tbd</dependsOn>
+</root>

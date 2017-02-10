@@ -1,0 +1,51 @@
+<div class="menu" contenteditable="false" id="menu">
+    <div class="group">
+        <div data-action="bold"  class="item" parent-menu="menu"><div id="abm-bold" class="fa fa-bold"></div></div>
+        <div data-action="italic"  class="item" parent-menu="menu"><div id="abm-italic" class="fa fa-italic"></div></div>
+        <div data-action="underline"  class="item" parent-menu="menu"><div id="abm-underline" class="fa fa-underline"></div></div>        
+		<div id="insertFont" data-action="fontsize"  class="item" parent-menu="menu"><div class="fa fa-font"></div></div>
+    </div>
+    <div class="group">
+        <div id="makeLink" data-action="makeLink" class="item" parent-menu="menu"><div id="abm-link" class="fa fa-link"></div></div>
+        <div data-action="makeOrderedList"  class="item" parent-menu="menu"><div id="abm-ordered" class="fa fa-list"></div></div>
+        <div id="insertImage" data-action="insertImage"  class="item" parent-menu="menu">
+            <div class="fa fa-picture-o"></div>
+        </div>
+        <div data-action="increaseQuoteLevel"  class="item" parent-menu="menu"><div id="abm-quote" class="fa fa-quote-right"></div></div>
+    </div>
+
+    <div class="group">
+        <div data-action="makeHeading"  data-action="" class="item" parent-menu="menu"><div class="fa fa-header"></div></div>
+        <div data-action="alignLeft"  data-action="" class="item" parent-menu="menu"><div class="fa fa-align-left"></div></div>
+        <div data-action="alignCenter"  data-action="" class="item" parent-menu="menu"><div class="fa fa-align-center"></div></div>
+        <div data-action="alignRight"  data-action=""class="item" parent-menu="menu"><div class="fa fa-align-right"></div></div>
+    </div>
+    
+    <div class="group">
+        <div data-action="undo"  class="item" parent-menu="menu"><div class="fa fa-undo"></div></div>
+        <div data-action="redo"  class="item" parent-menu="menu"><div class="fa fa-undo flip"></div></div>
+    </div>
+</div>
+<div class="templates hidden">
+    
+    <div id="drop-link">
+        <div id="drop-link-title"></div>
+		<div id="drop-link-i" class="fa fa-chevron-up quit" style="cursor: pointer"></div>
+		<input type="text" id="url" />
+		<div id="drop-link-btn" class="btn submitLink"></div>
+    </div>
+    <div id="drop-image">
+        <div id="drop-image-title"></div>
+        <div id="drop-image-i" class="fa fa-chevron-up quit" style="cursor: pointer"></div>
+        <input type="text" id="imageUrl" />
+        <div id="drop-image-btn" class="btn sumbitImageURL"></div>
+    </div>
+	<div id="drop-font">
+        <div id="drop-font-title"></div>
+		<div id="drop-font-i" class="fa fa-chevron-up quit" style="cursor: pointer"></div>
+		<input type="text" id="font" />
+		<div id="drop-font-btn" class="btn submitFont"></div>
+    </div>
+</div>
+
+

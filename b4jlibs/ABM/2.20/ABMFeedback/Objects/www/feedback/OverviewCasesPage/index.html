@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- This WebApp/WebSite was generated using ABMaterial, a B4X library written by Alain Bailleul 2015-2016. See http://alwaysbusycorner.com/abmaterial -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.01">
+<meta http-equiv="expires" content="Tue, 13 Dec 2016 23:00:00 GMT">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="description" content="Feedback App for the ABMaterial Framework for B4J">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ABMFeedback" />
+<title>ABMFeedback</title>
+<link rel="apple-touch-icon" href="../images/apple-touch-icon-152x152.png" sizes="152x152">
+<link rel="icon" href="../images/favicon-32x32.png" sizes="32x32">
+<link rel="shortcut icon" href="../images/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="##ffffff">
+<meta name="msapplication-TileImage" content="../images/mstile-144x144.png" sizes="144x144">
+<meta name="theme-color" content="#03a9f4">
+<meta name="msapplication-config" content="none" />
+<link type="text/css" rel="stylesheet" href="../../css/materialize.min.css?1481110793219"  media="screen,projection"/>
+<style>.isloading{display:hidden;visibility:hidden}</style>
+<style>
+</style>
+<link type="text/css" rel="stylesheet" href="OverviewCasesPage.css?1481110793219"  media="screen,projection"/>
+<link rel="stylesheet" href="../../css/font-awesome.min.css?1481110793219"  media="screen,projection"/>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+<link type="text/css" rel="stylesheet" href="../../css/paper-collapse.min.css?1481110793219"  media="screen,projection"/>
+</head>
+<body class="blue-grey lighten-4">
+<div id="pageconnectedindicator" class="indicatorunknown"></div>
+<div id="loader-wrapper">
+<div id="loader"></div>
+<div class="loader-section section-left"></div>
+<div class="loader-section section-right"></div>
+</div>
+<div id="isloaderwrapper" class="isloading"><header>
+<div id="nav1topsubs">
+</div>
+<div id="nav1extrasidebars">
+</div>
+<nav id="nav1" class="light-blue fixed-top">
+<div class="container"><div class="nav-wrapper">
+<a id="pagenavbar" class="brand-logo white-text">Overview Cases</a>
+<ul class="right">
+<li  class=""  id="nav1TI1" onclick="navclick('overviewcasespage','LogOff','')"><a class="white-text waves-effect " ><i id="nav1TI1icon" class="mdi-action-exit-to-app white-text  left" style="line-height: inherit; text-align: center; font-size: 1.6rem;display: block; width: 2rem">&nbsp;</i></a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container"><a id="sidenavbutton" href="" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i id="nav1menu" class="mdi-navigation-menu white-text "></i></a></div>
+<ul id="nav-mobile" class="side-nav fixed white">
+<li class="logo light-blue z-depth-1" style="padding: 0">
+<a id="logo-container" class="brand-logo">
+<img alt=""  width="236px" height="49px"  onclick="imageclickarray(event, '','','sbtopimg')"  id="sbtopimg" src="../images/logo.png" class="" data-caption=" " style="opacity: 1.0 ;cursor: pointer;" ></a>
+</li><li class="no-padding">
+<ul class="collapsible white" data-collapsible="accordion">
+<li  onclick="navclick('overviewcasespage','Cases','../OverviewCasesPage')" style="line-height: 48px;"><a class="collapsible-header black-text waves-effect" style="line-height: 48px; height: 48px;"><i class="mdi-action-dashboard left" style="line-height: inherit; text-align: center; font-size: 1.6rem; display: block; width: 2rem"></i>Overview Cases</a></li>
+<li class="divider light-blue-text"></li>
+<a style="line-height: 60px;"></a></ul></li>
+</ul>
+</header>
+<main class="" style="padding-top: 56px;padding-bottom: 100px">
+<div id="r1_cont" class="container">
+<div id="r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="page.cell(1,1)" id="r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="r2_cont" class="container">
+<div id="r2" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="page.cell(2,1)" id="r2c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="r3_cont" class="container">
+<div id="r3" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="page.cell(3,1)" id="r3c1" class="col s6 m6 l8 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+<div name="page.cell(3,2)" id="r3c2" class="col s4 m4 l2 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+<div name="page.cell(3,3)" id="r3c3" class="col s2 m2 l1 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 14px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="r4_cont" class="container">
+<div id="r4" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="page.cell(4,1)" id="r4c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="r5_cont" class="container">
+<div id="r5" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="page.cell(5,1)" id="r5c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="r6_cont" class="container">
+<div id="r6" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="page.cell(6,1)" id="r6c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="r7_cont" class="container">
+<div id="r7" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="page.cell(7,1)" id="r7c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="inp" class=" modal modalbig  modal-fixed-footer modal-fixed-footerbig " tabindex="-1">
+<div id="inp-modalcontent" class="modal-content transparent">
+<div id="inp-content" class="transparent  floatingpointer " style="" >
+<div id="inp-content-r1_cont" class="container">
+<div id="inp-content-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(1,1)" id="inp-content-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<blockquote class="blockquotelightbluezdepth" id="inp-content-par1-bq"><p id="inp-content-par1" class="left-align  lblstrikethroughlightbluezdepth z-depth-1 transparent light-blue-text" style="">Enter the information for this case.</p>
+</blockquote><p id="inp-content-lblcasecreator" class="left-align  lblstrikethroughlightblue  transparent light-blue-text text-darken-2" style=""></p>
+</div>
+</div>
+</div>
+<div id="inp-content-r2_cont" class="container">
+<div id="inp-content-r2" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(2,1)" id="inp-content-r2c1" class="col s3 m3 l3 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<div id="inp-content-casetype-parent" class="input-field combolightblue col s12 m12 l12 offset-s0 offset-m0 offset-l0   transparent grey-text text-darken-2"  >
+<input returnid="" readonly="true" id="inp-content-casetype" type="text" class="dropdown-button2  validate    transparent black-text" data-beloworigin="true" data-gutter="0" data-activates="dropdowninp-content-casetype" value="" style="cursor: pointer" evname="casetype">
+<label style="cursor: pointer" id="inp-content-casetypelabel" for="inp-content-casetype" class="active" activecolor="#03a9f4"  inactivecolor="#616161" iconid="inp-content-casetype-parent-icon">Case Type<span class="caret">&nbsp;&#9660;</span></label>
+<ul id="dropdowninp-content-casetype" class="dropdown-content" style="overflow-x: hidden;max-height: 650px">
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casetype','[BUG]','combo1S0')" id="inp-content-casetypecombo1S0" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="s1-section">
+<div class="valign-wrapper" id="s1-wrapper">
+<i id="s1-icon" class="mdi-action-bug-report black-text small "></i><h6 id="s1" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;[BUG]</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casetype','[WISH]','combo1S1')" id="inp-content-casetypecombo1S1" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="s2-section">
+<div class="valign-wrapper" id="s2-wrapper">
+<i id="s2-icon" class="mdi-action-alarm-add black-text small "></i><h6 id="s2" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;[WISH]</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casetype','[NEW]','combo1S2')" id="inp-content-casetypecombo1S2" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="s3-section">
+<div class="valign-wrapper" id="s3-wrapper">
+<i id="s3-icon" class="mdi-av-new-releases black-text small "></i><h6 id="s3" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;[NEW]</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div name="inp.content.cell(2,2)" id="inp-content-r2c2" class="col s9 m9 l9 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<div id="inp-content-casesummary-parent" class="input-field input-fieldlightblue col s12 m12 l12 offset-s0 offset-m0 offset-l0   transparent grey-text text-darken-2" >
+<input  id="inp-content-casesummary" type="text" evname="casesummary" class=" validate black-text" value=""  style="text-align:start"><label id="inp-content-casesummarylabel" for="inp-content-casesummary" class="active">Summary</label>
+</div>
+</div>
+</div>
+</div>
+<div id="inp-content-r3_cont" class="container">
+<div id="inp-content-r3" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(3,1)" id="inp-content-r3c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<div id="inp-content-casedescription-parent" class="input-field input-fieldlightblue col s12 m12 l12 offset-s0 offset-m0 offset-l0   transparent grey-text text-darken-2" >
+<textarea  id="inp-content-casedescription" type="text" class="materialize-textarealightblue materialize-textarea validate black-text"  style="text-align:start"></textarea>
+<label id="inp-content-casedescriptionlabel" for="inp-content-casedescription" class="active">Description</label>
+</div>
+</div>
+</div>
+</div>
+<div id="inp-content-r4_cont" class="container">
+<div id="inp-content-r4" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(4,1)" id="inp-content-r4c1" class="col s3 m3 l3 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<div id="inp-content-casestatus-parent" class="input-field combolightblue col s12 m12 l12 offset-s0 offset-m0 offset-l0   transparent grey-text text-darken-2"  >
+<input returnid="" readonly="true" id="inp-content-casestatus" type="text" class="dropdown-button2  validate    transparent black-text" data-beloworigin="true" data-gutter="0" data-activates="dropdowninp-content-casestatus" value="" style="cursor: pointer" evname="casestatus">
+<label style="cursor: pointer" id="inp-content-casestatuslabel" for="inp-content-casestatus" class="active" activecolor="#03a9f4"  inactivecolor="#616161" iconid="inp-content-casestatus-parent-icon">Status<span class="caret">&nbsp;&#9660;</span></label>
+<ul id="dropdowninp-content-casestatus" class="dropdown-content" style="overflow-x: hidden;max-height: 650px">
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','0 - Submitted','stat0')" id="inp-content-casestatusstat0" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st0-section">
+<div class="valign-wrapper" id="st0-wrapper">
+<h6 id="st0" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;0 - Submitted</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','1 - Closed, no action','stat1')" id="inp-content-casestatusstat1" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st1-section">
+<div class="valign-wrapper" id="st1-wrapper">
+<h6 id="st1" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;1 - Closed, no action</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','2 - Fixed','stat2')" id="inp-content-casestatusstat2" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st2-section">
+<div class="valign-wrapper" id="st2-wrapper">
+<h6 id="st2" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;2 - Fixed</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','3 - Implemented','stat3')" id="inp-content-casestatusstat3" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st3-section">
+<div class="valign-wrapper" id="st3-wrapper">
+<h6 id="st3" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;3 - Implemented</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','4 - More info needed','stat4')" id="inp-content-casestatusstat4" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st4-section">
+<div class="valign-wrapper" id="st4-wrapper">
+<h6 id="st4" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;4 - More info needed</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','5 - Confirmed','stat5')" id="inp-content-casestatusstat5" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st5-section">
+<div class="valign-wrapper" id="st5-wrapper">
+<h6 id="st5" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;5 - Confirmed</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','6 - On hold','stat6')" id="inp-content-casestatusstat6" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st6-section">
+<div class="valign-wrapper" id="st6-wrapper">
+<h6 id="st6" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;6 - On hold</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','7 - Expired, missing feedback','stat7')" id="inp-content-casestatusstat7" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st7-section">
+<div class="valign-wrapper" id="st7-wrapper">
+<h6 id="st7" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;7 - Expired, missing feedback</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','8 - Closed, ask in forum','stat8')" id="inp-content-casestatusstat8" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st8-section">
+<div class="valign-wrapper" id="st8-wrapper">
+<h6 id="st8" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;8 - Closed, ask in forum</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div onclick="comboclickarray(event, 'inp-content-','','casestatus','9 - Solved, no action','stat9')" id="inp-content-casestatusstat9" style="border-bottom: 1px solid #9e9e9e">
+<div class="valign-wrapper">
+<div style="min-width: 100%;">
+<div class="section" id="st8-section">
+<div class="valign-wrapper" id="st8-wrapper">
+<h6 id="st8" class="left-align valign  lblstrikethroughdefault  transparent black-text" style="">&nbsp;&nbsp;9 - Solved, no action</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div name="inp.content.cell(4,2)" id="inp-content-r4c2" class="col s9 m9 l9 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<div id="inp-content-caseversion-parent" class="input-field input-fieldlightblue col s12 m12 l12 offset-s0 offset-m0 offset-l0   transparent grey-text text-darken-2" >
+<input  id="inp-content-caseversion" type="text" evname="caseversion" class=" validate black-text" value=""  style="text-align:start"><label id="inp-content-caseversionlabel" for="inp-content-caseversion" class="active">Fixed version</label>
+</div>
+</div>
+</div>
+</div>
+<div id="inp-content-r5_cont" class="container">
+<div id="inp-content-r5" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(5,1)" id="inp-content-r5c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="inp-content-r6_cont" class="container">
+<div id="inp-content-r6" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(6,1)" id="inp-content-r6c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="inp-content-r7_cont" class="container">
+<div id="inp-content-r7" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(7,1)" id="inp-content-r7c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="inp-content-r8_cont" class="container">
+<div id="inp-content-r8" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(8,1)" id="inp-content-r8c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="inp-content-r9_cont" class="container">
+<div id="inp-content-r9" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(9,1)" id="inp-content-r9c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="inp-content-r10_cont" class="container">
+<div id="inp-content-r10" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.content.cell(10,1)" id="inp-content-r10c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="inp-modalfooter" class="modal-footer light-blue">
+<div id="inp-footer" class="light-blue  floatingpointer " style="" >
+<div id="inp-footer-r1_cont" class="container">
+<div id="inp-footer-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inp.footer.cell(1,1)" id="inp-footer-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<button  id="inp-footer-cancelbtn" onclick="buttonclickarray(event, 'inp-footer-','','cancelbtn')" class="btn-flat waves-effect light-blue white-text   ">CANCEL</button>
+<button  id="inp-footer-savebtn" onclick="buttonclickarray(event, 'inp-footer-','','savebtn')" class="btn-flat waves-effect light-blue white-text   ">SAVE</button>
+<button  id="inp-footer-attbtn" onclick="buttonclickarray(event, 'inp-footer-','','attbtn')" class="btn-flat waves-effect light-blue white-text   ">ATTACHMENT</button>
+<button  id="inp-footer-notebtn" onclick="buttonclickarray(event, 'inp-footer-','','notebtn')" class="btn-flat waves-effect light-blue white-text   ">ADD NOTE</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="msg" class=" modal " tabindex="-1">
+<div id="msg-modalcontent" class="modal-content transparent">
+<div id="msg-content" class="transparent  floatingpointer " style="" >
+<div id="msg-content-r1_cont" class="container">
+<div id="msg-content-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="msg.content.cell(1,1)" id="msg-content-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<p id="msg-content-par1" class="left-align  lblstrikethroughdefault  transparent black-text" style="">Are you sure you want to delete this case?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="msg-modalfooter" class="modal-footer light-blue">
+<div id="msg-footer" class="light-blue  floatingpointer " style="" >
+<div id="msg-footer-r1_cont" class="container">
+<div id="msg-footer-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="msg.footer.cell(1,1)" id="msg-footer-r1c1" class="col s3 m3 l3 offset-s6 offset-m6 offset-l6 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<button  id="msg-footer-msgyes" onclick="buttonclickarray(event, 'msg-footer-','','msgyes')" class="btn-flat waves-effect light-blue white-text   ">YES</button>
+</div>
+<div name="msg.footer.cell(1,2)" id="msg-footer-r1c2" class="col s3 m3 l3 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<button  id="msg-footer-msgno" onclick="buttonclickarray(event, 'msg-footer-','','msgno')" class="btn-flat waves-effect light-blue white-text   ">NO</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="msgbox" class=" modal " tabindex="-1">
+<div id="msgbox-modalcontent" class="modal-content transparent">
+<div id="msgbox-content" class="transparent  floatingpointer " style="" >
+<div id="msgbox-content-r1_cont" class="container">
+<div id="msgbox-content-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="msgbox.content.cell(1,1)" id="msgbox-content-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<p id="msgbox-content-par1" class="left-align  lblstrikethroughdefault  transparent black-text" style="">message</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="msgbox-modalfooter" class="modal-footer light-blue">
+<div id="msgbox-footer" class="light-blue  floatingpointer " style="" >
+<div id="msgbox-footer-r1_cont" class="container">
+<div id="msgbox-footer-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="msgbox.footer.cell(1,1)" id="msgbox-footer-r1c1" class="col s3 m3 l3 offset-s6 offset-m6 offset-l6 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<button  id="msgbox-footer-msgok" onclick="buttonclickarray(event, 'msgbox-footer-','','msgok')" class="btn-flat waves-effect light-blue white-text   ">CLOSE</button>
+</div>
+<div name="msgbox.footer.cell(1,2)" id="msgbox-footer-r1c2" class="col s3 m3 l3 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="att" class=" modal " tabindex="-1">
+<div id="att-modalcontent" class="modal-content transparent">
+<div id="att-content" class="transparent  floatingpointer " style="" >
+<div id="att-content-r1_cont" class="container">
+<div id="att-content-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="att.content.cell(1,1)" id="att-content-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<blockquote class="blockquotelightblue" id="att-content-par1-bq"><p id="att-content-par1" class="left-align  lblstrikethroughlightblue  transparent light-blue-text text-darken-2" style="">Maximum 500K, images and zip files only.</p>
+</blockquote></div>
+</div>
+</div>
+<div id="att-content-r2_cont" class="container">
+<div id="att-content-r2" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="att.content.cell(2,1)" id="att-content-r2c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<form id="uploadatt-content-upload1default" method="post" action="abmuploadhandler" enctype="multipart/form-data">
+<div id="dropatt-content-upload1default">Drop Here<a>Browse</a><input type="file" name="upl" multiple />
+</div>
+<ul>
+<!-- The file uploads will be shown here -->
+</ul>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="att-modalfooter" class="modal-footer light-blue">
+<div id="att-footer" class="light-blue  floatingpointer " style="" >
+<div id="att-footer-r1_cont" class="container">
+<div id="att-footer-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="att.footer.cell(1,1)" id="att-footer-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<button  id="att-footer-attclosebtn" onclick="buttonclickarray(event, 'att-footer-','','attclosebtn')" class="btn-flat waves-effect light-blue white-text   ">CLOSE</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="inpnote" class=" modal " tabindex="-1">
+<div id="inpnote-modalcontent" class="modal-content transparent">
+<div id="inpnote-content" class="transparent  floatingpointer " style="" >
+<div id="inpnote-content-r1_cont" class="container">
+<div id="inpnote-content-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inpNote.content.cell(1,1)" id="inpnote-content-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<blockquote class="blockquotelightbluezdepth" id="inpnote-content-par1-bq"><p id="inpnote-content-par1" class="left-align  lblstrikethroughlightbluezdepth z-depth-1 transparent light-blue-text" style="">Enter the information for this note.</p>
+</blockquote></div>
+</div>
+</div>
+<div id="inpnote-content-r2_cont" class="container">
+<div id="inpnote-content-r2" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inpNote.content.cell(2,1)" id="inpnote-content-r2c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<div id="inpnote-content-notedescription-parent" class="input-field input-fieldlightblue col s12 m12 l12 offset-s0 offset-m0 offset-l0   transparent grey-text text-darken-2" >
+<textarea  id="inpnote-content-notedescription" type="text" class="materialize-textarealightblue materialize-textarea validate black-text"  style="text-align:start"></textarea>
+<label id="inpnote-content-notedescriptionlabel" for="inpnote-content-notedescription" class="active">Description</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="inpnote-modalfooter" class="modal-footer light-blue">
+<div id="inpnote-footer" class="light-blue  floatingpointer " style="" >
+<div id="inpnote-footer-r1_cont" class="container">
+<div id="inpnote-footer-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="inpNote.footer.cell(1,1)" id="inpnote-footer-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<button  id="inpnote-footer-btnnotecancel" onclick="buttonclickarray(event, 'inpnote-footer-','','btnnotecancel')" class="btn-flat waves-effect light-blue white-text   ">CANCEL</button>
+<button  id="inpnote-footer-btnnotesave" onclick="buttonclickarray(event, 'inpnote-footer-','','btnnotesave')" class="btn-flat waves-effect light-blue white-text   ">SAVE</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="addcasebtn" class="fixed-action-btn" style="bottom: 35px; right: 24px;">
+<button  id="addcasebtnmainbutton" onclick="actionbuttonclickarray(event,'','','addcasebtn', '')"  class="btn-floating waves-effect light-blue white-text   btn-large "><i class="mdi-content-add"></i></button>
+<ul>
+</ul>
+</div>
+</main>
+<script type="text/javascript" src="../../js/b4j_ws.min.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/core.min.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/paper-collapse.min.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/jstz.min.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/jquery.inputmask.bundle.min.js?1481110793219"></script>
+<script type="text/javascript" src="OverviewCasesPage.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/jquery.knob.min.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/jquery.ui.widget.min.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/jquery.iframe-transport.min.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/jquery.fileupload.min.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/sorttable.min.js?1481110793219"></script>
+<script type="text/javascript" src="../../js/jquery.ABMTableScroll.min.js?1481110793219"></script>
+<script>
+</script>
+<script type="text/javascript" src="../../js/platform.min.js?1481110793219"></script>
+<script>
+setInterval(function() {
+console.log('heartbeat');
+KeepAlive();
+}, 900000);
+history.pushState(null, null, '');
+window.addEventListener('popstate', function(event) {
+history.pushState(null, null, '');
+});
+
+function cookieGet(key) {if (Cookies.enabled) {return Cookies.get(key);}return "";};function runautocomplete(id, theme, stype) {var $input = $('#' + id);var searchtype=stype;if ($input.hasClass('autocomplete')) {var $array = $input.data('array'),$inputDiv = $input.closest('.input-field');if ($array !== '') {var $html = '<ul id="' + id + '-autocomp" class="autocomplete-content' + theme + ' hide">';var $prevDiv = $inputDiv.children('#' + id + '-autocomp').remove();for (var i = 0; i < $array.length; i++) {if ($array[i]['path'] !== '' && $array[i]['path'] !== undefined && $array[i]['path'] !== null && $array[i]['class'] !== undefined && $array[i]['class'] !== '') {$html += '<li class="autocomplete-option"><img src="' + $array[i]['path'] + '" class="' + $array[i]['class'] + '"><h6>' + $array[i]['value'] + '</h6></li>';} else {$html += '<li class="autocomplete-option"><h6>' + $array[i]['value'] + '</h6></li>';}}$html += '</ul>';$inputDiv.append($html);function checkme() {var $val = $input.val().trim();var tmpId = $input.attr('id');var $select = $('#' + tmpId + '-autocomp');$select.css('width', $input.width());if ($val != '') {$select.children('li').addClass('hide');$select.children('li').filter(function() {$select.removeClass('hide');var check = false;if (searchtype=='contains') {if ($(this).text().toLowerCase().indexOf($val.toLowerCase()) >= 0) check = true;} else {if ($(this).text().toLowerCase().indexOf($val.toLowerCase()) == 0) check = true;}if (check) {var matchStart = $(this).text().toLowerCase().indexOf("" + $val.toLowerCase() + ""),matchEnd = matchStart + $val.length - 1,beforeMatch = $(this).text().slice(0, matchStart),matchText = $(this).text().slice(matchStart, matchEnd + 1),afterMatch = $(this).text().slice(matchEnd + 1);$(this).html("<h6>" + beforeMatch + "<b>" + matchText + "</b>" + afterMatch + "</h6>");}return check ? $(this).text().toLowerCase().indexOf($val.toLowerCase()) !== -1 : false;}).removeClass('hide');} else {$select.children('li').addClass('hide');}};$input.blur(function() {var tmpId = $(this).attr('id');var $select = $('#' + tmpId + '-autocomp');$select.children('li').addClass('hide');});$input.focus(function() {checkme();var tmpId = $(this).attr('id');var $select = $('#' + tmpId + '-autocomp');var tmpFound = $select.children('li').not('.hide').length;var $val = $input.val().trim();if (tmpFound==1 && $val==$select.children('li').not('.hide').text()) {$select.children('li').addClass('hide');}});$input.closest('.input-field').children('ul').children('li').on('mousedown', function() {$input.val($(this).text().trim());var tmpId = $input.attr('id');var $select = $('#' + tmpId + '-autocomp');$select.addClass('hide');});$(document).on('keyup', $input, function() {if ($input.is(":focus") == false) {return;}checkme();});} else {return false;}}};var googleac={};$('.pac-container').initialize( function(){$('.pac-container').css('z-index', '9999');});var activetablerows={};autoplay = false;function updatefields() {Materialize.updateTextFields();};var readyTimer = setInterval(function() {if(document.readyState === 'complete') {clearInterval(readyTimer);ReadyToConnect();} }, 100);function ReadyToConnect() {console.log('ready to connect the websocket');b4j_connect("/ws/feedback/OverviewCasesPage");initplugins();$('.tableinteractive td').on('mouseup touchend', function(e) {if (e.stopPropagation){e.stopPropagation();}else if(window.event){window.event.cancelBubble=true;}var tablename=$(this).attr('name');var evname=$(this).attr('evname');b4j_raiseEvent('page_parseevent', {'eventname': evname + '_clicked','eventparams':'abmistable,target','abmistable':'abmistable','target':$(this).attr('id')});});$(":input").inputmask();$('[data-abminputmask="1"]').inputmask();};$(".button-collapse").sideNav({menuWidth:300});$('.toggle-fullscreen').click(function(){toggleFullScreen();});function ShowPage() {$('#isloaderwrapper').removeClass('isloading');$('body').addClass('loaded');$('#loader-wrapper').remove();}$('.materialboxed').materialbox();function LoadCanvasImage(imageid, image){}
+function runupload() {var ul = $('#uploadatt-content-upload1default ul');$('#dropatt-content-upload1default a').off('click').click(function() {$(this).parent().find('input').click();});$('#uploadatt-content-upload1default').fileupload({dropZone: $('#dropatt-content-upload1default'),add: function (e, data) {var tpl = $('<li class="working"><input type="text" value="0" data-width="48" data-height="48"'+' data-fgColor="#29b6f6" data-readOnly="1" data-bgColor="#0288d1" /><p></p><span></span></li>');tpl.find('p').text(data.files[0].name).append('<br><i>' + formatFileSize(data.files[0].size) + '</i>');data.context = tpl.appendTo(ul);tpl.find('input').knob();tpl.find('span').click(function(){if(tpl.hasClass('working')){jqXHR.abort();}tpl.fadeOut(function(){tpl.remove();});});var jqXHR = data.submit();},progress: function(e, data){var progress = parseInt(data.loaded / data.total * 100, 10);data.context.find('input').val(progress).change();if(progress == 100){data.context.removeClass('working');}},fail:function(e, data){data.context.addClass('error');b4j_raiseEvent('page_parseevent', {'eventname': 'page_fileuploaded','eventparams': 'filename,success', 'filename': data.files[0].name, 'success': false});}});$(document).on('drop dragover', function (e) {e.preventDefault();});function formatFileSize(bytes) {if (typeof bytes !== 'number') {return '';}if (bytes >= 1000000000) {return (bytes / 1000000000).toFixed(2) + ' GB';}if (bytes >= 1000000) {return (bytes / 1000000).toFixed(2) + ' MB';}return (bytes / 1000).toFixed(2) + ' KB';}};function SaveNavigationBarPosition() {return $('#nav-mobile').scrollTop();}function RestoreNavigationBarPosition(value) {$('#nav-mobile').scrollTop(value);}function SaveTablePosition(id) {return $('#' + id).scrollTop();}function RestoreTablePosition(id, value) {$('#' + id).scrollTop(value);}function getplatform() {var ret=platform.manufacturer+';ABM;'+platform.name+';ABM;'+platform.prerelease+';ABM;'+platform.product+';ABM;'+platform.version+';ABM;'+platform.os.architecture+';ABM;'+platform.os.family+';ABM;'+platform.os.version+';ABM;'+platform.description+';ABM;'+platform.ua+';ABM;'+window.devicePixelRatio;return ret;}
+function GetBrowserTimeZone() {var tz = jstz.determine();return tz.name();};function PauseApp() {$('body').removeClass('loaded');$('body').prepend('<div id="loader-wrappertemp"><div id="loader"></div><div class="loader-section section-left"></div><div class="loader-section section-right"></div></div>');};function ResumeApp() {$('body').addClass('loaded');$('#loader-wrappertemp').remove();};</script><script type="text/javascript">function contentinview (el) {if (typeof jQuery === "function" && el instanceof jQuery) {el = el[0];}var rect = el.getBoundingClientRect();return rect.bottom > 0 &&rect.right > 0 &&rect.left < (window.innerWidth || document.documentElement.clientWidth) &&rect.top < (window.innerHeight || document.documentElement.clientHeight);}function nextcontent(id,offset) {if (!$('#' + id).hasClass("scrollLoaded")) {$('#' + id).addClass("scrollLoaded");if (contentinview($('#' + id)[0])) {b4j_raiseEvent('page_parseevent', {'eventname':'page_nextcontent','eventparams':'triggercomponent', 'triggercomponent': id });return;}
+}var opts=[{'selector': '#' + id,offset: offset, callback: 'b4j_raiseEvent("page_parseevent", {"eventname":"page_nextcontent","eventparams":"triggercomponent", "triggercomponent": "' + id + '"})'}];Materialize.scrollFire(opts);};function resizeAllEditors() {$('.abmiframe').each(function () {resizeFrame($(this)[0]);});};</script></div>
+</body>
+</html>

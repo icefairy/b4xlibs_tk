@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- This WebApp/WebSite was generated using ABMaterial, a B4X library written by Alain Bailleul 2015-2016. See http://alwaysbusycorner.com/abmaterial -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.01">
+<meta http-equiv="expires" content="Tue, 13 Dec 2016 23:00:00 GMT">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="description" content="Feedback App for the ABMaterial Framework for B4J">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ABMFeedback" />
+<title>ABMFeedback</title>
+<link rel="apple-touch-icon" href="images/apple-touch-icon-152x152.png" sizes="152x152">
+<link rel="icon" href="images/favicon-32x32.png" sizes="32x32">
+<link rel="shortcut icon" href="images/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="##ffffff">
+<meta name="msapplication-TileImage" content="images/mstile-144x144.png" sizes="144x144">
+<meta name="theme-color" content="#03a9f4">
+<meta name="msapplication-config" content="none" />
+<link type="text/css" rel="stylesheet" href="../css/materialize.min.css?1481110793219"  media="screen,projection"/>
+<style>.isloading{display:hidden;visibility:hidden}</style>
+<style>
+</style>
+<link type="text/css" rel="stylesheet" href="feedback.css?1481110793219"  media="screen,projection"/>
+<link rel="stylesheet" href="../css/font-awesome.min.css?1481110793219"  media="screen,projection"/>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+<link type="text/css" rel="stylesheet" href="../css/paper-collapse.min.css?1481110793219"  media="screen,projection"/>
+</head>
+<body class="blue-grey lighten-4">
+<div id="loader-wrapper">
+<div id="loader"></div>
+<div class="loader-section section-left"></div>
+<div class="loader-section section-right"></div>
+</div>
+<div id="isloaderwrapper" class="isloading"><main class="" style="padding-top: 0px;padding-bottom: 0px">
+<div id="r1_cont" class="container">
+<div id="r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="page.cell(1,1)" id="r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+<div id="login" class=" modal " tabindex="-1">
+<div id="login-modalcontent" class="modal-content transparent">
+<div id="login-content" class="transparent  floatingpointer " style="" >
+<div id="login-content-r1_cont" class="container">
+<div id="login-content-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="login.content.cell(1,1)" id="login-content-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<p id="login-content-par1" class="left-align  lblstrikethroughdefault  transparent black-text" style="">Donators, use your login and password.  Others, request one from alain.bailleul@pandora.be.</p>
+</div>
+</div>
+</div>
+<div id="login-content-r2_cont" class="container">
+<div id="login-content-r2" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="login.content.cell(2,1)" id="login-content-r2c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<div id="login-content-inp1-parent" class="input-field input-fieldlightblue col s12 m12 l12 offset-s0 offset-m0 offset-l0   transparent grey-text text-darken-2" >
+<input  id="login-content-inp1" type="text" evname="inp1" class=" validate black-text" value=""  style="text-align:start"><label id="login-content-inp1label" for="login-content-inp1" class="active">Login</label>
+</div>
+<div id="login-content-inp2-parent" class="input-field input-fieldlightblue col s12 m12 l12 offset-s0 offset-m0 offset-l0   transparent grey-text text-darken-2" >
+<input  id="login-content-inp2" type="password" evname="inp2" class=" validate black-text" value=""  style="text-align:start"><label id="login-content-inp2label" for="login-content-inp2" class="active">Password</label>
+</div>
+</div>
+</div>
+</div>
+<div id="login-content-r3_cont" class="container">
+<div id="login-content-r3" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="login.content.cell(3,1)" id="login-content-r3c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="login-modalfooter" class="modal-footer light-blue">
+<div id="login-footer" class="light-blue  floatingpointer " style="" >
+<div id="login-footer-r1_cont" class="container">
+<div id="login-footer-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 0px;">
+<div name="login.footer.cell(1,1)" id="login-footer-r1c1" class="col s3 m3 l3 offset-s9 offset-m9 offset-l9 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<button  id="login-footer-msbtn1" onclick="buttonclickarray(event, 'login-footer-','','msbtn1')" class="btn-flat waves-effect light-blue white-text   ">Login</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wronginput" class=" modal " tabindex="-1">
+<div id="wronginput-modalcontent" class="modal-content transparent">
+<div id="wronginput-content" class="transparent  floatingpointer " style="" >
+<div id="wronginput-content-r1_cont" class="container">
+<div id="wronginput-content-r1" class="row transparent   " style=" margin-top: 0px; margin-bottom: 20px;">
+<div name="wronginput.content.cell(1,1)" id="wronginput-content-r1c1" class="col s12 m12 l12 offset-s0 offset-m0 offset-l0 transparent    " style=" margin-top: 0px; margin-bottom: 0px; padding-left: 0px; padding-right: 0px;" >
+<p id="wronginput-content-contlbl1" class="left-align  lblstrikethroughdefault  transparent black-text" style="">The login or password are incorrect!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script type="text/javascript" src="../js/core.min.js?1481110793219"></script>
+<script type="text/javascript" src="../js/paper-collapse.min.js?1481110793219"></script>
+<script type="text/javascript" src="../js/jstz.min.js?1481110793219"></script>
+<script type="text/javascript" src="../js/jquery.inputmask.bundle.min.js?1481110793219"></script>
+<script type="text/javascript" src="feedback.js?1481110793219"></script>
+<script type="text/javascript" src="../js/jquery.knob.min.js?1481110793219"></script>
+<script type="text/javascript" src="../js/jquery.ui.widget.min.js?1481110793219"></script>
+<script type="text/javascript" src="../js/jquery.iframe-transport.min.js?1481110793219"></script>
+<script type="text/javascript" src="../js/jquery.fileupload.min.js?1481110793219"></script>
+<script type="text/javascript" src="../js/sorttable.min.js?1481110793219"></script>
+<script type="text/javascript" src="../js/jquery.ABMTableScroll.min.js?1481110793219"></script>
+<script type="text/javascript" src="../js/platform.min.js?1481110793219"></script>
+<script>
+var JSElement = document.createElement('script');
+JSElement.src = '../js/b4j_ws.min.js?v=' + Math.random();
+document.getElementsByTagName('head')[0].appendChild(JSElement);
+setInterval(function() {
+console.log('heartbeat');
+KeepAlive();
+}, 900000);
+
+function cookieGet(key) {if (Cookies.enabled) {return Cookies.get(key);}return "";};function runautocomplete(id, theme, stype) {var $input = $('#' + id);var searchtype=stype;if ($input.hasClass('autocomplete')) {var $array = $input.data('array'),$inputDiv = $input.closest('.input-field');if ($array !== '') {var $html = '<ul id="' + id + '-autocomp" class="autocomplete-content' + theme + ' hide">';var $prevDiv = $inputDiv.children('#' + id + '-autocomp').remove();for (var i = 0; i < $array.length; i++) {if ($array[i]['path'] !== '' && $array[i]['path'] !== undefined && $array[i]['path'] !== null && $array[i]['class'] !== undefined && $array[i]['class'] !== '') {$html += '<li class="autocomplete-option"><img src="' + $array[i]['path'] + '" class="' + $array[i]['class'] + '"><h6>' + $array[i]['value'] + '</h6></li>';} else {$html += '<li class="autocomplete-option"><h6>' + $array[i]['value'] + '</h6></li>';}}$html += '</ul>';$inputDiv.append($html);function checkme() {var $val = $input.val().trim();var tmpId = $input.attr('id');var $select = $('#' + tmpId + '-autocomp');$select.css('width', $input.width());if ($val != '') {$select.children('li').addClass('hide');$select.children('li').filter(function() {$select.removeClass('hide');var check = false;if (searchtype=='contains') {if ($(this).text().toLowerCase().indexOf($val.toLowerCase()) >= 0) check = true;} else {if ($(this).text().toLowerCase().indexOf($val.toLowerCase()) == 0) check = true;}if (check) {var matchStart = $(this).text().toLowerCase().indexOf("" + $val.toLowerCase() + ""),matchEnd = matchStart + $val.length - 1,beforeMatch = $(this).text().slice(0, matchStart),matchText = $(this).text().slice(matchStart, matchEnd + 1),afterMatch = $(this).text().slice(matchEnd + 1);$(this).html("<h6>" + beforeMatch + "<b>" + matchText + "</b>" + afterMatch + "</h6>");}return check ? $(this).text().toLowerCase().indexOf($val.toLowerCase()) !== -1 : false;}).removeClass('hide');} else {$select.children('li').addClass('hide');}};$input.blur(function() {var tmpId = $(this).attr('id');var $select = $('#' + tmpId + '-autocomp');$select.children('li').addClass('hide');});$input.focus(function() {checkme();var tmpId = $(this).attr('id');var $select = $('#' + tmpId + '-autocomp');var tmpFound = $select.children('li').not('.hide').length;var $val = $input.val().trim();if (tmpFound==1 && $val==$select.children('li').not('.hide').text()) {$select.children('li').addClass('hide');}});$input.closest('.input-field').children('ul').children('li').on('mousedown', function() {$input.val($(this).text().trim());var tmpId = $input.attr('id');var $select = $('#' + tmpId + '-autocomp');$select.addClass('hide');});$(document).on('keyup', $input, function() {if ($input.is(":focus") == false) {return;}checkme();});} else {return false;}}};var googleac={};$('.pac-container').initialize( function(){$('.pac-container').css('z-index', '9999');});var activetablerows={};autoplay = false;function updatefields() {Materialize.updateTextFields();};var readyTimer = setInterval(function() {if(document.readyState === 'complete') {clearInterval(readyTimer);ReadyToConnect();} }, 100);function ReadyToConnect() {console.log('ready to connect the websocket');b4j_connect("/ws/feedback");initplugins();$('.tableinteractive td').on('mouseup touchend', function(e) {if (e.stopPropagation){e.stopPropagation();}else if(window.event){window.event.cancelBubble=true;}var tablename=$(this).attr('name');var evname=$(this).attr('evname');b4j_raiseEvent('page_parseevent', {'eventname': evname + '_clicked','eventparams':'abmistable,target','abmistable':'abmistable','target':$(this).attr('id')});});};$(".button-collapse").sideNav({menuWidth:240});$('.toggle-fullscreen').click(function(){toggleFullScreen();});function ShowPage() {$('#isloaderwrapper').removeClass('isloading');$('body').addClass('loaded');$('#loader-wrapper').remove();}$('.materialboxed').materialbox();function LoadCanvasImage(imageid, image){}
+function SaveNavigationBarPosition() {return $('#nav-mobile').scrollTop();}function RestoreNavigationBarPosition(value) {$('#nav-mobile').scrollTop(value);}function SaveTablePosition(id) {return $('#' + id).scrollTop();}function RestoreTablePosition(id, value) {$('#' + id).scrollTop(value);}function getplatform() {var ret=platform.manufacturer+';ABM;'+platform.name+';ABM;'+platform.prerelease+';ABM;'+platform.product+';ABM;'+platform.version+';ABM;'+platform.os.architecture+';ABM;'+platform.os.family+';ABM;'+platform.os.version+';ABM;'+platform.description+';ABM;'+platform.ua+';ABM;'+window.devicePixelRatio;return ret;}
+function GetBrowserTimeZone() {var tz = jstz.determine();return tz.name();};function PauseApp() {$('body').removeClass('loaded');$('body').prepend('<div id="loader-wrappertemp"><div id="loader"></div><div class="loader-section section-left"></div><div class="loader-section section-right"></div></div>');};function ResumeApp() {$('body').addClass('loaded');$('#loader-wrappertemp').remove();};</script><script type="text/javascript">function contentinview (el) {if (typeof jQuery === "function" && el instanceof jQuery) {el = el[0];}var rect = el.getBoundingClientRect();return rect.bottom > 0 &&rect.right > 0 &&rect.left < (window.innerWidth || document.documentElement.clientWidth) &&rect.top < (window.innerHeight || document.documentElement.clientHeight);}function nextcontent(id,offset) {if (!$('#' + id).hasClass("scrollLoaded")) {$('#' + id).addClass("scrollLoaded");if (contentinview($('#' + id)[0])) {b4j_raiseEvent('page_parseevent', {'eventname':'page_nextcontent','eventparams':'triggercomponent', 'triggercomponent': id });return;}
+}var opts=[{'selector': '#' + id,offset: offset, callback: 'b4j_raiseEvent("page_parseevent", {"eventname":"page_nextcontent","eventparams":"triggercomponent", "triggercomponent": "' + id + '"})'}];Materialize.scrollFire(opts);};function resizeAllEditors() {$('.abmiframe').each(function () {resizeFrame($(this)[0]);});};</script></div>
+</body>
+</html>
