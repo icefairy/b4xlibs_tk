@@ -108,7 +108,24 @@ Sub BuildNavigationBar(page As ABMPage, Title As String, logo As String, ActiveT
 	' you must add at least ONE dummy item if you want to add items to the sidebar	
 	page.NavigationBar.AddSideBarItem("DUMMY", "DUMMY", "", "")			
 End Sub
-
+Sub BuildFooterFixed(page As ABMPage)	
+	page.isFixedFooter= True
+	'// because we have a fixed footer at the bottom, we have To adjust the padding of the body in pixels
+	page.PaddingBottom = 150
+	
+	page.Footer.AddRows(1, True, "").AddCellsOS(2,0,0,0,6,6,6, "") 
+	page.Footer.BuildGrid '//IMPORTANT once you loaded the complete grid And before you start adding components	
+	
+	page.Footer.UseTheme("footertheme")
+	
+	Dim lbl1 As ABMLabel
+	lbl1.Initialize(page, "footlbl1", "Blog: Alwaysbusy's Corner{BR}{BR}B4J by Anywhere Software{BR}Materialize CSS by students from Carnegie Mellon University",ABM.SIZE_PARAGRAPH, False, "whitefc")
+	page.Footer.Cell(1,1).AddComponent(lbl1)
+	
+	Dim lbl2 As ABMLabel
+	lbl2.Initialize(page, "footlbl2", "ABMaterial Copyright @2015-2016{BR}By Alain Bailleul{BR}{BR}Email: alain.bailleul@telenet.be",ABM.SIZE_PARAGRAPH, False, "whitefc")
+	page.Footer.Cell(1,2).AddComponent(lbl2)	
+End Sub
 Sub ConnectNavigationBar(page As ABMPage) 'ignore	
 	' Clear the dummies we created in BuildNavigationBar
 	page.NavigationBar.Clear
