@@ -59,9 +59,9 @@ Sub Handle(req As ServletRequest, resp As ServletResponse)
  * Created by icefairy on ${getdate}.
  */
 @Table(name = "tab_${mData.GetKeyAt(i)}")"$).Append(CRLF)
-			sbCLS.Append("class md"&mData.GetKeyAt(i)).Append("{").Append(CRLF)
+			sbCLS.Append("public class md"&mData.GetKeyAt(i)).Append("{").Append(CRLF)
 			sbCLS.Append(map2code(m)).Append(CRLF)
-			sbCLS.Append(sIndent&"md"& mData.GetKeyAt(i)&"(){/* this is for xutils3 db module */}").Append(CRLF).Append($"${sIndent&"md"& mData.GetKeyAt(i)}(String js){
+			sbCLS.Append(sIndent&"public md"& mData.GetKeyAt(i)&"(){/* this is for xutils3 db module */}").Append(CRLF).Append($"${sIndent&"public md"& mData.GetKeyAt(i)}(String js){
 		if (js==null||js.length()<1){
 		        return;
 		    }
@@ -156,7 +156,7 @@ Sub BuildTree(element As Object, parent As TreeItem, code As StringBuilder, _
 	If element Is Map Then
 		indent = WriteCodeHelper("Map", code, parentName, GetFromMap, BuildList, indent)
 		Dim m As Map = element
-		If parentName.EqualsIgnoreCase("root")=False Then mData.Put(parentName,map2str(m))
+		 mData.Put(parentName,map2str(m))
 		For Each k As String In m.Keys
 			Dim ti As TreeItem = CreateTreeItem(k)
 			parent.Children.Add(ti)
