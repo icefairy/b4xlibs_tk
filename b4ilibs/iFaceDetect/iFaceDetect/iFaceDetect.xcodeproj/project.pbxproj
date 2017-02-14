@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E274CBD1DA23ADC00E83285 /* CapedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E274CBC1DA23ADC00E83285 /* CapedViewController.m */; };
 		4E5166801DA10F6900EBA077 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E51667F1DA10F6900EBA077 /* AVFoundation.framework */; };
-		9CEB99E81DC0A0BD00F0D53F /* libiFaceDetect.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E5166621DA10B9000EBA077 /* libiFaceDetect.a */; };
+		9C02056A1E5300AA00714313 /* libiFaceDetect.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E5166621DA10B9000EBA077 /* libiFaceDetect.a */; };
 		9CEB99E91DC0A0C200F0D53F /* libYYFaceWidget.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CEB99E61DC0A0AE00F0D53F /* libYYFaceWidget.a */; };
 		9CEB99ED1DC0BA2900F0D53F /* iFaceDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB99EC1DC0BA2900F0D53F /* iFaceDetect.m */; };
 		9CEB99EE1DC0BAB100F0D53F /* iFaceDetect.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9CEB99EB1DC0BA2900F0D53F /* iFaceDetect.h */; };
@@ -22,9 +22,9 @@
 			dstPath = /Users/kaopuedu/Documents/macserver/Libs;
 			dstSubfolderSpec = 0;
 			files = (
+				9C02056A1E5300AA00714313 /* libiFaceDetect.a in CopyFiles */,
 				9CEB99EE1DC0BAB100F0D53F /* iFaceDetect.h in CopyFiles */,
 				9CEB99E91DC0A0C200F0D53F /* libYYFaceWidget.a in CopyFiles */,
-				9CEB99E81DC0A0BD00F0D53F /* libiFaceDetect.a in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

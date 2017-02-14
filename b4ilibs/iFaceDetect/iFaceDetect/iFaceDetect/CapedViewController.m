@@ -143,18 +143,20 @@
             //            [B4IObjectWrapper raiseEvent:self :@"_gotimg":@[result.imgBase64]];
             //            NSLog(@"begin raiseevent from oc3");
             //            [B4IObjectWrapper raiseEvent:nil :@"gotimg":@[result.imgBase64]];
-            NSString *path=[NSString stringWithFormat:@"%@sbrlsb.txt",NSTemporaryDirectory()];
+            NSString *path=[NSString stringWithFormat:@"%@sbrlsb.jpg",NSTemporaryDirectory()];
             NSLog(@"path=%@",path);
             [self writeB64String:result.imgBase64 toPath:path];
             NSLog(@"close current page");
-            [B4IObjectWrapper raiseUIEvent:_mbi :@"_gotresult" :nil];
-            [B4IObjectWrapper raiseUIEvent:_mbi :@"_gotimg:" :@[@"222222222"]];
-            [B4IObjectWrapper raiseEventFromDifferentThread:_mbi :@"_gotimg:" :@[@"3333"]];
+            [self goBackBtn];
+            [B4IObjectWrapper raiseUIEvent:_mbi :@"gotresult" :nil];
+            [B4IObjectWrapper raiseUIEvent:_mbi :@"gotimg:" :@[@"222222222"]];
+            [B4IObjectWrapper raiseEventFromDifferentThread:_mbi :@"gotimg:" :@[@"3333"]];
 //            [self.mbi raiseEventFromDifferentThread:self.mbi event:@"_gotimg:" params:@[@"111"]];
 //            [self.mbi raiseUIEvent:self.mbi event:@"_gotimg:" params:@[@"222"]];
 //            [self.mbi raiseEventFromDifferentThread:self.mbi event:@"ifd_gotimg:" params:@[@"333"]];
 //            [B4IObjectWrapper raiseEventFromDifferentThread:nil :@"ifd_gotimg:" :@[@"444444"]];
-            [self goBackBtn];
+            NSLog(@"railsevent end");
+            
             //TODO:
             //这里用result.imageBase64,取采集的base64照片，然后发送到后台做比较，处理逻辑即可
             //数据已加密，请后台处理解密，前端不提供解密接口

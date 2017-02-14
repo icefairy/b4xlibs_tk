@@ -13,11 +13,6 @@
         <event>goterr(msg As String)</event>
         <event>gotresult</event>
         <method>
-            <name DesignerName="IsInitialized">IsInitialized</name>
-            <comment>Tests whether this object was initialized.</comment>
-            <returntype>BOOL</returntype>
-        </method>
-        <method>
             <name DesignerName="Initialize">Initialize:::</name>
             <returntype>void</returntype>
             <parameter>
@@ -42,15 +37,6 @@
             </parameter>
         </method>
         <property>
-            <name>Tag</name>
-            <comment>Gets or sets the Tag object. This is a placeholder for any object you like to tie to this object.</comment>
-            <returntype>NSObject*</returntype>
-            <parameter>
-                <name>p</name>
-                <type>NSObject*</type>
-            </parameter>
-        </property>
-        <property>
             <name>xmlSTR</name>
             <returntype>NSString*</returntype>
             <parameter>
@@ -67,7 +53,7 @@
             </parameter>
         </property>
     </class>
-    <version>1.01</version>
+    <version>1.02</version>
     <dependsOn>AVFoundation.framework</dependsOn>
     <dependsOn>CoreMedia.framework</dependsOn>
     <dependsOn>CoreGraphics.framework</dependsOn>

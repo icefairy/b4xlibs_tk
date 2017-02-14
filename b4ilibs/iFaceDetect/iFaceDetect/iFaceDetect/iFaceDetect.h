@@ -13,7 +13,7 @@
 //~event:gotimg(imgBase64 As String)
 //~event:goterr(msg As String)
 //~event:gotresult
-//~version:1.01
+//~version:1.02
 //~dependson:AVFoundation.framework
 //~dependson:CoreMedia.framework
 //~dependson:CoreGraphics.framework
