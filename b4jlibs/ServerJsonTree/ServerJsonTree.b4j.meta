@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+﻿VisibleModules=1,2,3,4
+=======
 ﻿VisibleModules=1,2,3,4,5
+>>>>>>> master
 ModuleBreakpoints0=
 ModuleClosedNodes0=
 ModuleBreakpoints1=
@@ -9,6 +13,9 @@ ModuleBreakpoints3=
 ModuleClosedNodes3=
 ModuleBreakpoints4=
 ModuleClosedNodes4=
+<<<<<<< HEAD
+=======
 ModuleBreakpoints5=
 ModuleClosedNodes5=
+>>>>>>> master
 SelectedBuild=0

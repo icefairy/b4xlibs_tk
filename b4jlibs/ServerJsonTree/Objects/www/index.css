@@ -1,18 +1,29 @@
 h1 {
 	left: 400px;
+<<<<<<< HEAD
+    position: relative;
+    text-align: left;
+=======
 	position: relative;
 	text-align: left;
+>>>>>>> master
 }
 div {
 	border:2px solid #aaa;
 }
 #btns{
+<<<<<<< HEAD
+	border:1px solid #eee;
+	width:100%;
+	align:center;
+=======
 	position:absolute;
 	border:1px solid #eee;
 	width:477px;
 	margin-left: 200px;
 	margin-right: auto;
 	text-align:center;
+>>>>>>> master
 }
 .btncmd {
 	width:200px;
@@ -20,8 +31,13 @@ div {
 }
 
 #main {
+<<<<<<< HEAD
+	border: 0px;
+	top: 20px;
+=======
 	border: 1px;
 	top: 50px;
+>>>>>>> master
 	position: absolute;
 }
 #rawTextDiv {
@@ -79,6 +95,8 @@ div {
 	height: 398px;
 	left: 100px;
 	top: 402px;
+<<<<<<< HEAD
+=======
 }
 .btn ul
 {
@@ -106,4 +124,5 @@ div {
 .btn a:hover,a:active
 {
 	background-color:#7A991A;
+>>>>>>> master
 }

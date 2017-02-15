@@ -1,3 +1,145 @@
+<<<<<<< HEAD
+﻿Version=6.3
+NumberOfModules=2
+Module1=Starter
+Module2=PhotoViewSingle
+Build1=Default,b4a.example.galleryfinalres
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~'------------galleryfinal~\n~AddApplicationText(<activity~\n~            android:name="cn.finalteam.galleryfinal.PhotoSelectActivity"~\n~            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"~\n~            android:screenOrientation="portrait" />~\n~        <activity~\n~            android:name="cn.finalteam.galleryfinal.PhotoEditActivity"~\n~            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"~\n~            android:screenOrientation="portrait" />~\n~        <activity~\n~            android:name="cn.finalteam.galleryfinal.PhotoPreviewActivity"~\n~            android:screenOrientation="portrait"~\n~            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"~\n~            />)
+IconFile=
+NumberOfFiles=2
+File1=1.bal
+File2=2.bal
+NumberOfLibraries=3
+Library1=core
+Library2=b4agalleryfinal
+Library3=universalimageloader
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: B4A galleryfinalres
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+#AdditionalRes:..\res\galleryfinalres
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Private gf As GalleryFinal
+	Private dispopt As uilOptions
+	Private uil As UniversalImageLoader
+	Private Button2 As Button
+	
+	Dim gffc As FunctionConfig_gf
+	Public simgurl(4) As String
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	dispopt.Initialize
+	dispopt.cacheInMemory(False).cacheOnDisc(False).resetViewBeforeLoading(True)
+	uil.Initialize("uil",dispopt.build)
+	Activity.LoadLayout("1")
+	'showPicker(3)
+	
+	
+	simgurl(1) = "http://ottmag.com/wp-content/uploads/2016/04/First-date-ideas-0-341x220.jpg"
+	simgurl(2) = "http://ottmag.com/wp-content/uploads/2016/09/Women-Empowerment-Quotes-300x194.jpg"
+	simgurl(3) = "http://ottmag.com/wp-content/uploads/2016/07/wedding-hairstyles-15-300x194.jpg"
+End Sub
+Private Sub showPicker(num As Int)
+	If gffc.IsInitialized = False Then gffc.init
+	gffc.CropHeight=300	
+	gffc.CropWidth=300
+	gffc.RotateReplaceSource=True
+	gffc.CropSquare=True
+	gffc.EnableCamera=True
+	gffc.EnableCrop=True
+	gffc.EnableEdit=True
+	gffc.ForceCrop=True
+	gffc.ForceCropEdit=True
+	gffc.EnablePreview=True
+	gffc.MutiSelect=True
+	gffc.MutiSelectMaxSize=10
+	gffc.EnableRotate=True
+	
+	Dim tfc As ThemeConfig_gf
+	tfc.setCheckSelectedColor(Colors.LightGray)
+	tfc.setCheckNornalColor(Colors.Gray)
+	gf.Init("gf",tfc.build)
+	
+	If num = 1 Then
+		gf.openGalleryMuti(1,num)
+	Else if num = 5 Then
+		Dim photoinfo(3) As PhotoInfo
+		Dim lsts As List
+		lsts.Initialize
+		photoinfo(0).PhotoPath = simgurl(1)
+		photoinfo(0).PhotoId = Rnd(11111,99999)
+		photoinfo(1).PhotoPath = simgurl(2)
+		photoinfo(1).PhotoId = Rnd(11111,99999)
+		photoinfo(2).PhotoPath = simgurl(3)
+'			photoinfo(2).Width = 200
+'			photoinfo(2).Height = 200
+'			photoinfo(2).Degree = 0
+		Log(photoinfo(2).PhotoPath)
+		photoinfo(2).PhotoId = Rnd(11111,99999)
+		lsts.Add(photoinfo(0))
+		lsts.Add(photoinfo(1))
+		lsts.Add(photoinfo(2))
+		gf.PhotoViewMuti(5,lsts,gffc)
+	Else
+		gf.openGallerySingle(1)
+	End If
+End Sub
+Sub gf_onHanlderFailure(requestCode As Int,errorMsg As String)
+	ToastMessageShow("SelectPicErr:"&errorMsg,True)
+End Sub
+Sub gf_onHanlderSuccess(reqeustCode As Int,resultList As List)
+	If resultList.Size>0 Then
+		For i=0 To resultList.Size-1
+			Dim tp As PhotoInfo=resultList.Get(i)
+			TL("Selected:"&tp.PhotoPath)	
+		Next
+		
+	End If
+End Sub
+Private Sub TL(msg As String)
+	Log(msg)
+	ToastMessageShow(msg,False)
+End Sub
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+
+Sub Button1_Click
+	showPicker(3)
+End Sub
+
+Sub Button2_Click
+	showPicker(5)
+End Sub
+
+Sub Button3_Click
+	StartActivity(PhotoViewSingle)
+=======
 ﻿Version=6.3
 NumberOfModules=2
 Module1=Starter
@@ -139,4 +281,5 @@ End Sub
 
 Sub Button3_Click
 	StartActivity(PhotoViewSingle)
+>>>>>>> master
 End Sub

@@ -1,11 +1,18 @@
 ﻿Version=4.2
 AppType=StandardJava
+<<<<<<< HEAD
+NumberOfModules=4
+=======
 NumberOfModules=5
+>>>>>>> master
 Module1=JsonHelper
 Module2=JsonHelper2Java
 Module3=common
 Module4=xml2code
+<<<<<<< HEAD
+=======
 Module5=json2type
+>>>>>>> master
 Build1=Default,b4j.example
 NumberOfFiles=1
 File1=keep
@@ -41,7 +48,10 @@ Sub AppStart (Args() As String)
 	srvr.LogsFileFolder=File.DirTemp&"/logs"
 	'srvr.AddHandler("/jsonHelper", "JsonHelper", False)
 	srvr.AddHandler("/jsonHelper", "JsonHelper", False)
+<<<<<<< HEAD
+=======
 	srvr.AddHandler("/json2type", "json2type", False)
+>>>>>>> master
 '	srvr.AddHandler("/jsonHelpernew", "JsonHelperWithClass", False)
 	srvr.AddHandler("/jsonHelper2java", "JsonHelper2Java", False)
 	srvr.AddHandler("/xml2code","xml2code",False)
