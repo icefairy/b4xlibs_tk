@@ -1,0 +1,5 @@
+In filter: 08/02/2017 16:26
+Connected
+Waiting for value (9 ms)
+Waiting for value (3 ms)
+Waiting for value (1 ms)
