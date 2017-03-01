@@ -1,0 +1,1534 @@
+Analysing: ABMShared.bas
+ABMShared.bas[0] ﻿Type=StaticCode 
+ABMShared.bas[0] Version=4.7 
+ABMShared.bas[0] ModulesStructureVersion=1 
+ABMShared.bas[0] B4J=true 
+ABMShared.bas[0] @EndOfDesignText@ 
+ABMShared.bas[1] 'Static code module 
+ABMShared.bas[2] Sub Process_Globals 
+ABMShared.bas[3]  Public MyTheme As ABMTheme 
+ABMShared.bas[4]  Private ABM As ABMaterial 'ignore 
+ABMShared.bas[5]  Public NeedsAuthorization As Boolean = False 
+ABMShared.bas[6]  Public AppVersion As String = DateTime.now ' NEW 2.01 this helps to get the latest js/css files when the app is started/restarted 
+ABMShared.bas[7]  Public AppPublishedStartURL As String = {2} 
+ABMShared.bas[8]  Public AppName As String = {3} 
+ABMShared.bas[9]  
+ABMShared.bas[10]  Public CachedPages As Map 
+ABMShared.bas[11]  Public CacheScavengePeriodSeconds As Int = 15*60 ' 15 minutes 
+ABMShared.bas[12]  Public SessionMaxInactiveIntervalSeconds As Int = 30*60 ' 30 minutes '1*30*24 ' one hour ' -1 = immortal but beware! This also means your cache is NEVER emptied! 
+ABMShared.bas[13] End Sub 
+ABMShared.bas[14]  
+ABMShared.bas[15] Public Sub NavigateToPage(ws As WebSocket, PageId As String, TargetUrl As String) 
+ABMShared.bas[16]  If AppVersion <> {4} Then 
+ABMShared.bas[17]  TargetUrl = TargetUrl & {5} & AppVersion 
+ABMShared.bas[18]  End If 
+ABMShared.bas[19]  ABM.RemoveMeFromCache(CachedPages, PageId) 
+ABMShared.bas[20]  If ws.Open Then 
+ABMShared.bas[21]  ws.Eval( {6} , Array As Object(TargetUrl)) 
+ABMShared.bas[22]  ws.Flush 
+ABMShared.bas[23]  End If 
+ABMShared.bas[24] End Sub 
+ABMShared.bas[25]  
+ABMShared.bas[26] Public Sub NavigateToPageNewTab(ws As WebSocket, PageId As String, TargetUrl As String, OpenInNewTab As Boolean) 
+ABMShared.bas[27]  If AppVersion <> {7} Then 
+ABMShared.bas[28]  TargetUrl = TargetUrl & {8} & AppVersion 
+ABMShared.bas[29]  End If 
+ABMShared.bas[30]  ABM.RemoveMeFromCache(CachedPages, PageId) 
+ABMShared.bas[31]  If ws.Open Then 
+ABMShared.bas[32]  If OpenInNewTab Then 
+ABMShared.bas[33]  Dim s As String 
+ABMShared.bas[34]  ' check if a mobile phone only 
+ABMShared.bas[35] ' s = {0} 
+ABMShared.bas[42]  
+ABMShared.bas[43]  ' check if a mobile phone or a tablet 
+ABMShared.bas[44]  s = {1} 
+ABMShared.bas[51]  ws.Eval(s, Array As Object(TargetUrl)) 
+ABMShared.bas[52]  Else 
+ABMShared.bas[53]  ws.Eval( {9} , Array As Object(TargetUrl)) 
+ABMShared.bas[54]  End If 
+ABMShared.bas[55]  ws.Flush 
+ABMShared.bas[56]  End If 
+ABMShared.bas[57] End Sub 
+ABMShared.bas[58]  
+ABMShared.bas[59] Sub RedirectOutput (Dir As String, FileName As String) 
+ABMShared.bas[60]  #if RELEASE 
+ABMShared.bas[61]  Dim out As OutputStream = File.OpenOutput(Dir, FileName, False) 'Set to True to append the logs 
+ABMShared.bas[62]  Dim ps As JavaObject 
+ABMShared.bas[63]  ps.InitializeNewInstance( {10} , Array(out, True, {11} )) 
+ABMShared.bas[64]  Dim jo As JavaObject 
+ABMShared.bas[65]  jo.InitializeStatic( {12} ) 
+ABMShared.bas[66]  jo.RunMethod( {13} , Array(ps)) 
+ABMShared.bas[67]  jo.RunMethod( {14} , Array(ps)) 
+ABMShared.bas[68]  #end if 
+ABMShared.bas[69] End Sub 
+ABMShared.bas[70]  
+ABMShared.bas[71] Sub LogOff(page As ABMPage) 
+ABMShared.bas[72]  ' do whatever you have to do to log off your user 
+ABMShared.bas[73]  
+ABMShared.bas[74]  page.ws.Session.SetAttribute( {15} , {16} ) 
+ABMShared.bas[75]  NavigateToPage(page.ws, page.GetPageID, {17} ) 
+ABMShared.bas[76] End Sub 
+ABMShared.bas[77]  
+ABMShared.bas[78] ' build methods for ABM objects 
+ABMShared.bas[79] Sub BuildTheme(themeName As String) 
+ABMShared.bas[80]  MyTheme.Initialize(themeName) 
+ABMShared.bas[81]  
+ABMShared.bas[82]  ' the page theme 
+ABMShared.bas[83]  MyTheme.Page.BackColor = ABM.COLOR_WHITE 
+ABMShared.bas[84]  
+ABMShared.bas[85] End Sub 
+ABMShared.bas[86]  
+ABMShared.bas[87] Sub BuildNavigationBar(page As ABMPage, Title As String, logo As String, ActiveTopReturnName As String, ActiveSideReturnName As String, ActiveSideSubReturnName As String) 'ignore 
+ABMShared.bas[88]  ' we have to make an ABMImage from our logo url 
+ABMShared.bas[89]  Dim sbtopimg As ABMImage 
+ABMShared.bas[90]  sbtopimg.Initialize(page, {18} , logo, 1) 
+ABMShared.bas[91]  sbtopimg.SetFixedSize(236, 49) 
+ABMShared.bas[92]  
+ABMShared.bas[93]  page.NavigationBar.Initialize(page, {19} , ABM.SIDEBAR_MANUAL_HIDEMEDIUMSMALL, Title, True, True, 330, 48, sbtopimg, ABM.COLLAPSE_ACCORDION, {20} ) 
+ABMShared.bas[94]  
+ABMShared.bas[95]  page.NavigationBar.TopBarDropDownConstrainWidth = False 
+ABMShared.bas[96]  page.NavigationBar.ActiveTopReturnName = ActiveTopReturnName 
+ABMShared.bas[97]  page.NavigationBar.ActiveSideReturnName = ActiveSideReturnName 
+ABMShared.bas[98]  page.NavigationBar.ActiveSideSubReturnName = ActiveSideSubReturnName 
+ABMShared.bas[99]  
+ABMShared.bas[100]  ' you must add at least ONE dummy item if you want to add items to the topbar in ConnectNaviagationBar 
+ABMShared.bas[101]  page.NavigationBar.AddTopItem( {21} , {22} , {23} , {24} , False) 
+ABMShared.bas[102]  
+ABMShared.bas[103]  ' you must add at least ONE dummy item if you want to add items to the sidebar 
+ABMShared.bas[104]  page.NavigationBar.AddSideBarItem( {25} , {26} , {27} , {28} ) 
+ABMShared.bas[105] End Sub 
+ABMShared.bas[106] Sub BuildFooterFixed(page As ABMPage) 
+ABMShared.bas[107]  page.isFixedFooter= True 
+ABMShared.bas[108]  '// because we have a fixed footer at the bottom, we have To adjust the padding of the body in pixels 
+ABMShared.bas[109]  page.PaddingBottom = 150 
+ABMShared.bas[110]  
+ABMShared.bas[111]  page.Footer.AddRows(1, True, {29} ).AddCellsOS(2,0,0,0,6,6,6, {30} ) 
+ABMShared.bas[112]  page.Footer.BuildGrid '//IMPORTANT once you loaded the complete grid And before you start adding components 
+ABMShared.bas[113]  
+ABMShared.bas[114]  page.Footer.UseTheme( {31} ) 
+ABMShared.bas[115]  
+ABMShared.bas[116]  Dim lbl1 As ABMLabel 
+ABMShared.bas[117]  lbl1.Initialize(page, {32} , {33} ,ABM.SIZE_PARAGRAPH, False, {34} ) 
+ABMShared.bas[118]  page.Footer.Cell(1,1).AddComponent(lbl1) 
+ABMShared.bas[119]  
+ABMShared.bas[120]  Dim lbl2 As ABMLabel 
+ABMShared.bas[121]  lbl2.Initialize(page, {35} , {36} ,ABM.SIZE_PARAGRAPH, False, {37} ) 
+ABMShared.bas[122]  page.Footer.Cell(1,2).AddComponent(lbl2) 
+ABMShared.bas[123] End Sub 
+ABMShared.bas[124] Sub ConnectNavigationBar(page As ABMPage) 'ignore 
+ABMShared.bas[125]  ' Clear the dummies we created in BuildNavigationBar 
+ABMShared.bas[126]  page.NavigationBar.Clear 
+ABMShared.bas[127]  
+ABMShared.bas[128]  'on each top item you can set if it should hide of not on a medium or small device. 
+ABMShared.bas[129]  'page.NavigationBar.AddTopItem( {38} , {39} , {40} , {41} , False) 
+ABMShared.bas[130]  
+ABMShared.bas[131]  'page.NavigationBar.AddSideBarDivider( {42} ) 
+ABMShared.bas[132]  'page.NavigationBar.AddSideBarItem( {43} , {44} , {45} , {46} ) 
+ABMShared.bas[133]  'page.NavigationBar.AddSideBarDivider( {47} ) 
+ABMShared.bas[134]  
+ABMShared.bas[135]  page.NavigationBar.Refresh ' IMPORTANT 
+ABMShared.bas[136] End Sub 
+ABMShared.bas[137]  
+ABMShared.bas[138] public Sub BuildParagraph(page As ABMPage, id As String, Text As String) As ABMLabel 
+ABMShared.bas[139]  Dim lbl As ABMLabel 
+ABMShared.bas[140]  lbl.Initialize(page, id, Text , ABM.SIZE_PARAGRAPH, False, {48} ) 
+ABMShared.bas[141]  Return lbl 
+ABMShared.bas[142] End Sub 
+ABMShared.bas[143]  
+ABMShared.bas[144]  
+ABMShared.bas[145] Sub Mid(Text As String, Start As Int, Length As Int) As String 
+ABMShared.bas[146]  Return Text.SubString2(Start-1,Start+Length-1) 
+ABMShared.bas[147] End Sub 
+ABMShared.bas[148]  
+ABMShared.bas[149] Sub Mid2(Text As String, Start As Int) As String 
+ABMShared.bas[150]  Return Text.SubString(Start-1) 
+ABMShared.bas[151] End Sub 
+ABMShared.bas[152]  
+ABMShared.bas[153] Sub ReplaceAll(Text As String, Pattern As String, Replacement As String) As String 
+ABMShared.bas[154]  Dim jo As JavaObject = Regex.Matcher(Pattern, Text) 
+ABMShared.bas[155]  Return jo.RunMethod( {49} , Array(Replacement)) 
+ABMShared.bas[156] End Sub 
+ABMShared.bas[157]  
+Analysing: DBM.bas
+DBM.bas[0] ﻿Type=StaticCode 
+DBM.bas[0] Version=4.7 
+DBM.bas[0] ModulesStructureVersion=1 
+DBM.bas[0] B4J=true 
+DBM.bas[0] @EndOfDesignText@ 
+DBM.bas[1] Sub Process_Globals 
+DBM.bas[2]  Private pool As ConnectionPool 
+DBM.bas[3]  Private SQLite As SQL 
+DBM.bas[4]  Public UsePool As Boolean 
+DBM.bas[5] End Sub 
+DBM.bas[6]  
+DBM.bas[7] Sub InitializeSQLite(Dir As String, fileName As String, createIfNeeded As Boolean) 'ignore 
+DBM.bas[8]  Log( {0} ) 
+DBM.bas[9]  SQLite.InitializeSQLite(Dir, fileName, createIfNeeded) 
+DBM.bas[10]  UsePool = False 
+DBM.bas[11] End Sub 
+DBM.bas[12]  
+DBM.bas[13] Sub InitializeMySQL(jdbcUrl As String ,login As String, password As String, poolSize As Int) 
+DBM.bas[14]  Log( {1} ) 
+DBM.bas[15]  UsePool = True 
+DBM.bas[16]  Try 
+DBM.bas[17]  pool.Initialize( {2} , jdbcUrl, login, password) 
+DBM.bas[18]  Catch 
+DBM.bas[19]  Log( {3} &LastException.Message) 
+DBM.bas[20]  End Try 
+DBM.bas[21]  
+DBM.bas[22]  ' change pool size... 
+DBM.bas[23]  Dim jo As JavaObject = pool 
+DBM.bas[24]  jo.RunMethod( {4} , Array(poolSize)) 
+DBM.bas[25] End Sub 
+DBM.bas[26]  
+DBM.bas[27] Sub GetSQL() As SQL 
+DBM.bas[28]  If UsePool Then 
+DBM.bas[29]  Return pool.GetConnection 
+DBM.bas[30]  Else 
+DBM.bas[31]  Return SQLite 
+DBM.bas[32]  End If 
+DBM.bas[33] End Sub 
+DBM.bas[34]  
+DBM.bas[35] Sub CloseSQL(mySQL As SQL) 
+DBM.bas[36]  If UsePool Then 
+DBM.bas[37]  mySQL.Close 
+DBM.bas[38]  End If 
+DBM.bas[39] End Sub 
+DBM.bas[40]  
+DBM.bas[41] Sub CreateTablesIfNeeded() 
+DBM.bas[42]  Dim SQL As SQL = GetSQL 
+DBM.bas[43]  Dim SQL_str As String 
+DBM.bas[44]  
+DBM.bas[45]  ' Create the tables 
+DBM.bas[46]  If UsePool Then 
+DBM.bas[47]  SQL_str = {5} 
+DBM.bas[48]  If SQLSelectSingleResult(SQL, SQL_str) = 0 Then 
+DBM.bas[49]  SQL_str = {6} 
+DBM.bas[50]  SQLCreate(SQL, SQL_str) 
+DBM.bas[51]  
+DBM.bas[52]  'SQL_str = {7} 
+DBM.bas[53]  'SQLCreate(SQL, SQL_str) 
+DBM.bas[54]  
+DBM.bas[55]  SQL_str = {8} 
+DBM.bas[56]  SQLCreate(SQL, SQL_str) 
+DBM.bas[57]  
+DBM.bas[58]  SQL_str = {9} 
+DBM.bas[59]  SQLCreate(SQL, SQL_str) 
+DBM.bas[60]  
+DBM.bas[61]  SQL_str = {10} 
+DBM.bas[62]  SQLCreate(SQL, SQL_str) 
+DBM.bas[63]  
+DBM.bas[64]  SQL_str = {11} 
+DBM.bas[65]  SQLCreate(SQL, SQL_str) 
+DBM.bas[66]  
+DBM.bas[67]  ' create the administrator, set your password! 
+DBM.bas[68]  SQL_str = {12} 
+DBM.bas[69]  SQLCreate(SQL, SQL_str) 
+DBM.bas[70]  
+DBM.bas[71]  End If 
+DBM.bas[72]  Else 
+DBM.bas[73]  SQL_str = {13} 
+DBM.bas[74]  If SQLSelectSingleResult(SQL, SQL_str) = 0 Then 
+DBM.bas[75]  SQL_str = {14} 'best mode for multithreaded apps. 
+DBM.bas[76]  SQLCreate(SQL, SQL_str) 
+DBM.bas[77]  
+DBM.bas[78]  SQL_str = {15} 
+DBM.bas[79]  SQLCreate(SQL, SQL_str) 
+DBM.bas[80]  
+DBM.bas[81]  'SQL_str = {16} 
+DBM.bas[82]  'SQLCreate(SQL, SQL_str) 
+DBM.bas[83]  
+DBM.bas[84]  SQL_str = {17} 
+DBM.bas[85]  SQLCreate(SQL, SQL_str) 
+DBM.bas[86]  
+DBM.bas[87]  SQL_str = {18} 
+DBM.bas[88]  SQLCreate(SQL, SQL_str) 
+DBM.bas[89]  
+DBM.bas[90]  SQL_str = {19} 
+DBM.bas[91]  SQLCreate(SQL, SQL_str) 
+DBM.bas[92]  
+DBM.bas[93]  SQL_str = {20} 
+DBM.bas[94]  SQLCreate(SQL, SQL_str) 
+DBM.bas[95]  
+DBM.bas[96]  ' create the administrator, set your password! 
+DBM.bas[97]  SQL_str = {21} 
+DBM.bas[98]  SQLCreate(SQL, SQL_str) 
+DBM.bas[99]  End If 
+DBM.bas[100]  End If 
+DBM.bas[101]  CloseSQL(SQL) 
+DBM.bas[102] End Sub 
+DBM.bas[103]  
+DBM.bas[104] Sub SQLSelect(SQL As SQL, Query As String, Args As List) As List 
+DBM.bas[105]  Dim l As List 
+DBM.bas[106]  l.Initialize 
+DBM.bas[107]  Dim cur As ResultSet 
+DBM.bas[108]  Try 
+DBM.bas[109]  cur = SQL.ExecQuery2(Query, Args) 
+DBM.bas[110]  Catch 
+DBM.bas[111]  Log(LastException) 
+DBM.bas[112]  Return l 
+DBM.bas[113]  End Try 
+DBM.bas[114]  Do While cur.NextRow 
+DBM.bas[115]  Dim res As Map 
+DBM.bas[116]  res.Initialize 
+DBM.bas[117]  For i = 0 To cur.ColumnCount - 1 
+DBM.bas[118]  res.Put(cur.GetColumnName(i).ToLowerCase, cur.GetString2(i)) 
+DBM.bas[119]  Next 
+DBM.bas[120]  l.Add(res) 
+DBM.bas[121]  Loop 
+DBM.bas[122]  cur.Close 
+DBM.bas[123]  Return l 
+DBM.bas[124] End Sub 
+DBM.bas[125]  
+DBM.bas[126] Sub SQLCreate(SQL As SQL, Query As String) As Int 
+DBM.bas[127]  Dim res As Int 
+DBM.bas[128]  Try 
+DBM.bas[129]  SQL.ExecNonQuery(Query) 
+DBM.bas[130]  res = 0 
+DBM.bas[131]  Catch 
+DBM.bas[132]  Log(LastException) 
+DBM.bas[133]  res = -99999999 
+DBM.bas[134]  End Try 
+DBM.bas[135]  Return res 
+DBM.bas[136] End Sub 
+DBM.bas[137]  
+DBM.bas[138] Sub SQLInsert(SQL As SQL, Query As String) As Int 
+DBM.bas[139]  Dim res As Int 
+DBM.bas[140]  Try 
+DBM.bas[141]  SQL.ExecNonQuery(Query) 
+DBM.bas[142]  If UsePool Then 
+DBM.bas[143]  res = SQLSelectSingleResult(SQL, {22} ) 
+DBM.bas[144]  Else 
+DBM.bas[145]  res = SQLSelectSingleResult(SQL, {23} ) 
+DBM.bas[146]  End If 
+DBM.bas[147]  Catch 
+DBM.bas[148]  Log(LastException) 
+DBM.bas[149]  res = -99999999 
+DBM.bas[150]  End Try 
+DBM.bas[151]  Return res 
+DBM.bas[152] End Sub 
+DBM.bas[153]  
+DBM.bas[154] Sub SQLUpdate(SQL As SQL, Query As String) As Int 
+DBM.bas[155]  Dim res As Int 
+DBM.bas[156]  Try 
+DBM.bas[157]  SQL.ExecNonQuery(Query) 
+DBM.bas[158]  res = 0 
+DBM.bas[159]  Catch 
+DBM.bas[160]  Log(LastException) 
+DBM.bas[161]  res = -99999999 
+DBM.bas[162]  End Try 
+DBM.bas[163]  Return res 
+DBM.bas[164] End Sub 
+DBM.bas[165]  
+DBM.bas[166] Sub SQLDelete(SQL As SQL, Query As String) As Int 
+DBM.bas[167]  Dim res As Int 
+DBM.bas[168]  Try 
+DBM.bas[169]  SQL.ExecNonQuery(Query) 
+DBM.bas[170]  res = 0 
+DBM.bas[171]  Catch 
+DBM.bas[172]  Log(LastException) 
+DBM.bas[173]  res = -99999999 
+DBM.bas[174]  End Try 
+DBM.bas[175]  Return res 
+DBM.bas[176] End Sub 
+DBM.bas[177]  
+DBM.bas[178] Sub SQLSelectSingleResult(SQL As SQL, Query As String) As String 
+DBM.bas[179]  Dim res As String 
+DBM.bas[180]  Try 
+DBM.bas[181]  res = SQL.ExecQuerySingleResult(Query) 
+DBM.bas[182]  Catch 
+DBM.bas[183]  Log(LastException) 
+DBM.bas[184]  res = -99999999 
+DBM.bas[185]  End Try 
+DBM.bas[186]  If res = Null Then 
+DBM.bas[187]  Return {24} 
+DBM.bas[188]  End If 
+DBM.bas[189]  Return res 
+DBM.bas[190] End Sub 
+DBM.bas[191]  
+DBM.bas[192] Sub SQLInsertOrUpdate(SQL As SQL, SelectQuery As String, InsertQuery As String, UpdateQuery As String) As Int 
+DBM.bas[193]  Dim foundres As Int = SQLSelectSingleResult(SQL, SelectQuery) 
+DBM.bas[194]  If foundres = -99999999 Then 
+DBM.bas[195]  Return foundres 
+DBM.bas[196]  End If 
+DBM.bas[197]  Dim res As Int 
+DBM.bas[198]  If foundres = 0 Then 
+DBM.bas[199]  res = SQLInsert(SQL, InsertQuery) 
+DBM.bas[200]  Else 
+DBM.bas[201]  res = SQLUpdate(SQL, UpdateQuery) 
+DBM.bas[202]  If res = 0 Then 
+DBM.bas[203]  res = foundres 
+DBM.bas[204]  End If 
+DBM.bas[205]  End If 
+DBM.bas[206]  Return res 
+DBM.bas[207] End Sub 
+DBM.bas[208]  
+DBM.bas[209] Sub BuildSelectQuery(TableName As String, Fields As Map, WhereFields As Map, OrderFields As Map) As String 
+DBM.bas[210]  Dim sb As StringBuilder 
+DBM.bas[211]  sb.Initialize 
+DBM.bas[212]  sb.Append( {25} ) 
+DBM.bas[213]  For i = 0 To Fields.Size - 1 
+DBM.bas[214]  Dim col As String = Fields.GetKeyAt(i) 
+DBM.bas[215]  If i > 0 Then 
+DBM.bas[216]  sb.Append( {26} ) 
+DBM.bas[217]  End If 
+DBM.bas[218]  sb.Append(col) 
+DBM.bas[219]  Next 
+DBM.bas[220]  sb.Append( {27} & TableName) 
+DBM.bas[221]  If WhereFields.IsInitialized Then 
+DBM.bas[222]  sb.Append( {28} ) 
+DBM.bas[223]  For i = 0 To WhereFields.Size - 1 
+DBM.bas[224]  Dim col As String = WhereFields.GetKeyAt(i) 
+DBM.bas[225]  Dim value As String = WhereFields.GetValueAt(i) 
+DBM.bas[226]  If i > 0 Then 
+DBM.bas[227]  sb.Append( {29} ) 
+DBM.bas[228]  End If 
+DBM.bas[229]  sb.Append(col & {30} & value) 
+DBM.bas[230]  Next 
+DBM.bas[231]  End If 
+DBM.bas[232]  If OrderFields.IsInitialized Then 
+DBM.bas[233]  sb.Append( {31} ) 
+DBM.bas[234]  For i = 0 To WhereFields.Size - 1 
+DBM.bas[235]  Dim col As String = OrderFields.GetKeyAt(i) 
+DBM.bas[236]  If i > 0 Then 
+DBM.bas[237]  sb.Append( {32} ) 
+DBM.bas[238]  End If 
+DBM.bas[239]  sb.Append(col) 
+DBM.bas[240]  Next 
+DBM.bas[241]  End If 
+DBM.bas[242]  
+DBM.bas[243]  Return sb.ToString 
+DBM.bas[244] End Sub 
+DBM.bas[245]  
+DBM.bas[246] Sub BuildInsertQuery(TableName As String, Fields As Map) As String 
+DBM.bas[247]  Dim sb As StringBuilder 
+DBM.bas[248]  sb.Initialize 
+DBM.bas[249]  sb.Append( {33} & TableName & {34} ) 
+DBM.bas[250]  For i = 0 To Fields.Size - 1 
+DBM.bas[251]  Dim col As String = Fields.GetKeyAt(i) 
+DBM.bas[252]  If i > 0 Then 
+DBM.bas[253]  sb.Append( {35} ) 
+DBM.bas[254]  End If 
+DBM.bas[255]  sb.Append(col) 
+DBM.bas[256]  Next 
+DBM.bas[257]  sb.Append( {36} ) 
+DBM.bas[258]  For i = 0 To Fields.Size - 1 
+DBM.bas[259]  Dim col As String = Fields.GetValueAt(i) 
+DBM.bas[260]  If i > 0 Then 
+DBM.bas[261]  sb.Append( {37} ) 
+DBM.bas[262]  End If 
+DBM.bas[263]  sb.Append(col) 
+DBM.bas[264]  Next 
+DBM.bas[265]  sb.Append( {38} ) 
+DBM.bas[266]  Return sb.ToString 
+DBM.bas[267] End Sub 
+DBM.bas[268]  
+DBM.bas[269] Sub BuildDeleteQuery(TableName As String, WhereFields As Map) As String 'ignore 
+DBM.bas[270]  Dim sb As StringBuilder 
+DBM.bas[271]  sb.Initialize 
+DBM.bas[272]  sb.Append( {39} & TableName) 
+DBM.bas[273]  If WhereFields.IsInitialized Then 
+DBM.bas[274]  sb.Append( {40} ) 
+DBM.bas[275]  For i = 0 To WhereFields.Size - 1 
+DBM.bas[276]  Dim col As String = WhereFields.GetKeyAt(i) 
+DBM.bas[277]  Dim value As String = WhereFields.GetValueAt(i) 
+DBM.bas[278]  If i > 0 Then 
+DBM.bas[279]  sb.Append( {41} ) 
+DBM.bas[280]  End If 
+DBM.bas[281]  sb.Append(col & {42} & value) 
+DBM.bas[282]  Next 
+DBM.bas[283]  End If 
+DBM.bas[284]  Return sb.ToString 
+DBM.bas[285] End Sub 
+DBM.bas[286]  
+DBM.bas[287] Sub BuildUpdateQuery(TableName As String, Fields As Map, WhereFields As Map) As String 
+DBM.bas[288]  Dim sb As StringBuilder 
+DBM.bas[289]  sb.Initialize 
+DBM.bas[290]  sb.Append( {43} & TableName & {44} ) 
+DBM.bas[291]  For i = 0 To Fields.Size - 1 
+DBM.bas[292]  Dim col As String = Fields.GetKeyAt(i) 
+DBM.bas[293]  Dim value As String = Fields.GetValueAt(i) 
+DBM.bas[294]  If i > 0 Then 
+DBM.bas[295]  sb.Append( {45} ) 
+DBM.bas[296]  End If 
+DBM.bas[297]  sb.Append(col & {46} & value) 
+DBM.bas[298]  Next 
+DBM.bas[299]  If WhereFields.IsInitialized Then 
+DBM.bas[300]  sb.Append( {47} ) 
+DBM.bas[301]  For i = 0 To WhereFields.Size - 1 
+DBM.bas[302]  Dim col As String = WhereFields.GetKeyAt(i) 
+DBM.bas[303]  Dim value As String = WhereFields.GetValueAt(i) 
+DBM.bas[304]  If i > 0 Then 
+DBM.bas[305]  sb.Append( {48} ) 
+DBM.bas[306]  End If 
+DBM.bas[307]  sb.Append(col & {49} & value) 
+DBM.bas[308]  Next 
+DBM.bas[309]  End If 
+DBM.bas[310]  Return sb.ToString 
+DBM.bas[311] End Sub 
+DBM.bas[312]  
+DBM.bas[313] Sub SetQuotes(str As String) As String 
+DBM.bas[314]  str = ABMShared.ReplaceAll(str, {50} , {51} ) 
+DBM.bas[315]  Return {52} & str & {53} 
+DBM.bas[316] End Sub 
+Analysing: ABMApplication.bas
+ABMApplication.bas[0] ﻿Type=Class 
+ABMApplication.bas[0] Version=4.7 
+ABMApplication.bas[0] ModulesStructureVersion=1 
+ABMApplication.bas[0] B4J=true 
+ABMApplication.bas[0] @EndOfDesignText@ 
+ABMApplication.bas[1] 'Main application 
+ABMApplication.bas[2] Sub Class_Globals 
+ABMApplication.bas[3]  ' change to match you app 
+ABMApplication.bas[4]  Private InitialPage As String = {0} '<-------- First page to load 
+ABMApplication.bas[5]  
+ABMApplication.bas[6]  ' NOTE: Once you've set the above parameters, run the App once. That way, the complete folder structure for your app will be created 
+ABMApplication.bas[7]  ' /appname/ 
+ABMApplication.bas[8]  ' /appname/images/ 
+ABMApplication.bas[9]  ' /appname/uploads/ 
+ABMApplication.bas[10]  ' 
+ABMApplication.bas[11]  ' You can then put the images you need in the pages into the /appname/images/ folder and start using them. 
+ABMApplication.bas[12]  
+ABMApplication.bas[13]  ' other variables needed 
+ABMApplication.bas[14]  Private AppPage As ABMPage 
+ABMApplication.bas[15]  Private theme As ABMTheme 
+ABMApplication.bas[16]  Private ws As WebSocket 'ignore 
+ABMApplication.bas[17]  Private ABM As ABMaterial 'ignore 
+ABMApplication.bas[18]  Private Pages As List 
+ABMApplication.bas[19]  Private PageNeedsUpload As List 
+ABMApplication.bas[20]  
+ABMApplication.bas[21]  Private ABMPageId As String = {1} 
+ABMApplication.bas[22] End Sub 
+ABMApplication.bas[23]  
+ABMApplication.bas[24] Public Sub Initialize 
+ABMApplication.bas[25]  Pages.Initialize 
+ABMApplication.bas[26]  PageNeedsUpload.Initialize 
+ABMApplication.bas[27]  ABM.AppVersion = ABMShared.AppVersion 
+ABMApplication.bas[28]  ABM.AppPublishedStartURL = ABMShared.AppPublishedStartURL 
+ABMApplication.bas[29]  ABMShared.AppName = {2} '<-------------------------------------------------------- IMPORTANT 
+ABMApplication.bas[30]  ' add your icons 
+ABMApplication.bas[31]  ' ABM.AddAppleTouchIcon( {3} , {4} ) 
+ABMApplication.bas[32]  ' ABM.AddMSTileIcon( {5} , {6} ) 
+ABMApplication.bas[33]  ' ABM.AddFavorityIcon( {7} , {8} ) 
+ABMApplication.bas[34]  
+ABMApplication.bas[35]  #If RELEASE 
+ABMApplication.bas[36]  ABM.PreloadAllJavascriptAndCSSFiles=True ' NEW 
+ABMApplication.bas[37]  ABM.ActivateGZip( {9} , 1000) ' NEW 
+ABMApplication.bas[38]  ABM.AppDefaultPageCSSInline=True ' NEW 
+ABMApplication.bas[39]  ABM.AppDefaultPageJSInline=True ' NEW 
+ABMApplication.bas[40]  
+ABMApplication.bas[41]  Dim folders As List ' NEW 
+ABMApplication.bas[42]  folders.Initialize 
+ABMApplication.bas[43]  folders.Add(File.DirApp & {10} & ABMShared.AppName & {11} ) 
+ABMApplication.bas[44]  ABM.ActivatePNGOptimize( {12} , folders, False , 9, False, True ) 
+ABMApplication.bas[45]  #End If 
+ABMApplication.bas[46]  
+ABMApplication.bas[47]  ' build the local structure IMPORTANT! 
+ABMApplication.bas[48]  BuildPage 
+ABMApplication.bas[49] End Sub 
+ABMApplication.bas[50]  
+ABMApplication.bas[51] Private Sub WebSocket_Connected (WebSocket1 As WebSocket) 
+ABMApplication.bas[52]  Log( {13} ) 
+ABMApplication.bas[53]  ws = WebSocket1 
+ABMApplication.bas[54]  ABMPageId = ABM.GetPageID(AppPage, ABMShared.AppName,ws) 
+ABMApplication.bas[55]  Dim session As HttpSession = ABM.GetSession(ws, ABMShared.SessionMaxInactiveIntervalSeconds) 
+ABMApplication.bas[56]  ' Prepare the page IMPORTANT! 
+ABMApplication.bas[57]  AppPage.Prepare 
+ABMApplication.bas[58]  ' Run ConnectPage here in ABMApplication 
+ABMApplication.bas[59]  ConnectPage 
+ABMApplication.bas[60]  ' navigate to the first page 
+ABMApplication.bas[61]  If ABMShared.NeedsAuthorization Then 
+ABMApplication.bas[62]  If session.GetAttribute2( {14} , {15} ) = {16} Then 
+ABMApplication.bas[63]  AppPage.ShowModalSheet( {17} ) 
+ABMApplication.bas[64]  Return 
+ABMApplication.bas[65]  End If 
+ABMApplication.bas[66]  End If 
+ABMApplication.bas[67]  ABMShared.NavigateToPage(ws, {18} , {19} & InitialPage) 
+ABMApplication.bas[68] End Sub 
+ABMApplication.bas[69]  
+ABMApplication.bas[70] Private Sub WebSocket_Disconnected 
+ABMApplication.bas[71]  Log( {20} ) 
+ABMApplication.bas[72] End Sub 
+ABMApplication.bas[73]  
+ABMApplication.bas[74] Sub Page_ParseEvent(Params As Map) 
+ABMApplication.bas[75]  Dim eventName As String = Params.Get( {21} ) 
+ABMApplication.bas[76]  Dim eventParams() As String = Regex.Split( {22} ,Params.Get( {23} )) 
+ABMApplication.bas[77]  If eventName = {24} Then 
+ABMApplication.bas[78]  Log( {25} ) 
+ABMApplication.bas[79]  ABM.RemoveMeFromCache(ABMShared.CachedPages, ABMPageId) 
+ABMApplication.bas[80]  Return 
+ABMApplication.bas[81]  End If 
+ABMApplication.bas[82]  If SubExists(Me, eventName) Then 
+ABMApplication.bas[83]  Params.Remove( {26} ) 
+ABMApplication.bas[84]  Params.Remove( {27} ) 
+ABMApplication.bas[85]  Select Case Params.Size 
+ABMApplication.bas[86]  Case 0 
+ABMApplication.bas[87]  CallSub(Me, eventName) 
+ABMApplication.bas[88]  Case 1 
+ABMApplication.bas[89]  CallSub2(Me, eventName, Params.Get(eventParams(0))) 
+ABMApplication.bas[90]  Case 2 
+ABMApplication.bas[91]  If Params.get(eventParams(0)) = {28} Then 
+ABMApplication.bas[92]  Dim PassedTables As List = ABM.ProcessTablesFromTargetName(Params.get(eventParams(1))) 
+ABMApplication.bas[93]  CallSub2(Me, eventName, PassedTables) 
+ABMApplication.bas[94]  Else 
+ABMApplication.bas[95]  CallSub3(Me, eventName, Params.Get(eventParams(0)), Params.Get(eventParams(1))) 
+ABMApplication.bas[96]  End If 
+ABMApplication.bas[97]  Case Else 
+ABMApplication.bas[98]  ' cannot be called diretly, to many param 
+ABMApplication.bas[99]  CallSub2(Me, eventName, Params) 
+ABMApplication.bas[100]  End Select 
+ABMApplication.bas[101]  End If 
+ABMApplication.bas[102] End Sub 
+ABMApplication.bas[103]  
+ABMApplication.bas[104] public Sub AddPage(Page As ABMPage) 
+ABMApplication.bas[105]  Pages.Add(Page.Name) 
+ABMApplication.bas[106]  PageNeedsUpload.Add(ABM.WritePageToDisk(Page, File.DirApp & {29} & ABMShared.AppName & {30} & Page.Name & {31} , Page.PageHTMLName, ABMShared.NeedsAuthorization)) 
+ABMApplication.bas[107] End Sub 
+ABMApplication.bas[108]  
+ABMApplication.bas[109] public Sub StartServer(srvr As Server, srvrName As String, srvrPort As Int) 
+ABMApplication.bas[110]  ABM.WriteAppLauchPageToDisk(AppPage, File.DirApp & {32} & ABMShared.AppName, {33} , ABMShared.NeedsAuthorization) 
+ABMApplication.bas[111]  
+ABMApplication.bas[112]  ' start the server 
+ABMApplication.bas[113]  srvr.Initialize(srvrName) 
+ABMApplication.bas[114]  
+ABMApplication.bas[115]  srvr.AddFilter( {34} , {35} , False) 
+ABMApplication.bas[116]  srvr.AddWebSocket( {36} & ABMShared.AppName, {37} ) 
+ABMApplication.bas[117]  For i =0 To Pages.Size - 1 
+ABMApplication.bas[118]  srvr.AddWebSocket( {38} & ABMShared.AppName & {39} & Pages.Get(i) , Pages.Get(i)) 
+ABMApplication.bas[119]  If PageNeedsUpload.Get(i) Then 
+ABMApplication.bas[120]  srvr.AddHandler( {40} & ABMShared.AppName & {41} & Pages.Get(i) & {42} , {43} , False) 
+ABMApplication.bas[121]  End If 
+ABMApplication.bas[122]  Next 
+ABMApplication.bas[123]  srvr.AddBackgroundWorker( {44} ) 
+ABMApplication.bas[124]  srvr.Port = srvrPort 
+ABMApplication.bas[125]  
+ABMApplication.bas[126]  #If RELEASE 
+ABMApplication.bas[127]  srvr.SetStaticFilesOptions(CreateMap( {45} : {46} , {47} :True, {48} :False)) 
+ABMApplication.bas[128]  #Else 
+ABMApplication.bas[129]  srvr.SetStaticFilesOptions(CreateMap( {49} : {50} , {51} :False, {52} :False)) 
+ABMApplication.bas[130]  #End If 
+ABMApplication.bas[131]  srvr.Start 
+ABMApplication.bas[132]  Dim jo As JavaObject = srvr 
+ABMApplication.bas[133]  Dim connectors() As Object = jo.GetFieldJO( {53} ).RunMethod( {54} , Null) 
+ABMApplication.bas[134]  Dim timeout As Long = ABMShared.SessionMaxInactiveIntervalSeconds*1000 
+ABMApplication.bas[135]  For Each c As JavaObject In connectors 
+ABMApplication.bas[136]  c.RunMethod( {55} , Array(timeout)) 
+ABMApplication.bas[137]  Next 
+ABMApplication.bas[138]  ABMShared.CachedPages = srvr.CreateThreadSafeMap 
+ABMApplication.bas[139] End Sub 
+ABMApplication.bas[140]  
+ABMApplication.bas[141] public Sub StartServerHTTP2(srvr As Server, srvrName As String, srvrPort As Int, SSLsvrPort As Int, SSLKeyStoreFileName As String, SSLKeyStorePassword As String, SSLKeyManagerPassword As String) 
+ABMApplication.bas[142]  ABM.WriteAppLauchPageToDisk(AppPage, File.DirApp & {56} & ABMShared.AppName, {57} , ABMShared.NeedsAuthorization) 
+ABMApplication.bas[143]  
+ABMApplication.bas[144]  Dim ssl As SslConfiguration 
+ABMApplication.bas[145]  ssl.Initialize 
+ABMApplication.bas[146]  ssl.SetKeyStorePath(File.DirApp, SSLKeyStoreFileName) 'path to keystore file 
+ABMApplication.bas[147]  ssl.KeyStorePassword = SSLKeyStorePassword 
+ABMApplication.bas[148]  ssl.KeyManagerPassword = SSLKeyManagerPassword 
+ABMApplication.bas[149]  srvr.SetSslConfiguration(ssl, SSLsvrPort) 
+ABMApplication.bas[150]  
+ABMApplication.bas[151]  ' start the server 
+ABMApplication.bas[152]  srvr.Initialize(srvrName) 
+ABMApplication.bas[153]  
+ABMApplication.bas[154]  srvr.AddFilter( {58} , {59} , False) 
+ABMApplication.bas[155]  srvr.AddWebSocket( {60} & ABMShared.AppName, {61} ) 
+ABMApplication.bas[156]  For i =0 To Pages.Size - 1 
+ABMApplication.bas[157]  srvr.AddWebSocket( {62} & ABMShared.AppName & {63} & Pages.Get(i) , Pages.Get(i)) 
+ABMApplication.bas[158]  If PageNeedsUpload.Get(i) Then 
+ABMApplication.bas[159]  srvr.AddHandler( {64} & ABMShared.AppName & {65} & Pages.Get(i) & {66} , {67} , False) 
+ABMApplication.bas[160]  End If 
+ABMApplication.bas[161]  Next 
+ABMApplication.bas[162]  srvr.AddBackgroundWorker( {68} ) 
+ABMApplication.bas[163]  srvr.Port = srvrPort 
+ABMApplication.bas[164]  srvr.Http2Enabled = True 
+ABMApplication.bas[165]  #If RELEASE 
+ABMApplication.bas[166]  srvr.SetStaticFilesOptions(CreateMap( {69} : {70} , {71} :True, {72} :False)) 
+ABMApplication.bas[167]  #Else 
+ABMApplication.bas[168]  srvr.SetStaticFilesOptions(CreateMap( {73} : {74} , {75} :False, {76} :False)) 
+ABMApplication.bas[169]  #End If 
+ABMApplication.bas[170]  srvr.Start 
+ABMApplication.bas[171]  Dim jo As JavaObject = srvr 
+ABMApplication.bas[172]  Dim connectors() As Object = jo.GetFieldJO( {77} ).RunMethod( {78} , Null) 
+ABMApplication.bas[173]  Dim timeout As Long = ABMShared.SessionMaxInactiveIntervalSeconds*1000 
+ABMApplication.bas[174]  For Each c As JavaObject In connectors 
+ABMApplication.bas[175]  c.RunMethod( {79} , Array(timeout)) 
+ABMApplication.bas[176]  Next 
+ABMApplication.bas[177]  ABMShared.CachedPages = srvr.CreateThreadSafeMap 
+ABMApplication.bas[178] End Sub 
+ABMApplication.bas[179]  
+ABMApplication.bas[180] public Sub BuildTheme() 
+ABMApplication.bas[181]  ' start with the base theme defined in ABMShared 
+ABMApplication.bas[182]  theme.Initialize( {80} ) 
+ABMApplication.bas[183]  theme.AddABMTheme(ABMShared.MyTheme) 
+ABMApplication.bas[184]  
+ABMApplication.bas[185]  ' add additional themes specific for this page 
+ABMApplication.bas[186]  
+ABMApplication.bas[187] End Sub 
+ABMApplication.bas[188]  
+ABMApplication.bas[189] public Sub BuildPage() 
+ABMApplication.bas[190]  ' initialize the theme 
+ABMApplication.bas[191]  BuildTheme 
+ABMApplication.bas[192]  
+ABMApplication.bas[193]  ' initialize this page using our theme 
+ABMApplication.bas[194]  AppPage.InitializeWithTheme(ABMShared.AppName, {81} & ABMShared.AppName, False, ABMShared.SessionMaxInactiveIntervalSeconds , theme) 
+ABMApplication.bas[195]  AppPage.ShowLoader=True 
+ABMApplication.bas[196]  AppPage.PageTitle = {82} 
+ABMApplication.bas[197]  AppPage.PageDescription = {83} 
+ABMApplication.bas[198]  AppPage.PageHTMLName = {84} 
+ABMApplication.bas[199]  AppPage.PageKeywords = {85} 
+ABMApplication.bas[200]  AppPage.PageSiteMapPriority = {86} 
+ABMApplication.bas[201]  AppPage.PageSiteMapFrequency = ABM.SITEMAP_FREQ_YEARLY 
+ABMApplication.bas[202]  
+ABMApplication.bas[203]  ' adding a navigation bar 
+ABMApplication.bas[204]  
+ABMApplication.bas[205]  
+ABMApplication.bas[206]  ' create the page grid 
+ABMApplication.bas[207]  AppPage.AddRows(1,True, {87} ).AddCells12(1, {88} ) 
+ABMApplication.bas[208]  AppPage.BuildGrid 'IMPORTANT once you loaded the complete grid AND before you start adding components 
+ABMApplication.bas[209]  
+ABMApplication.bas[210]  ' add a modal sheet template to enter contact information 
+ABMApplication.bas[211]  AppPage.AddModalSheetTemplate(BuildLoginSheet) 
+ABMApplication.bas[212]  
+ABMApplication.bas[213]  ' add a error box template if the name is not entered 
+ABMApplication.bas[214]  AppPage.AddModalSheetTemplate(BuildWrongInputModalSheet) 
+ABMApplication.bas[215]  
+ABMApplication.bas[216] End Sub 
+ABMApplication.bas[217]  
+ABMApplication.bas[218] public Sub ConnectPage() 
+ABMApplication.bas[219]  ' you dynamic stuff 
+ABMApplication.bas[220]  
+ABMApplication.bas[221]  AppPage.Refresh ' IMPORTANT 
+ABMApplication.bas[222]  
+ABMApplication.bas[223]  ' Tell the browser we finished loading 
+ABMApplication.bas[224]  AppPage.FinishedLoading 'IMPORTANT 
+ABMApplication.bas[225]  
+ABMApplication.bas[226]  AppPage.RestoreNavigationBarPosition 
+ABMApplication.bas[227] End Sub 
+ABMApplication.bas[228]  
+ABMApplication.bas[229] Sub msbtn1_Clicked(Target As String) 
+ABMApplication.bas[230]  Dim mymodal As ABMModalSheet = AppPage.ModalSheet( {89} ) 
+ABMApplication.bas[231]  Dim inp1 As ABMInput = mymodal.Content.Component( {90} ) 
+ABMApplication.bas[232]  Dim inp2 As ABMInput = mymodal.Content.Component( {91} ) 
+ABMApplication.bas[233]  ' here check the login a page against your login database 
+ABMApplication.bas[234]  If inp1.Text <> {92} Or inp2.Text <> {93} Then 
+ABMApplication.bas[235]  AppPage.ShowModalSheet( {94} ) 
+ABMApplication.bas[236]  Return 
+ABMApplication.bas[237]  End If 
+ABMApplication.bas[238]  ws.Session.SetAttribute( {95} , {96} ) 
+ABMApplication.bas[239]  ABMShared.NavigateToPage(ws, {97} , {98} & InitialPage) 
+ABMApplication.bas[240] End Sub 
+ABMApplication.bas[241]  
+ABMApplication.bas[242] Sub BuildLoginSheet() As ABMModalSheet 
+ABMApplication.bas[243]  Dim myModal As ABMModalSheet 
+ABMApplication.bas[244]  myModal.Initialize(AppPage, {99} , False, False, {100} ) 
+ABMApplication.bas[245]  myModal.Content.UseTheme( {101} ) 
+ABMApplication.bas[246]  myModal.Footer.UseTheme( {102} ) 
+ABMApplication.bas[247]  myModal.IsDismissible = False 
+ABMApplication.bas[248]  
+ABMApplication.bas[249]  ' create the grid for the content 
+ABMApplication.bas[250]  myModal.Content.AddRows(2,True, {103} ).AddCells12(1, {104} ) 
+ABMApplication.bas[251]  myModal.Content.BuildGrid 'IMPORTANT once you loaded the complete grid AND before you start adding components 
+ABMApplication.bas[252]  
+ABMApplication.bas[253]  ' add paragraph 
+ABMApplication.bas[254]  myModal.Content.Cell(1,1).AddComponent(ABMShared.BuildParagraph(AppPage, {105} , {106} ) ) 
+ABMApplication.bas[255]  
+ABMApplication.bas[256]  ' create the input fields for the content 
+ABMApplication.bas[257]  Dim inp1 As ABMInput 
+ABMApplication.bas[258]  inp1.Initialize(AppPage, {107} , ABM.INPUT_TEXT, {108} , False, {109} ) 
+ABMApplication.bas[259]  myModal.Content.Cell(2,1).AddComponent(inp1) 
+ABMApplication.bas[260]  
+ABMApplication.bas[261]  Dim inp2 As ABMInput 
+ABMApplication.bas[262]  inp2.Initialize(AppPage, {110} , ABM.INPUT_TEXT, {111} , False, {112} ) 
+ABMApplication.bas[263]  myModal.Content.Cell(2,1).AddComponent(inp2) 
+ABMApplication.bas[264]  
+ABMApplication.bas[265]  ' create the grid for the footer 
+ABMApplication.bas[266]  ' we add a row without the default 20px padding so we need to use AddRowsM(). If we do not use this method, a scrollbar will appear to the sheet. 
+ABMApplication.bas[267]  myModal.Footer.AddRowsM(1,True,0,0, {113} ).AddCellsOS(1,9,9,9,3,3,3, {114} ) 
+ABMApplication.bas[268]  myModal.Footer.BuildGrid 'IMPORTANT once you loaded the complete grid AND before you start adding components 
+ABMApplication.bas[269]  
+ABMApplication.bas[270]  ' create the button for the footer 
+ABMApplication.bas[271]  Dim msbtn1 As ABMButton 
+ABMApplication.bas[272]  msbtn1.InitializeFlat(AppPage, {115} , {116} , {117} , {118} , {119} ) 
+ABMApplication.bas[273]  myModal.Footer.Cell(1,1).AddComponent(msbtn1) 
+ABMApplication.bas[274]  
+ABMApplication.bas[275]  Return myModal 
+ABMApplication.bas[276] End Sub 
+ABMApplication.bas[277]  
+ABMApplication.bas[278] Sub BuildWrongInputModalSheet() As ABMModalSheet 
+ABMApplication.bas[279]  Dim myModalError As ABMModalSheet 
+ABMApplication.bas[280]  myModalError.Initialize(AppPage, {120} , False, False, {121} ) 
+ABMApplication.bas[281]  myModalError.Content.UseTheme( {122} ) 
+ABMApplication.bas[282]  myModalError.Footer.UseTheme( {123} ) 
+ABMApplication.bas[283]  myModalError.IsDismissible = True 
+ABMApplication.bas[284]  
+ABMApplication.bas[285]  ' create the grid for the content 
+ABMApplication.bas[286]  myModalError.Content.AddRows(1,True, {124} ).AddCells12(1, {125} ) 
+ABMApplication.bas[287]  myModalError.Content.BuildGrid 'IMPORTANT once you loaded the complete grid AND before you start adding components 
+ABMApplication.bas[288]  
+ABMApplication.bas[289]  Dim lbl1 As ABMLabel 
+ABMApplication.bas[290]  lbl1.Initialize(AppPage, {126} , {127} ,ABM.SIZE_PARAGRAPH, False, {128} ) 
+ABMApplication.bas[291]  myModalError.Content.Cell(1,1).AddComponent(lbl1) 
+ABMApplication.bas[292]  
+ABMApplication.bas[293]  Return myModalError 
+ABMApplication.bas[294] End Sub 
+ABMApplication.bas[295]  
+ABMApplication.bas[296] ' clicked on the navigation bar 
+ABMApplication.bas[297] Sub Page_NavigationbarClicked(Action As String, Value As String) 
+ABMApplication.bas[298]  AppPage.SaveNavigationBarPosition 
+ABMApplication.bas[299] End Sub 
+Analysing: ABMCacheScavenger.bas
+ABMCacheScavenger.bas[0] ﻿Type=Class 
+ABMCacheScavenger.bas[0] Version=4.7 
+ABMCacheScavenger.bas[0] ModulesStructureVersion=1 
+ABMCacheScavenger.bas[0] B4J=true 
+ABMCacheScavenger.bas[0] @EndOfDesignText@ 
+ABMCacheScavenger.bas[1] 'CacheScavenger 
+ABMCacheScavenger.bas[2] Sub Class_Globals 
+ABMCacheScavenger.bas[3]  Private scavengeTimer As Timer 
+ABMCacheScavenger.bas[4]  Private ABM As ABMaterial 
+ABMCacheScavenger.bas[5] End Sub 
+ABMCacheScavenger.bas[6]  
+ABMCacheScavenger.bas[7] Public Sub Initialize 
+ABMCacheScavenger.bas[8]  scavengeTimer.Initialize( {0} , ABMShared.CacheScavengePeriodSeconds * 1000) 
+ABMCacheScavenger.bas[9]  scavengeTimer.Enabled = True 
+ABMCacheScavenger.bas[10]  StartMessageLoop '<- don't forget! 
+ABMCacheScavenger.bas[11] End Sub 
+ABMCacheScavenger.bas[12]  
+ABMCacheScavenger.bas[13] Sub ScavengeTimer_Tick 
+ABMCacheScavenger.bas[14]  'do the work required 
+ABMCacheScavenger.bas[15]  ABM.ScavengeCache(ABMShared.CachedPages) 
+ABMCacheScavenger.bas[16] End Sub 
+Analysing: ABMPageTemplate.bas
+ABMPageTemplate.bas[0] ﻿Type=Class 
+ABMPageTemplate.bas[0] Version=4.7 
+ABMPageTemplate.bas[0] ModulesStructureVersion=1 
+ABMPageTemplate.bas[0] B4J=true 
+ABMPageTemplate.bas[0] @EndOfDesignText@ 
+ABMPageTemplate.bas[1] 'Class module 
+ABMPageTemplate.bas[2] Sub Class_Globals 
+ABMPageTemplate.bas[3]  Private ws As WebSocket 'ignore 
+ABMPageTemplate.bas[4]  ' will hold our page information 
+ABMPageTemplate.bas[5]  Public page As ABMPage 
+ABMPageTemplate.bas[6]  ' page theme 
+ABMPageTemplate.bas[7]  Private theme As ABMTheme 
+ABMPageTemplate.bas[8]  ' to access the constants 
+ABMPageTemplate.bas[9]  Private ABM As ABMaterial 'ignore 
+ABMPageTemplate.bas[10]  ' name of the page, must be the same as the class name (case sensitive!) 
+ABMPageTemplate.bas[11]  Public Name As String = {0} '<-------------------------------------------------------- IMPORTANT 
+ABMPageTemplate.bas[12]  ' will hold the unique browsers window id 
+ABMPageTemplate.bas[13]  Private ABMPageId As String = {1} 
+ABMPageTemplate.bas[14]  ' your own variables 
+ABMPageTemplate.bas[15]  
+ABMPageTemplate.bas[16] End Sub 
+ABMPageTemplate.bas[17]  
+ABMPageTemplate.bas[18] 'Initializes the object. You can add parameters to this method if needed. 
+ABMPageTemplate.bas[19] Public Sub Initialize 
+ABMPageTemplate.bas[20]  ' build the local structure IMPORTANT! 
+ABMPageTemplate.bas[21]  BuildPage 
+ABMPageTemplate.bas[22] End Sub 
+ABMPageTemplate.bas[23]  
+ABMPageTemplate.bas[24] Private Sub WebSocket_Connected (WebSocket1 As WebSocket) 
+ABMPageTemplate.bas[25]  Log( {2} ) 
+ABMPageTemplate.bas[26]  ws = WebSocket1 
+ABMPageTemplate.bas[27]  ABMPageId = ABM.GetPageID(page, Name,ws) 
+ABMPageTemplate.bas[28]  Dim session As HttpSession = ABM.GetSession(ws, ABMShared.SessionMaxInactiveIntervalSeconds) 
+ABMPageTemplate.bas[29]  
+ABMPageTemplate.bas[30]  If ABMShared.NeedsAuthorization Then 
+ABMPageTemplate.bas[31]  If session.GetAttribute2( {3} , {4} ) = {5} Then 
+ABMPageTemplate.bas[32]  ABMShared.NavigateToPage(ws, ABMPageId, {6} ) 
+ABMPageTemplate.bas[33]  Return 
+ABMPageTemplate.bas[34]  End If 
+ABMPageTemplate.bas[35]  End If 
+ABMPageTemplate.bas[36]  
+ABMPageTemplate.bas[37]  ABM.UpdateFromCache(Me, ABMShared.CachedPages, ABMPageId, ws) 
+ABMPageTemplate.bas[38]  If page.ComesFromPageCache Then 
+ABMPageTemplate.bas[39]  ' refresh the page 
+ABMPageTemplate.bas[40]  page.Refresh 
+ABMPageTemplate.bas[41]  ' Tell the browser we finished loading 
+ABMPageTemplate.bas[42]  page.FinishedLoading 
+ABMPageTemplate.bas[43]  Else 
+ABMPageTemplate.bas[44]  ' Prepare the page 
+ABMPageTemplate.bas[45]  page.Prepare 
+ABMPageTemplate.bas[46]  ' load the dynamic content 
+ABMPageTemplate.bas[47]  ConnectPage 
+ABMPageTemplate.bas[48]  End If 
+ABMPageTemplate.bas[49]  Log(ABMPageId) 
+ABMPageTemplate.bas[50]  
+ABMPageTemplate.bas[51] End Sub 
+ABMPageTemplate.bas[52]  
+ABMPageTemplate.bas[53] Private Sub WebSocket_Disconnected 
+ABMPageTemplate.bas[54]  Log( {7} ) 
+ABMPageTemplate.bas[55] End Sub 
+ABMPageTemplate.bas[56]  
+ABMPageTemplate.bas[57] Sub Page_ParseEvent(Params As Map) 
+ABMPageTemplate.bas[58]  Dim eventName As String = Params.Get( {8} ) 
+ABMPageTemplate.bas[59]  Dim eventParams() As String = Regex.Split( {9} ,Params.Get( {10} )) 
+ABMPageTemplate.bas[60]  If eventName = {11} Then 
+ABMPageTemplate.bas[61]  Log( {12} ) 
+ABMPageTemplate.bas[62]  ABM.RemoveMeFromCache(ABMShared.CachedPages, ABMPageId) 
+ABMPageTemplate.bas[63]  Return 
+ABMPageTemplate.bas[64]  End If 
+ABMPageTemplate.bas[65]  If SubExists(Me, eventName) Then 
+ABMPageTemplate.bas[66]  Params.Remove( {13} ) 
+ABMPageTemplate.bas[67]  Params.Remove( {14} ) 
+ABMPageTemplate.bas[68]  Select Case Params.Size 
+ABMPageTemplate.bas[69]  Case 0 
+ABMPageTemplate.bas[70]  CallSub(Me, eventName) 
+ABMPageTemplate.bas[71]  Case 1 
+ABMPageTemplate.bas[72]  CallSub2(Me, eventName, Params.Get(eventParams(0))) 
+ABMPageTemplate.bas[73]  Case 2 
+ABMPageTemplate.bas[74]  If Params.get(eventParams(0)) = {15} Then 
+ABMPageTemplate.bas[75]  Dim PassedTables As List = ABM.ProcessTablesFromTargetName(Params.get(eventParams(1))) 
+ABMPageTemplate.bas[76]  CallSub2(Me, eventName, PassedTables) 
+ABMPageTemplate.bas[77]  Else 
+ABMPageTemplate.bas[78]  CallSub3(Me, eventName, Params.Get(eventParams(0)), Params.Get(eventParams(1))) 
+ABMPageTemplate.bas[79]  End If 
+ABMPageTemplate.bas[80]  Case Else 
+ABMPageTemplate.bas[81]  ' cannot be called directly, to many param 
+ABMPageTemplate.bas[82]  CallSub2(Me, eventName, Params) 
+ABMPageTemplate.bas[83]  End Select 
+ABMPageTemplate.bas[84]  End If 
+ABMPageTemplate.bas[85] End Sub 
+ABMPageTemplate.bas[86]  
+ABMPageTemplate.bas[87] public Sub BuildTheme() 
+ABMPageTemplate.bas[88]  ' start with the base theme defined in ABMShared 
+ABMPageTemplate.bas[89]  theme.Initialize( {16} ) 
+ABMPageTemplate.bas[90]  theme.AddABMTheme(ABMShared.MyTheme) 
+ABMPageTemplate.bas[91]  
+ABMPageTemplate.bas[92]  ' add additional themes specific for this page 
+ABMPageTemplate.bas[93]  
+ABMPageTemplate.bas[94] End Sub 
+ABMPageTemplate.bas[95]  
+ABMPageTemplate.bas[96] public Sub BuildPage() 
+ABMPageTemplate.bas[97]  ' initialize the theme 
+ABMPageTemplate.bas[98]  BuildTheme 
+ABMPageTemplate.bas[99]  
+ABMPageTemplate.bas[100]  ' initialize this page using our theme 
+ABMPageTemplate.bas[101]  page.InitializeWithTheme(Name, {17} & ABMShared.AppName & {18} & Name, False, ABMShared.SessionMaxInactiveIntervalSeconds, theme) 
+ABMPageTemplate.bas[102]  page.ShowLoader=True 
+ABMPageTemplate.bas[103]  page.PageHTMLName = {19} 
+ABMPageTemplate.bas[104]  page.PageTitle = {20} 
+ABMPageTemplate.bas[105]  page.PageDescription = {21} 
+ABMPageTemplate.bas[106]  page.PageKeywords = {22} 
+ABMPageTemplate.bas[107]  page.PageSiteMapPriority = {23} 
+ABMPageTemplate.bas[108]  page.PageSiteMapFrequency = ABM.SITEMAP_FREQ_YEARLY 
+ABMPageTemplate.bas[109]  
+ABMPageTemplate.bas[110]  page.ShowConnectedIndicator = False 
+ABMPageTemplate.bas[111]  
+ABMPageTemplate.bas[112]  ' adding a navigation bar 
+ABMPageTemplate.bas[113]  
+ABMPageTemplate.bas[114]  
+ABMPageTemplate.bas[115]  ' create the page grid 
+ABMPageTemplate.bas[116]  page.AddRows(2,True, {24} ).AddCells12(1, {25} ) 
+ABMPageTemplate.bas[117]  page.BuildGrid 'IMPORTANT once you loaded the complete grid AND before you start adding components 
+ABMPageTemplate.bas[118]  
+ABMPageTemplate.bas[119] End Sub 
+ABMPageTemplate.bas[120]  
+ABMPageTemplate.bas[121] public Sub ConnectPage() 
+ABMPageTemplate.bas[122] ' connecting the navigation bar 
+ABMPageTemplate.bas[123]  
+ABMPageTemplate.bas[124]  
+ABMPageTemplate.bas[125] ' init all your own variables (like a List, Map) and add your components 
+ABMPageTemplate.bas[126]  
+ABMPageTemplate.bas[127] ' page.Cell(1,1).AddComponent(ABMShared.BuildParagraph(page, {26} , {27} )) 
+ABMPageTemplate.bas[128] ' 
+ABMPageTemplate.bas[129] ' Dim btn As ABMButton 
+ABMPageTemplate.bas[130] ' btn.InitializeRaised(page, {28} , {29} , {30} , {31} , {32} ) 
+ABMPageTemplate.bas[131] ' page.Cell(2,1).AddComponent(btn) 
+ABMPageTemplate.bas[132]  
+ABMPageTemplate.bas[133]  ' refresh the page 
+ABMPageTemplate.bas[134]  page.Refresh 
+ABMPageTemplate.bas[135]  ' Tell the browser we finished loading 
+ABMPageTemplate.bas[136]  page.FinishedLoading 
+ABMPageTemplate.bas[137]  ' restoring the navigation bar position 
+ABMPageTemplate.bas[138]  page.RestoreNavigationBarPosition 
+ABMPageTemplate.bas[139] End Sub 
+ABMPageTemplate.bas[140]  
+ABMPageTemplate.bas[141] ' clicked on the navigation bar 
+ABMPageTemplate.bas[142] Sub Page_NavigationbarClicked(Action As String, Value As String) 
+ABMPageTemplate.bas[143]  ' saving the navigation bar position 
+ABMPageTemplate.bas[144]  page.SaveNavigationBarPosition 
+ABMPageTemplate.bas[145]  If Action = {33} Then 
+ABMPageTemplate.bas[146]  ABMShared.LogOff(page) 
+ABMPageTemplate.bas[147]  Return 
+ABMPageTemplate.bas[148]  End If 
+ABMPageTemplate.bas[149]  ABMShared.NavigateToPage(ws, ABMPageId, Value) 
+ABMPageTemplate.bas[150] End Sub 
+ABMPageTemplate.bas[151]  
+ABMPageTemplate.bas[152] Sub Page_FileUploaded(FileName As String, success As Boolean) 
+ABMPageTemplate.bas[153]  
+ABMPageTemplate.bas[154] End Sub 
+ABMPageTemplate.bas[155]  
+ABMPageTemplate.bas[156] Sub Page_ToastClicked(ToastId As String, Action As String) 
+ABMPageTemplate.bas[157]  
+ABMPageTemplate.bas[158] End Sub 
+ABMPageTemplate.bas[159]  
+ABMPageTemplate.bas[160] Sub Page_ToastDismissed(ToastId As String) 
+ABMPageTemplate.bas[161]  
+ABMPageTemplate.bas[162] End Sub 
+ABMPageTemplate.bas[163]  
+ABMPageTemplate.bas[164] Sub Page_Authenticated(Params As Map) 
+ABMPageTemplate.bas[165]  
+ABMPageTemplate.bas[166] End Sub 
+ABMPageTemplate.bas[167]  
+ABMPageTemplate.bas[168] Sub Page_FirebaseAuthError(extra As String) 
+ABMPageTemplate.bas[169]  
+ABMPageTemplate.bas[170] End Sub 
+ABMPageTemplate.bas[171]  
+ABMPageTemplate.bas[172] Sub Page_FirebaseAuthStateChanged(IsLoggedIn As Boolean) 
+ABMPageTemplate.bas[173]  
+ABMPageTemplate.bas[174] End Sub 
+ABMPageTemplate.bas[175]  
+ABMPageTemplate.bas[176] Sub Page_FirebaseStorageError(jobID As String, extra As String) 
+ABMPageTemplate.bas[177]  
+ABMPageTemplate.bas[178] End Sub 
+ABMPageTemplate.bas[179]  
+ABMPageTemplate.bas[180] Sub Page_FirebaseStorageResult(jobID As String, extra As String) 
+ABMPageTemplate.bas[181]  
+ABMPageTemplate.bas[182] End Sub 
+ABMPageTemplate.bas[183]  
+ABMPageTemplate.bas[184] Sub Page_ModalSheetDismissed(ModalSheetName As String) 
+ABMPageTemplate.bas[185]  
+ABMPageTemplate.bas[186] End Sub 
+ABMPageTemplate.bas[187]  
+ABMPageTemplate.bas[188] Sub Page_NextContent(TriggerComponent As String) 
+ABMPageTemplate.bas[189]  
+ABMPageTemplate.bas[190] End Sub 
+ABMPageTemplate.bas[191]  
+ABMPageTemplate.bas[192] Sub Page_SignedOffSocialNetwork(Network As String, Extra As String) 
+ABMPageTemplate.bas[193]  
+ABMPageTemplate.bas[194] End Sub 
+Analysing: ABMPageTemplateAlternative.bas
+ABMPageTemplateAlternative.bas[0] ﻿Type=Class 
+ABMPageTemplateAlternative.bas[0] Version=4.7 
+ABMPageTemplateAlternative.bas[0] ModulesStructureVersion=1 
+ABMPageTemplateAlternative.bas[0] B4J=true 
+ABMPageTemplateAlternative.bas[0] @EndOfDesignText@ 
+ABMPageTemplateAlternative.bas[1] 'Class module 
+ABMPageTemplateAlternative.bas[2] Sub Class_Globals 
+ABMPageTemplateAlternative.bas[3]  Private ws As WebSocket 'ignore 
+ABMPageTemplateAlternative.bas[4]  ' will hold our page information 
+ABMPageTemplateAlternative.bas[5]  Public page As ABMPage 
+ABMPageTemplateAlternative.bas[6]  ' page theme 
+ABMPageTemplateAlternative.bas[7]  Private theme As ABMTheme 
+ABMPageTemplateAlternative.bas[8]  ' to access the constants 
+ABMPageTemplateAlternative.bas[9]  Private ABM As ABMaterial 'ignore 
+ABMPageTemplateAlternative.bas[10]  ' name of the page, must be the same as the class name (case sensitive!) 
+ABMPageTemplateAlternative.bas[11]  Public Name As String = {0} '<-------------------------------------------------------- IMPORTANT 
+ABMPageTemplateAlternative.bas[12]  ' will hold the unique browsers window id 
+ABMPageTemplateAlternative.bas[13]  Private ABMPageId As String = {1} 
+ABMPageTemplateAlternative.bas[14]  
+ABMPageTemplateAlternative.bas[15] End Sub 
+ABMPageTemplateAlternative.bas[16]  
+ABMPageTemplateAlternative.bas[17] 'Initializes the object. You can add parameters to this method if needed. 
+ABMPageTemplateAlternative.bas[18] Public Sub Initialize 
+ABMPageTemplateAlternative.bas[19]  ' build the local structure IMPORTANT! 
+ABMPageTemplateAlternative.bas[20]  ' start with the base theme defined in ABMShared 
+ABMPageTemplateAlternative.bas[21]  theme.Initialize( {2} ) 
+ABMPageTemplateAlternative.bas[22]  theme.AddABMTheme(ABMShared.MyTheme) 
+ABMPageTemplateAlternative.bas[23]  
+ABMPageTemplateAlternative.bas[24]  ' add additional themes specific for this page 
+ABMPageTemplateAlternative.bas[25]  
+ABMPageTemplateAlternative.bas[26]  ' initialize this page using our theme 
+ABMPageTemplateAlternative.bas[27]  page.InitializeWithTheme(Name, {3} & ABMShared.AppName & {4} & Name, False, ABMShared.SessionMaxInactiveIntervalSeconds, theme) 
+ABMPageTemplateAlternative.bas[28]  page.ShowLoader=True 
+ABMPageTemplateAlternative.bas[29]  page.PageHTMLName = {5} 
+ABMPageTemplateAlternative.bas[30]  page.PageTitle = {6} 
+ABMPageTemplateAlternative.bas[31]  page.PageDescription = {7} 
+ABMPageTemplateAlternative.bas[32]  page.PageKeywords = {8} 
+ABMPageTemplateAlternative.bas[33]  page.PageSiteMapPriority = {9} 
+ABMPageTemplateAlternative.bas[34]  page.PageSiteMapFrequency = ABM.SITEMAP_FREQ_YEARLY 
+ABMPageTemplateAlternative.bas[35]  
+ABMPageTemplateAlternative.bas[36]  page.ShowConnectedIndicator = True 
+ABMPageTemplateAlternative.bas[37]  
+ABMPageTemplateAlternative.bas[38]  ' adding a navigation bar 
+ABMPageTemplateAlternative.bas[39]  
+ABMPageTemplateAlternative.bas[40]  
+ABMPageTemplateAlternative.bas[41]  ' create the page grid 
+ABMPageTemplateAlternative.bas[42]  page.AddRows(2,True, {10} ).AddCells12(1, {11} ) 
+ABMPageTemplateAlternative.bas[43]  page.BuildGrid 'IMPORTANT once you loaded the complete grid AND before you start adding components 
+ABMPageTemplateAlternative.bas[44] End Sub 
+ABMPageTemplateAlternative.bas[45]  
+ABMPageTemplateAlternative.bas[46] Private Sub WebSocket_Connected (WebSocket1 As WebSocket) 
+ABMPageTemplateAlternative.bas[47]  Log( {12} ) 
+ABMPageTemplateAlternative.bas[48]  ws = WebSocket1 
+ABMPageTemplateAlternative.bas[49]  ABMPageId = ABM.GetPageID(page, Name,ws) 
+ABMPageTemplateAlternative.bas[50]  Dim session As HttpSession = ABM.GetSession(ws, ABMShared.SessionMaxInactiveIntervalSeconds) 
+ABMPageTemplateAlternative.bas[51]  
+ABMPageTemplateAlternative.bas[52]  If ABMShared.NeedsAuthorization Then 
+ABMPageTemplateAlternative.bas[53]  If session.GetAttribute2( {13} , {14} ) = {15} Then 
+ABMPageTemplateAlternative.bas[54]  ABMShared.NavigateToPage(ws, ABMPageId, {16} ) 
+ABMPageTemplateAlternative.bas[55]  Return 
+ABMPageTemplateAlternative.bas[56]  End If 
+ABMPageTemplateAlternative.bas[57]  End If 
+ABMPageTemplateAlternative.bas[58]  
+ABMPageTemplateAlternative.bas[59]  ABM.UpdateFromCache(Me, ABMShared.CachedPages, ABMPageId, ws) 
+ABMPageTemplateAlternative.bas[60]  If page.ComesFromPageCache Then 
+ABMPageTemplateAlternative.bas[61]  ' refresh the page 
+ABMPageTemplateAlternative.bas[62]  page.Refresh 
+ABMPageTemplateAlternative.bas[63]  ' Tell the browser we finished loading 
+ABMPageTemplateAlternative.bas[64]  page.FinishedLoading 
+ABMPageTemplateAlternative.bas[65]  Else 
+ABMPageTemplateAlternative.bas[66]  ' Prepare the page 
+ABMPageTemplateAlternative.bas[67]  page.Prepare 
+ABMPageTemplateAlternative.bas[68]  ' load the dynamic content 
+ABMPageTemplateAlternative.bas[69]  
+ABMPageTemplateAlternative.bas[70]  ' connecting the navigation bar 
+ABMPageTemplateAlternative.bas[71]  
+ABMPageTemplateAlternative.bas[72]  ' init all your own variables (like a List, Map) and add your components 
+ABMPageTemplateAlternative.bas[73]  ' page.Cell(1,1).AddComponent(ABMShared.BuildParagraph(page, {17} , {18} )) 
+ABMPageTemplateAlternative.bas[74]  ' 
+ABMPageTemplateAlternative.bas[75]  ' Dim btn As ABMButton 
+ABMPageTemplateAlternative.bas[76]  ' btn.InitializeRaised(page, {19} , {20} , {21} , {22} , {23} ) 
+ABMPageTemplateAlternative.bas[77]  ' page.Cell(2,1).AddComponent(btn) 
+ABMPageTemplateAlternative.bas[78]  
+ABMPageTemplateAlternative.bas[79]  ' refresh the page 
+ABMPageTemplateAlternative.bas[80]  page.Refresh 
+ABMPageTemplateAlternative.bas[81]  ' Tell the browser we finished loading 
+ABMPageTemplateAlternative.bas[82]  page.FinishedLoading 
+ABMPageTemplateAlternative.bas[83]  ' restoring the navigation bar position 
+ABMPageTemplateAlternative.bas[84]  page.RestoreNavigationBarPosition 
+ABMPageTemplateAlternative.bas[85]  End If 
+ABMPageTemplateAlternative.bas[86]  Log(ABMPageId) 
+ABMPageTemplateAlternative.bas[87] End Sub 
+ABMPageTemplateAlternative.bas[88]  
+ABMPageTemplateAlternative.bas[89] Private Sub WebSocket_Disconnected 
+ABMPageTemplateAlternative.bas[90]  Log( {24} ) 
+ABMPageTemplateAlternative.bas[91] End Sub 
+ABMPageTemplateAlternative.bas[92]  
+ABMPageTemplateAlternative.bas[93] Sub Page_ParseEvent(Params As Map) 
+ABMPageTemplateAlternative.bas[94]  Dim eventName As String = Params.Get( {25} ) 
+ABMPageTemplateAlternative.bas[95]  Dim eventParams() As String = Regex.Split( {26} ,Params.Get( {27} )) 
+ABMPageTemplateAlternative.bas[96]  If eventName = {28} Then 
+ABMPageTemplateAlternative.bas[97]  Log( {29} ) 
+ABMPageTemplateAlternative.bas[98]  ABM.RemoveMeFromCache(ABMShared.CachedPages, ABMPageId) 
+ABMPageTemplateAlternative.bas[99]  Return 
+ABMPageTemplateAlternative.bas[100]  End If 
+ABMPageTemplateAlternative.bas[101]  If SubExists(Me, eventName) Then 
+ABMPageTemplateAlternative.bas[102]  Params.Remove( {30} ) 
+ABMPageTemplateAlternative.bas[103]  Params.Remove( {31} ) 
+ABMPageTemplateAlternative.bas[104]  Select Case Params.Size 
+ABMPageTemplateAlternative.bas[105]  Case 0 
+ABMPageTemplateAlternative.bas[106]  CallSub(Me, eventName) 
+ABMPageTemplateAlternative.bas[107]  Case 1 
+ABMPageTemplateAlternative.bas[108]  CallSub2(Me, eventName, Params.Get(eventParams(0))) 
+ABMPageTemplateAlternative.bas[109]  Case 2 
+ABMPageTemplateAlternative.bas[110]  If Params.get(eventParams(0)) = {32} Then 
+ABMPageTemplateAlternative.bas[111]  Dim PassedTables As List = ABM.ProcessTablesFromTargetName(Params.get(eventParams(1))) 
+ABMPageTemplateAlternative.bas[112]  CallSub2(Me, eventName, PassedTables) 
+ABMPageTemplateAlternative.bas[113]  Else 
+ABMPageTemplateAlternative.bas[114]  CallSub3(Me, eventName, Params.Get(eventParams(0)), Params.Get(eventParams(1))) 
+ABMPageTemplateAlternative.bas[115]  End If 
+ABMPageTemplateAlternative.bas[116]  Case Else 
+ABMPageTemplateAlternative.bas[117]  ' cannot be called directly, to many param 
+ABMPageTemplateAlternative.bas[118]  CallSub2(Me, eventName, Params) 
+ABMPageTemplateAlternative.bas[119]  End Select 
+ABMPageTemplateAlternative.bas[120]  End If 
+ABMPageTemplateAlternative.bas[121] End Sub 
+ABMPageTemplateAlternative.bas[122]  
+ABMPageTemplateAlternative.bas[123] ' clicked on the navigation bar 
+ABMPageTemplateAlternative.bas[124] Sub Page_NavigationbarClicked(Action As String, Value As String) 
+ABMPageTemplateAlternative.bas[125]  ' saving the navigation bar position 
+ABMPageTemplateAlternative.bas[126]  page.SaveNavigationBarPosition 
+ABMPageTemplateAlternative.bas[127]  If Action = {33} Then 
+ABMPageTemplateAlternative.bas[128]  ABMShared.LogOff(page) 
+ABMPageTemplateAlternative.bas[129]  Return 
+ABMPageTemplateAlternative.bas[130]  End If 
+ABMPageTemplateAlternative.bas[131]  ABMShared.NavigateToPage(ws, ABMPageId, Value) 
+ABMPageTemplateAlternative.bas[132] End Sub 
+ABMPageTemplateAlternative.bas[133]  
+ABMPageTemplateAlternative.bas[134]  
+ABMPageTemplateAlternative.bas[135] Sub Page_FileUploaded(FileName As String, success As Boolean) 
+ABMPageTemplateAlternative.bas[136]  
+ABMPageTemplateAlternative.bas[137] End Sub 
+ABMPageTemplateAlternative.bas[138]  
+ABMPageTemplateAlternative.bas[139] Sub Page_ToastClicked(ToastId As String, Action As String) 
+ABMPageTemplateAlternative.bas[140]  
+ABMPageTemplateAlternative.bas[141] End Sub 
+ABMPageTemplateAlternative.bas[142]  
+ABMPageTemplateAlternative.bas[143] Sub Page_ToastDismissed(ToastId As String) 
+ABMPageTemplateAlternative.bas[144]  
+ABMPageTemplateAlternative.bas[145] End Sub 
+ABMPageTemplateAlternative.bas[146]  
+ABMPageTemplateAlternative.bas[147] Sub Page_Authenticated(Params As Map) 
+ABMPageTemplateAlternative.bas[148]  
+ABMPageTemplateAlternative.bas[149] End Sub 
+ABMPageTemplateAlternative.bas[150]  
+ABMPageTemplateAlternative.bas[151] Sub Page_FirebaseAuthError(extra As String) 
+ABMPageTemplateAlternative.bas[152]  
+ABMPageTemplateAlternative.bas[153] End Sub 
+ABMPageTemplateAlternative.bas[154]  
+ABMPageTemplateAlternative.bas[155] Sub Page_FirebaseAuthStateChanged(IsLoggedIn As Boolean) 
+ABMPageTemplateAlternative.bas[156]  
+ABMPageTemplateAlternative.bas[157] End Sub 
+ABMPageTemplateAlternative.bas[158]  
+ABMPageTemplateAlternative.bas[159] Sub Page_FirebaseStorageError(jobID As String, extra As String) 
+ABMPageTemplateAlternative.bas[160]  
+ABMPageTemplateAlternative.bas[161] End Sub 
+ABMPageTemplateAlternative.bas[162]  
+ABMPageTemplateAlternative.bas[163] Sub Page_FirebaseStorageResult(jobID As String, extra As String) 
+ABMPageTemplateAlternative.bas[164]  
+ABMPageTemplateAlternative.bas[165] End Sub 
+ABMPageTemplateAlternative.bas[166]  
+ABMPageTemplateAlternative.bas[167] Sub Page_ModalSheetDismissed(ModalSheetName As String) 
+ABMPageTemplateAlternative.bas[168]  
+ABMPageTemplateAlternative.bas[169] End Sub 
+ABMPageTemplateAlternative.bas[170]  
+ABMPageTemplateAlternative.bas[171] Sub Page_NextContent(TriggerComponent As String) 
+ABMPageTemplateAlternative.bas[172]  
+ABMPageTemplateAlternative.bas[173] End Sub 
+ABMPageTemplateAlternative.bas[174]  
+ABMPageTemplateAlternative.bas[175] Sub Page_SignedOffSocialNetwork(Network As String, Extra As String) 
+ABMPageTemplateAlternative.bas[176]  
+ABMPageTemplateAlternative.bas[177] End Sub 
+ABMPageTemplateAlternative.bas[178]  
+Analysing: ABMSessionCreator.bas
+ABMSessionCreator.bas[0] ﻿Type=Class 
+ABMSessionCreator.bas[0] Version=4.7 
+ABMSessionCreator.bas[0] ModulesStructureVersion=1 
+ABMSessionCreator.bas[0] B4J=true 
+ABMSessionCreator.bas[0] @EndOfDesignText@ 
+ABMSessionCreator.bas[1] 'Filter class 
+ABMSessionCreator.bas[2] Sub Class_Globals 
+ABMSessionCreator.bas[3]  
+ABMSessionCreator.bas[4] End Sub 
+ABMSessionCreator.bas[5]  
+ABMSessionCreator.bas[6] Public Sub Initialize 
+ABMSessionCreator.bas[7]  
+ABMSessionCreator.bas[8] End Sub 
+ABMSessionCreator.bas[9]  
+ABMSessionCreator.bas[10] 'Return True to allow the request to proceed. 
+ABMSessionCreator.bas[11] Public Sub Filter(req As ServletRequest, resp As ServletResponse) As Boolean 
+ABMSessionCreator.bas[12]  DateTime.DateFormat = {0} 
+ABMSessionCreator.bas[13]  DateTime.TimeFormat = {1} 
+ABMSessionCreator.bas[14]  
+ABMSessionCreator.bas[15]  Log( {2} & DateTime.Date(DateTime.Now) & {3} & DateTime.Time(DateTime.now)) 
+ABMSessionCreator.bas[16]  
+ABMSessionCreator.bas[17]  req.GetSession 'a new session will be created if a session doesn't exist. 
+ABMSessionCreator.bas[18]  Return True 
+ABMSessionCreator.bas[19] End Sub 
+Analysing: ABMUploadHandler.bas
+ABMUploadHandler.bas[0] ﻿Type=Class 
+ABMUploadHandler.bas[0] Version=4.7 
+ABMUploadHandler.bas[0] ModulesStructureVersion=1 
+ABMUploadHandler.bas[0] B4J=true 
+ABMUploadHandler.bas[0] @EndOfDesignText@ 
+ABMUploadHandler.bas[1] 'Handler class 
+ABMUploadHandler.bas[2] Sub Class_Globals 
+ABMUploadHandler.bas[3]  Dim ABM As ABMaterial 
+ABMUploadHandler.bas[4] End Sub 
+ABMUploadHandler.bas[5]  
+ABMUploadHandler.bas[6] Public Sub Initialize 
+ABMUploadHandler.bas[7]  
+ABMUploadHandler.bas[8] End Sub 
+ABMUploadHandler.bas[9]  
+ABMUploadHandler.bas[10] Sub Handle(req As ServletRequest, resp As ServletResponse) 
+ABMUploadHandler.bas[11]  'get the callback page from the session (multiple modules can use this handler) 
+ABMUploadHandler.bas[12]  Dim callback As Object = req.GetSession.GetAttribute( {0} ) 
+ABMUploadHandler.bas[13]  Dim downloadfolder As String = File.Combine(File.DirApp, req.GetSession.GetAttribute( {1} )) 
+ABMUploadHandler.bas[14]  Dim MaxSize As Int 
+ABMUploadHandler.bas[15]  Try 
+ABMUploadHandler.bas[16]  MaxSize = req.GetSession.GetAttribute( {2} ) 
+ABMUploadHandler.bas[17]  Catch 
+ABMUploadHandler.bas[18]  resp.SendError(500, LastException.Message) 
+ABMUploadHandler.bas[19]  Return 
+ABMUploadHandler.bas[20]  End Try 
+ABMUploadHandler.bas[21]  Dim data As Map 
+ABMUploadHandler.bas[22]  Dim fileName As String 
+ABMUploadHandler.bas[23]  Dim tmpFileName As String 
+ABMUploadHandler.bas[24]  
+ABMUploadHandler.bas[25]  Try 
+ABMUploadHandler.bas[26]  data = req.GetMultipartData(downloadfolder, MaxSize) 
+ABMUploadHandler.bas[27]  Dim filePart As Part = data.Get( {3} ) 
+ABMUploadHandler.bas[28]  If filePart.IsInitialized Then 
+ABMUploadHandler.bas[29]  fileName = filePart.SubmittedFilename 
+ABMUploadHandler.bas[30]  tmpFileName = filePart.TempFile 
+ABMUploadHandler.bas[31]  If ABM.HandleUpload(downloadfolder, tmpFileName, fileName) Then 
+ABMUploadHandler.bas[32]  If SubExists(callback, {4} ) Then 
+ABMUploadHandler.bas[33]  CallSubDelayed3(callback, {5} , fileName, True) 
+ABMUploadHandler.bas[34]  End If 
+ABMUploadHandler.bas[35]  Else 
+ABMUploadHandler.bas[36]  If SubExists(callback, {6} ) Then 
+ABMUploadHandler.bas[37]  CallSubDelayed3(callback, {7} , fileName, False) 
+ABMUploadHandler.bas[38]  End If 
+ABMUploadHandler.bas[39]  End If 
+ABMUploadHandler.bas[40]  Else ' try image 
+ABMUploadHandler.bas[41]  Dim filePart As Part = data.Get( {8} ) 
+ABMUploadHandler.bas[42]  fileName = filePart.SubmittedFilename 
+ABMUploadHandler.bas[43]  tmpFileName = filePart.TempFile 
+ABMUploadHandler.bas[44]  If ABM.HandleUpload(downloadfolder, tmpFileName, fileName) Then 
+ABMUploadHandler.bas[45]  If SubExists(callback, {9} ) Then 
+ABMUploadHandler.bas[46]  CallSubDelayed3(callback, {10} , fileName, True) 
+ABMUploadHandler.bas[47]  End If 
+ABMUploadHandler.bas[48]  Else 
+ABMUploadHandler.bas[49]  If SubExists(callback, {11} ) Then 
+ABMUploadHandler.bas[50]  CallSubDelayed3(callback, {12} , fileName, False) 
+ABMUploadHandler.bas[51]  End If 
+ABMUploadHandler.bas[52]  End If 
+ABMUploadHandler.bas[53]  End If 
+ABMUploadHandler.bas[54]  
+ABMUploadHandler.bas[55]  Catch 
+ABMUploadHandler.bas[56]  resp.SendError(500, LastException.Message) 
+ABMUploadHandler.bas[57]  If SubExists(callback, {13} ) Then 
+ABMUploadHandler.bas[58]  CallSubDelayed3(callback, {14} , LastException.Message , False) 
+ABMUploadHandler.bas[59]  End If 
+ABMUploadHandler.bas[60]  End Try 
+ABMUploadHandler.bas[61] End Sub 
+Analysing: pgUserList.bas
+pgUserList.bas[0] ﻿Type=Class 
+pgUserList.bas[0] Version=4.7 
+pgUserList.bas[0] ModulesStructureVersion=1 
+pgUserList.bas[0] B4J=true 
+pgUserList.bas[0] @EndOfDesignText@ 
+pgUserList.bas[1] 'Class module 
+pgUserList.bas[2] Sub Class_Globals 
+pgUserList.bas[3]  Private ws As WebSocket 'ignore 
+pgUserList.bas[4]  ' will hold our page information 
+pgUserList.bas[5]  Public page As ABMPage 
+pgUserList.bas[6]  ' page theme 
+pgUserList.bas[7]  Private theme As ABMTheme 
+pgUserList.bas[8]  ' to access the constants 
+pgUserList.bas[9]  Private ABM As ABMaterial 'ignore 
+pgUserList.bas[10]  ' name of the page, must be the same as the class name (case sensitive!) 
+pgUserList.bas[11]  Public Name As String = {0} '<-------------------------------------------------------- IMPORTANT 
+pgUserList.bas[12]  ' will hold the unique browsers window id 
+pgUserList.bas[13]  Private ABMPageId As String = {1} 
+pgUserList.bas[14]  ' your own variables 
+pgUserList.bas[15]  
+pgUserList.bas[16] End Sub 
+pgUserList.bas[17]  
+pgUserList.bas[18] 'Initializes the object. You can add parameters to this method if needed. 
+pgUserList.bas[19] Public Sub Initialize 
+pgUserList.bas[20]  ' build the local structure IMPORTANT! 
+pgUserList.bas[21]  BuildPage 
+pgUserList.bas[22] End Sub 
+pgUserList.bas[23]  
+pgUserList.bas[24] Private Sub WebSocket_Connected (WebSocket1 As WebSocket) 
+pgUserList.bas[25]  Log( {2} ) 
+pgUserList.bas[26]  ws = WebSocket1 
+pgUserList.bas[27]  ABMPageId = ABM.GetPageID(page, Name,ws) 
+pgUserList.bas[28]  Dim session As HttpSession = ABM.GetSession(ws, ABMShared.SessionMaxInactiveIntervalSeconds) 
+pgUserList.bas[29]  
+pgUserList.bas[30]  If ABMShared.NeedsAuthorization Then 
+pgUserList.bas[31]  If session.GetAttribute2( {3} , {4} ) = {5} Then 
+pgUserList.bas[32]  ABMShared.NavigateToPage(ws, ABMPageId, {6} ) 
+pgUserList.bas[33]  Return 
+pgUserList.bas[34]  End If 
+pgUserList.bas[35]  End If 
+pgUserList.bas[36]  
+pgUserList.bas[37]  ABM.UpdateFromCache(Me, ABMShared.CachedPages, ABMPageId, ws) 
+pgUserList.bas[38]  If page.ComesFromPageCache Then 
+pgUserList.bas[39]  ' refresh the page 
+pgUserList.bas[40]  page.Refresh 
+pgUserList.bas[41]  ' Tell the browser we finished loading 
+pgUserList.bas[42]  page.FinishedLoading 
+pgUserList.bas[43]  Else 
+pgUserList.bas[44]  ' Prepare the page 
+pgUserList.bas[45]  page.Prepare 
+pgUserList.bas[46]  ' load the dynamic content 
+pgUserList.bas[47]  ConnectPage 
+pgUserList.bas[48]  End If 
+pgUserList.bas[49]  Log(ABMPageId) 
+pgUserList.bas[50]  
+pgUserList.bas[51] End Sub 
+pgUserList.bas[52]  
+pgUserList.bas[53] Private Sub WebSocket_Disconnected 
+pgUserList.bas[54]  Log( {7} ) 
+pgUserList.bas[55] End Sub 
+pgUserList.bas[56]  
+pgUserList.bas[57] Sub Page_ParseEvent(Params As Map) 
+pgUserList.bas[58]  Dim eventName As String = Params.Get( {8} ) 
+pgUserList.bas[59]  Dim eventParams() As String = Regex.Split( {9} ,Params.Get( {10} )) 
+pgUserList.bas[60]  If eventName = {11} Then 
+pgUserList.bas[61]  Log( {12} ) 
+pgUserList.bas[62]  ABM.RemoveMeFromCache(ABMShared.CachedPages, ABMPageId) 
+pgUserList.bas[63]  Return 
+pgUserList.bas[64]  End If 
+pgUserList.bas[65]  If SubExists(Me, eventName) Then 
+pgUserList.bas[66]  Params.Remove( {13} ) 
+pgUserList.bas[67]  Params.Remove( {14} ) 
+pgUserList.bas[68]  Select Case Params.Size 
+pgUserList.bas[69]  Case 0 
+pgUserList.bas[70]  CallSub(Me, eventName) 
+pgUserList.bas[71]  Case 1 
+pgUserList.bas[72]  CallSub2(Me, eventName, Params.Get(eventParams(0))) 
+pgUserList.bas[73]  Case 2 
+pgUserList.bas[74]  If Params.get(eventParams(0)) = {15} Then 
+pgUserList.bas[75]  Dim PassedTables As List = ABM.ProcessTablesFromTargetName(Params.get(eventParams(1))) 
+pgUserList.bas[76]  CallSub2(Me, eventName, PassedTables) 
+pgUserList.bas[77]  Else 
+pgUserList.bas[78]  CallSub3(Me, eventName, Params.Get(eventParams(0)), Params.Get(eventParams(1))) 
+pgUserList.bas[79]  End If 
+pgUserList.bas[80]  Case Else 
+pgUserList.bas[81]  ' cannot be called directly, to many param 
+pgUserList.bas[82]  CallSub2(Me, eventName, Params) 
+pgUserList.bas[83]  End Select 
+pgUserList.bas[84]  End If 
+pgUserList.bas[85] End Sub 
+pgUserList.bas[86]  
+pgUserList.bas[87] public Sub BuildTheme() 
+pgUserList.bas[88]  ' start with the base theme defined in ABMShared 
+pgUserList.bas[89]  theme.Initialize( {16} ) 
+pgUserList.bas[90]  theme.AddABMTheme(ABMShared.MyTheme) 
+pgUserList.bas[91]  
+pgUserList.bas[92]  ' add additional themes specific for this page 
+pgUserList.bas[93]  
+pgUserList.bas[94] End Sub 
+pgUserList.bas[95]  
+pgUserList.bas[96] public Sub BuildPage() 
+pgUserList.bas[97]  ' initialize the theme 
+pgUserList.bas[98]  BuildTheme 
+pgUserList.bas[99]  
+pgUserList.bas[100]  ' initialize this page using our theme 
+pgUserList.bas[101]  page.InitializeWithTheme(Name, {17} & ABMShared.AppName & {18} & Name, False, ABMShared.SessionMaxInactiveIntervalSeconds, theme) 
+pgUserList.bas[102]  page.ShowLoader=True 
+pgUserList.bas[103]  page.PageHTMLName = {19} 
+pgUserList.bas[104]  page.PageTitle = {20} 
+pgUserList.bas[105]  page.PageDescription = {21} 
+pgUserList.bas[106]  page.PageKeywords = {22} 
+pgUserList.bas[107]  page.PageSiteMapPriority = {23} 
+pgUserList.bas[108]  page.PageSiteMapFrequency = ABM.SITEMAP_FREQ_YEARLY 
+pgUserList.bas[109]  
+pgUserList.bas[110]  page.ShowConnectedIndicator = True 
+pgUserList.bas[111]  
+pgUserList.bas[112]  ' adding a navigation bar 
+pgUserList.bas[113]  
+pgUserList.bas[114]  
+pgUserList.bas[115]  ' create the page grid 
+pgUserList.bas[116]  page.AddRows(2,True, {24} ).AddCells12(1, {25} ) 
+pgUserList.bas[117]  page.BuildGrid 'IMPORTANT once you loaded the complete grid AND before you start adding components 
+pgUserList.bas[118]  
+pgUserList.bas[119] End Sub 
+pgUserList.bas[120]  
+pgUserList.bas[121] public Sub ConnectPage() 
+pgUserList.bas[122] ' connecting the navigation bar 
+pgUserList.bas[123]  
+pgUserList.bas[124]  
+pgUserList.bas[125] ' init all your own variables (like a List, Map) and add your components 
+pgUserList.bas[126]  
+pgUserList.bas[127] ' page.Cell(1,1).AddComponent(ABMShared.BuildParagraph(page, {26} , {27} )) 
+pgUserList.bas[128] ' 
+pgUserList.bas[129] ' Dim btn As ABMButton 
+pgUserList.bas[130] ' btn.InitializeRaised(page, {28} , {29} , {30} , {31} , {32} ) 
+pgUserList.bas[131] ' page.Cell(2,1).AddComponent(btn) 
+pgUserList.bas[132]  
+pgUserList.bas[133]  ' refresh the page 
+pgUserList.bas[134]  page.Refresh 
+pgUserList.bas[135]  ' Tell the browser we finished loading 
+pgUserList.bas[136]  page.FinishedLoading 
+pgUserList.bas[137]  ' restoring the navigation bar position 
+pgUserList.bas[138]  page.RestoreNavigationBarPosition 
+pgUserList.bas[139] End Sub 
+pgUserList.bas[140]  
+pgUserList.bas[141] ' clicked on the navigation bar 
+pgUserList.bas[142] Sub Page_NavigationbarClicked(Action As String, Value As String) 
+pgUserList.bas[143]  ' saving the navigation bar position 
+pgUserList.bas[144]  page.SaveNavigationBarPosition 
+pgUserList.bas[145]  If Action = {33} Then 
+pgUserList.bas[146]  ABMShared.LogOff(page) 
+pgUserList.bas[147]  Return 
+pgUserList.bas[148]  End If 
+pgUserList.bas[149]  ABMShared.NavigateToPage(ws, ABMPageId, Value) 
+pgUserList.bas[150] End Sub 
+pgUserList.bas[151]  
+pgUserList.bas[152] Sub Page_FileUploaded(FileName As String, success As Boolean) 
+pgUserList.bas[153]  
+pgUserList.bas[154] End Sub 
+pgUserList.bas[155]  
+pgUserList.bas[156] Sub Page_ToastClicked(ToastId As String, Action As String) 
+pgUserList.bas[157]  
+pgUserList.bas[158] End Sub 
+pgUserList.bas[159]  
+pgUserList.bas[160] Sub Page_ToastDismissed(ToastId As String) 
+pgUserList.bas[161]  
+pgUserList.bas[162] End Sub 
+pgUserList.bas[163]  
+pgUserList.bas[164] Sub Page_Authenticated(Params As Map) 
+pgUserList.bas[165]  
+pgUserList.bas[166] End Sub 
+pgUserList.bas[167]  
+pgUserList.bas[168] Sub Page_FirebaseAuthError(extra As String) 
+pgUserList.bas[169]  
+pgUserList.bas[170] End Sub 
+pgUserList.bas[171]  
+pgUserList.bas[172] Sub Page_FirebaseAuthStateChanged(IsLoggedIn As Boolean) 
+pgUserList.bas[173]  
+pgUserList.bas[174] End Sub 
+pgUserList.bas[175]  
+pgUserList.bas[176] Sub Page_FirebaseStorageError(jobID As String, extra As String) 
+pgUserList.bas[177]  
+pgUserList.bas[178] End Sub 
+pgUserList.bas[179]  
+pgUserList.bas[180] Sub Page_FirebaseStorageResult(jobID As String, extra As String) 
+pgUserList.bas[181]  
+pgUserList.bas[182] End Sub 
+pgUserList.bas[183]  
+pgUserList.bas[184] Sub Page_ModalSheetDismissed(ModalSheetName As String) 
+pgUserList.bas[185]  
+pgUserList.bas[186] End Sub 
+pgUserList.bas[187]  
+pgUserList.bas[188] Sub Page_NextContent(TriggerComponent As String) 
+pgUserList.bas[189]  
+pgUserList.bas[190] End Sub 
+pgUserList.bas[191]  
+pgUserList.bas[192] Sub Page_SignedOffSocialNetwork(Network As String, Extra As String) 
+pgUserList.bas[193]  
+pgUserList.bas[194] End Sub 
+Analysing: AlipayOrderCatching.b4j
+AlipayOrderCatching.b4j[0] ﻿Version=4.7 
+AlipayOrderCatching.b4j[0] AppType=StandardJava 
+AlipayOrderCatching.b4j[0] NumberOfModules=9 
+AlipayOrderCatching.b4j[0] Module1=ABMApplication 
+AlipayOrderCatching.b4j[0] Module2=ABMShared 
+AlipayOrderCatching.b4j[0] Module3=ABMPageTemplate 
+AlipayOrderCatching.b4j[0] Module4=ABMPageTemplateAlternative 
+AlipayOrderCatching.b4j[0] Module5=ABMUploadHandler 
+AlipayOrderCatching.b4j[0] Module6=ABMSessionCreator 
+AlipayOrderCatching.b4j[0] Module7=ABMCacheScavenger 
+AlipayOrderCatching.b4j[0] Module8=DBM 
+AlipayOrderCatching.b4j[0] Module9=pgUserList 
+AlipayOrderCatching.b4j[0] Build1=Default,b4j.example 
+AlipayOrderCatching.b4j[0] NumberOfFiles=0 
+AlipayOrderCatching.b4j[0] NumberOfLibraries=5 
+AlipayOrderCatching.b4j[0] Library1=jcore 
+AlipayOrderCatching.b4j[0] Library2=abmaterial 
+AlipayOrderCatching.b4j[0] Library3=jserver 
+AlipayOrderCatching.b4j[0] Library4=javaobject 
+AlipayOrderCatching.b4j[0] Library5=jsql 
+AlipayOrderCatching.b4j[0] @EndOfDesignText@ 
+AlipayOrderCatching.b4j[1] 'Non-UI application (console / server application) 
+AlipayOrderCatching.b4j[2] #Region Project Attributes 
+AlipayOrderCatching.b4j[3]  #CommandLineArgs: 
+AlipayOrderCatching.b4j[4]  #MergeLibraries: True 
+AlipayOrderCatching.b4j[5] #End Region 
+AlipayOrderCatching.b4j[6]  
+AlipayOrderCatching.b4j[7] Sub Process_Globals 
+AlipayOrderCatching.b4j[8]  Public srvr As Server 
+AlipayOrderCatching.b4j[9] End Sub 
+AlipayOrderCatching.b4j[10]  
+AlipayOrderCatching.b4j[11] Sub AppStart (Args() As String) 
+AlipayOrderCatching.b4j[12]  ' the user needs to login 
+AlipayOrderCatching.b4j[13]  'ABMShared.NeedsAuthorization = True 
+AlipayOrderCatching.b4j[14]  
+AlipayOrderCatching.b4j[15]  ' Build the Theme 
+AlipayOrderCatching.b4j[16]  ABMShared.BuildTheme( {0} ) 
+AlipayOrderCatching.b4j[17]  
+AlipayOrderCatching.b4j[18]  ' create the app 
+AlipayOrderCatching.b4j[19]  Dim myApp As ABMApplication 
+AlipayOrderCatching.b4j[20]  myApp.Initialize 
+AlipayOrderCatching.b4j[21]  DBM.InitializeMySQL( {1} , {2} , {3} , 100) 
+AlipayOrderCatching.b4j[22]  
+AlipayOrderCatching.b4j[23]  ' create the pages 
+AlipayOrderCatching.b4j[24]  Dim myPage As ABMPageTemplate 
+AlipayOrderCatching.b4j[25]  myPage.Initialize 
+AlipayOrderCatching.b4j[26]  
+AlipayOrderCatching.b4j[27]  ' add the pages to the app 
+AlipayOrderCatching.b4j[28]  myApp.AddPage(myPage.Page) 
+AlipayOrderCatching.b4j[29]  
+AlipayOrderCatching.b4j[30]  ' start the server 
+AlipayOrderCatching.b4j[31]  myApp.StartServer(srvr, {4} , 51042) 
+AlipayOrderCatching.b4j[32]  
+AlipayOrderCatching.b4j[33]  ABMShared.RedirectOutput(File.DirApp, {5} ) 
+AlipayOrderCatching.b4j[34]  
+AlipayOrderCatching.b4j[35]  StartMessageLoop 
+AlipayOrderCatching.b4j[36] End Sub 
