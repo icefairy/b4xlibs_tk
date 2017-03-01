@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.agraham.gifdecoder.GifDecoder</name>
+        <shortname>GifDecoder</shortname>
+        <comment>Processing larger animated GIFs with many frames can be a slow process on a device.
+Also such files may occupy a large amount of memory as each individual frame is saved for
+display as a bitmap when the GIF is loaded. Invoking Load will dispose of any existing frame
+bitmaps. If it is required to keep any of those bitmaps they should be copied, not assigned,
+into another bitmap.</comment>
+        <owner>activity</owner>
+        <method>
+            <name>DisposeFrames</name>
+            <comment>Disposes of all the frame bitmaps of any presently loaded GIF file.
+This may be necessary for memory management purposes on a device.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>Load</name>
+            <comment>Loads the GIF from the pathname specified and decodes the individual frames.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>dir</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>gifname</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Delay</name>
+            <comment>Returns the delay time, in milliseconds, for the frame number specified.
+This time is the period for which the frame should be displayed before advancing
+to the next frame.</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>frame</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Frame</name>
+            <comment>Returns a Bitmap containing the specified frame.</comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>frame</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SaveFrame</name>
+            <comment>Saves a frame to to the file and path specified in the format specified.
+Note that a file extension is not automatically added and must be specified
+as part of the filename. The file formats are "J" for jpg and "P" for png.
+Anything else is saved as jpg. Quality is 0 to 100 and is only relevant for jpgs
+0 meaning compress for small size, 100 meaning compress for max quality.
+PNG which is lossless, will ignore the quality setting.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>frame</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>dir</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>filename</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>format</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>quality</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <property>
+            <name>FrameWidth</name>
+            <returntype>int</returntype>
+            <comment>Returns the width of each frame in the last GIF loaded.</comment>
+        </property>
+        <property>
+            <name>LoopCount</name>
+            <returntype>int</returntype>
+            <comment>Returns the iteration count, if one was specified, in the last GIF loaded otherwise
+it returns 1. The iteration count specifies how many times the animation should be displayed.
+A count of 0 means repeat indefinitely.</comment>
+        </property>
+        <property>
+            <name>FrameHeight</name>
+            <returntype>int</returntype>
+            <comment>Returns the height of each frame in the last GIF loaded.</comment>
+        </property>
+        <property>
+            <name>Version</name>
+            <returntype>double</returntype>
+            <comment>Returns the version number of the library.</comment>
+        </property>
+        <property>
+            <name>FrameCount</name>
+            <returntype>int</returntype>
+            <comment>Returns the number of frames in the last GIF loaded.</comment>
+        </property>
+    </class>
+    <version>1.0</version>
+    <comment>The GifDecoder library provides a GifDecoder object that provides the facility to
+extract the individual frames and associated delay information from an animated GIF file.
+
+No copyright is asserted on the source or object code of this library. It  may be used for
+any purpose, however, refer to the Unisys LZW patent for any additional restrictions.
+
+The decoder was originally written as a component of a bigger application by Kevin Weiner of
+FM Software using an LZW decoder adapted from John Cristy's ImageMagick. Performance greatly
+improved, some bugs squashed, adapted for use with Basic4ppc and further translated into Java
+for use in Basic4android applications by Andrew Graham.</comment>
+</root>
