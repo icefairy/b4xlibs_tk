@@ -1,0 +1,153 @@
+﻿Version=6.8
+NumberOfModules=1
+Module1=Starter
+Build1=Default,b4a.example.giftest
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
+IconFile=
+NumberOfFiles=4
+File1=7.gif
+File2=clonesheep.gif
+File3=giftest.bal
+File4=traffic.gif
+NumberOfLibraries=4
+Library1=core
+Library2=gifdecoder
+Library3=animationplus
+Library4=b4agif
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: B4A测试GIF动画
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+	
+	'True to enable logs in Release mode.
+	#BridgeLogger: True
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+	
+	Dim Timer1 As Timer
+	Timer1.Initialize("Timer1",0)
+	Dim Frame As Int
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Private gif As GifDecoder
+	
+	Dim btnLoad As Button
+	Dim ImageView1 As ImageView
+	Dim ImageView2 As ImageView
+	
+	Dim AnimatedAndroid As AnimationDrawable
+	Private b4agif1,b4agif2 As b4agif
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("giftest")
+	
+	
+	'下面代码是直接解析GIF图片的，本例主要分享是这个功能
+	'
+	
+	b4agif1.setShowDimension(60dip,60dip)
+'	b4agif1.Load(File.DirAssets, "clonesheep.gif") '不知道为什么不管用了，NND，回头再调整下
+	b4agif1.LoadStream(File.OpenInput(File.DirAssets,"7.gif"))
+	'获取总数
+	Do While b4agif1.Status=0
+		DoEvents
+	Loop
+	Log("第三帧延时时间："&b4agif1.getDelay(3))
+	ImageView1.Bitmap = b4agif1.getFrame(3)
+	Msgbox(b4agif1.frameCount,"")
+
+'	b4agif1.showAnimation()
+'	b4agif1.parseOk(True,-1)
+	
+	b4agif2.Initialize("b4agif2")
+	b4agif2.LoadStream(File.OpenInput(File.DirAssets,"7.gif"))
+	Activity.AddView(b4agif2,60%x,73%y,100dip,100dip)
+	b4agif2.setShowDimension(100dip,100dip)
+	
+	'分享结束 QQ 254264955
+End Sub
+'单击
+Sub b4agif2_Click
+	Log("点击")
+End Sub
+'长按点击
+Sub b4agif2_LongClick As Boolean
+	Log("长按点击")
+	Return False
+End Sub
+'解析完成回调
+Sub b4agif2_onGifStatus(status As Int)
+	Log("回调："&status)
+End Sub
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+
+Sub btnLoad_Click
+	'gif.Load(File.DirAssets, "traffic.gif")
+	'gif.Load(File.DirAssets, "arrow.gif")
+	
+	AnimatedAndroid.Initialize
+	AnimatedAndroid.OneShot = False
+	
+	gif.DisposeFrames
+	gif.Load(File.DirAssets,"7.gif")
+	ToastMessageShow(gif.FrameCount & " frames", True)
+	Frame = 0
+	
+	Timer1.Interval = gif.Delay(Frame)
+	ImageView1.Bitmap = gif.Frame(Frame)
+	ImageView1.Gravity = Gravity.FILL
+	Timer1.Enabled = True
+	
+	Log(File.DirRootExternal)
+	For i=0 To gif.FrameCount-1
+		gif.SaveFrame(i, File.DirRootExternal, "测试gif动画"&i&".jpg", "j", 85)
+		AnimatedAndroid.AddFrame(LoadBitmap(File.DirRootExternal, "测试gif动画" & i & ".jpg"), 50)
+		Log(i)
+	Next
+	
+	ImageView2.Gravity = Gravity.NO_GRAVITY
+	ImageView2.Background = AnimatedAndroid
+	
+	AnimatedAndroid.Start
+	
+	
+	
+'	gif.SaveFrame(0, File.DirRootExternal, "frame0.png", "P", 85)
+	'	gif.SaveFrame(0, File.DirRootExternal, "frame0.jpg", "J", 85)
+End Sub
+
+
+Sub Timer1_Tick
+	Timer1.Enabled = False
+	Frame = Frame + 1
+	If Frame >= gif.FrameCount Then
+		Frame = 0
+	End If
+	Timer1.Interval = gif.Delay(Frame)
+	ImageView1.Bitmap = gif.Frame(Frame)
+	Timer1.Enabled = True
+End Sub
