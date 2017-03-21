@@ -1,5 +1,5 @@
 ﻿Type=Service
-Version=6.5
+Version=6.8
 ModulesStructureVersion=1
 B4A=true
 @EndOfDesignText@
