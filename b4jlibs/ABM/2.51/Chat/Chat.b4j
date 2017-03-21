@@ -1,0 +1,57 @@
+﻿Version=4.7
+AppType=StandardJava
+NumberOfModules=9
+Module1=ABMApplication
+Module2=ABMShared
+Module3=ABMPageTemplate
+Module4=ABMPageTemplateAlternative
+Module5=ABMUploadHandler
+Module6=ABMSessionCreator
+Module7=ABMCacheScavenger
+Module8=ChatPage
+Module9=ChatShared
+Build1=Default,b4j.example
+NumberOfFiles=0
+NumberOfLibraries=4
+Library1=jcore
+Library2=abmaterial
+Library3=jserver
+Library4=javaobject
+@EndOfDesignText@
+'Non-UI application (console / server application)
+#Region  Project Attributes 
+	#CommandLineArgs:
+	#MergeLibraries: True 
+#End Region
+
+Sub Process_Globals
+	Public srvr As Server	
+End Sub
+
+Sub AppStart (Args() As String)
+	' the user needs to login
+	'ABMShared.NeedsAuthorization = True
+	
+	' Build the Theme
+	ABMShared.BuildTheme("mytheme")
+	
+	' create the app
+	Dim myApp As ABMApplication
+	myApp.Initialize
+		
+	' create the pages
+	Dim myChatPage As ChatPage
+	myChatPage.Initialize	
+	
+	' add the pages to the app
+	myApp.AddPage(myChatPage.Page)
+	
+	ChatShared.Init
+	
+	' start the server
+	myApp.StartServer(srvr, "srvr", 51042)	
+		
+	ABMShared.RedirectOutput(File.DirApp, "logs.txt")
+	
+	StartMessageLoop
+End Sub

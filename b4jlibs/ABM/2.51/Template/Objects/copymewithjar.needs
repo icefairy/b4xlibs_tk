@@ -1,0 +1,2 @@
+ABMApplication:NeedsInput;NeedsTextArea;NeedsMask
+ABMPageTemplate:NeedsTable;NeedsSortingTable;NeedsInput;NeedsTextArea;NeedsMask

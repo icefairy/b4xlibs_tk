@@ -1,0 +1,3 @@
+ABMApplication:NeedsInput;NeedsTextArea;NeedsMask;NeedsOAuth
+OverviewCasesPage:NeedsActionButton;NeedsCombo;NeedsInput;NeedsTextArea;NeedsMask;NeedsUpload;NeedsPagination;NeedsTable;NeedsSortingTable;NeedsChips
+UsersPage:NeedsActionButton;NeedsCombo;NeedsInput;NeedsTextArea;NeedsMask;NeedsPagination;NeedsTable;NeedsSortingTable

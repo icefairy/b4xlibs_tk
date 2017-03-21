@@ -1,0 +1,382 @@
+﻿Version=4.7
+AppType=StandardJava
+NumberOfModules=77
+Module1=CompChatPage
+Module2=ABMShared
+Module3=CompPlannerPage
+Module4=CompPercentSliderPage
+Module5=ABMApplication
+Module6=CompChartPage
+Module7=ABMSessionCreator
+Module8=HelperModalSheetPage
+Module9=CompRadioGroupPage
+Module10=CompDateTimePickerPage
+Module11=AboutPage
+Module12=CompSwitchPage
+Module13=HelperTablePage
+Module14=CompPivotTablePage
+Module15=CompDividerPage
+Module16=HelperContainerPage
+Module17=GridsPage
+Module18=CompVideoPage
+Module19=CompTabsPage
+Module20=CompComboPage
+Module21=ABMCacheScavenger
+Module22=HelperNavigationBarPage
+Module23=GettingStartedPage
+Module24=CompOAuthPage
+Module25=CompInputPage
+Module26=CompUploadPage
+Module27=CompRealSliderPage
+Module28=HelperFlexWallPage
+Module29=HelperPagePage
+Module30=ABMPageTemplate
+Module31=CompPaginationPage
+Module32=CompChipPage
+Module33=CompRangePage
+Module34=CompSliderPage
+Module35=CompGoogleMapPage
+Module36=CompSignaturePage
+Module37=CompCheckboxPage
+Module38=CompSocialSharePage
+Module39=CompCustomCompPage
+Module40=IconsPage
+Module41=OtherFirebaseStorPage
+Module42=OtherFirebasePage
+Module43=CompFileInputPage
+Module44=CompSVGSurfacePage
+Module45=CompPDFViewerPage
+Module46=CompTimeLinePage
+Module47=CompChronologyPage
+Module48=CompCalendarPage
+Module49=HelperGeneratorPage
+Module50=HelperTableMutablePage
+Module51=CompTreeTablePage
+Module52=CompEditorPage
+Module53=CompDateTimeScrollerPage
+Module54=CompLabelPage
+Module55=HelperParallaxPage
+Module56=CompCanvasPage
+Module57=CompCodeLabelPage
+Module58=CompCardPage
+Module59=CompPatternLockPage
+Module60=DonatorsExtraLibsPage
+Module61=CompListPage
+Module62=CompButtonPage
+Module63=CompBadgePage
+Module64=TestPage
+Module65=CompAudioPlayerPage
+Module66=CompActionButtonPage
+Module67=CompImagePage
+Module68=ThemesPage
+Module69=TestClassForAlain
+Module70=DonateButton
+Module71=CustomGauge
+Module72=CustomGoogleChart2
+Module73=CustomGoogleChart
+Module74=CustomSlidebar
+Module75=ABMUploadHandler
+Module76=ABMPrint
+Module77=CompPercentSlider
+Build1=Default,abmaterial.ab.com
+NumberOfFiles=0
+NumberOfLibraries=5
+Library1=jcore
+Library2=abmaterial
+Library3=jdateutils
+Library4=jserver
+Library5=javaobject
+@EndOfDesignText@
+'Non-UI application (console / server application)
+#Region  Project Attributes 
+	#CommandLineArgs:
+	#MergeLibraries: False 
+	
+	'#VirtualMachineArgs: -Xbootclasspath/p:alpn-boot-8.1.5.v20150921.jar
+#End Region
+
+Sub Process_Globals
+	Public srvr As Server		
+End Sub
+
+Sub AppStart (Args() As String)
+	' Build the Theme
+	ABMShared.BuildTheme("mytheme")
+'	' the user needs to login
+	ABMShared.NeedsAuthorization = False
+	
+	ABMShared.TrackingID = "UA-73903814-1" ' IMPORTANT Change this to your own Google Analytics TrackingID !!!!!!!
+	
+	' create the app
+	Dim myApp As ABMApplication
+	myApp.Initialize
+	
+	' create the pages
+	Dim aboutp As AboutPage
+	aboutp.Initialize
+	
+	Dim compactionbuttonp As CompActionButtonPage
+	compactionbuttonp.Initialize
+	
+	Dim compaudioplayerp As CompAudioPlayerPage
+	compaudioplayerp.Initialize
+	
+	Dim compbadgep As CompBadgePage
+	compbadgep.Initialize
+	
+	Dim compbuttonp As CompButtonPage
+	compbuttonp.Initialize
+	
+	Dim compcalp As CompCalendarPage
+	compcalp.initialize
+	
+	Dim compcanvasp As CompCanvasPage
+	compcanvasp.Initialize
+	
+	Dim compcardp As CompCardPage
+	compcardp.Initialize
+	
+	Dim compchartp As CompChartPage
+	compchartp.initialize
+	
+	Dim compchatp As CompChatPage
+	compchatp.initialize
+	
+	Dim compcheckboxp As CompCheckboxPage
+	compcheckboxp.Initialize
+	
+	Dim compchipp As CompChipPage
+	compchipp.Initialize
+	
+	Dim compchronop As CompChronologyPage
+	compchronop.Initialize
+	
+	Dim compcodelabelp As CompCodeLabelPage
+	compcodelabelp.initialize
+	
+	Dim compcombop As CompComboPage
+	compcombop.Initialize
+	
+	Dim compcustp As CompCustomCompPage
+	compcustp.Initialize
+	
+	Dim compdtpickerp As CompDateTimePickerPage
+	compdtpickerp.initialize
+	
+	Dim compdtscrollerp As CompDateTimeScrollerPage
+	compdtscrollerp.initialize
+	
+	Dim compdividerp As CompDividerPage
+	compdividerp.initialize
+	
+	Dim compeditorp As CompEditorPage
+	compeditorp.initialize
+	
+	Dim compfileinputp As CompFileInputPage
+	compfileinputp.initialize
+	
+	Dim compgooglemapp As CompGoogleMapPage
+	compgooglemapp.Initialize
+	
+	Dim compimagep As CompImagePage
+	compimagep.Initialize
+	
+	Dim compinputp As CompInputPage
+	compinputp.Initialize
+	
+	Dim complabelp As CompLabelPage
+	complabelp.initialize
+	
+	Dim complistp As CompListPage
+	complistp.Initialize
+	
+	Dim compoauthp As CompOAuthPage
+	compoauthp.initialize
+	
+	Dim comppaginationp As CompPaginationPage
+	comppaginationp.initialize
+	
+	Dim comppatternlockp As CompPatternLockPage
+	comppatternlockp.initialize
+	
+	Dim comppdfviewerp As CompPDFViewerPage
+	comppdfviewerp.initialize
+	
+	Dim comppercentsliderp As CompPercentSliderPage
+	comppercentsliderp.initialize	
+	
+	Dim comppivottablep As CompPivotTablePage
+	comppivottablep.initialize
+	
+	Dim compplannerp As CompPlannerPage
+	compplannerp.initialize
+	
+	Dim compradiogroupp As CompRadioGroupPage
+	compradiogroupp.Initialize
+	
+	Dim comprangep As CompRangePage
+	comprangep.Initialize
+	
+	Dim compsignaturep As CompSignaturePage
+	compsignaturep.initialize
+	
+	Dim comprealsliderp As CompRealSliderPage
+	comprealsliderp.initialize
+	
+	Dim compsliderp As CompSliderPage
+	compsliderp.Initialize
+	
+	Dim compsocialsharep As CompSocialSharePage
+	compsocialsharep.Initialize
+	
+	Dim compsvgsurfacep As CompSVGSurfacePage
+	compsvgsurfacep.Initialize
+	
+	Dim compswitchp As CompSwitchPage
+	compswitchp.Initialize
+	
+	Dim comptimelinep As CompTimeLinePage
+	comptimelinep.Initialize
+	
+	Dim comptabsp As CompTabsPage
+	comptabsp.Initialize
+	
+	Dim comptreetablep As CompTreeTablePage
+	comptreetablep.Initialize
+	
+	Dim compuploadp As CompUploadPage
+	compuploadp.Initialize
+	
+	Dim compvideop As CompVideoPage
+	compvideop.Initialize
+	
+	Dim gettingstartedp As GettingStartedPage
+	gettingstartedp.Initialize
+	
+	Dim gridsp As GridsPage
+	gridsp.Initialize
+	
+	Dim helpercontainerp As HelperContainerPage
+	helpercontainerp.initialize
+	
+	Dim helperflexwallp As HelperFlexWallPage
+	helperflexwallp.initialize
+	
+	Dim helpergeneratorp As HelperGeneratorPage
+	helpergeneratorp.initialize
+	
+	Dim helpermodalsheetp As HelperModalSheetPage
+	helpermodalsheetp.initialize
+	
+	Dim helpernavbarp As HelperNavigationBarPage
+	helpernavbarp.initialize
+	
+	Dim helperpagep As HelperPagePage
+	helperpagep.initialize
+	
+	Dim helperparallaxp As HelperParallaxPage
+	helperparallaxp.Initialize
+	
+	Dim helpertablep As HelperTablePage
+	helpertablep.Initialize
+	
+	Dim helpertablemutablep As HelperTableMutablePage
+	helpertablemutablep.Initialize
+	
+	Dim iconsp As IconsPage
+	iconsp.initialize
+	
+	Dim themesp As ThemesPage
+	themesp.initialize
+	
+	Dim otherfirebasep As OtherFirebasePage
+	otherfirebasep.initialize
+	
+	Dim otherfirebasestorp As OtherFirebaseStorPage
+	otherfirebasestorp.initialize
+	
+	Dim donatorsxtralibsp As DonatorsExtraLibsPage
+	donatorsxtralibsp.initialize
+	
+	Dim testp As TestPage
+	testp.initialize
+
+
+'	' add the pages To the app
+	myApp.AddPage(aboutp.Page)
+	myApp.AddPage(compactionbuttonp.Page)
+	myApp.AddPage(compaudioplayerp.Page)
+	myApp.AddPage(compbadgep.Page)
+	myApp.AddPage(compbuttonp.Page)
+	myApp.AddPage(compcalp.Page)
+	myApp.AddPage(compcanvasp.Page)
+	myApp.AddPage(compcardp.Page)
+	myApp.AddPage(compchartp.Page)
+	myApp.AddPage(compchatp.Page)
+	myApp.AddPage(compcheckboxp.Page)
+	myApp.AddPage(compchipp.Page)
+	myApp.AddPage(compchronop.Page)
+	myApp.AddPage(compcodelabelp.Page)
+	myApp.AddPage(compcombop.Page)
+	myApp.AddPage(compcustp.Page)
+	myApp.AddPage(compdtpickerp.Page)
+	myApp.AddPage(compdtscrollerp.Page)
+	myApp.AddPage(compdividerp.Page)
+	myApp.AddPage(compeditorp.Page)
+	myApp.AddPage(compfileinputp.Page)
+	myApp.AddPage(compgooglemapp.Page)
+	myApp.AddPage(compimagep.Page)
+	myApp.AddPage(compinputp.Page)
+	myApp.AddPage(complabelp.Page)
+	myApp.AddPage(complistp.Page)
+	myApp.AddPage(compoauthp.Page)
+	myApp.AddPage(comppaginationp.Page)
+	myApp.AddPage(comppatternlockp.Page)
+	myApp.AddPage(comppdfviewerp.Page)
+	myApp.AddPage(comppercentsliderp.Page)
+	myApp.AddPage(comppivottablep.Page)
+	myApp.AddPage(compplannerp.Page)
+	myApp.AddPage(compradiogroupp.Page)
+	myApp.AddPage(comprangep.Page)
+	myApp.AddPage(compsignaturep.Page)
+	myApp.AddPage(comprealsliderp.Page)
+	myApp.AddPage(compsliderp.Page)
+	myApp.AddPage(compsocialsharep.Page)
+	myApp.AddPage(compsvgsurfacep.Page)
+	myApp.AddPage(compswitchp.Page)
+	myApp.AddPage(comptreetablep.Page)
+	myApp.AddPage(comptabsp.Page)
+	myApp.AddPage(comptimelinep.Page)
+	myApp.AddPage(compuploadp.Page)
+	myApp.AddPage(compvideop.Page)	
+	myApp.AddPage(gettingstartedp.Page)
+	myApp.AddPage(gridsp.Page)
+	myApp.AddPage(helpercontainerp.Page)
+	myApp.AddPage(helperflexwallp.Page)
+	myApp.AddPage(helpergeneratorp.Page)
+	myApp.AddPage(helpermodalsheetp.Page)
+	myApp.AddPage(helpernavbarp.Page)
+	myApp.AddPage(helperpagep.Page)
+	myApp.AddPage(helperparallaxp.Page)
+	myApp.AddPage(helpertablep.Page)	
+	myApp.AddPage(helpertablemutablep.Page)	
+	myApp.AddPage(iconsp.Page)	
+	myApp.AddPage(themesp.Page)
+	
+	myApp.AddPage(otherfirebasep.Page)
+	myApp.AddPage(otherfirebasestorp.Page)
+	
+	myApp.AddPage(donatorsxtralibsp.Page)
+	
+	myApp.AddPage(testp.Page)
+	
+	' start the server
+	myApp.StartServer(srvr, "srvr", 51042)	
+	
+	' start server HTTP/2
+	' myApp.StartServerHTTP2(srvr, "srvr", 51042, 51043, "keystore", "Thunder2000!", "Thunder2000!")
+	
+	ABMShared.RedirectOutput(File.DirApp, "logs.txt")
+	
+	StartMessageLoop
+End Sub

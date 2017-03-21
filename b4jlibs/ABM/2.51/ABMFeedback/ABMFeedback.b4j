@@ -1,0 +1,73 @@
+﻿Version=4.7
+AppType=StandardJava
+NumberOfModules=9
+Module1=ABMShared
+Module2=ABMUploadHandler
+Module3=ABMApplication
+Module4=OverviewCasesPage
+Module5=UsersPage
+Module6=DBM
+Module7=ABMSessionCreator
+Module8=ABMPageTemplate
+Module9=ABMCacheScavenger
+Build1=Default,abmfeedback.ab.com
+NumberOfFiles=0
+NumberOfLibraries=5
+Library1=jcore
+Library2=abmaterial
+Library3=jserver
+Library4=jsql
+Library5=javaobject
+@EndOfDesignText@
+'Non-UI application (console / server application)
+#Region  Project Attributes 
+	#CommandLineArgs:
+	#MergeLibraries: True 
+	
+	
+	#AdditionalJar: mysql-connector-java-5.1.37-bin 
+	' --------- for HTTP/2: enable, change to your java version (follow the instruction in http://www.b4x.com/android/forum/threads/server-http-2-configuration.61416/#content)
+	'#VirtualMachineArgs: -Xbootclasspath/p:alpn-boot-8.1.5.v20150921.jar   
+#End Region
+
+Sub Process_Globals
+	Public srvr As Server	
+End Sub
+
+Sub AppStart (Args() As String)
+	' Build the Theme
+	ABMShared.BuildTheme("mytheme")
+	' the user needs to login
+	ABMShared.NeedsAuthorization = True
+	
+	
+	
+	DBM.InitializeMySQL("yoururl", "yourlogin", "yourpassword", 100)	
+	
+	DBM.CreateTablesIfNeeded
+	
+	' create the app
+	Dim myApp As ABMApplication
+	myApp.Initialize
+	
+	' create the pages
+	Dim overviewcasesp As OverviewCasesPage
+	overviewcasesp.Initialize
+	Dim usersp As UsersPage
+	usersp.Initialize
+			
+	' add the pages to the app
+	myApp.AddPage(overviewcasesp.Page)
+	myApp.AddPage(usersp.Page)
+		
+	' start the server, http/1.1
+	myApp.StartServer(srvr, "srvr", 51044)	
+	
+	' start server HTTP/2
+	'myApp.StartServerHTTP2(srvr, "srvr", 51044, 51045, "keystore", "Thunder2000!", "Thunder2000!")
+	
+	ABMShared.RedirectOutput(File.DirApp, "logs.txt")
+	
+	StartMessageLoop
+End Sub
+

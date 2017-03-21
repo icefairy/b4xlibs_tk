@@ -571,7 +571,7 @@ Horizontal - Horizontal offset. Can be a positive or negative value.</comment>
             </parameter>
         </property>
     </class>
-    <version>1.3</version>
+    <version>1.4</version>
     <author>icefairy333</author>
     <dependsOn>AMapLocationKit.framework.3</dependsOn>
     <dependsOn>AMapFoundationKit.framework.3</dependsOn>

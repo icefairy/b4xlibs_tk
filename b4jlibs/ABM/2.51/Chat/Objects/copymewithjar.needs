@@ -1,0 +1,2 @@
+ABMApplication:NeedsInput;NeedsTextArea;NeedsMask
+ChatPage:NeedsChat;NeedsInput;NeedsTextArea;NeedsMask

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: http://prd.one-two.com:51042/demo/sitemap.xml
