@@ -50,9 +50,21 @@ _te._putdata("bodytext",(Object)("普通的￥文本<br>$3331'"));
 _te._putdata("my",(Object)(__c.createMap(new Object[] {(Object)("username"),(Object)("icefairy"),(Object)("comefrom"),(Object)("China")}).getObject()));
  //BA.debugLineNum = 17;BA.debugLine="te.putData(\"footertext\",\"关于我们（尾部）\")";
 _te._putdata("footertext",(Object)("关于我们（尾部）"));
- //BA.debugLineNum = 18;BA.debugLine="te.renderTPL(\"/live/live\")";
+ //BA.debugLineNum = 18;BA.debugLine="te.putData(\"logined\",1)";
+_te._putdata("logined",(Object)(1));
+ //BA.debugLineNum = 19;BA.debugLine="te.putData(\"isadmin\",0)";
+_te._putdata("isadmin",(Object)(0));
+ //BA.debugLineNum = 20;BA.debugLine="te.putData(\"onlyif\",1)";
+_te._putdata("onlyif",(Object)(1));
+ //BA.debugLineNum = 21;BA.debugLine="te.putData(\"inta\",3)";
+_te._putdata("inta",(Object)(3));
+ //BA.debugLineNum = 22;BA.debugLine="te.putData(\"stra\",\"aaa\")";
+_te._putdata("stra",(Object)("aaa"));
+ //BA.debugLineNum = 23;BA.debugLine="te.putData(\"onlyiffalse\",0)";
+_te._putdata("onlyiffalse",(Object)(0));
+ //BA.debugLineNum = 24;BA.debugLine="te.renderTPL(\"/live/live\")";
 _te._rendertpl("/live/live");
- //BA.debugLineNum = 19;BA.debugLine="End Sub";
+ //BA.debugLineNum = 25;BA.debugLine="End Sub";
 return "";
 }
 public String  _initialize(anywheresoftware.b4a.BA _ba) throws Exception{

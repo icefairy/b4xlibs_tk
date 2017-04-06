@@ -51,80 +51,102 @@ if (true) return _ret;
 return null;
 }
 public static String  _getdatetime() throws Exception{
- //BA.debugLineNum = 58;BA.debugLine="Public Sub getdatetime As String";
- //BA.debugLineNum = 59;BA.debugLine="DateTime.DateFormat=\"yyyy-MM-dd\"";
+ //BA.debugLineNum = 67;BA.debugLine="Public Sub getdatetime As String";
+ //BA.debugLineNum = 68;BA.debugLine="DateTime.DateFormat=\"yyyy-MM-dd\"";
 anywheresoftware.b4a.keywords.Common.DateTime.setDateFormat("yyyy-MM-dd");
- //BA.debugLineNum = 60;BA.debugLine="Return DateTime.Date(DateTime.Now)&\" \"&DateTime.T";
+ //BA.debugLineNum = 69;BA.debugLine="Return DateTime.Date(DateTime.Now)&\" \"&DateTime.T";
 if (true) return anywheresoftware.b4a.keywords.Common.DateTime.Date(anywheresoftware.b4a.keywords.Common.DateTime.getNow())+" "+anywheresoftware.b4a.keywords.Common.DateTime.Time(anywheresoftware.b4a.keywords.Common.DateTime.getNow());
- //BA.debugLineNum = 61;BA.debugLine="End Sub";
+ //BA.debugLineNum = 70;BA.debugLine="End Sub";
 return "";
 }
 public static String  _gettext(String _str,String _signa,String _signb,boolean _strict) throws Exception{
 int _a = 0;
 int _b = 0;
- //BA.debugLineNum = 34;BA.debugLine="Public Sub getText(str As String,signa As String,s";
- //BA.debugLineNum = 35;BA.debugLine="Dim a,b As Int";
+ //BA.debugLineNum = 35;BA.debugLine="Public Sub getText(str As String,signa As String,s";
+ //BA.debugLineNum = 36;BA.debugLine="Dim a,b As Int";
 _a = 0;
 _b = 0;
- //BA.debugLineNum = 36;BA.debugLine="a=str.IndexOf(signa)";
+ //BA.debugLineNum = 37;BA.debugLine="a=str.IndexOf(signa)";
 _a = _str.indexOf(_signa);
- //BA.debugLineNum = 37;BA.debugLine="If a<0 Then Return \"\"";
+ //BA.debugLineNum = 38;BA.debugLine="If a<0 Then Return \"\"";
 if (_a<0) { 
 if (true) return "";};
- //BA.debugLineNum = 38;BA.debugLine="b=str.IndexOf2(signb,a+1)";
+ //BA.debugLineNum = 39;BA.debugLine="b=str.IndexOf2(signb,a+1)";
 _b = _str.indexOf(_signb,(int) (_a+1));
- //BA.debugLineNum = 39;BA.debugLine="If strict Then";
+ //BA.debugLineNum = 40;BA.debugLine="If strict Then";
 if (_strict) { 
- //BA.debugLineNum = 40;BA.debugLine="If b<0 Then Return \"\" Else Return str.SubString2";
+ //BA.debugLineNum = 41;BA.debugLine="If b<0 Then Return \"\" Else Return str.SubString2";
 if (_b<0) { 
 if (true) return "";}
 else {
 if (true) return _str.substring((int) (_a+_signa.length()),_b);};
  }else {
- //BA.debugLineNum = 42;BA.debugLine="If b<0 Then Return str.SubString(a) Else Return";
+ //BA.debugLineNum = 43;BA.debugLine="If b<0 Then Return str.SubString(a) Else Return";
 if (_b<0) { 
 if (true) return _str.substring(_a);}
 else {
 if (true) return _str.substring(_a,(int) (_b+_signb.length()));};
  };
- //BA.debugLineNum = 45;BA.debugLine="End Sub";
+ //BA.debugLineNum = 46;BA.debugLine="End Sub";
+return "";
+}
+public static String  _gettext2(String _str,String _signa,String _signb) throws Exception{
+int _a = 0;
+int _b = 0;
+ //BA.debugLineNum = 48;BA.debugLine="Public Sub getText2(str As String,signa As String,";
+ //BA.debugLineNum = 49;BA.debugLine="Dim a,b As Int";
+_a = 0;
+_b = 0;
+ //BA.debugLineNum = 50;BA.debugLine="a=str.IndexOf(signa)";
+_a = _str.indexOf(_signa);
+ //BA.debugLineNum = 51;BA.debugLine="If a<0 Then Return \"\"";
+if (_a<0) { 
+if (true) return "";};
+ //BA.debugLineNum = 52;BA.debugLine="b=str.IndexOf2(signb,a+1)";
+_b = _str.indexOf(_signb,(int) (_a+1));
+ //BA.debugLineNum = 53;BA.debugLine="If b<0 Then Return \"\" Else Return str.SubString2(";
+if (_b<0) { 
+if (true) return "";}
+else {
+if (true) return _str.substring(_a,(int) (_b+_signb.length()));};
+ //BA.debugLineNum = 54;BA.debugLine="End Sub";
 return "";
 }
 public static String  _gettextrev(String _str,String _signa,String _signb,boolean _strict) throws Exception{
 String[] _strs = null;
 int _a = 0;
- //BA.debugLineNum = 47;BA.debugLine="Public Sub getTextRev(str As String,signa As Strin";
- //BA.debugLineNum = 48;BA.debugLine="Dim strs() As String=Regex.Split(signb,str)";
+ //BA.debugLineNum = 56;BA.debugLine="Public Sub getTextRev(str As String,signa As Strin";
+ //BA.debugLineNum = 57;BA.debugLine="Dim strs() As String=Regex.Split(signb,str)";
 _strs = anywheresoftware.b4a.keywords.Common.Regex.Split(_signb,_str);
- //BA.debugLineNum = 49;BA.debugLine="If strs.Length>1 Then";
+ //BA.debugLineNum = 58;BA.debugLine="If strs.Length>1 Then";
 if (_strs.length>1) { 
- //BA.debugLineNum = 50;BA.debugLine="Dim a As Int";
+ //BA.debugLineNum = 59;BA.debugLine="Dim a As Int";
 _a = 0;
- //BA.debugLineNum = 51;BA.debugLine="a=strs(0).LastIndexOf(signa)";
+ //BA.debugLineNum = 60;BA.debugLine="a=strs(0).LastIndexOf(signa)";
 _a = _strs[(int) (0)].lastIndexOf(_signa);
- //BA.debugLineNum = 52;BA.debugLine="If a>-1 Then";
+ //BA.debugLineNum = 61;BA.debugLine="If a>-1 Then";
 if (_a>-1) { 
- //BA.debugLineNum = 53;BA.debugLine="Return strs(0).SubString(a+signa.Length)";
+ //BA.debugLineNum = 62;BA.debugLine="Return strs(0).SubString(a+signa.Length)";
 if (true) return _strs[(int) (0)].substring((int) (_a+_signa.length()));
  };
  };
- //BA.debugLineNum = 56;BA.debugLine="Return \"\"";
+ //BA.debugLineNum = 65;BA.debugLine="Return \"\"";
 if (true) return "";
- //BA.debugLineNum = 57;BA.debugLine="End Sub";
+ //BA.debugLineNum = 66;BA.debugLine="End Sub";
 return "";
 }
 public static String  _getuuid() throws Exception{
 anywheresoftware.b4j.object.JavaObject _jo = null;
- //BA.debugLineNum = 62;BA.debugLine="Public Sub getuuid As String";
- //BA.debugLineNum = 63;BA.debugLine="Dim jo As JavaObject";
+ //BA.debugLineNum = 71;BA.debugLine="Public Sub getuuid As String";
+ //BA.debugLineNum = 72;BA.debugLine="Dim jo As JavaObject";
 _jo = new anywheresoftware.b4j.object.JavaObject();
- //BA.debugLineNum = 64;BA.debugLine="jo=Me";
+ //BA.debugLineNum = 73;BA.debugLine="jo=Me";
 _jo.setObject((java.lang.Object)(g.getObject()));
- //BA.debugLineNum = 65;BA.debugLine="jo.InitializeStatic(\"java.util.UUID\")";
+ //BA.debugLineNum = 74;BA.debugLine="jo.InitializeStatic(\"java.util.UUID\")";
 _jo.InitializeStatic("java.util.UUID");
- //BA.debugLineNum = 66;BA.debugLine="Return jo.RunMethodJO(\"randomUUID\",Null).RunMetho";
+ //BA.debugLineNum = 75;BA.debugLine="Return jo.RunMethodJO(\"randomUUID\",Null).RunMetho";
 if (true) return BA.ObjectToString(_jo.RunMethodJO("randomUUID",(Object[])(anywheresoftware.b4a.keywords.Common.Null)).RunMethod("toString",(Object[])(anywheresoftware.b4a.keywords.Common.Null)));
- //BA.debugLineNum = 70;BA.debugLine="End Sub";
+ //BA.debugLineNum = 79;BA.debugLine="End Sub";
 return "";
 }
 public static String  _json(boolean _success,Object _data) throws Exception{

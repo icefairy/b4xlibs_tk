@@ -36,6 +36,7 @@ Public Sub copyMap(m As Map) As Map
 	Next
 	Return ret
 End Sub
+'严格模式下没找到特征就返回空文本
 Public Sub getText(str As String,signa As String,signb As String,strict As Boolean) As String
 	Dim a,b As Int
 	a=str.IndexOf(signa)
@@ -47,6 +48,14 @@ Public Sub getText(str As String,signa As String,signb As String,strict As Boole
 		If b<0 Then Return str.SubString(a) Else Return str.SubString2(a,b+signb.Length)
 	End If
 	
+End Sub
+'根据标志返回文本（包括标志本身)
+Public Sub getText2(str As String,signa As String,signb As String) As String
+	Dim a,b As Int
+	a=str.IndexOf(signa)
+	If a<0 Then Return ""
+	b=str.IndexOf2(signb,a+1)
+	If b<0 Then Return "" Else Return str.SubString2(a,b+signb.Length)
 End Sub
 '反向查找,先找尾部的再根据尾部的index找首部
 Public Sub getTextRev(str As String,signa As String,signb As String,strict As Boolean) As String

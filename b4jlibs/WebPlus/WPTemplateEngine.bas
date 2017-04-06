@@ -55,6 +55,7 @@ End Sub
 Public Sub getData(key As String) As Object
 	If mapData.ContainsKey(key) Then Return mapData.Get(key) Else Return ""
 End Sub
+'绑定返回对象
 Public Sub bindResponse(resp As ServletResponse)
 	res=resp
 End Sub
@@ -98,7 +99,6 @@ Private Sub getTPLContent(TPLFilePath As String) As String
 		tmp0=processFOR(tmp0)
 		tmp0=processMapVar(tmp0)
 		tmp0=processVar(tmp0)
-		
 	Else
 		Log("Error:TPLFile:"&getTPLPath& TPLFilePath&" Not exist!")
 	End If
@@ -109,7 +109,59 @@ Private Sub processFOR(tmp0 As String) As String
 	Return tmp0
 End Sub
 '解析IF条件语句
-Private Sub processIF(tmp0 As String) As String
+Private Sub processIF(tmpinput As String) As String
+	Dim tmp0 As String=tmpinput
+	Dim signs(2) As String=Array As String("{# if ","{# endif #}","{# else #}")
+	Dim flg As String=G.getText2(tmp0,signs(0),signs(1))
+	Do While flg.Length>0
+		Dim match0 As String=G.getText2(tmp0,signs(0),signs(1))
+		Log(match0)
+'		tmp0=tmp0.Replace(replaceRegexSpecal(signs(0)),"").Replace(replaceRegexSpecal(signs(1)),"")
+		Dim tiaojian As String=G.getText(match0,signs(0),"#}",True).Trim
+		Dim ifelsestrs() As String=Regex.Split(replaceRegexSpecal(signs(2)),match0)
+		Dim iftrue As String=ifelsestrs(0).SubString(ifelsestrs(0).IndexOf("#}")+2)
+		Dim iffalse As String
+		If ifelsestrs.Length>1 Then
+			iffalse=ifelsestrs(1).SubString2(0,ifelsestrs(1).Length-11)
+		Else
+			iffalse=""
+			iftrue=iftrue.SubString2(0,iftrue.Length-11)
+		End If
+		If tiaojian.IndexOf("=")>-1 Then
+			'其他值判断
+			tiaojian=tiaojian.Replace("==","=")'==换成=
+			Dim pds() As String=Regex.Split("=",tiaojian)
+			If pds(1).IndexOf(QUOTE)>-1 Then
+				'文本判断
+				Dim val As String=pds(1).Replace(QUOTE,"")
+				If val.CompareTo(mapData.GetDefault(pds(0),""))=0 Then
+					'条件成立
+					tmp0=Regex.Replace(replaceRegexSpecal(match0),tmp0,replaceRegexSpecal(iftrue))
+				Else
+					'条件不成立
+					tmp0=Regex.Replace(replaceRegexSpecal(match0),tmp0,iffalse)
+				End If
+			Else
+				'数值判断
+				Dim mathval As Int=pds(1)
+				If mapData.GetDefault(pds(0),0)=mathval Then
+					'条件成立
+					tmp0=Regex.Replace(replaceRegexSpecal(match0),tmp0,replaceRegexSpecal(iftrue))
+				Else
+					'条件不成立
+					tmp0=Regex.Replace(replaceRegexSpecal(match0),tmp0,iffalse)
+				End If
+			End If
+		Else
+			'逻辑值判断
+			If mapData.GetDefault(tiaojian,0)=1 Then
+				tmp0=Regex.Replace(replaceRegexSpecal(match0),tmp0,replaceRegexSpecal(iftrue))
+			Else
+				tmp0=Regex.Replace(replaceRegexSpecal(match0),tmp0,iffalse)			
+			End If
+		End If
+		flg=G.getText2(tmp0,signs(0),signs(1))
+	Loop
 	Return tmp0
 End Sub
 Private Sub processIncludes(tmp0 As String) As String
@@ -210,10 +262,10 @@ End Sub
 Private Sub getTPLPath As String
 	Dim tplpath As String=File.Combine(File.DirApp,ViewBasePath)
 	If ThemeName.Length>0 Then
-		tplpath=File.Combine(tplpath,ThemeName)
 		If File.Exists(tplpath,ThemeName)=False Or File.IsDirectory(tplpath,ThemeName)=False Then
 			File.MakeDir(tplpath,ThemeName)
 		End If
+		tplpath=File.Combine(tplpath,ThemeName)
 	End If
 	Return tplpath
 End Sub
