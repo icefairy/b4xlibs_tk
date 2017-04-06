@@ -96,6 +96,7 @@ Private Sub getTPLContent(TPLFilePath As String) As String
 		tmp0=processIncludes(tmp0)
 		tmp0=processIF(tmp0)
 		tmp0=processFOR(tmp0)
+		tmp0=processMapVar(tmp0)
 		tmp0=processVar(tmp0)
 		
 	Else
@@ -126,10 +127,48 @@ Private Sub processIncludes(tmp0 As String) As String
 	Loop
 	Return tmp0
 End Sub
-'解析变量
+'解析Map变量
+Private Sub processMapVar(tmp0 As String) As String
+	'开始解析变量，regex:{#\s*\$.*?\s*#}
+	Dim regsign0 As String=$"{#\s*[a-zA-z]+\.+[^\s]*\s*#}"$
+	regsign0=replaceRegexSpecal(regsign0)
+	Dim tplvars As Matcher=Regex.Matcher(regsign0,tmp0)
+	Do While tplvars.Find
+		Dim match0 As String=tplvars.Match
+		mLog(match0)
+		Dim needhtml As Boolean=False
+		Dim matchedvarname As String=match0.Replace("{","").Replace("}","").Replace("#","").Replace("$","").Trim
+		needhtml=matchedvarname.StartsWith("h_")'如果变量名以h_开头则自动进行html编码后输出
+		matchedvarname=matchedvarname.Replace("h_","")
+		Dim varcontent As String
+		Dim matchedvarnames() As String=Regex.Split("\.",matchedvarname)
+		If matchedvarnames.Length>0 Then
+			If mapData.ContainsKey(matchedvarnames(0)) Then
+				Dim m As Map=mapData.Get(matchedvarnames(0))
+				varcontent=m.GetDefault(matchedvarnames(1),matchedvarnames(1))
+			Else
+				varcontent="map:"&matchedvarnames(0)&" not exist"
+			End If
+		Else
+			If mapData.ContainsKey(matchedvarname) Then
+				
+				varcontent= mapData.GetDefault(matchedvarname,matchedvarname)
+				If needhtml Then varcontent=EscapeHtml(varcontent)
+			Else
+				'					mLog("未知变量:"&matchedvarname)
+				varcontent="unknown var:"&matchedvarname
+			End If
+		End If
+		match0=replaceRegexSpecal(match0)
+		tmp0=Regex.Replace(match0,tmp0,replaceRegexSpecal(varcontent))
+	Loop
+	Return tmp0
+End Sub
+'解析普通变量
 Private Sub processVar(tmp0 As String) As String
 	'开始解析变量，regex:{#\s*\$.*?\s*#}
-	Dim regsign0 As String=$"\{#\s*\$.*?\.+*?\s*#\}"$
+	Dim regsign0 As String=$"{#\s*$.*?\s*#}"$
+	regsign0=replaceRegexSpecal(regsign0)
 	Dim tplvars As Matcher=Regex.Matcher(regsign0,tmp0)
 	Do While tplvars.Find
 		Dim match0 As String=tplvars.Match
