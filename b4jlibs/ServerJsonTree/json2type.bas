@@ -1,5 +1,5 @@
 ﻿Type=Class
-Version=4.2
+Version=5
 ModulesStructureVersion=1
 B4J=true
 @EndOfDesignText@
@@ -27,7 +27,7 @@ Sub Handle(req As ServletRequest, resp As ServletResponse)
 			Dim parser As JSONParser
 			parser.Initialize(text)
 			Dim m As Map=parser.NextObject
-'			Dim code As StringBuilder
+			'			Dim code As StringBuilder
 			code.Initialize
 			convertCode.Initialize
 			map2typecode(m,"root")
@@ -44,41 +44,50 @@ Sub Handle(req As ServletRequest, resp As ServletResponse)
 End Sub
 '递归调用
 Private Sub map2typecode(m As Map,keyname As String)
-	Dim sb,convertSb As StringBuilder
+	Dim sb,convertSb,convertSb2 As StringBuilder
 	sb.Initialize
 	convertSb.Initialize
+	convertSb2.Initialize
 	If keyname=Null Or keyname.Length<1 Then keyname="root"
 	keyname="typ"&getFirstUpper(keyname)
 	sb.Append("Type "&keyname&"(")
-	convertSb.Append("Sub parseStr2"&keyname&"(str As String) As "&keyname).Append(CRLF)
+	convertSb.Append("Public Sub parseStr2"&keyname&"(str As String) As "&keyname).Append(CRLF)
 	convertSb.Append(TAB&"Dim parser As JSONParser"&CRLF&TAB&"parser.Initialize(str)"&CRLF&TAB&"Return map2"&keyname&"(parser.NextObject)"&CRLF&"End Sub"&CRLF)
-	convertSb.Append("Sub map2"&keyname&"(m As Map) As "&keyname).Append(CRLF)
+	convertSb2.Append("Public Sub "&keyname&"2Map(typ As "&keyname&") As Map"&CRLF)
+	convertSb.Append("Public Sub map2"&keyname&"(m As Map) As "&keyname).Append(CRLF)
 	convertSb.Append(TAB&"Dim ret As "&keyname).Append(CRLF).Append(TAB&"ret.Initialize").Append(CRLF)
+	convertSb2.Append(TAB&"Dim ret As Map").Append(CRLF).Append(TAB&"ret.Initialize").Append(CRLF)
 	For i=0 To m.Size-1
 		Dim k As String=m.GetKeyAt(i)
 		Dim valobj As Object=m.GetValueAt(i)
 		Dim typ As String=GetType(valobj).Replace("java.lang.","")
-'		Log("key:"&k&" valtype:"&typ)
+		'		Log("key:"&k&" valtype:"&typ)
 		Select typ
-		Case "String"
-			sb.Append(k&" As "&typ)
-			convertSb.Append(TAB&$"ret.${k}=m.GetDefault("${k}","")"$&CRLF)
-		Case "Double"
-			sb.Append(k&" As "&typ)
-			convertSb.Append(TAB&$"ret.${k}=m.GetDefault("${k}",0)"$&CRLF)
-		Case "Integer"
-			sb.Append(k&" As Int")
-			convertSb.Append(TAB&$"ret.${k}=m.GetDefault("${k}",0)"$&CRLF)
-		Case "anywheresoftware.b4a.objects.collections.Map$MyMap"
-			map2typecode(m.Get(k),k)
-			sb.Append(k&" As typ"&getFirstUpper(k))
-			convertSb.Append(TAB&$"ret.${k}=map2typ${getFirstUpper(k)}(m.Get("${k}"))"$&CRLF)
-		Case "java.util.ArrayList"
-			sb.Append(k&" As List")
-			convertSb.Append(TAB&$"ret.${k}=m.Get("${k}")"$&CRLF)
-		Case Else
-			sb.Append(k&" As UnknowType_"&typ)
-			convertSb.Append(TAB&$"ret.${k}=m.Get("${k}")"$&CRLF)
+			Case "String"
+				sb.Append(k&" As "&typ)
+				convertSb.Append(TAB&$"ret.${k}=m.GetDefault("${k}","")"$&CRLF)
+				convertSb2.Append(TAB&$"ret.Put("${k}",typ.${k})"$&CRLF)
+			Case "Double"
+				sb.Append(k&" As "&typ)
+				convertSb.Append(TAB&$"ret.${k}=m.GetDefault("${k}",0)"$&CRLF)
+				convertSb2.Append(TAB&$"ret.Put("${k}",typ.${k})"$&CRLF)
+			Case "Integer"
+				sb.Append(k&" As Int")
+				convertSb.Append(TAB&$"ret.${k}=m.GetDefault("${k}",0)"$&CRLF)
+				convertSb2.Append(TAB&$"ret.Put("${k}",typ.${k})"$&CRLF)
+			Case "anywheresoftware.b4a.objects.collections.Map$MyMap"
+				map2typecode(m.Get(k),k)
+				sb.Append(k&" As typ"&getFirstUpper(k))
+				convertSb.Append(TAB&$"ret.${k}=map2typ${getFirstUpper(k)}(m.Get("${k}"))"$&CRLF)
+				convertSb2.Append(TAB&$"ret.Put("${k}",typ.${k})"$&CRLF)
+			Case "java.util.ArrayList"
+				sb.Append(k&" As List")
+				convertSb.Append(TAB&$"ret.${k}=m.Get("${k}")"$&CRLF)
+				convertSb2.Append(TAB&$"ret.Put("${k}",typ.${k})"$&CRLF)
+			Case Else
+				sb.Append(k&" As UnknowType_"&typ)
+				convertSb.Append(TAB&$"ret.${k}=m.Get("${k}")"$&CRLF)
+				convertSb2.Append(TAB&$"ret.Put("${k}",typ.${k})"$&CRLF)
 		End Select
 		sb.Append(",")
 	Next
@@ -91,11 +100,15 @@ Private Sub map2typecode(m As Map,keyname As String)
 		convertSb.Append(TAB&"Return ret"&CRLF&"End Sub")
 		convertCode.Append(convertSb&CRLF)
 	End If
+	If convertSb2.Length>0 Then
+		convertSb2.Append(TAB&"Return ret"&CRLF&"End Sub")
+		convertCode.Append(convertSb2.ToString&CRLF)
+	End If
 End Sub
 Private Sub getFirstUpper(str As String) As String
 	If str.Length>0 Then
 		Return str.SubString2(0,1).ToUpperCase&str.SubString(1)
 	Else
-		Return ""	
+		Return ""
 	End If
 End Sub

@@ -3,7 +3,7 @@
 <head>
  <title>B4X JsonParseTool</title>
  <link rel="stylesheet" type="text/css" href="index.css" />
- <script src="jquery.min.js"></script>
+ <script src="/jquery-1.9.1.min.js"></script>
  <script src="jquery.autosize.js"></script>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
  <meta name="viewport" content="width=device-width">
@@ -11,17 +11,17 @@
  <body>
 	<h1>B4X JsonParser</h1>
 	<div id='btns'>
-<<<<<<< HEAD
-	<button id="btnParse" class='btncmd'> Parse </button>
-	<button id="btnParse2java" class='btncmd'> Parse2Java </button>
-=======
 	<ul class='btn'>
 	<li><a id="btnParse" href='#'> Parse </a></li>
 	<li><a id="btnParse2type" href='#'> Parse2Type </a></li>
 	<li><a id="btnParse2java" href='#'> Parse2Java </a></li>
 	<li><a id="btnParseview" href='#'> xml2code </a></li>
+	<br><br>
+	<input id="oldname" width="100px" type="text" value="typRoot" /><input id="newname" placeholder="input new class name" type="text" />
+	<input type="button" value="replace" id="btnreplace" />
 	</ul>
->>>>>>> master
+	
+	<br>
 	</div>
 	<div id="main">
 		<div id="rawTextDiv">
@@ -29,14 +29,22 @@
 		</div>
 		<div id="treeDiv">
 		</div>
-		<textarea id="codeP">Build 20160727
+		<textarea id="codeP">Build 20170411
 		
 changelog:
+2017-4-11 11:16:16
+1.add map2typxx
+2.add typxx2map
+
 2016-7-27 13:03:21
 1.xml layout to code
 2.parse json to b4x code(org style)</textarea>
 	</div>
 	<script>
+	String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
 	$( document ).ready(function() {
 		$("#textarea").autosize();
 		$("#btnParse").click(function(e) {
@@ -62,8 +70,6 @@ changelog:
 			});
 			
 		});
-<<<<<<< HEAD
-=======
 			$("#btnParse2type").click(function(e) {
 			e.preventDefault();
 			$.ajax({
@@ -87,30 +93,7 @@ changelog:
 			});
 			
 		});
->>>>>>> master
-		$("#btnParseview").click(function(e) {
-			e.preventDefault();
-			$.ajax({
-				type: "POST",
-				url: "xml2code",
-				data: $("#textarea").val(), 
-			   success: function(result)
-			   {
-				   if (result.success) {
-						$("#codeP").html(result.code);
-						 $("#treeDiv").html(result.tree);
-						 $("ul li:last-child").addClass('last');
-				   }
-				   else {
-						alert(result.error);
-				   }
-			   },
-				error: function (xhr, ajaxOptions, thrownError) {
-					alert(thrownError);
-				}
-			});
-			
-		});
+
 			$("#btnParse2java").click(function(e) {
 			e.preventDefault();
 			$.ajax({
@@ -133,6 +116,13 @@ changelog:
 				}
 			});
 			
+		});
+		$("#btnreplace").click(function(e){
+			var code=$("#codeP").val();
+			var oldname=$("#oldname").val();
+			var newname=$("#newname").val();
+			code=code.replaceAll(oldname,newname);
+			$("#codeP").val(code);
 		});
 		$("#btnParsenew").click(function(e) {
 			e.preventDefault();
