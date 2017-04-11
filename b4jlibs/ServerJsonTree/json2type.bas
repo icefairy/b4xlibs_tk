@@ -65,8 +65,14 @@ Private Sub map2typecode(m As Map,keyname As String)
 		Select typ
 			Case "String"
 				sb.Append(k&" As "&typ)
-				convertSb.Append(TAB&$"ret.${k}=m.GetDefault("${k}","")"$&CRLF)
-				convertSb2.Append(TAB&$"ret.Put("${k}",typ.${k})"$&CRLF)
+				If k.EqualsIgnoreCase("id") Then
+					convertSb.Append(TAB&$"ret.${k}=m.GetDefault("_${k}","")"$&CRLF)
+					convertSb2.Append(TAB&$"ret.Put("_${k}",typ.${k})"$&CRLF)
+				Else
+					convertSb.Append(TAB&$"ret.${k}=m.GetDefault("${k}","")"$&CRLF)
+					convertSb2.Append(TAB&$"ret.Put("${k}",typ.${k})"$&CRLF)
+				End If
+				
 			Case "Double"
 				sb.Append(k&" As "&typ)
 				convertSb.Append(TAB&$"ret.${k}=m.GetDefault("${k}",0)"$&CRLF)

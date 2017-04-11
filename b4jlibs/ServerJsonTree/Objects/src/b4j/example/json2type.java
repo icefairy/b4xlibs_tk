@@ -40,16 +40,16 @@ _convertcode = new anywheresoftware.b4a.keywords.StringBuilderWrapper();
 return "";
 }
 public String  _getfirstupper(String _str) throws Exception{
- //BA.debugLineNum = 103;BA.debugLine="Private Sub getFirstUpper(str As String) As String";
- //BA.debugLineNum = 104;BA.debugLine="If str.Length>0 Then";
+ //BA.debugLineNum = 109;BA.debugLine="Private Sub getFirstUpper(str As String) As String";
+ //BA.debugLineNum = 110;BA.debugLine="If str.Length>0 Then";
 if (_str.length()>0) { 
- //BA.debugLineNum = 105;BA.debugLine="Return str.SubString2(0,1).ToUpperCase&str.SubSt";
+ //BA.debugLineNum = 111;BA.debugLine="Return str.SubString2(0,1).ToUpperCase&str.SubSt";
 if (true) return _str.substring((int) (0),(int) (1)).toUpperCase()+_str.substring((int) (1));
  }else {
- //BA.debugLineNum = 107;BA.debugLine="Return \"\"";
+ //BA.debugLineNum = 113;BA.debugLine="Return \"\"";
 if (true) return "";
  };
- //BA.debugLineNum = 109;BA.debugLine="End Sub";
+ //BA.debugLineNum = 115;BA.debugLine="End Sub";
 return "";
 }
 public String  _handle(anywheresoftware.b4j.object.JServlet.ServletRequestWrapper _req,anywheresoftware.b4j.object.JServlet.ServletResponseWrapper _resp) throws Exception{
@@ -171,83 +171,91 @@ switch (BA.switchObjectToInt(_typ,"String","Double","Integer","anywheresoftware.
 case 0: {
  //BA.debugLineNum = 62;BA.debugLine="sb.Append(k&\" As \"&typ)";
 _sb.Append(_k+" As "+_typ);
- //BA.debugLineNum = 63;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.GetDefault(\"";
+ //BA.debugLineNum = 63;BA.debugLine="If k.EqualsIgnoreCase(\"id\") Then";
+if (_k.equalsIgnoreCase("id")) { 
+ //BA.debugLineNum = 64;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.GetDefault(";
+_convertsb.Append(__c.TAB+("ret."+__c.SmartStringFormatter("",(Object)(_k))+"=m.GetDefault(\"_"+__c.SmartStringFormatter("",(Object)(_k))+"\",\"\")")+__c.CRLF);
+ //BA.debugLineNum = 65;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"_${k}\",typ.$";
+_convertsb2.Append(__c.TAB+("ret.Put(\"_"+__c.SmartStringFormatter("",(Object)(_k))+"\",typ."+__c.SmartStringFormatter("",(Object)(_k))+")")+__c.CRLF);
+ }else {
+ //BA.debugLineNum = 67;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.GetDefault(";
 _convertsb.Append(__c.TAB+("ret."+__c.SmartStringFormatter("",(Object)(_k))+"=m.GetDefault(\""+__c.SmartStringFormatter("",(Object)(_k))+"\",\"\")")+__c.CRLF);
- //BA.debugLineNum = 64;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
+ //BA.debugLineNum = 68;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${";
 _convertsb2.Append(__c.TAB+("ret.Put(\""+__c.SmartStringFormatter("",(Object)(_k))+"\",typ."+__c.SmartStringFormatter("",(Object)(_k))+")")+__c.CRLF);
+ };
  break; }
 case 1: {
- //BA.debugLineNum = 66;BA.debugLine="sb.Append(k&\" As \"&typ)";
+ //BA.debugLineNum = 72;BA.debugLine="sb.Append(k&\" As \"&typ)";
 _sb.Append(_k+" As "+_typ);
- //BA.debugLineNum = 67;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.GetDefault(\"";
+ //BA.debugLineNum = 73;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.GetDefault(\"";
 _convertsb.Append(__c.TAB+("ret."+__c.SmartStringFormatter("",(Object)(_k))+"=m.GetDefault(\""+__c.SmartStringFormatter("",(Object)(_k))+"\",0)")+__c.CRLF);
- //BA.debugLineNum = 68;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
+ //BA.debugLineNum = 74;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
 _convertsb2.Append(__c.TAB+("ret.Put(\""+__c.SmartStringFormatter("",(Object)(_k))+"\",typ."+__c.SmartStringFormatter("",(Object)(_k))+")")+__c.CRLF);
  break; }
 case 2: {
- //BA.debugLineNum = 70;BA.debugLine="sb.Append(k&\" As Int\")";
+ //BA.debugLineNum = 76;BA.debugLine="sb.Append(k&\" As Int\")";
 _sb.Append(_k+" As Int");
- //BA.debugLineNum = 71;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.GetDefault(\"";
+ //BA.debugLineNum = 77;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.GetDefault(\"";
 _convertsb.Append(__c.TAB+("ret."+__c.SmartStringFormatter("",(Object)(_k))+"=m.GetDefault(\""+__c.SmartStringFormatter("",(Object)(_k))+"\",0)")+__c.CRLF);
- //BA.debugLineNum = 72;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
+ //BA.debugLineNum = 78;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
 _convertsb2.Append(__c.TAB+("ret.Put(\""+__c.SmartStringFormatter("",(Object)(_k))+"\",typ."+__c.SmartStringFormatter("",(Object)(_k))+")")+__c.CRLF);
  break; }
 case 3: {
- //BA.debugLineNum = 74;BA.debugLine="map2typecode(m.Get(k),k)";
+ //BA.debugLineNum = 80;BA.debugLine="map2typecode(m.Get(k),k)";
 _map2typecode((anywheresoftware.b4a.objects.collections.Map) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.collections.Map(), (anywheresoftware.b4a.objects.collections.Map.MyMap)(_m.Get((Object)(_k)))),_k);
- //BA.debugLineNum = 75;BA.debugLine="sb.Append(k&\" As typ\"&getFirstUpper(k))";
+ //BA.debugLineNum = 81;BA.debugLine="sb.Append(k&\" As typ\"&getFirstUpper(k))";
 _sb.Append(_k+" As typ"+_getfirstupper(_k));
- //BA.debugLineNum = 76;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=map2typ${getFi";
+ //BA.debugLineNum = 82;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=map2typ${getFi";
 _convertsb.Append(__c.TAB+("ret."+__c.SmartStringFormatter("",(Object)(_k))+"=map2typ"+__c.SmartStringFormatter("",(Object)(_getfirstupper(_k)))+"(m.Get(\""+__c.SmartStringFormatter("",(Object)(_k))+"\"))")+__c.CRLF);
- //BA.debugLineNum = 77;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
+ //BA.debugLineNum = 83;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
 _convertsb2.Append(__c.TAB+("ret.Put(\""+__c.SmartStringFormatter("",(Object)(_k))+"\",typ."+__c.SmartStringFormatter("",(Object)(_k))+")")+__c.CRLF);
  break; }
 case 4: {
- //BA.debugLineNum = 79;BA.debugLine="sb.Append(k&\" As List\")";
+ //BA.debugLineNum = 85;BA.debugLine="sb.Append(k&\" As List\")";
 _sb.Append(_k+" As List");
- //BA.debugLineNum = 80;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.Get(\"${k}\")\"";
+ //BA.debugLineNum = 86;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.Get(\"${k}\")\"";
 _convertsb.Append(__c.TAB+("ret."+__c.SmartStringFormatter("",(Object)(_k))+"=m.Get(\""+__c.SmartStringFormatter("",(Object)(_k))+"\")")+__c.CRLF);
- //BA.debugLineNum = 81;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
+ //BA.debugLineNum = 87;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
 _convertsb2.Append(__c.TAB+("ret.Put(\""+__c.SmartStringFormatter("",(Object)(_k))+"\",typ."+__c.SmartStringFormatter("",(Object)(_k))+")")+__c.CRLF);
  break; }
 default: {
- //BA.debugLineNum = 83;BA.debugLine="sb.Append(k&\" As UnknowType_\"&typ)";
+ //BA.debugLineNum = 89;BA.debugLine="sb.Append(k&\" As UnknowType_\"&typ)";
 _sb.Append(_k+" As UnknowType_"+_typ);
- //BA.debugLineNum = 84;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.Get(\"${k}\")\"";
+ //BA.debugLineNum = 90;BA.debugLine="convertSb.Append(TAB&$\"ret.${k}=m.Get(\"${k}\")\"";
 _convertsb.Append(__c.TAB+("ret."+__c.SmartStringFormatter("",(Object)(_k))+"=m.Get(\""+__c.SmartStringFormatter("",(Object)(_k))+"\")")+__c.CRLF);
- //BA.debugLineNum = 85;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
+ //BA.debugLineNum = 91;BA.debugLine="convertSb2.Append(TAB&$\"ret.Put(\"${k}\",typ.${k";
 _convertsb2.Append(__c.TAB+("ret.Put(\""+__c.SmartStringFormatter("",(Object)(_k))+"\",typ."+__c.SmartStringFormatter("",(Object)(_k))+")")+__c.CRLF);
  break; }
 }
 ;
- //BA.debugLineNum = 87;BA.debugLine="sb.Append(\",\")";
+ //BA.debugLineNum = 93;BA.debugLine="sb.Append(\",\")";
 _sb.Append(",");
  }
 };
- //BA.debugLineNum = 89;BA.debugLine="If sb.Length>0 Then";
+ //BA.debugLineNum = 95;BA.debugLine="If sb.Length>0 Then";
 if (_sb.getLength()>0) { 
- //BA.debugLineNum = 90;BA.debugLine="sb.Remove(sb.Length-1,sb.Length)";
+ //BA.debugLineNum = 96;BA.debugLine="sb.Remove(sb.Length-1,sb.Length)";
 _sb.Remove((int) (_sb.getLength()-1),_sb.getLength());
- //BA.debugLineNum = 91;BA.debugLine="sb.Append(\")\")";
+ //BA.debugLineNum = 97;BA.debugLine="sb.Append(\")\")";
 _sb.Append(")");
- //BA.debugLineNum = 92;BA.debugLine="code.Append(sb.ToString).Append(CRLF)";
+ //BA.debugLineNum = 98;BA.debugLine="code.Append(sb.ToString).Append(CRLF)";
 _code.Append(_sb.ToString()).Append(__c.CRLF);
  };
- //BA.debugLineNum = 94;BA.debugLine="If convertSb.Length>0 Then";
+ //BA.debugLineNum = 100;BA.debugLine="If convertSb.Length>0 Then";
 if (_convertsb.getLength()>0) { 
- //BA.debugLineNum = 95;BA.debugLine="convertSb.Append(TAB&\"Return ret\"&CRLF&\"End Sub\"";
+ //BA.debugLineNum = 101;BA.debugLine="convertSb.Append(TAB&\"Return ret\"&CRLF&\"End Sub\"";
 _convertsb.Append(__c.TAB+"Return ret"+__c.CRLF+"End Sub");
- //BA.debugLineNum = 96;BA.debugLine="convertCode.Append(convertSb&CRLF)";
+ //BA.debugLineNum = 102;BA.debugLine="convertCode.Append(convertSb&CRLF)";
 _convertcode.Append(BA.ObjectToString(_convertsb)+__c.CRLF);
  };
- //BA.debugLineNum = 98;BA.debugLine="If convertSb2.Length>0 Then";
+ //BA.debugLineNum = 104;BA.debugLine="If convertSb2.Length>0 Then";
 if (_convertsb2.getLength()>0) { 
- //BA.debugLineNum = 99;BA.debugLine="convertSb2.Append(TAB&\"Return ret\"&CRLF&\"End Sub";
+ //BA.debugLineNum = 105;BA.debugLine="convertSb2.Append(TAB&\"Return ret\"&CRLF&\"End Sub";
 _convertsb2.Append(__c.TAB+"Return ret"+__c.CRLF+"End Sub");
- //BA.debugLineNum = 100;BA.debugLine="convertCode.Append(convertSb2.ToString&CRLF)";
+ //BA.debugLineNum = 106;BA.debugLine="convertCode.Append(convertSb2.ToString&CRLF)";
 _convertcode.Append(_convertsb2.ToString()+__c.CRLF);
  };
- //BA.debugLineNum = 102;BA.debugLine="End Sub";
+ //BA.debugLineNum = 108;BA.debugLine="End Sub";
 return "";
 }
 public Object callSub(String sub, Object sender, Object[] args) throws Exception {
