@@ -227,7 +227,8 @@ _themes.Initialize2(anywheresoftware.b4a.keywords.Common.ArrayToList(new String[
 {
 final int step9 = 1;
 final int limit9 = (int) (_names.getSize()-1);
-for (_i = (int) (0) ; (step9 > 0 && _i <= limit9) || (step9 < 0 && _i >= limit9); _i = ((int)(0 + _i + step9)) ) {
+_i = (int) (0) ;
+for (;(step9 > 0 && _i <= limit9) || (step9 < 0 && _i >= limit9) ;_i = ((int)(0 + _i + step9))  ) {
  //BA.debugLineNum = 523;BA.debugLine="Dim Values As List";
 _values = new anywheresoftware.b4a.objects.collections.List();
  //BA.debugLineNum = 524;BA.debugLine="Values.Initialize";
@@ -271,7 +272,8 @@ _themes.Initialize2(anywheresoftware.b4a.keywords.Common.ArrayToList(new String[
 {
 final int step8 = 1;
 final int limit8 = (int) (_names.getSize()-1);
-for (_i = (int) (0) ; (step8 > 0 && _i <= limit8) || (step8 < 0 && _i >= limit8); _i = ((int)(0 + _i + step8)) ) {
+_i = (int) (0) ;
+for (;(step8 > 0 && _i <= limit8) || (step8 < 0 && _i >= limit8) ;_i = ((int)(0 + _i + step8))  ) {
  //BA.debugLineNum = 545;BA.debugLine="Dim Values As List";
 _values = new anywheresoftware.b4a.objects.collections.List();
  //BA.debugLineNum = 546;BA.debugLine="Values.Initialize";

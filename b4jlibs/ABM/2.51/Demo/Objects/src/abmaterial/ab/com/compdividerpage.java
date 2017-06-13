@@ -137,7 +137,8 @@ _page.Cell((int) (4),(int) (1)).AddComponent((com.ab.abmaterial.ABMComponent)(_a
 {
 final int step10 = 1;
 final int limit10 = (int) (4);
-for (_i = (int) (2) ; (step10 > 0 && _i <= limit10) || (step10 < 0 && _i >= limit10); _i = ((int)(0 + _i + step10)) ) {
+_i = (int) (2) ;
+for (;(step10 > 0 && _i <= limit10) || (step10 < 0 && _i >= limit10) ;_i = ((int)(0 + _i + step10))  ) {
  //BA.debugLineNum = 153;BA.debugLine="Dim div2 As ABMDivider";
 _div2 = new com.ab.abmaterial.ABMDivider();
  //BA.debugLineNum = 154;BA.debugLine="div2.Initialize(page, \"div\" & i, \"lightblue\")";

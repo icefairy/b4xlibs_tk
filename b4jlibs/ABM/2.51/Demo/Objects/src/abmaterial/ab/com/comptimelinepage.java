@@ -334,7 +334,8 @@ _lastnames.Initialize2(anywheresoftware.b4a.keywords.Common.ArrayToList(new Stri
 {
 final int step21 = 1;
 final int limit21 = (int) (9);
-for (_i = (int) (0) ; (step21 > 0 && _i <= limit21) || (step21 < 0 && _i >= limit21); _i = ((int)(0 + _i + step21)) ) {
+_i = (int) (0) ;
+for (;(step21 > 0 && _i <= limit21) || (step21 < 0 && _i >= limit21) ;_i = ((int)(0 + _i + step21))  ) {
  //BA.debugLineNum = 196;BA.debugLine="Dim r As List";
 _r = new anywheresoftware.b4a.objects.collections.List();
  //BA.debugLineNum = 197;BA.debugLine="Dim rCellThemes As List";

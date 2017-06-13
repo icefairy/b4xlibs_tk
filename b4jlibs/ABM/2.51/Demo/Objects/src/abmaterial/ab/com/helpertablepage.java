@@ -70,7 +70,8 @@ _rand = __c.Rnd((int) (1),(int) (20));
 {
 final int step4 = 1;
 final int limit4 = _rand;
-for (_i = (int) (0) ; (step4 > 0 && _i <= limit4) || (step4 < 0 && _i >= limit4); _i = ((int)(0 + _i + step4)) ) {
+_i = (int) (0) ;
+for (;(step4 > 0 && _i <= limit4) || (step4 < 0 && _i >= limit4) ;_i = ((int)(0 + _i + step4))  ) {
  //BA.debugLineNum = 325;BA.debugLine="Dim r As List";
 _r = new anywheresoftware.b4a.objects.collections.List();
  //BA.debugLineNum = 326;BA.debugLine="Dim rCellThemes As List";
@@ -277,7 +278,8 @@ _tbl1.SetHeaderThemes(anywheresoftware.b4a.keywords.Common.ArrayToList(new Strin
 {
 final int step11 = 1;
 final int limit11 = (int) (9);
-for (_i = (int) (0) ; (step11 > 0 && _i <= limit11) || (step11 < 0 && _i >= limit11); _i = ((int)(0 + _i + step11)) ) {
+_i = (int) (0) ;
+for (;(step11 > 0 && _i <= limit11) || (step11 < 0 && _i >= limit11) ;_i = ((int)(0 + _i + step11))  ) {
  //BA.debugLineNum = 188;BA.debugLine="Dim r As List";
 _r = new anywheresoftware.b4a.objects.collections.List();
  //BA.debugLineNum = 189;BA.debugLine="Dim rCellThemes As List";
@@ -361,7 +363,8 @@ _lname = "";
 {
 final int step52 = 1;
 final int limit52 = (int) (9);
-for (_i = (int) (0) ; (step52 > 0 && _i <= limit52) || (step52 < 0 && _i >= limit52); _i = ((int)(0 + _i + step52)) ) {
+_i = (int) (0) ;
+for (;(step52 > 0 && _i <= limit52) || (step52 < 0 && _i >= limit52) ;_i = ((int)(0 + _i + step52))  ) {
  //BA.debugLineNum = 249;BA.debugLine="Dim r As List";
 _r = new anywheresoftware.b4a.objects.collections.List();
  //BA.debugLineNum = 250;BA.debugLine="Dim rCellThemes As List";

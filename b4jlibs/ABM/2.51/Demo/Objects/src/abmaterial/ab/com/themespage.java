@@ -58,7 +58,8 @@ _colstring = "COLOR_"+_col.toUpperCase();
 {
 final int step4 = 1;
 final int limit4 = (int) (9);
-for (_i = (int) (0) ; (step4 > 0 && _i <= limit4) || (step4 < 0 && _i >= limit4); _i = ((int)(0 + _i + step4)) ) {
+_i = (int) (0) ;
+for (;(step4 > 0 && _i <= limit4) || (step4 < 0 && _i >= limit4) ;_i = ((int)(0 + _i + step4))  ) {
  //BA.debugLineNum = 398;BA.debugLine="Dim r As List";
 _r = new anywheresoftware.b4a.objects.collections.List();
  //BA.debugLineNum = 399;BA.debugLine="Dim t As List";
@@ -117,7 +118,8 @@ _colstring = "COLOR_"+_col.toUpperCase();
 {
 final int step4 = 1;
 final int limit4 = (int) (13);
-for (_i = (int) (0) ; (step4 > 0 && _i <= limit4) || (step4 < 0 && _i >= limit4); _i = ((int)(0 + _i + step4)) ) {
+_i = (int) (0) ;
+for (;(step4 > 0 && _i <= limit4) || (step4 < 0 && _i >= limit4) ;_i = ((int)(0 + _i + step4))  ) {
  //BA.debugLineNum = 369;BA.debugLine="Dim r As List";
 _r = new anywheresoftware.b4a.objects.collections.List();
  //BA.debugLineNum = 370;BA.debugLine="Dim t As List";
@@ -287,12 +289,14 @@ _theme.AddTableTheme("ColorTable");
 {
 final int step6 = 1;
 final int limit6 = (int) (15);
-for (_i = (int) (0) ; (step6 > 0 && _i <= limit6) || (step6 < 0 && _i >= limit6); _i = ((int)(0 + _i + step6)) ) {
+_i = (int) (0) ;
+for (;(step6 > 0 && _i <= limit6) || (step6 < 0 && _i >= limit6) ;_i = ((int)(0 + _i + step6))  ) {
  //BA.debugLineNum = 102;BA.debugLine="For j = 0 To 13";
 {
 final int step7 = 1;
 final int limit7 = (int) (13);
-for (_j = (int) (0) ; (step7 > 0 && _j <= limit7) || (step7 < 0 && _j >= limit7); _j = ((int)(0 + _j + step7)) ) {
+_j = (int) (0) ;
+for (;(step7 > 0 && _j <= limit7) || (step7 < 0 && _j >= limit7) ;_j = ((int)(0 + _j + step7))  ) {
  //BA.debugLineNum = 103;BA.debugLine="theme.Table(\"ColorTable\").AddCellTheme(Colors.G";
 _theme.Table("ColorTable").AddCellTheme(BA.ObjectToString(_colors.Get(_i))+BA.NumberToString(_j));
  //BA.debugLineNum = 104;BA.debugLine="theme.Table(\"ColorTable\").Cell(Colors.Get(i) &";
@@ -307,12 +311,14 @@ _theme.Table("ColorTable").Cell(BA.ObjectToString(_colors.Get(_i))+BA.NumberToSt
 {
 final int step13 = 1;
 final int limit13 = (int) (18);
-for (_i = (int) (16) ; (step13 > 0 && _i <= limit13) || (step13 < 0 && _i >= limit13); _i = ((int)(0 + _i + step13)) ) {
+_i = (int) (16) ;
+for (;(step13 > 0 && _i <= limit13) || (step13 < 0 && _i >= limit13) ;_i = ((int)(0 + _i + step13))  ) {
  //BA.debugLineNum = 109;BA.debugLine="For j = 0 To 9";
 {
 final int step14 = 1;
 final int limit14 = (int) (9);
-for (_j = (int) (0) ; (step14 > 0 && _j <= limit14) || (step14 < 0 && _j >= limit14); _j = ((int)(0 + _j + step14)) ) {
+_j = (int) (0) ;
+for (;(step14 > 0 && _j <= limit14) || (step14 < 0 && _j >= limit14) ;_j = ((int)(0 + _j + step14))  ) {
  //BA.debugLineNum = 110;BA.debugLine="theme.Table(\"ColorTable\").AddCellTheme(Colors.G";
 _theme.Table("ColorTable").AddCellTheme(BA.ObjectToString(_colors.Get(_i))+BA.NumberToString(_j));
  //BA.debugLineNum = 111;BA.debugLine="theme.Table(\"ColorTable\").Cell(Colors.Get(i) &";
@@ -349,7 +355,8 @@ _zdepths.Initialize2(anywheresoftware.b4a.keywords.Common.ArrayToList(new String
 {
 final int step31 = 1;
 final int limit31 = (int) (5);
-for (_i = (int) (0) ; (step31 > 0 && _i <= limit31) || (step31 < 0 && _i >= limit31); _i = ((int)(0 + _i + step31)) ) {
+_i = (int) (0) ;
+for (;(step31 > 0 && _i <= limit31) || (step31 < 0 && _i >= limit31) ;_i = ((int)(0 + _i + step31))  ) {
  //BA.debugLineNum = 130;BA.debugLine="theme.AddLabelTheme(\"zdepth\" & i)";
 _theme.AddLabelTheme("zdepth"+BA.NumberToString(_i));
  //BA.debugLineNum = 131;BA.debugLine="theme.Label(\"zdepth\" & i).ZDepth = Zdepths.get(i";
@@ -469,7 +476,8 @@ _page.Cell((int) (14),(int) (1)).AddComponent((com.ab.abmaterial.ABMComponent)(_
 {
 final int step37 = 1;
 final int limit37 = (int) (5);
-for (_i = (int) (1) ; (step37 > 0 && _i <= limit37) || (step37 < 0 && _i >= limit37); _i = ((int)(0 + _i + step37)) ) {
+_i = (int) (1) ;
+for (;(step37 > 0 && _i <= limit37) || (step37 < 0 && _i >= limit37) ;_i = ((int)(0 + _i + step37))  ) {
  //BA.debugLineNum = 319;BA.debugLine="Dim lbl As ABMLabel";
 _lbl = new com.ab.abmaterial.ABMLabel();
  //BA.debugLineNum = 320;BA.debugLine="lbl.Initialize(page, \"lbl\" & i, \"ZDEPTH_\" & i ,A";

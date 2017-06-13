@@ -116,7 +116,8 @@ _ang = 0;
 {
 final int step21 = 1;
 final int limit21 = (int) (12);
-for (_num = (int) (1) ; (step21 > 0 && _num <= limit21) || (step21 < 0 && _num >= limit21); _num = ((int)(0 + _num + step21)) ) {
+_num = (int) (1) ;
+for (;(step21 > 0 && _num <= limit21) || (step21 < 0 && _num >= limit21) ;_num = ((int)(0 + _num + step21))  ) {
  //BA.debugLineNum = 504;BA.debugLine="ang = num * cPI / 6";
 _ang = _num*__c.cPI/(double)6;
  //BA.debugLineNum = 505;BA.debugLine="clock.rotate(ang)";

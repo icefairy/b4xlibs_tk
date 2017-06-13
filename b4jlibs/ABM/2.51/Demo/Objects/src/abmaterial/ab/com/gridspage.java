@@ -163,7 +163,8 @@ _page.Cell((int) (1),(int) (1)).AddComponent((com.ab.abmaterial.ABMComponent)(_a
 {
 final int step11 = 1;
 final int limit11 = (int) (12);
-for (_i = (int) (1) ; (step11 > 0 && _i <= limit11) || (step11 < 0 && _i >= limit11); _i = ((int)(0 + _i + step11)) ) {
+_i = (int) (1) ;
+for (;(step11 > 0 && _i <= limit11) || (step11 < 0 && _i >= limit11) ;_i = ((int)(0 + _i + step11))  ) {
  //BA.debugLineNum = 160;BA.debugLine="page.Cell(2,i).UseTheme(\"cellLB\")";
 _page.Cell((int) (2),_i).UseTheme("cellLB");
  //BA.debugLineNum = 161;BA.debugLine="Dim lblGrid As ABMLabel";

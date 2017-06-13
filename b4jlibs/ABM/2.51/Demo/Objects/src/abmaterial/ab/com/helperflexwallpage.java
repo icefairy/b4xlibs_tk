@@ -114,7 +114,8 @@ _flexwall.Initialize(_page,"flexwall",(int) (350));
 {
 final int step5 = 1;
 final int limit5 = (int) (20);
-for (_i = (int) (1) ; (step5 > 0 && _i <= limit5) || (step5 < 0 && _i >= limit5); _i = ((int)(0 + _i + step5)) ) {
+_i = (int) (1) ;
+for (;(step5 > 0 && _i <= limit5) || (step5 < 0 && _i >= limit5) ;_i = ((int)(0 + _i + step5))  ) {
  //BA.debugLineNum = 134;BA.debugLine="flexWall.AddImage(ABMShared.BuildImage(page, \"im";
 _flexwall.AddImage(_abmshared._buildimage(_page,"img"+BA.NumberToString(_i),"../images2/"+BA.NumberToString(_i)+".jpg",1,BA.NumberToString(_i)+".jpg"),(int) (1024),(int) (768));
  }

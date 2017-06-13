@@ -108,7 +108,8 @@ _s = "";
 {
 final int step2 = 1;
 final int limit2 = (int) (_columns.getSize()-1);
-for (_i = (int) (0) ; (step2 > 0 && _i <= limit2) || (step2 < 0 && _i >= limit2); _i = ((int)(0 + _i + step2)) ) {
+_i = (int) (0) ;
+for (;(step2 > 0 && _i <= limit2) || (step2 < 0 && _i >= limit2) ;_i = ((int)(0 + _i + step2))  ) {
  //BA.debugLineNum = 36;BA.debugLine="s = s & Columns.Get(i)";
 _s = _s+BA.ObjectToString(_columns.Get(_i));
  }
@@ -128,7 +129,8 @@ _s = "";
 {
 final int step2 = 1;
 final int limit2 = (int) (_rows.getSize()-1);
-for (_i = (int) (0) ; (step2 > 0 && _i <= limit2) || (step2 < 0 && _i >= limit2); _i = ((int)(0 + _i + step2)) ) {
+_i = (int) (0) ;
+for (;(step2 > 0 && _i <= limit2) || (step2 < 0 && _i >= limit2) ;_i = ((int)(0 + _i + step2))  ) {
  //BA.debugLineNum = 44;BA.debugLine="s = s & Rows.Get(i)";
 _s = _s+BA.ObjectToString(_rows.Get(_i));
  }

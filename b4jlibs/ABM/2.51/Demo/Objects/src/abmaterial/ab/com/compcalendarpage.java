@@ -142,7 +142,8 @@ _eventlist.Initialize();
 {
 final int step8 = 1;
 final int limit8 = (int) (15);
-for (_i = (int) (0) ; (step8 > 0 && _i <= limit8) || (step8 < 0 && _i >= limit8); _i = ((int)(0 + _i + step8)) ) {
+_i = (int) (0) ;
+for (;(step8 > 0 && _i <= limit8) || (step8 < 0 && _i >= limit8) ;_i = ((int)(0 + _i + step8))  ) {
  //BA.debugLineNum = 196;BA.debugLine="Dim ev As ABMCalendarEvent";
 _ev = new com.ab.abmaterial.ABMCalendarEvent();
  //BA.debugLineNum = 197;BA.debugLine="Dim per As Period";

@@ -1,6 +1,6 @@
 Analysing: ABMPrint.bas
 ABMPrint.bas[0] ﻿Type=StaticCode 
-ABMPrint.bas[0] Version=4.7 
+ABMPrint.bas[0] Version=5.45 
 ABMPrint.bas[0] ModulesStructureVersion=1 
 ABMPrint.bas[0] B4J=true 
 ABMPrint.bas[0] @EndOfDesignText@ 
@@ -143,7 +143,7 @@ ABMPrint.bas[136]
 ABMPrint.bas[137]  
 Analysing: ABMShared.bas
 ABMShared.bas[0] ﻿Type=StaticCode 
-ABMShared.bas[0] Version=4.7 
+ABMShared.bas[0] Version=5.45 
 ABMShared.bas[0] ModulesStructureVersion=1 
 ABMShared.bas[0] B4J=true 
 ABMShared.bas[0] @EndOfDesignText@ 
@@ -782,7 +782,7 @@ ABMShared.bas[632]  Return cont
 ABMShared.bas[633] End Sub 
 Analysing: ABMApplication.bas
 ABMApplication.bas[0] ﻿Type=Class 
-ABMApplication.bas[0] Version=4.7 
+ABMApplication.bas[0] Version=5.45 
 ABMApplication.bas[0] ModulesStructureVersion=1 
 ABMApplication.bas[0] B4J=true 
 ABMApplication.bas[0] @EndOfDesignText@ 
@@ -1163,7 +1163,7 @@ ABMApplication.bas[374]  ABMShared.NavigateToPage(ws, ABMPageId, {206} & Initial
 ABMApplication.bas[375] End Sub 
 Analysing: ABMCacheScavenger.bas
 ABMCacheScavenger.bas[0] ﻿Type=Class 
-ABMCacheScavenger.bas[0] Version=4.7 
+ABMCacheScavenger.bas[0] Version=5.45 
 ABMCacheScavenger.bas[0] ModulesStructureVersion=1 
 ABMCacheScavenger.bas[0] B4J=true 
 ABMCacheScavenger.bas[0] @EndOfDesignText@ 
@@ -1185,7 +1185,7 @@ ABMCacheScavenger.bas[15]  ABM.ScavengeCache(ABMShared.CachedPages)
 ABMCacheScavenger.bas[16] End Sub 
 Analysing: ABMPageTemplate.bas
 ABMPageTemplate.bas[0] ﻿Type=Class 
-ABMPageTemplate.bas[0] Version=4.7 
+ABMPageTemplate.bas[0] Version=5.45 
 ABMPageTemplate.bas[0] ModulesStructureVersion=1 
 ABMPageTemplate.bas[0] B4J=true 
 ABMPageTemplate.bas[0] @EndOfDesignText@ 
@@ -1327,7 +1327,7 @@ ABMPageTemplate.bas[135] End Sub
 ABMPageTemplate.bas[136]  
 Analysing: ABMSessionCreator.bas
 ABMSessionCreator.bas[0] ﻿Type=Class 
-ABMSessionCreator.bas[0] Version=4.7 
+ABMSessionCreator.bas[0] Version=5.45 
 ABMSessionCreator.bas[0] ModulesStructureVersion=1 
 ABMSessionCreator.bas[0] B4J=true 
 ABMSessionCreator.bas[0] @EndOfDesignText@ 
@@ -1352,7 +1352,7 @@ ABMSessionCreator.bas[18]  Return True
 ABMSessionCreator.bas[19] End Sub 
 Analysing: ABMUploadHandler.bas
 ABMUploadHandler.bas[0] ﻿Type=Class 
-ABMUploadHandler.bas[0] Version=4.7 
+ABMUploadHandler.bas[0] Version=5.45 
 ABMUploadHandler.bas[0] ModulesStructureVersion=1 
 ABMUploadHandler.bas[0] B4J=true 
 ABMUploadHandler.bas[0] @EndOfDesignText@ 
@@ -1420,7 +1420,7 @@ ABMUploadHandler.bas[61]  End Try
 ABMUploadHandler.bas[62] End Sub 
 Analysing: AboutPage.bas
 AboutPage.bas[0] ﻿Type=Class 
-AboutPage.bas[0] Version=4.7 
+AboutPage.bas[0] Version=5.45 
 AboutPage.bas[0] ModulesStructureVersion=1 
 AboutPage.bas[0] B4J=true 
 AboutPage.bas[0] @EndOfDesignText@ 
@@ -1653,7 +1653,7 @@ AboutPage.bas[226] End Sub
 AboutPage.bas[227]  
 Analysing: CompActionButtonPage.bas
 CompActionButtonPage.bas[0] ﻿Type=Class 
-CompActionButtonPage.bas[0] Version=4.7 
+CompActionButtonPage.bas[0] Version=5.45 
 CompActionButtonPage.bas[0] ModulesStructureVersion=1 
 CompActionButtonPage.bas[0] B4J=true 
 CompActionButtonPage.bas[0] @EndOfDesignText@ 
@@ -1948,7 +1948,7 @@ CompActionButtonPage.bas[288]  Return
 CompActionButtonPage.bas[289] End Sub 
 Analysing: CompAudioPlayerPage.bas
 CompAudioPlayerPage.bas[0] ﻿Type=Class 
-CompAudioPlayerPage.bas[0] Version=4.7 
+CompAudioPlayerPage.bas[0] Version=5.45 
 CompAudioPlayerPage.bas[0] ModulesStructureVersion=1 
 CompAudioPlayerPage.bas[0] B4J=true 
 CompAudioPlayerPage.bas[0] @EndOfDesignText@ 
@@ -2236,7 +2236,7 @@ CompAudioPlayerPage.bas[357]  Return l
 CompAudioPlayerPage.bas[358] End Sub 
 Analysing: CompBadgePage.bas
 CompBadgePage.bas[0] ﻿Type=Class 
-CompBadgePage.bas[0] Version=4.7 
+CompBadgePage.bas[0] Version=5.45 
 CompBadgePage.bas[0] ModulesStructureVersion=1 
 CompBadgePage.bas[0] B4J=true 
 CompBadgePage.bas[0] @EndOfDesignText@ 
@@ -2546,7 +2546,7 @@ CompBadgePage.bas[303]  badge.Refresh ' IMPORTANT
 CompBadgePage.bas[304] End Sub 
 Analysing: CompButtonPage.bas
 CompButtonPage.bas[0] ﻿Type=Class 
-CompButtonPage.bas[0] Version=4.7 
+CompButtonPage.bas[0] Version=5.45 
 CompButtonPage.bas[0] ModulesStructureVersion=1 
 CompButtonPage.bas[0] B4J=true 
 CompButtonPage.bas[0] @EndOfDesignText@ 
@@ -2947,7 +2947,7 @@ CompButtonPage.bas[394]  page.ShowModalSheet( {254} )
 CompButtonPage.bas[395] End Sub 
 Analysing: CompCalendarPage.bas
 CompCalendarPage.bas[0] ﻿Type=Class 
-CompCalendarPage.bas[0] Version=4.7 
+CompCalendarPage.bas[0] Version=5.45 
 CompCalendarPage.bas[0] ModulesStructureVersion=1 
 CompCalendarPage.bas[0] B4J=true 
 CompCalendarPage.bas[0] @EndOfDesignText@ 
@@ -3198,7 +3198,7 @@ CompCalendarPage.bas[244]  Log( {72} & eventId & {73} & NewEnd)
 CompCalendarPage.bas[245] End Sub 
 Analysing: CompCanvasPage.bas
 CompCanvasPage.bas[0] ﻿Type=Class 
-CompCanvasPage.bas[0] Version=4.7 
+CompCanvasPage.bas[0] Version=5.45 
 CompCanvasPage.bas[0] ModulesStructureVersion=1 
 CompCanvasPage.bas[0] B4J=true 
 CompCanvasPage.bas[0] @EndOfDesignText@ 
@@ -3787,7 +3787,7 @@ CompCanvasPage.bas[582] End Sub
 CompCanvasPage.bas[583]  
 Analysing: CompCardPage.bas
 CompCardPage.bas[0] ﻿Type=Class 
-CompCardPage.bas[0] Version=4.7 
+CompCardPage.bas[0] Version=5.45 
 CompCardPage.bas[0] ModulesStructureVersion=1 
 CompCardPage.bas[0] B4J=true 
 CompCardPage.bas[0] @EndOfDesignText@ 
@@ -4379,7 +4379,7 @@ CompCardPage.bas[585]
 CompCardPage.bas[586]  
 Analysing: CompChartPage.bas
 CompChartPage.bas[0] ﻿Type=Class 
-CompChartPage.bas[0] Version=4.7 
+CompChartPage.bas[0] Version=5.45 
 CompChartPage.bas[0] ModulesStructureVersion=1 
 CompChartPage.bas[0] B4J=true 
 CompChartPage.bas[0] @EndOfDesignText@ 
@@ -4867,7 +4867,7 @@ CompChartPage.bas[501]  End If
 CompChartPage.bas[502] End Sub 
 Analysing: CompChatPage.bas
 CompChatPage.bas[0] ﻿Type=Class 
-CompChatPage.bas[0] Version=4.7 
+CompChatPage.bas[0] Version=5.45 
 CompChatPage.bas[0] ModulesStructureVersion=1 
 CompChatPage.bas[0] B4J=true 
 CompChatPage.bas[0] @EndOfDesignText@ 
@@ -5050,7 +5050,7 @@ CompChatPage.bas[178]  ABMShared.NavigateToPage(ws, ABMPageId, {56} )
 CompChatPage.bas[179] End Sub 
 Analysing: CompCheckboxPage.bas
 CompCheckboxPage.bas[0] ﻿Type=Class 
-CompCheckboxPage.bas[0] Version=4.7 
+CompCheckboxPage.bas[0] Version=5.45 
 CompCheckboxPage.bas[0] ModulesStructureVersion=1 
 CompCheckboxPage.bas[0] B4J=true 
 CompCheckboxPage.bas[0] @EndOfDesignText@ 
@@ -5294,7 +5294,7 @@ CompCheckboxPage.bas[237]  page.ShowToast( {131} & myToastId, {132} , {133} & ch
 CompCheckboxPage.bas[238] End Sub 
 Analysing: CompChipPage.bas
 CompChipPage.bas[0] ﻿Type=Class 
-CompChipPage.bas[0] Version=4.7 
+CompChipPage.bas[0] Version=5.45 
 CompChipPage.bas[0] ModulesStructureVersion=1 
 CompChipPage.bas[0] B4J=true 
 CompChipPage.bas[0] @EndOfDesignText@ 
@@ -5633,7 +5633,7 @@ CompChipPage.bas[332] End Sub
 CompChipPage.bas[333]  
 Analysing: CompChronologyPage.bas
 CompChronologyPage.bas[0] ﻿Type=Class 
-CompChronologyPage.bas[0] Version=4.7 
+CompChronologyPage.bas[0] Version=5.45 
 CompChronologyPage.bas[0] ModulesStructureVersion=1 
 CompChronologyPage.bas[0] B4J=true 
 CompChronologyPage.bas[0] @EndOfDesignText@ 
@@ -5989,7 +5989,7 @@ CompChronologyPage.bas[352]
 CompChronologyPage.bas[353]  
 Analysing: CompCodeLabelPage.bas
 CompCodeLabelPage.bas[0] ﻿Type=Class 
-CompCodeLabelPage.bas[0] Version=4.7 
+CompCodeLabelPage.bas[0] Version=5.45 
 CompCodeLabelPage.bas[0] ModulesStructureVersion=1 
 CompCodeLabelPage.bas[0] B4J=true 
 CompCodeLabelPage.bas[0] @EndOfDesignText@ 
@@ -6179,7 +6179,7 @@ CompCodeLabelPage.bas[186]  ABMShared.NavigateToPage(ws, ABMPageId, {79} )
 CompCodeLabelPage.bas[187] End Sub 
 Analysing: CompComboPage.bas
 CompComboPage.bas[0] ﻿Type=Class 
-CompComboPage.bas[0] Version=4.7 
+CompComboPage.bas[0] Version=5.45 
 CompComboPage.bas[0] ModulesStructureVersion=1 
 CompComboPage.bas[0] B4J=true 
 CompComboPage.bas[0] @EndOfDesignText@ 
@@ -6467,7 +6467,7 @@ CompComboPage.bas[281]  Log(combo1.GetActiveItemId)
 CompComboPage.bas[282] End Sub 
 Analysing: CompCustomCompPage.bas
 CompCustomCompPage.bas[0] ﻿Type=Class 
-CompCustomCompPage.bas[0] Version=4.7 
+CompCustomCompPage.bas[0] Version=5.45 
 CompCustomCompPage.bas[0] ModulesStructureVersion=1 
 CompCustomCompPage.bas[0] B4J=true 
 CompCustomCompPage.bas[0] @EndOfDesignText@ 
@@ -6696,7 +6696,7 @@ CompCustomCompPage.bas[227]  ABMShared.NavigateToPage(ws, ABMPageId, {118} )
 CompCustomCompPage.bas[228] End Sub 
 Analysing: CompDateTimePickerPage.bas
 CompDateTimePickerPage.bas[0] ﻿Type=Class 
-CompDateTimePickerPage.bas[0] Version=4.7 
+CompDateTimePickerPage.bas[0] Version=5.45 
 CompDateTimePickerPage.bas[0] ModulesStructureVersion=1 
 CompDateTimePickerPage.bas[0] B4J=true 
 CompDateTimePickerPage.bas[0] @EndOfDesignText@ 
@@ -6953,7 +6953,7 @@ CompDateTimePickerPage.bas[269]  ABMShared.NavigateToPage(ws, ABMPageId, {79} )
 CompDateTimePickerPage.bas[270] End Sub 
 Analysing: CompDateTimeScrollerPage.bas
 CompDateTimeScrollerPage.bas[0] ﻿Type=Class 
-CompDateTimeScrollerPage.bas[0] Version=4.7 
+CompDateTimeScrollerPage.bas[0] Version=5.45 
 CompDateTimeScrollerPage.bas[0] ModulesStructureVersion=1 
 CompDateTimeScrollerPage.bas[0] B4J=true 
 CompDateTimeScrollerPage.bas[0] @EndOfDesignText@ 
@@ -7200,7 +7200,7 @@ CompDateTimeScrollerPage.bas[261]  ABMShared.NavigateToPage(ws, ABMPageId, {75} 
 CompDateTimeScrollerPage.bas[262] End Sub 
 Analysing: CompDividerPage.bas
 CompDividerPage.bas[0] ﻿Type=Class 
-CompDividerPage.bas[0] Version=4.7 
+CompDividerPage.bas[0] Version=5.45 
 CompDividerPage.bas[0] ModulesStructureVersion=1 
 CompDividerPage.bas[0] B4J=true 
 CompDividerPage.bas[0] @EndOfDesignText@ 
@@ -7405,7 +7405,7 @@ CompDividerPage.bas[213]  ABMShared.NavigateToPage(ws, ABMPageId, {68} )
 CompDividerPage.bas[214] End Sub 
 Analysing: CompEditorPage.bas
 CompEditorPage.bas[0] ﻿Type=Class 
-CompEditorPage.bas[0] Version=4.7 
+CompEditorPage.bas[0] Version=5.45 
 CompEditorPage.bas[0] ModulesStructureVersion=1 
 CompEditorPage.bas[0] B4J=true 
 CompEditorPage.bas[0] @EndOfDesignText@ 
@@ -7620,7 +7620,7 @@ CompEditorPage.bas[215]  ABMShared.NavigateToPage(ws, ABMPageId, {73} )
 CompEditorPage.bas[216] End Sub 
 Analysing: CompFileInputPage.bas
 CompFileInputPage.bas[0] ﻿Type=Class 
-CompFileInputPage.bas[0] Version=4.7 
+CompFileInputPage.bas[0] Version=5.45 
 CompFileInputPage.bas[0] ModulesStructureVersion=1 
 CompFileInputPage.bas[0] B4J=true 
 CompFileInputPage.bas[0] @EndOfDesignText@ 
@@ -7833,7 +7833,7 @@ CompFileInputPage.bas[216] End Sub
 CompFileInputPage.bas[217]  
 Analysing: CompGoogleMapPage.bas
 CompGoogleMapPage.bas[0] ﻿Type=Class 
-CompGoogleMapPage.bas[0] Version=4.7 
+CompGoogleMapPage.bas[0] Version=5.45 
 CompGoogleMapPage.bas[0] ModulesStructureVersion=1 
 CompGoogleMapPage.bas[0] B4J=true 
 CompGoogleMapPage.bas[0] @EndOfDesignText@ 
@@ -8234,7 +8234,7 @@ CompGoogleMapPage.bas[394]  page.ShowToast( {181} & myToastId, {182} , Address, 
 CompGoogleMapPage.bas[395] End Sub 
 Analysing: CompImagePage.bas
 CompImagePage.bas[0] ﻿Type=Class 
-CompImagePage.bas[0] Version=4.7 
+CompImagePage.bas[0] Version=5.45 
 CompImagePage.bas[0] ModulesStructureVersion=1 
 CompImagePage.bas[0] B4J=true 
 CompImagePage.bas[0] @EndOfDesignText@ 
@@ -8458,7 +8458,7 @@ CompImagePage.bas[217]  ABMShared.NavigateToPage(ws, ABMPageId, {82} )
 CompImagePage.bas[218] End Sub 
 Analysing: CompInputPage.bas
 CompInputPage.bas[0] ﻿Type=Class 
-CompInputPage.bas[0] Version=4.7 
+CompInputPage.bas[0] Version=5.45 
 CompInputPage.bas[0] ModulesStructureVersion=1 
 CompInputPage.bas[0] B4J=true 
 CompInputPage.bas[0] @EndOfDesignText@ 
@@ -8839,7 +8839,7 @@ CompInputPage.bas[374]  page.ShowModalSheet( {269} )
 CompInputPage.bas[375] End Sub 
 Analysing: CompLabelPage.bas
 CompLabelPage.bas[0] ﻿Type=Class 
-CompLabelPage.bas[0] Version=4.7 
+CompLabelPage.bas[0] Version=5.45 
 CompLabelPage.bas[0] ModulesStructureVersion=1 
 CompLabelPage.bas[0] B4J=true 
 CompLabelPage.bas[0] @EndOfDesignText@ 
@@ -9104,7 +9104,7 @@ CompLabelPage.bas[258]  ABMShared.NavigateToPage(ws, ABMPageId, {129} )
 CompLabelPage.bas[259] End Sub 
 Analysing: CompListPage.bas
 CompListPage.bas[0] ﻿Type=Class 
-CompListPage.bas[0] Version=4.7 
+CompListPage.bas[0] Version=5.45 
 CompListPage.bas[0] ModulesStructureVersion=1 
 CompListPage.bas[0] B4J=true 
 CompListPage.bas[0] @EndOfDesignText@ 
@@ -9472,7 +9472,7 @@ CompListPage.bas[361]  page.ShowToast( {564} & myToastId, {565} , {566} & lbl.Te
 CompListPage.bas[362] End Sub 
 Analysing: CompOAuthPage.bas
 CompOAuthPage.bas[0] ﻿Type=Class 
-CompOAuthPage.bas[0] Version=4.7 
+CompOAuthPage.bas[0] Version=5.45 
 CompOAuthPage.bas[0] ModulesStructureVersion=1 
 CompOAuthPage.bas[0] B4J=true 
 CompOAuthPage.bas[0] @EndOfDesignText@ 
@@ -9681,7 +9681,7 @@ CompOAuthPage.bas[215]  ABMShared.NavigateToPage(ws, ABMPageId, {87} )
 CompOAuthPage.bas[216] End Sub 
 Analysing: CompPaginationPage.bas
 CompPaginationPage.bas[0] ﻿Type=Class 
-CompPaginationPage.bas[0] Version=4.7 
+CompPaginationPage.bas[0] Version=5.45 
 CompPaginationPage.bas[0] ModulesStructureVersion=1 
 CompPaginationPage.bas[0] B4J=true 
 CompPaginationPage.bas[0] @EndOfDesignText@ 
@@ -9879,7 +9879,7 @@ CompPaginationPage.bas[200]  pagination.Refresh ' IMPORTANT!
 CompPaginationPage.bas[201] End Sub 
 Analysing: CompPatternLockPage.bas
 CompPatternLockPage.bas[0] ﻿Type=Class 
-CompPatternLockPage.bas[0] Version=4.7 
+CompPatternLockPage.bas[0] Version=5.45 
 CompPatternLockPage.bas[0] ModulesStructureVersion=1 
 CompPatternLockPage.bas[0] B4J=true 
 CompPatternLockPage.bas[0] @EndOfDesignText@ 
@@ -10074,7 +10074,7 @@ CompPatternLockPage.bas[197]
 CompPatternLockPage.bas[198] End Sub 
 Analysing: CompPDFViewerPage.bas
 CompPDFViewerPage.bas[0] ﻿Type=Class 
-CompPDFViewerPage.bas[0] Version=4.7 
+CompPDFViewerPage.bas[0] Version=5.45 
 CompPDFViewerPage.bas[0] ModulesStructureVersion=1 
 CompPDFViewerPage.bas[0] B4J=true 
 CompPDFViewerPage.bas[0] @EndOfDesignText@ 
@@ -10262,7 +10262,7 @@ CompPDFViewerPage.bas[191]  ABMShared.NavigateToPage(ws, ABMPageId, {54} )
 CompPDFViewerPage.bas[192] End Sub 
 Analysing: CompPercentSlider.bas
 CompPercentSlider.bas[0] ﻿Type=Class 
-CompPercentSlider.bas[0] Version=4.7 
+CompPercentSlider.bas[0] Version=5.45 
 CompPercentSlider.bas[0] ModulesStructureVersion=1 
 CompPercentSlider.bas[0] B4J=true 
 CompPercentSlider.bas[0] @EndOfDesignText@ 
@@ -10445,7 +10445,7 @@ CompPercentSlider.bas[178]  ABMShared.NavigateToPage(ws, ABMPageId, {56} )
 CompPercentSlider.bas[179] End Sub 
 Analysing: CompPercentSliderPage.bas
 CompPercentSliderPage.bas[0] ﻿Type=Class 
-CompPercentSliderPage.bas[0] Version=4.7 
+CompPercentSliderPage.bas[0] Version=5.45 
 CompPercentSliderPage.bas[0] ModulesStructureVersion=1 
 CompPercentSliderPage.bas[0] B4J=true 
 CompPercentSliderPage.bas[0] @EndOfDesignText@ 
@@ -10659,7 +10659,7 @@ CompPercentSliderPage.bas[222]  ABMShared.NavigateToPage(ws, ABMPageId, {82} )
 CompPercentSliderPage.bas[223] End Sub 
 Analysing: CompPivotTablePage.bas
 CompPivotTablePage.bas[0] ﻿Type=Class 
-CompPivotTablePage.bas[0] Version=4.7 
+CompPivotTablePage.bas[0] Version=5.45 
 CompPivotTablePage.bas[0] ModulesStructureVersion=1 
 CompPivotTablePage.bas[0] B4J=true 
 CompPivotTablePage.bas[0] @EndOfDesignText@ 
@@ -10857,7 +10857,7 @@ CompPivotTablePage.bas[209]  ABMShared.NavigateToPage(ws, ABMPageId, {73} )
 CompPivotTablePage.bas[210] End Sub 
 Analysing: CompPlannerPage.bas
 CompPlannerPage.bas[0] ﻿Type=Class 
-CompPlannerPage.bas[0] Version=4.7 
+CompPlannerPage.bas[0] Version=5.45 
 CompPlannerPage.bas[0] ModulesStructureVersion=1 
 CompPlannerPage.bas[0] B4J=true 
 CompPlannerPage.bas[0] @EndOfDesignText@ 
@@ -11325,7 +11325,7 @@ CompPlannerPage.bas[461]  ABMShared.NavigateToPage(ws, ABMPageId, {187} )
 CompPlannerPage.bas[462] End Sub 
 Analysing: CompRadioGroupPage.bas
 CompRadioGroupPage.bas[0] ﻿Type=Class 
-CompRadioGroupPage.bas[0] Version=4.7 
+CompRadioGroupPage.bas[0] Version=5.45 
 CompRadioGroupPage.bas[0] ModulesStructureVersion=1 
 CompRadioGroupPage.bas[0] B4J=true 
 CompRadioGroupPage.bas[0] @EndOfDesignText@ 
@@ -11559,7 +11559,7 @@ CompRadioGroupPage.bas[227]
 CompRadioGroupPage.bas[228] End Sub 
 Analysing: CompRangePage.bas
 CompRangePage.bas[0] ﻿Type=Class 
-CompRangePage.bas[0] Version=4.7 
+CompRangePage.bas[0] Version=5.45 
 CompRangePage.bas[0] ModulesStructureVersion=1 
 CompRangePage.bas[0] B4J=true 
 CompRangePage.bas[0] @EndOfDesignText@ 
@@ -11757,7 +11757,7 @@ CompRangePage.bas[202]  ABMShared.NavigateToPage(ws, ABMPageId, {61} )
 CompRangePage.bas[203] End Sub 
 Analysing: CompRealSliderPage.bas
 CompRealSliderPage.bas[0] ﻿Type=Class 
-CompRealSliderPage.bas[0] Version=4.7 
+CompRealSliderPage.bas[0] Version=5.45 
 CompRealSliderPage.bas[0] ModulesStructureVersion=1 
 CompRealSliderPage.bas[0] B4J=true 
 CompRealSliderPage.bas[0] @EndOfDesignText@ 
@@ -11950,7 +11950,7 @@ CompRealSliderPage.bas[196]  ABMShared.NavigateToPage(ws, ABMPageId, {57} )
 CompRealSliderPage.bas[197] End Sub 
 Analysing: CompSignaturePage.bas
 CompSignaturePage.bas[0] ﻿Type=Class 
-CompSignaturePage.bas[0] Version=4.7 
+CompSignaturePage.bas[0] Version=5.45 
 CompSignaturePage.bas[0] ModulesStructureVersion=1 
 CompSignaturePage.bas[0] B4J=true 
 CompSignaturePage.bas[0] @EndOfDesignText@ 
@@ -12210,7 +12210,7 @@ CompSignaturePage.bas[278]
 CompSignaturePage.bas[279]  
 Analysing: CompSliderPage.bas
 CompSliderPage.bas[0] ﻿Type=Class 
-CompSliderPage.bas[0] Version=4.7 
+CompSliderPage.bas[0] Version=5.45 
 CompSliderPage.bas[0] ModulesStructureVersion=1 
 CompSliderPage.bas[0] B4J=true 
 CompSliderPage.bas[0] @EndOfDesignText@ 
@@ -12433,7 +12433,7 @@ CompSliderPage.bas[216]  ABMShared.NavigateToPage(ws, ABMPageId, {132} )
 CompSliderPage.bas[217] End Sub 
 Analysing: CompSocialSharePage.bas
 CompSocialSharePage.bas[0] ﻿Type=Class 
-CompSocialSharePage.bas[0] Version=4.7 
+CompSocialSharePage.bas[0] Version=5.45 
 CompSocialSharePage.bas[0] ModulesStructureVersion=1 
 CompSocialSharePage.bas[0] B4J=true 
 CompSocialSharePage.bas[0] @EndOfDesignText@ 
@@ -12628,7 +12628,7 @@ CompSocialSharePage.bas[197]  ABMShared.NavigateToPage(ws, ABMPageId, {55} )
 CompSocialSharePage.bas[198] End Sub 
 Analysing: CompSVGSurfacePage.bas
 CompSVGSurfacePage.bas[0] ﻿Type=Class 
-CompSVGSurfacePage.bas[0] Version=4.7 
+CompSVGSurfacePage.bas[0] Version=5.45 
 CompSVGSurfacePage.bas[0] ModulesStructureVersion=1 
 CompSVGSurfacePage.bas[0] B4J=true 
 CompSVGSurfacePage.bas[0] @EndOfDesignText@ 
@@ -12922,7 +12922,7 @@ CompSVGSurfacePage.bas[371]  page.ShowToast( {127} & myToastId, {128} , {129} & 
 CompSVGSurfacePage.bas[372] End Sub 
 Analysing: CompSwitchPage.bas
 CompSwitchPage.bas[0] ﻿Type=Class 
-CompSwitchPage.bas[0] Version=4.7 
+CompSwitchPage.bas[0] Version=5.45 
 CompSwitchPage.bas[0] ModulesStructureVersion=1 
 CompSwitchPage.bas[0] B4J=true 
 CompSwitchPage.bas[0] @EndOfDesignText@ 
@@ -13147,7 +13147,7 @@ CompSwitchPage.bas[218]  page.ShowToast( {112} & myToastId, {113} , {114} & chec
 CompSwitchPage.bas[219] End Sub 
 Analysing: CompTabsPage.bas
 CompTabsPage.bas[0] ﻿Type=Class 
-CompTabsPage.bas[0] Version=4.7 
+CompTabsPage.bas[0] Version=5.45 
 CompTabsPage.bas[0] ModulesStructureVersion=1 
 CompTabsPage.bas[0] B4J=true 
 CompTabsPage.bas[0] @EndOfDesignText@ 
@@ -13487,7 +13487,7 @@ CompTabsPage.bas[336]  page.ShowToast( {259} & myToastId, {260} , tabs.GetActive
 CompTabsPage.bas[337] End Sub 
 Analysing: CompTimeLinePage.bas
 CompTimeLinePage.bas[0] ﻿Type=Class 
-CompTimeLinePage.bas[0] Version=4.7 
+CompTimeLinePage.bas[0] Version=5.45 
 CompTimeLinePage.bas[0] ModulesStructureVersion=1 
 CompTimeLinePage.bas[0] B4J=true 
 CompTimeLinePage.bas[0] @EndOfDesignText@ 
@@ -13892,7 +13892,7 @@ CompTimeLinePage.bas[401]  ABMShared.NavigateToPage(ws, ABMPageId, {248} )
 CompTimeLinePage.bas[402] End Sub 
 Analysing: CompTreeTablePage.bas
 CompTreeTablePage.bas[0] ﻿Type=Class 
-CompTreeTablePage.bas[0] Version=4.7 
+CompTreeTablePage.bas[0] Version=5.45 
 CompTreeTablePage.bas[0] ModulesStructureVersion=1 
 CompTreeTablePage.bas[0] B4J=true 
 CompTreeTablePage.bas[0] @EndOfDesignText@ 
@@ -14522,7 +14522,7 @@ CompTreeTablePage.bas[623] 'End Sub
 CompTreeTablePage.bas[624]  
 Analysing: CompUploadPage.bas
 CompUploadPage.bas[0] ﻿Type=Class 
-CompUploadPage.bas[0] Version=4.7 
+CompUploadPage.bas[0] Version=5.45 
 CompUploadPage.bas[0] ModulesStructureVersion=1 
 CompUploadPage.bas[0] B4J=true 
 CompUploadPage.bas[0] @EndOfDesignText@ 
@@ -14752,7 +14752,7 @@ CompUploadPage.bas[244]  page.ws.Flush ' IMPORTANT
 CompUploadPage.bas[245] End Sub 
 Analysing: CompVideoPage.bas
 CompVideoPage.bas[0] ﻿Type=Class 
-CompVideoPage.bas[0] Version=4.7 
+CompVideoPage.bas[0] Version=5.45 
 CompVideoPage.bas[0] ModulesStructureVersion=1 
 CompVideoPage.bas[0] B4J=true 
 CompVideoPage.bas[0] @EndOfDesignText@ 
@@ -15234,7 +15234,7 @@ CompVideoPage.bas[478]  ABMShared.NavigateToPage(ws, ABMPageId, {203} )
 CompVideoPage.bas[479] End Sub 
 Analysing: CustomGauge.bas
 CustomGauge.bas[0] ﻿Type=Class 
-CustomGauge.bas[0] Version=4.7 
+CustomGauge.bas[0] Version=5.45 
 CustomGauge.bas[0] ModulesStructureVersion=1 
 CustomGauge.bas[0] B4J=true 
 CustomGauge.bas[0] @EndOfDesignText@ 
@@ -15304,7 +15304,7 @@ CustomGauge.bas[64]
 CustomGauge.bas[65] End Sub 
 Analysing: CustomGoogleChart.bas
 CustomGoogleChart.bas[0] ﻿Type=Class 
-CustomGoogleChart.bas[0] Version=4.7 
+CustomGoogleChart.bas[0] Version=5.45 
 CustomGoogleChart.bas[0] ModulesStructureVersion=1 
 CustomGoogleChart.bas[0] B4J=true 
 CustomGoogleChart.bas[0] @EndOfDesignText@ 
@@ -15375,7 +15375,7 @@ CustomGoogleChart.bas[83]
 CustomGoogleChart.bas[84]  
 Analysing: CustomGoogleChart2.bas
 CustomGoogleChart2.bas[0] ﻿Type=Class 
-CustomGoogleChart2.bas[0] Version=4.7 
+CustomGoogleChart2.bas[0] Version=5.45 
 CustomGoogleChart2.bas[0] ModulesStructureVersion=1 
 CustomGoogleChart2.bas[0] B4J=true 
 CustomGoogleChart2.bas[0] @EndOfDesignText@ 
@@ -15477,7 +15477,7 @@ CustomGoogleChart2.bas[177]
 CustomGoogleChart2.bas[178]  
 Analysing: CustomSlidebar.bas
 CustomSlidebar.bas[0] ﻿Type=Class 
-CustomSlidebar.bas[0] Version=4.7 
+CustomSlidebar.bas[0] Version=5.45 
 CustomSlidebar.bas[0] ModulesStructureVersion=1 
 CustomSlidebar.bas[0] B4J=true 
 CustomSlidebar.bas[0] @EndOfDesignText@ 
@@ -15552,7 +15552,7 @@ CustomSlidebar.bas[84]
 CustomSlidebar.bas[85]  
 Analysing: DonateButton.bas
 DonateButton.bas[0] ﻿Type=Class 
-DonateButton.bas[0] Version=4.7 
+DonateButton.bas[0] Version=5.45 
 DonateButton.bas[0] ModulesStructureVersion=1 
 DonateButton.bas[0] B4J=true 
 DonateButton.bas[0] @EndOfDesignText@ 
@@ -15618,7 +15618,7 @@ DonateButton.bas[59]
 DonateButton.bas[60]  
 Analysing: DonatorsExtraLibsPage.bas
 DonatorsExtraLibsPage.bas[0] ﻿Type=Class 
-DonatorsExtraLibsPage.bas[0] Version=4.7 
+DonatorsExtraLibsPage.bas[0] Version=5.45 
 DonatorsExtraLibsPage.bas[0] ModulesStructureVersion=1 
 DonatorsExtraLibsPage.bas[0] B4J=true 
 DonatorsExtraLibsPage.bas[0] @EndOfDesignText@ 
@@ -15853,7 +15853,7 @@ DonatorsExtraLibsPage.bas[363] End Sub
 DonatorsExtraLibsPage.bas[364]  
 Analysing: GettingStartedPage.bas
 GettingStartedPage.bas[0] ﻿Type=Class 
-GettingStartedPage.bas[0] Version=4.7 
+GettingStartedPage.bas[0] Version=5.45 
 GettingStartedPage.bas[0] ModulesStructureVersion=1 
 GettingStartedPage.bas[0] B4J=true 
 GettingStartedPage.bas[0] @EndOfDesignText@ 
@@ -16102,7 +16102,7 @@ GettingStartedPage.bas[408]  ABMShared.NavigateToPage(ws, ABMPageId, {123} )
 GettingStartedPage.bas[409] End Sub 
 Analysing: GridsPage.bas
 GridsPage.bas[0] ﻿Type=Class 
-GridsPage.bas[0] Version=4.7 
+GridsPage.bas[0] Version=5.45 
 GridsPage.bas[0] ModulesStructureVersion=1 
 GridsPage.bas[0] B4J=true 
 GridsPage.bas[0] @EndOfDesignText@ 
@@ -16458,7 +16458,7 @@ GridsPage.bas[357]
 GridsPage.bas[358]  
 Analysing: HelperContainerPage.bas
 HelperContainerPage.bas[0] ﻿Type=Class 
-HelperContainerPage.bas[0] Version=4.7 
+HelperContainerPage.bas[0] Version=5.45 
 HelperContainerPage.bas[0] ModulesStructureVersion=1 
 HelperContainerPage.bas[0] B4J=true 
 HelperContainerPage.bas[0] @EndOfDesignText@ 
@@ -16909,7 +16909,7 @@ HelperContainerPage.bas[533]  ABMShared.NavigateToPage(ws, ABMPageId, {174} )
 HelperContainerPage.bas[534] End Sub 
 Analysing: HelperFlexWallPage.bas
 HelperFlexWallPage.bas[0] ﻿Type=Class 
-HelperFlexWallPage.bas[0] Version=4.7 
+HelperFlexWallPage.bas[0] Version=5.45 
 HelperFlexWallPage.bas[0] ModulesStructureVersion=1 
 HelperFlexWallPage.bas[0] B4J=true 
 HelperFlexWallPage.bas[0] @EndOfDesignText@ 
@@ -17087,7 +17087,7 @@ HelperFlexWallPage.bas[171] End Sub
 HelperFlexWallPage.bas[172]  
 Analysing: HelperGeneratorPage.bas
 HelperGeneratorPage.bas[0] ﻿Type=Class 
-HelperGeneratorPage.bas[0] Version=4.7 
+HelperGeneratorPage.bas[0] Version=5.45 
 HelperGeneratorPage.bas[0] ModulesStructureVersion=1 
 HelperGeneratorPage.bas[0] B4J=true 
 HelperGeneratorPage.bas[0] @EndOfDesignText@ 
@@ -17286,7 +17286,7 @@ HelperGeneratorPage.bas[264] End Sub
 HelperGeneratorPage.bas[265]  
 Analysing: HelperModalSheetPage.bas
 HelperModalSheetPage.bas[0] ﻿Type=Class 
-HelperModalSheetPage.bas[0] Version=4.7 
+HelperModalSheetPage.bas[0] Version=5.45 
 HelperModalSheetPage.bas[0] ModulesStructureVersion=1 
 HelperModalSheetPage.bas[0] B4J=true 
 HelperModalSheetPage.bas[0] @EndOfDesignText@ 
@@ -17808,7 +17808,7 @@ HelperModalSheetPage.bas[614]  page.CloseModalSheet( {294} )
 HelperModalSheetPage.bas[615] End Sub 
 Analysing: HelperNavigationBarPage.bas
 HelperNavigationBarPage.bas[0] ﻿Type=Class 
-HelperNavigationBarPage.bas[0] Version=4.7 
+HelperNavigationBarPage.bas[0] Version=5.45 
 HelperNavigationBarPage.bas[0] ModulesStructureVersion=1 
 HelperNavigationBarPage.bas[0] B4J=true 
 HelperNavigationBarPage.bas[0] @EndOfDesignText@ 
@@ -18049,7 +18049,7 @@ HelperNavigationBarPage.bas[293]  ABMShared.NavigateToPage(ws, ABMPageId, {111} 
 HelperNavigationBarPage.bas[294] End Sub 
 Analysing: HelperPagePage.bas
 HelperPagePage.bas[0] ﻿Type=Class 
-HelperPagePage.bas[0] Version=4.7 
+HelperPagePage.bas[0] Version=5.45 
 HelperPagePage.bas[0] ModulesStructureVersion=1 
 HelperPagePage.bas[0] B4J=true 
 HelperPagePage.bas[0] @EndOfDesignText@ 
@@ -18386,7 +18386,7 @@ HelperPagePage.bas[398]  ABMShared.NavigateToPage(ws, ABMPageId, {200} )
 HelperPagePage.bas[399] End Sub 
 Analysing: HelperParallaxPage.bas
 HelperParallaxPage.bas[0] ﻿Type=Class 
-HelperParallaxPage.bas[0] Version=4.7 
+HelperParallaxPage.bas[0] Version=5.45 
 HelperParallaxPage.bas[0] ModulesStructureVersion=1 
 HelperParallaxPage.bas[0] B4J=true 
 HelperParallaxPage.bas[0] @EndOfDesignText@ 
@@ -18580,7 +18580,7 @@ HelperParallaxPage.bas[187] End Sub
 HelperParallaxPage.bas[188]  
 Analysing: HelperTableMutablePage.bas
 HelperTableMutablePage.bas[0] ﻿Type=Class 
-HelperTableMutablePage.bas[0] Version=4.7 
+HelperTableMutablePage.bas[0] Version=5.45 
 HelperTableMutablePage.bas[0] ModulesStructureVersion=1 
 HelperTableMutablePage.bas[0] B4J=true 
 HelperTableMutablePage.bas[0] @EndOfDesignText@ 
@@ -18761,7 +18761,7 @@ HelperTableMutablePage.bas[195] End Sub
 HelperTableMutablePage.bas[196]  
 Analysing: HelperTablePage.bas
 HelperTablePage.bas[0] ﻿Type=Class 
-HelperTablePage.bas[0] Version=4.7 
+HelperTablePage.bas[0] Version=5.45 
 HelperTablePage.bas[0] ModulesStructureVersion=1 
 HelperTablePage.bas[0] B4J=true 
 HelperTablePage.bas[0] @EndOfDesignText@ 
@@ -19144,7 +19144,7 @@ HelperTablePage.bas[434] End Sub
 HelperTablePage.bas[435]  
 Analysing: IconsPage.bas
 IconsPage.bas[0] ﻿Type=Class 
-IconsPage.bas[0] Version=4.7 
+IconsPage.bas[0] Version=5.45 
 IconsPage.bas[0] ModulesStructureVersion=1 
 IconsPage.bas[0] B4J=true 
 IconsPage.bas[0] @EndOfDesignText@ 
@@ -20123,7 +20123,7 @@ IconsPage.bas[972] End Sub
 IconsPage.bas[973]  
 Analysing: OtherFirebasePage.bas
 OtherFirebasePage.bas[0] ﻿Type=Class 
-OtherFirebasePage.bas[0] Version=4.7 
+OtherFirebasePage.bas[0] Version=5.45 
 OtherFirebasePage.bas[0] ModulesStructureVersion=1 
 OtherFirebasePage.bas[0] B4J=true 
 OtherFirebasePage.bas[0] @EndOfDesignText@ 
@@ -20329,7 +20329,7 @@ OtherFirebasePage.bas[214] End Sub
 OtherFirebasePage.bas[215]  
 Analysing: OtherFirebaseStorPage.bas
 OtherFirebaseStorPage.bas[0] ﻿Type=Class 
-OtherFirebaseStorPage.bas[0] Version=4.7 
+OtherFirebaseStorPage.bas[0] Version=5.45 
 OtherFirebaseStorPage.bas[0] ModulesStructureVersion=1 
 OtherFirebaseStorPage.bas[0] B4J=true 
 OtherFirebaseStorPage.bas[0] @EndOfDesignText@ 
@@ -20520,7 +20520,7 @@ OtherFirebaseStorPage.bas[221]  ABMShared.NavigateToPage(ws, ABMPageId, {57} )
 OtherFirebaseStorPage.bas[222] End Sub 
 Analysing: TestClassForAlain.bas
 TestClassForAlain.bas[0] ﻿Type=Class 
-TestClassForAlain.bas[0] Version=4.7 
+TestClassForAlain.bas[0] Version=5.45 
 TestClassForAlain.bas[0] ModulesStructureVersion=1 
 TestClassForAlain.bas[0] B4J=true 
 TestClassForAlain.bas[0] @EndOfDesignText@ 
@@ -20535,7 +20535,7 @@ TestClassForAlain.bas[8]
 TestClassForAlain.bas[9] End Sub 
 Analysing: TestPage.bas
 TestPage.bas[0] ﻿Type=Class 
-TestPage.bas[0] Version=4.7 
+TestPage.bas[0] Version=5.45 
 TestPage.bas[0] ModulesStructureVersion=1 
 TestPage.bas[0] B4J=true 
 TestPage.bas[0] @EndOfDesignText@ 
@@ -20821,7 +20821,7 @@ TestPage.bas[279] End Sub
 TestPage.bas[280]  
 Analysing: ThemesPage.bas
 ThemesPage.bas[0] ﻿Type=Class 
-ThemesPage.bas[0] Version=4.7 
+ThemesPage.bas[0] Version=5.45 
 ThemesPage.bas[0] ModulesStructureVersion=1 
 ThemesPage.bas[0] B4J=true 
 ThemesPage.bas[0] @EndOfDesignText@ 
@@ -21196,7 +21196,7 @@ ThemesPage.bas[457]
 ThemesPage.bas[458]  Return tbl1 
 ThemesPage.bas[459] End Sub 
 Analysing: Demo.b4j
-Demo.b4j[0] ﻿Version=4.7 
+Demo.b4j[0] ﻿Version=5.45 
 Demo.b4j[0] AppType=StandardJava 
 Demo.b4j[0] NumberOfModules=77 
 Demo.b4j[0] Module1=CompChatPage 
@@ -21204,47 +21204,47 @@ Demo.b4j[0] Module2=ABMShared
 Demo.b4j[0] Module3=CompPlannerPage 
 Demo.b4j[0] Module4=CompPercentSliderPage 
 Demo.b4j[0] Module5=ABMApplication 
-Demo.b4j[0] Module6=CompChartPage 
-Demo.b4j[0] Module7=ABMSessionCreator 
-Demo.b4j[0] Module8=HelperModalSheetPage 
-Demo.b4j[0] Module9=CompRadioGroupPage 
-Demo.b4j[0] Module10=CompDateTimePickerPage 
-Demo.b4j[0] Module11=AboutPage 
-Demo.b4j[0] Module12=CompSwitchPage 
-Demo.b4j[0] Module13=HelperTablePage 
-Demo.b4j[0] Module14=CompPivotTablePage 
-Demo.b4j[0] Module15=CompDividerPage 
-Demo.b4j[0] Module16=HelperContainerPage 
-Demo.b4j[0] Module17=GridsPage 
-Demo.b4j[0] Module18=CompVideoPage 
-Demo.b4j[0] Module19=CompTabsPage 
-Demo.b4j[0] Module20=CompComboPage 
-Demo.b4j[0] Module21=ABMCacheScavenger 
-Demo.b4j[0] Module22=HelperNavigationBarPage 
-Demo.b4j[0] Module23=GettingStartedPage 
-Demo.b4j[0] Module24=CompOAuthPage 
-Demo.b4j[0] Module25=CompInputPage 
-Demo.b4j[0] Module26=CompUploadPage 
-Demo.b4j[0] Module27=CompRealSliderPage 
-Demo.b4j[0] Module28=HelperFlexWallPage 
-Demo.b4j[0] Module29=HelperPagePage 
-Demo.b4j[0] Module30=ABMPageTemplate 
-Demo.b4j[0] Module31=CompPaginationPage 
-Demo.b4j[0] Module32=CompChipPage 
-Demo.b4j[0] Module33=CompRangePage 
-Demo.b4j[0] Module34=CompSliderPage 
-Demo.b4j[0] Module35=CompGoogleMapPage 
-Demo.b4j[0] Module36=CompSignaturePage 
-Demo.b4j[0] Module37=CompCheckboxPage 
-Demo.b4j[0] Module38=CompSocialSharePage 
-Demo.b4j[0] Module39=CompCustomCompPage 
-Demo.b4j[0] Module40=IconsPage 
-Demo.b4j[0] Module41=OtherFirebaseStorPage 
-Demo.b4j[0] Module42=OtherFirebasePage 
-Demo.b4j[0] Module43=CompFileInputPage 
-Demo.b4j[0] Module44=CompSVGSurfacePage 
-Demo.b4j[0] Module45=CompPDFViewerPage 
-Demo.b4j[0] Module46=CompTimeLinePage 
+Demo.b4j[0] Module6=HelperTablePage 
+Demo.b4j[0] Module7=CompTimeLinePage 
+Demo.b4j[0] Module8=CompChartPage 
+Demo.b4j[0] Module9=ABMSessionCreator 
+Demo.b4j[0] Module10=HelperModalSheetPage 
+Demo.b4j[0] Module11=CompRadioGroupPage 
+Demo.b4j[0] Module12=CompDateTimePickerPage 
+Demo.b4j[0] Module13=AboutPage 
+Demo.b4j[0] Module14=CompSwitchPage 
+Demo.b4j[0] Module15=CompPivotTablePage 
+Demo.b4j[0] Module16=CompDividerPage 
+Demo.b4j[0] Module17=HelperContainerPage 
+Demo.b4j[0] Module18=GridsPage 
+Demo.b4j[0] Module19=CompVideoPage 
+Demo.b4j[0] Module20=CompTabsPage 
+Demo.b4j[0] Module21=CompComboPage 
+Demo.b4j[0] Module22=ABMCacheScavenger 
+Demo.b4j[0] Module23=HelperNavigationBarPage 
+Demo.b4j[0] Module24=GettingStartedPage 
+Demo.b4j[0] Module25=CompOAuthPage 
+Demo.b4j[0] Module26=CompInputPage 
+Demo.b4j[0] Module27=CompUploadPage 
+Demo.b4j[0] Module28=CompRealSliderPage 
+Demo.b4j[0] Module29=HelperFlexWallPage 
+Demo.b4j[0] Module30=HelperPagePage 
+Demo.b4j[0] Module31=ABMPageTemplate 
+Demo.b4j[0] Module32=CompPaginationPage 
+Demo.b4j[0] Module33=CompChipPage 
+Demo.b4j[0] Module34=CompRangePage 
+Demo.b4j[0] Module35=CompSliderPage 
+Demo.b4j[0] Module36=CompGoogleMapPage 
+Demo.b4j[0] Module37=CompSignaturePage 
+Demo.b4j[0] Module38=CompCheckboxPage 
+Demo.b4j[0] Module39=CompSocialSharePage 
+Demo.b4j[0] Module40=CompCustomCompPage 
+Demo.b4j[0] Module41=IconsPage 
+Demo.b4j[0] Module42=OtherFirebaseStorPage 
+Demo.b4j[0] Module43=OtherFirebasePage 
+Demo.b4j[0] Module44=CompFileInputPage 
+Demo.b4j[0] Module45=CompSVGSurfacePage 
+Demo.b4j[0] Module46=CompPDFViewerPage 
 Demo.b4j[0] Module47=CompChronologyPage 
 Demo.b4j[0] Module48=CompCalendarPage 
 Demo.b4j[0] Module49=HelperGeneratorPage 

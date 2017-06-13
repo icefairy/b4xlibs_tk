@@ -434,7 +434,8 @@ _srvr.AddWebSocket("/ws/"+_abmshared._appname,"ABMApplication");
 {
 final int step5 = 1;
 final int limit5 = (int) (_pages.getSize()-1);
-for (_i = (int) (0) ; (step5 > 0 && _i <= limit5) || (step5 < 0 && _i >= limit5); _i = ((int)(0 + _i + step5)) ) {
+_i = (int) (0) ;
+for (;(step5 > 0 && _i <= limit5) || (step5 < 0 && _i >= limit5) ;_i = ((int)(0 + _i + step5))  ) {
  //BA.debugLineNum = 141;BA.debugLine="srvr.AddWebSocket(\"/ws/\" & ABMShared.AppName & \"";
 _srvr.AddWebSocket("/ws/"+_abmshared._appname+"/"+BA.ObjectToString(_pages.Get(_i)),BA.ObjectToString(_pages.Get(_i)));
  //BA.debugLineNum = 142;BA.debugLine="If PageNeedsUpload.Get(i) Then";
@@ -461,14 +462,17 @@ _connectors = (Object[])(_jo.GetFieldJO("server").RunMethod("getConnectors",(Obj
 _timeout = (long) (_abmshared._sessionmaxinactiveintervalseconds*1000);
  //BA.debugLineNum = 158;BA.debugLine="For Each c As JavaObject In connectors";
 _c = new anywheresoftware.b4j.object.JavaObject();
+{
 final Object[] group18 = _connectors;
-final int groupLen18 = group18.length;
-for (int index18 = 0;index18 < groupLen18 ;index18++){
+final int groupLen18 = group18.length
+;int index18 = 0;
+;
+for (; index18 < groupLen18;index18++){
 _c.setObject((java.lang.Object)(group18[index18]));
  //BA.debugLineNum = 159;BA.debugLine="c.RunMethod(\"setIdleTimeout\", Array(timeout))";
 _c.RunMethod("setIdleTimeout",new Object[]{(Object)(_timeout)});
  }
-;
+};
  //BA.debugLineNum = 162;BA.debugLine="ABMShared.CachedPages = srvr.CreateThreadSafeMap";
 _abmshared._cachedpages = _srvr.CreateThreadSafeMap();
  //BA.debugLineNum = 163;BA.debugLine="End Sub";
@@ -506,7 +510,8 @@ _srvr.AddWebSocket("/ws/"+_abmshared._appname,"ABMApplication");
 {
 final int step11 = 1;
 final int limit11 = (int) (_pages.getSize()-1);
-for (_i = (int) (0) ; (step11 > 0 && _i <= limit11) || (step11 < 0 && _i >= limit11); _i = ((int)(0 + _i + step11)) ) {
+_i = (int) (0) ;
+for (;(step11 > 0 && _i <= limit11) || (step11 < 0 && _i >= limit11) ;_i = ((int)(0 + _i + step11))  ) {
  //BA.debugLineNum = 181;BA.debugLine="srvr.AddWebSocket(\"/ws/\" & ABMShared.AppName & \"";
 _srvr.AddWebSocket("/ws/"+_abmshared._appname+"/"+BA.ObjectToString(_pages.Get(_i)),BA.ObjectToString(_pages.Get(_i)));
  //BA.debugLineNum = 182;BA.debugLine="If PageNeedsUpload.Get(i) Then";
@@ -535,14 +540,17 @@ _connectors = (Object[])(_jo.GetFieldJO("server").RunMethod("getConnectors",(Obj
 _timeout = (long) (_abmshared._sessionmaxinactiveintervalseconds*1000);
  //BA.debugLineNum = 198;BA.debugLine="For Each c As JavaObject In connectors";
 _c = new anywheresoftware.b4j.object.JavaObject();
+{
 final Object[] group25 = _connectors;
-final int groupLen25 = group25.length;
-for (int index25 = 0;index25 < groupLen25 ;index25++){
+final int groupLen25 = group25.length
+;int index25 = 0;
+;
+for (; index25 < groupLen25;index25++){
 _c.setObject((java.lang.Object)(group25[index25]));
  //BA.debugLineNum = 199;BA.debugLine="c.RunMethod(\"setIdleTimeout\", Array(timeout))";
 _c.RunMethod("setIdleTimeout",new Object[]{(Object)(_timeout)});
  }
-;
+};
  //BA.debugLineNum = 202;BA.debugLine="ABMShared.CachedPages = srvr.CreateThreadSafeMap";
 _abmshared._cachedpages = _srvr.CreateThreadSafeMap();
  //BA.debugLineNum = 203;BA.debugLine="End Sub";

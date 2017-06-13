@@ -255,7 +255,8 @@ _values.Initialize();
 {
 final int step7 = 1;
 final int limit7 = (int) (10);
-for (_i = (int) (1) ; (step7 > 0 && _i <= limit7) || (step7 < 0 && _i >= limit7); _i = ((int)(0 + _i + step7)) ) {
+_i = (int) (1) ;
+for (;(step7 > 0 && _i <= limit7) || (step7 < 0 && _i >= limit7) ;_i = ((int)(0 + _i + step7))  ) {
  //BA.debugLineNum = 137;BA.debugLine="Dim value As Double = Rnd(20,100)";
 _value = __c.Rnd((int) (20),(int) (100));
  //BA.debugLineNum = 138;BA.debugLine="values.Add(value)";
@@ -266,7 +267,8 @@ _values.Add((Object)(_value));
 {
 final int step11 = 1;
 final int limit11 = (int) (10);
-for (_i = (int) (1) ; (step11 > 0 && _i <= limit11) || (step11 < 0 && _i >= limit11); _i = ((int)(0 + _i + step11)) ) {
+_i = (int) (1) ;
+for (;(step11 > 0 && _i <= limit11) || (step11 < 0 && _i >= limit11) ;_i = ((int)(0 + _i + step11))  ) {
  //BA.debugLineNum = 141;BA.debugLine="Dim value As Double = values.Get(i-1)";
 _value = (double)(BA.ObjectToNumber(_values.Get((int) (_i-1))));
  //BA.debugLineNum = 142;BA.debugLine="AddBarRow(2, \"per\" & i, \"Person \" & i, value, 75";
@@ -283,7 +285,8 @@ _page.Cell((int) (4),(int) (1)).AddComponent((com.ab.abmaterial.ABMComponent)(_a
 {
 final int step18 = 1;
 final int limit18 = (int) (10);
-for (_i = (int) (1) ; (step18 > 0 && _i <= limit18) || (step18 < 0 && _i >= limit18); _i = ((int)(0 + _i + step18)) ) {
+_i = (int) (1) ;
+for (;(step18 > 0 && _i <= limit18) || (step18 < 0 && _i >= limit18) ;_i = ((int)(0 + _i + step18))  ) {
  //BA.debugLineNum = 187;BA.debugLine="Dim perc As Double = Rnd(10, 100)";
 _perc = __c.Rnd((int) (10),(int) (100));
  //BA.debugLineNum = 188;BA.debugLine="AddPieRow(5, i, \"Pie in row \" & i, perc)";

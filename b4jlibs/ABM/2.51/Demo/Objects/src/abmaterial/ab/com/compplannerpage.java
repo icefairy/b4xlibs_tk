@@ -300,7 +300,8 @@ _pernext.Days = (int) (1);
 {
 final int step9 = 1;
 final int limit9 = (int) (6);
-for (_i = (int) (0) ; (step9 > 0 && _i <= limit9) || (step9 < 0 && _i >= limit9); _i = ((int)(0 + _i + step9)) ) {
+_i = (int) (0) ;
+for (;(step9 > 0 && _i <= limit9) || (step9 < 0 && _i >= limit9) ;_i = ((int)(0 + _i + step9))  ) {
  //BA.debugLineNum = 380;BA.debugLine="If ActiveDay = -1 Then";
 if (_activeday==-1) { 
  //BA.debugLineNum = 381;BA.debugLine="If DateTime.Date(nextDay) = DateTime.Date(DateT";
@@ -345,7 +346,8 @@ _pertotal = (int) (12);
 {
 final int step31 = 1;
 final int limit31 = (int) (4);
-for (_i = (int) (0) ; (step31 > 0 && _i <= limit31) || (step31 < 0 && _i >= limit31); _i = ((int)(0 + _i + step31)) ) {
+_i = (int) (0) ;
+for (;(step31 > 0 && _i <= limit31) || (step31 < 0 && _i >= limit31) ;_i = ((int)(0 + _i + step31))  ) {
  //BA.debugLineNum = 405;BA.debugLine="Dim u As Int = 6";
 _u = (int) (6);
  //BA.debugLineNum = 406;BA.debugLine="Dim m As Int = 0";
@@ -395,7 +397,8 @@ _plan.SetDayStatus((int) (6),__c.False);
 {
 final int step55 = 1;
 final int limit55 = (int) (20);
-for (_i = (int) (12) ; (step55 > 0 && _i <= limit55) || (step55 < 0 && _i >= limit55); _i = ((int)(0 + _i + step55)) ) {
+_i = (int) (12) ;
+for (;(step55 > 0 && _i <= limit55) || (step55 < 0 && _i >= limit55) ;_i = ((int)(0 + _i + step55))  ) {
  //BA.debugLineNum = 430;BA.debugLine="plan.SetHourStatus(2,i,False)";
 _plan.SetHourStatus((int) (2),_i,__c.False);
  }

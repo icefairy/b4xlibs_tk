@@ -1,148 +1,80 @@
-In filter: 16/03/2017 18:12
-In filter: 16/03/2017 18:12
+In filter: 26/04/2017 18:45
 Connected
 Waiting for value (9 ms)
 Users browser language: en
-Waiting for value (3 ms)
+Waiting for value (2 ms)
 preparing for url refresh
 Disconnected
-In filter: 16/03/2017 18:12
+In filter: 26/04/2017 18:45
 Connected
-Waiting for value (3 ms)
+Waiting for value (1 ms)
 Saving the first instance
-Waiting for value (62 ms)
-AboutPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Waiting for value (3 ms)
-preparing for url refresh
-Disconnected
-Connected
-Waiting for value (13 ms)
-Saving the first instance
-Waiting for value (36 ms)
-GettingStartedPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Waiting for value (8 ms)
+Waiting for value (24 ms)
+AboutPageb25ea44a-5a28-461f-9928-fe6671358892
+Waiting for value (5 ms)
 preparing for url refresh
 Disconnected
 Connected
 Waiting for value (14 ms)
 Saving the first instance
-Waiting for value (43 ms)
-ThemesPage8598ea44-07fe-4b6c-9953-3caa250ef996
+Waiting for value (26 ms)
+GridsPageb25ea44a-5a28-461f-9928-fe6671358892
+Waiting for value (11 ms)
+preparing for url refresh
+Disconnected
+Connected
+Saving the first instance
+Waiting for value (27 ms)
+HelperFlexWallPageb25ea44a-5a28-461f-9928-fe6671358892
+Waiting for value (4 ms)
 Waiting for value (2 ms)
 preparing for url refresh
 Disconnected
 Connected
-Waiting for value (5 ms)
+Waiting for value (2 ms)
 Saving the first instance
-Waiting for value (38 ms)
-GridsPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Waiting for value (1 ms)
+Waiting for value (29 ms)
+HelperContainerPageb25ea44a-5a28-461f-9928-fe6671358892
+Animation finished: animin
+Animation finished: animout
+Animation finished: initial
+Animation finished: animin
+Animation finished: animout
+Animation finished: initial
+Animation finished: animin
+Animation finished: unblur
+Waiting for value (102 ms)
 preparing for url refresh
 Disconnected
 Connected
-Waiting for value (1 ms)
+Waiting for value (3 ms)
 Saving the first instance
 Waiting for value (28 ms)
-CompPercentSliderPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Waiting for value (2 ms)
-Waiting for value (2 ms)
-Waiting for value (3 ms)
-Waiting for value (2 ms)
-Waiting for value (1 ms)
-preparing for url refresh
-Disconnected
-Connected
-Waiting for value (3 ms)
-Saving the first instance
-Waiting for value (27 ms)
-CompSVGSurfacePage8598ea44-07fe-4b6c-9953-3caa250ef996
-Scavenger running... (1 page(s) cached)
-Waiting for value (6 ms)
-preparing for url refresh
-Disconnected
-Connected
-Waiting for value (23 ms)
-Saving the first instance
-Waiting for value (40 ms)
-CompAudioPlayerPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Waiting for value (5 ms)
-preparing for url refresh
-Disconnected
-Connected
-Waiting for value (15 ms)
-Saving the first instance
-Waiting for value (41 ms)
-CompFileInputPage8598ea44-07fe-4b6c-9953-3caa250ef996
-value : ESFileExplorer_v3.2.5.5_NoAD_V6_HoloStyle_Lfqy.apk
-java.lang.IllegalStateException: Request exceeds maxRequestSize (102400) = false
-java.lang.IllegalStateException: Request exceeds maxRequestSize (102400) = false
-value : 61145_icefairy.png
-61145_icefairy.png = true
-preparing for url refresh
-Disconnected
-Connected
-Waiting for value (11 ms)
-Saving the first instance
-Waiting for value (62 ms)
-CompFileInputPage8598ea44-07fe-4b6c-9953-3caa250ef996
-value : 1111111111.png
-1111111111.png = true
-Waiting for value (27 ms)
-preparing for url refresh
-Disconnected
-Connected
-Waiting for value (29 ms)
-Saving the first instance
-Waiting for value (73 ms)
-CompEditorPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Waiting for value (941 ms)
-Waiting for value (100 ms)
-Waiting for value (6 ms)
-Waiting for value (9 ms)
-Waiting for value (2 ms)
+HelperNavigationBarPageb25ea44a-5a28-461f-9928-fe6671358892
 Waiting for value (102 ms)
-Connected
-Waiting for value (36 ms)
-Saving the first instance
-Waiting for value (43 ms)
-CompEditorPageeditorlbl-iframe
-Waiting for value (16 ms)
-preparing for url refresh
-preparing for url refresh
-Disconnected
-Disconnected
-Connected
-Waiting for value (34 ms)
-Saving the first instance
-Waiting for value (82 ms)
-IconsPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Waiting for value (1 ms)
-preparing for url refresh
-Disconnected
-Connected
-Waiting for value (6 ms)
-Saving the first instance
-Waiting for value (41 ms)
-DonatorsExtraLibsPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Waiting for value (6 ms)
-preparing for url refresh
-Disconnected
-Connected
-Waiting for value (13 ms)
-Saving the first instance
-Waiting for value (60 ms)
-IconsPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Scavenger running... (1 page(s) cached)
-Scavenger running... (1 page(s) cached)
-Scavenger running... (1 page(s) cached)
-Waiting for value (3 ms)
 preparing for url refresh
 Disconnected
 Connected
 Waiting for value (2 ms)
 Saving the first instance
-Waiting for value (23 ms)
-HelperContainerPage8598ea44-07fe-4b6c-9953-3caa250ef996
-Scavenger running... (1 page(s) cached)
+Waiting for value (41 ms)
+HelperParallaxPageb25ea44a-5a28-461f-9928-fe6671358892
+Waiting for value (1168 ms)
 preparing for url refresh
 Disconnected
+Connected
+Waiting for value (8 ms)
+Saving the first instance
+Waiting for value (31 ms)
+HelperTableMutablePageb25ea44a-5a28-461f-9928-fe6671358892
+Waiting for value (101 ms)
+preparing for url refresh
+Disconnected
+Connected
+Waiting for value (3 ms)
+Saving the first instance
+Waiting for value (23 ms)
+DonatorsExtraLibsPageb25ea44a-5a28-461f-9928-fe6671358892
+preparing for url refresh
+Disconnected
+Scavenger running... (0 page(s) cached)
