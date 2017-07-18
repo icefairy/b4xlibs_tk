@@ -1,17 +1,19 @@
-﻿Type=Class
-Version=5.78
+Type=Class
+Version=7.01
 ModulesStructureVersion=1
 B4A=true
 @EndOfDesignText@
-'version: 1.20
+'version: 1.65 - modified version
 #Event: ItemClick (Index As Int, Value As Object)
 #DesignerProperty: Key: DividerColor, DisplayName: Divider Color, FieldType: Color, DefaultValue: 0xFFD9D7DE
 #DesignerProperty: Key: DividerHeight, DisplayName: Divider Height, FieldType: Int, DefaultValue: 2
 #DesignerProperty: Key: PressedColor, DisplayName: Pressed Color, FieldType: Color, DefaultValue: 0xFF7EB4FA
+#DesignerProperty: Key: InsertAnimationDuration, DisplayName: Insert Animation Duration, FieldType: Int, DefaultValue: 300
 Sub Class_Globals
-	Private sv As ScrollView
+	Public sv As ScrollView
 	Private items As List
 	Private panels As List
+	Private heights As List
 	Private dividerHeight As Float
 	Private EventName As String
 	Private CallBack As Object
@@ -21,6 +23,7 @@ Sub Class_Globals
 	Public DefaultTextBackgroundColor As Int
 	Private DefaultTextBackground As Object
 	Private PressedDrawable As ColorDrawable
+	Public AnimationDuration As Int = 300
 End Sub
 
 
@@ -30,10 +33,10 @@ Public Sub Initialize (vCallback As Object, vEventName As String)
 	sv.Initialize2(0, "sv")
 	items.Initialize
 	panels.Initialize
-	
+	heights.Initialize
 	'these defaults will be used when the view is added by code
 	dividerHeight = 2dip
-	sv.Color = 0xFFD9D7DE 
+	sv.Color = 0xFFD9D7DE
 	DefaultTextColor = Colors.White
 	DefaultTextSize = 16
 	DefaultTextBackgroundColor = Colors.Black
@@ -48,18 +51,18 @@ End Sub
 
 
 Public Sub DesignerCreateView(base As Panel, lbl As Label, props As Map)
-	ReplaceBasePanelWithView(base, sv)	
+	ReplaceBasePanelWithView(base, sv)
 	sv.Color = props.Get("DividerColor")
 	dividerHeight = DipToCurrent(props.Get("DividerHeight")) 'need to scale the value
 	PressedDrawable.Initialize(props.Get("PressedColor"), 2dip)
+	AnimationDuration = props.GetDefault("InsertAnimationDuration", AnimationDuration)
 	DefaultTextSize = lbl.TextSize
 	DefaultTextColor = lbl.TextColor
 	DefaultTextBackground = base.Background
 End Sub
 
 Private Sub ReplaceBasePanelWithView(base As Panel, view As View)
-	Dim jo As JavaObject = base
-	Dim parent As Panel = jo.RunMethod("getParent", Null)
+	Dim parent As Panel = base.Parent
 	parent.AddView(view, base.Left, base.Top, base.Width, base.Height)
 	base.RemoveView
 End Sub
@@ -69,6 +72,7 @@ End Sub
 Public Sub Clear
 	items.Clear
 	panels.Clear
+	heights.Clear
 	sv.Panel.Height = 0
 	For i = sv.Panel.NumberOfViews - 1 To 0 Step -1
 		sv.Panel.RemoveViewAt(i)
@@ -101,21 +105,25 @@ Public Sub RemoveAt(Index As Int)
 	For i = Index + 1 To items.Size - 1
 		p = panels.Get(i)
 		p.Tag = i - 1
-		p.Top = p.Top - removePanel.Height - dividerHeight
+		Dim NewTop As Int = p.Top - heights.Get(Index) - dividerHeight
+		p.top = NewTop
 	Next
-	sv.Panel.Height = sv.Panel.Height - removePanel.Height - dividerHeight
+	sv.Panel.Height = sv.Panel.Height - heights.Get(Index) - dividerHeight
 	items.RemoveAt(Index)
 	panels.RemoveAt(Index)
+	heights.RemoveAt(Index)
 	removePanel.RemoveView
 End Sub
 
+
+
 'Adds a text item. The item height will be adjusted based on the text.
-Public Sub AddTextItem(Text As String, Value As Object)
+Public Sub AddTextItem(Text As Object, Value As Object)
 	InsertAtTextItem(items.Size, Text, Value)
 End Sub
 
 'Inserts a text item at the specified index.
-Public Sub InsertAtTextItem(Index As Int, Text As String, Value As Object)
+Public Sub InsertAtTextItem(Index As Int, Text As Object, Value As Object)
 	Dim pnl As Panel
 	pnl.Initialize("")
 	Dim lbl As Label
@@ -130,19 +138,48 @@ Public Sub InsertAtTextItem(Index As Int, Text As String, Value As Object)
 	Else
 		pnl.Color = DefaultTextBackgroundColor
 	End If
-	Dim minHeight As Int
-	minHeight = su.MeasureMultilineTextHeight(lbl, Text)
+	Dim minHeight As Int = su.MeasureMultilineTextHeight(lbl, Text)
 	lbl.Height = Max(50dip, minHeight)
 	InsertAt(Index, pnl, lbl.Height + 2dip, Value)
 End Sub
 
+'Changes the height of an existing item.
+Public Sub ResizeItem(Index As Int, ItemHeight As Int)
+	Dim p As Panel = GetPanel(Index)
+	Dim value As Object = items.Get(Index)
+	Dim parent As Panel = p.Parent
+	p.Background = parent.Background
+	p.RemoveView
+	ReplaceAt(Index, p, ItemHeight, value)
+End Sub
+
+
+'Replaces the item at the specified index with a new item.
+Public Sub ReplaceAt(Index As Int, pnl As Panel, ItemHeight As Int, Value As Object)
+	Dim removePanel As Panel = panels.Get(Index)
+	Dim height As Int = heights.Get(Index)
+	items.RemoveAt(Index)
+	panels.RemoveAt(Index)
+	heights.RemoveAt(Index)
+	removePanel.RemoveView
+	InsertAtImpl(Index, pnl, ItemHeight, Value, height)
+End Sub
+
 'Adds a custom item at the specified index.
-Public Sub InsertAt(Index As Int, Pnl As Panel, ItemHeight As Int, Value As Object)
-    
+Public Sub InsertAt(Index As Int, pnl As Panel, ItemHeight As Int, Value As Object)
+	InsertAtImpl(Index, pnl, ItemHeight, Value, 0)
+End Sub
+
+	
+Private Sub InsertAtImpl(Index As Int, Pnl As Panel, ItemHeight As Int, Value As Object, InitialHeight As Int)
 	Dim sd As StateListDrawable
-    sd.Initialize
-    sd.AddState(sd.State_Pressed, PressedDrawable)
-    sd.AddCatchAllState(Pnl.Background)
+	If Not(Pnl.Background Is StateListDrawable) Then
+		sd.Initialize
+		sd.AddState(sd.State_Pressed, PressedDrawable)
+		sd.AddCatchAllState(Pnl.Background)
+	Else
+		sd = Pnl.Background
+	End If
 	
 	'create another panel to handle the click event
 	Dim p As Panel
@@ -150,13 +187,16 @@ Public Sub InsertAt(Index As Int, Pnl As Panel, ItemHeight As Int, Value As Obje
 	p.Background = sd
 	Dim cd As ColorDrawable
 	cd.Initialize(Colors.Transparent, 0)
-    Pnl.Background = cd
+	Pnl.Background = cd
 	p.AddView(Pnl, 0, 0, sv.Width, ItemHeight)
 	p.Tag = Index
+	Dim IncludeDividierHeight As Int
+	If InitialHeight = 0 Then IncludeDividierHeight = dividerHeight Else IncludeDividierHeight = 0
 	
-	If Index = items.Size Then
+	If Index = items.Size And InitialHeight = 0 Then
 		items.Add(Value)
 		panels.Add(p)
+		heights.Add(ItemHeight)
 		Dim top As Int
 		If Index = 0 Then top = dividerHeight Else top = sv.Panel.Height
 		sv.Panel.AddView(p, 0, top, sv.Width, ItemHeight)
@@ -165,24 +205,47 @@ Public Sub InsertAt(Index As Int, Pnl As Panel, ItemHeight As Int, Value As Obje
 		If Index = 0 Then
 			top = dividerHeight
 		Else
-			Dim previousPanel As Panel
-			previousPanel = panels.Get(Index - 1)
-			top = previousPanel.top + previousPanel.Height + dividerHeight
+			Dim previousPanel As Panel = panels.Get(Index - 1)
+			top = previousPanel.top + heights.Get(Index - 1) + dividerHeight
 		End If
-
 		Dim p2 As Panel
 		For i = Index To panels.Size - 1
 			p2 = panels.Get(i)
-			p2.top = p2.top + ItemHeight + dividerHeight
+			Dim NewTop As Int = p2.top + ItemHeight - InitialHeight + IncludeDividierHeight
+			If  Min(NewTop, p2.Top) - sv.ScrollPosition < sv.Height Then
+				p2.SetLayoutAnimated(AnimationDuration, 0, NewTop, p2.Width, heights.Get(i))
+			Else
+				p2.top = NewTop
+			End If
 			p2.Tag = i + 1
 		Next
 		items.InsertAt(Index, Value)
 		panels.InsertAt(Index, p)
-		sv.Panel.AddView(p, 0, top, sv.Width, ItemHeight)
+		heights.InsertAt(Index, ItemHeight)
+		Dim ShouldSetPanelHeight As Boolean
+		If InitialHeight > ItemHeight Then
+			sv.Panel.AddView(p, 0, top, sv.Width, InitialHeight)
+			Pnl.Height = InitialHeight
+			ShouldSetPanelHeight = True
+		Else
+			sv.Panel.AddView(p, 0, top, sv.Width, ItemHeight)
+			
+		End If
+		p.SendToBack
 	End If
-	sv.Panel.Height = sv.Panel.Height + ItemHeight + dividerHeight
-	If items.Size = 1 Then sv.Panel.Height = sv.Panel.Height + dividerHeight
+	Dim NewSvHeight As Int = sv.Panel.Height + ItemHeight - InitialHeight + IncludeDividierHeight
+	sv.Panel.Height = NewSvHeight
+	If items.Size = 1 Then sv.Panel.Height = sv.Panel.Height + IncludeDividierHeight
+	If ShouldSetPanelHeight Then
+		Sleep(AnimationDuration)
+		If p.Parent <> Null Then
+			'this can happen if the user clicks on the item while it is being animated
+			p.Height = ItemHeight
+			Pnl.Height = ItemHeight
+		End If
+	End If
 End Sub
+
 
 'Adds a custom item.
 Public Sub Add(Pnl As Panel, ItemHeight As Int, Value As Object)
@@ -192,16 +255,10 @@ End Sub
 'Scrolls the list to the specified item.
 Public Sub JumpToItem(Index As Int)
 	Dim top As Int
-	Dim p As Panel
 	For i = 0 To Min(Index - 1, items.Size - 1)
-		p = panels.Get(i)
-		top = top + p.Height + dividerHeight
+		top = top + heights.Get(i) + dividerHeight
 	Next
-	sv.ScrollPosition = top
-	'The scroll position doesn't always gets updated without two calls to DoEvents
-	DoEvents
-	sv.ScrollPosition = top
-	DoEvents
+	sv.ScrollToNow(top)
 End Sub
 
 Private Sub Panel_Click
@@ -214,11 +271,10 @@ End Sub
 
 'Returns the index of the item that holds the given view.
 Public Sub GetItemFromView(v As View) As Int
-	Dim parent = v, current As Object
+	Dim parent = v As Object, current As View
 	Do While (parent Is Panel) = False Or sv.Panel <> parent
 		current = parent
-		Dim jo As JavaObject = current
-		parent = jo.RunMethod("getParent", Null)
+		parent = current.Parent
 	Loop
 	v = current
 	Return v.Tag
