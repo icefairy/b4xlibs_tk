@@ -9,6 +9,8 @@
 ├─b4alibs<br>
 │  ├─amaplocation<br>
 > 高德地图（amap.com)+高德定位支持库以及例子项目
+│  ├─daynightswitch<br>
+> 切换日夜主题
 
 │  │  ├─amaplocationDemo<br>
 > 高德地图（amap.com)+高德定位例子

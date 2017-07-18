@@ -1,0 +1,84 @@
+﻿Version=6.8
+NumberOfModules=1
+Module1=Starter
+Build1=Default,JHS.DayNightSwitch
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
+IconFile=
+NumberOfFiles=1
+File1=main.bal
+NumberOfLibraries=2
+Library1=core
+Library2=daynightswitch
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: b4aDayNightSwitch
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#End Region
+
+#AdditionalRes: ..\LibRes
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+
+	Private dns1 As DayNightSwitch
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("main")
+	
+
+	dns1.IsNight = False
+	Activity.Color = Colors.White
+
+
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+
+Sub dns1_on_switch(is_night As Boolean)
+	
+	If is_night = True Then
+		Activity.SetColorAnimated(400, Colors.White, Colors.Black)
+	Else
+		Activity.SetColorAnimated(400, Colors.Black, Colors.White)
+	End If
+	  
+	
+End Sub
+
+Sub dns1_animation_started()
+	
+End Sub
+
+Sub dns1_animation_end()
+	
+End Sub
+
+Sub dns1_animation_value_changed(value As Float)
+	
+	
+End Sub

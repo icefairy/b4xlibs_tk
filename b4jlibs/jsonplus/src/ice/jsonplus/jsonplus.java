@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 
 import org.json.simple.JsonArray;
 import org.json.simple.JsonObject;
+import org.json.simple.Jsoner;
 
 import anywheresoftware.b4a.AbsObjectWrapper;
 import anywheresoftware.b4a.BA.Author;
@@ -14,7 +15,7 @@ import anywheresoftware.b4a.objects.collections.List;
 import anywheresoftware.b4a.objects.collections.Map;
 
 @ShortName("JSONGenerator2")
-@Version(1.0f)
+@Version(1.1f)
 @Author("icefairy333")
 @DependsOn(values={"json-simple-2.1.2"})
 public class jsonplus extends AbsObjectWrapper<Object> {
@@ -30,12 +31,9 @@ public class jsonplus extends AbsObjectWrapper<Object> {
 		obj=new JsonArray(lst.getObject());
 	}
 	public String ToString() {
-		if(obj instanceof JsonObject){
-			return ((JsonObject)obj).toJson();
-		}else if (obj instanceof JsonArray) {
-			return ((JsonArray)obj).toJson();
-		}
-		return "";
+		return Jsoner.serialize(obj);
 	}
-	
+	public String escape(String str) {
+		return Jsoner.escape(str);
+	}
 }
