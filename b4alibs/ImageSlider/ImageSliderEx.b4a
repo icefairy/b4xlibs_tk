@@ -1,0 +1,129 @@
+﻿Version=6.77
+NumberOfModules=1
+Module1=Starter
+Build1=Default,b4a.example
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="22"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~SetApplicationAttribute(android:theme, "@style/Theme.AppCompat")~\n~'SetActivityAttribute(Main, android:screenOrientation, "landscape")
+IconFile=
+NumberOfFiles=1
+File1=Layout1.bal
+NumberOfLibraries=3
+Library1=core
+Library2=imageslider
+Library3=appcompat
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: B4A Example
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+
+#Extends: android.support.v7.app.AppCompatActivity
+#AdditionalRes: ..\res
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+	Type SlideImage(name As String, path As String)
+	Dim slides As List
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Private slider As ImageSlider
+	Private indicator As PagerIndicator
+	Private currentImage As SlideImage
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("Layout1")
+	' Globale Liste von "Slides" (List of SlideImage)
+	' Wird benötigt, um beim erreichen eines Bildes seinen Namen (pfad) wieder zu erhalten...
+	slides.Initialize
+	
+	indicator.DefaultIndicatorShape = "Rectangle"
+	indicator.setDefaultIndicatorColor(Colors.Red,Colors.Gray)
+	indicator.setDefaultIndicatorSize(1dip,1dip)
+	indicator.setDefaultSelectedIndicatorSize(5dip,1dip)
+	indicator.setDefaultUnselectedIndicatorSize(1dip,1dip)
+	indicator.Visible = True
+	slider.CustomIndicator = indicator
+	'indicator.setIndicatorStyleResource("ic_action_camera","ic_action_chat")
+	
+	Dim flist As List
+	flist = File.ListFiles(File.DirRootExternal&"/DCIM/Holger.Bilder")
+	Log(flist)
+	For i = 0 To flist.Size-1
+		Dim f As String = flist.Get(i)
+		If f.StartsWith(".") Then
+		Else
+			Log("File added: "&f)	
+			' Hier wird ein Slide für die globale Liste definiert und in die Liste eingetrgen
+			Dim sl As SlideImage
+			sl.Initialize
+			sl.name = f
+			sl.path = File.DirRootExternal&"/DCIM/Holger.Bilder/"&f
+			slides.Add(sl)
+			
+			slider.addSliderLocal(f,File.DirRootExternal&"/DCIM/Holger.Bilder/"&f,slider.CenterCrop)
+		End If
+	Next
+	' Wir legen auch einen Eintrag in der globalen Liste ab für Einträge die per URL aufgenommen werden
+	Dim sl As SlideImage
+	sl.Initialize
+	sl.name = "GoT"
+	sl.path = "http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg"
+	slides.Add(sl)
+	
+	slider.addSliderUrl("GoT","http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg",slider.CenterInside)
+	
+	'slider.PresetIndicator = "Right_Bottom"
+	'slider.stopAutoCycle
+	'slider.PresetTransformer2 = slider.Default
+	Log(slider.CurrentPosition)
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+Sub Slider_onSliderClick()
+	Log($"Slider_onClick()"$)	
+End Sub
+
+Sub Slider_onPageScrollStateChanged(state As Int)
+	'Log($"Slider_onPageScrollStateChanged(${state})"$)
+End Sub
+
+Sub Slider_onPageScrolled(position As Int, positionOffset As Float, positionOffsetPixels As Int)
+	'Log($"Slider_onPageScrolled(${position},${positionOffset})"$)
+	
+End Sub
+
+Sub Slider_onPageSelected(position As Int)
+	Log($"Slider_onPageSelected(${position})"$)	
+	' Setze die globale Variable currentImage (welches ein Type SlideImage ist)
+	currentImage = slides.Get(position)
+	' Hier wissen wir, welche Datei (oder URL) gerade aktiv ist.
+	Log("Name: "&currentImage.name)
+	Log("Path: "&currentImage.path)
+End Sub
+
+
+Sub indicator_onClick()
+	Log($"indicator_onClick()"$)
+	
+End Sub
