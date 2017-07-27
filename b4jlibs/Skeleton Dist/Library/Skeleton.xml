@@ -1,0 +1,4591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+  <dependsOn>jcore</dependsOn>
+  <class>
+    <name>nz.ope.skeleton.skeletonpage._sk_page</name>
+    <shortname>SK_Page</shortname>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>Containers</name>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </field>
+    <field>
+      <name>HeaderScripts</name>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </field>
+    <field>
+      <name>BodyScripts</name>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </field>
+    <field>
+      <name>Metas</name>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </field>
+  </class>
+  <class>
+    <name>nz.ope.skeleton.skeletonpage._sk_row</name>
+    <shortname>SK_Row</shortname>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>Columns</name>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </field>
+  </class>
+  <class>
+    <name>nz.ope.skeleton.skeletonpage._sk_table</name>
+    <shortname>SK_Table</shortname>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>Header</name>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </field>
+    <field>
+      <name>Rows</name>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </field>
+  </class>
+  <class>
+    <name>nz.ope.skeleton.skeletonpage</name>
+    <shortname>SkeletonPage</shortname>
+    <comment>Class module
+</comment>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="AddContainer">_addcontainer</name>
+      <comment>Add a Skeleton Container
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Container</name>
+        <type>nz.ope.skeleton.sk_container</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddMeta">_addmeta</name>
+      <comment>Add extra HTML meta to the page
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Meta</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddScript">_addscript</name>
+      <comment>Add a script
+AddToHeader = True means script added to start of page
+AddToHeader = False means script is added to end of page
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Script</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>AddToHeader</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Class_Globals">_class_globals</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getAuthor" HideFromIDE="true">_getauthor</name>
+      <comment>Get the page author
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getDescription" HideFromIDE="true">_getdescription</name>
+      <comment>Get the page description
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getTitle" HideFromIDE="true">_gettitle</name>
+      <comment>Get the page title
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>Initializes the object. You can add parameters to this method if needed.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Render">_render</name>
+      <comment>Render
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="setAuthor" HideFromIDE="true">_setauthor</name>
+      <comment>Set the page author
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Author</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setDescription" HideFromIDE="true">_setdescription</name>
+      <comment>Set the page description
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Description</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setIncludeCSSFontawesome" HideFromIDE="true">_setincludecssfontawesome</name>
+      <comment>Include Fontawesome CSS?
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Include</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setIncludeCSSFontRaleway" HideFromIDE="true">_setincludecssfontraleway</name>
+      <comment>Include Raleway Font CSS?
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Include</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setIncludeCSSNormalize" HideFromIDE="true">_setincludecssnormalize</name>
+      <comment>Include Normalize CSS?
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Include</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setIncludeCSSSkeleton" HideFromIDE="true">_setincludecssskeleton</name>
+      <comment>Include Skeleton CSS?
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Include</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setIncludeCSSSkeletonAlerts" HideFromIDE="true">_setincludecssskeletonalerts</name>
+      <comment>Include Skeleton Alerts CSS?
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Include</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setTitle" HideFromIDE="true">_settitle</name>
+      <comment>Set the page title
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Title</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <property>
+      <name DesignerName="Author">_author</name>
+      <comment>Get the page author
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="Description">_description</name>
+      <comment>Get the page description
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="Title">_title</name>
+      <comment>Get the page title
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="IncludeCSSFontawesome">_includecssfontawesome</name>
+      <comment>Include Fontawesome CSS?
+</comment>
+      <returntype>void</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>boolean</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="IncludeCSSFontRaleway">_includecssfontraleway</name>
+      <comment>Include Raleway Font CSS?
+</comment>
+      <returntype>void</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>boolean</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="IncludeCSSNormalize">_includecssnormalize</name>
+      <comment>Include Normalize CSS?
+</comment>
+      <returntype>void</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>boolean</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="IncludeCSSSkeleton">_includecssskeleton</name>
+      <comment>Include Skeleton CSS?
+</comment>
+      <returntype>void</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>boolean</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="IncludeCSSSkeletonAlerts">_includecssskeletonalerts</name>
+      <comment>Include Skeleton Alerts CSS?
+</comment>
+      <returntype>void</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>boolean</type>
+      </parameter>
+    </property>
+  </class>
+  <class>
+    <name>nz.ope.skeleton.sk_container</name>
+    <shortname>SK_Container</shortname>
+    <comment>Class module
+</comment>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="Add">_add</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Row</name>
+        <type>Object</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="getAlign" HideFromIDE="true">_getalign</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getBackground" HideFromIDE="true">_getbackground</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getColor" HideFromIDE="true">_getcolor</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getMarginTop" HideFromIDE="true">_getmargintop</name>
+      <returntype>int</returntype>
+    </method>
+    <method>
+      <name DesignerName="getPadding" HideFromIDE="true">_getpadding</name>
+      <returntype>int</returntype>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>Initializes the object. You can add parameters to this method if needed.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Render">_render</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="Rows">_rows</name>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </method>
+    <method>
+      <name DesignerName="setAlign" HideFromIDE="true">_setalign</name>
+      <comment>Set container alignment
+Align: left, right, center, justify
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Align</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setBackground" HideFromIDE="true">_setbackground</name>
+      <comment>Background
+If background string cotains .jpg or .png then image is assumed
+Otherwise string is assumed to be a hex color string
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Background</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setColor" HideFromIDE="true">_setcolor</name>
+      <comment>Set container text color
+Assumed to be a hex color string
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Color</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setMarginTop" HideFromIDE="true">_setmargintop</name>
+      <comment>Set container top margin
+MarginTop: integer value in rem units
+rem = relative to font-size of the root element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>MarginTop</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setPadding" HideFromIDE="true">_setpadding</name>
+      <comment>Set container padding
+Padding: integer value in rem units
+rem = relative to font-size of the root element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Padding</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <property>
+      <name DesignerName="Align">_align</name>
+      <comment>Set container alignment
+Align: left, right, center, justify
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="Background">_background</name>
+      <comment>Background
+If background string cotains .jpg or .png then image is assumed
+Otherwise string is assumed to be a hex color string
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="Color">_color</name>
+      <comment>Set container text color
+Assumed to be a hex color string
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="MarginTop">_margintop</name>
+      <comment>Set container top margin
+MarginTop: integer value in rem units
+rem = relative to font-size of the root element
+</comment>
+      <returntype>int</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>int</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="Padding">_padding</name>
+      <comment>Set container padding
+Padding: integer value in rem units
+rem = relative to font-size of the root element
+</comment>
+      <returntype>int</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>int</type>
+      </parameter>
+    </property>
+  </class>
+  <class>
+    <name>nz.ope.skeleton.sk_column</name>
+    <shortname>SK_Column</shortname>
+    <comment>Class module
+</comment>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="AddAlert">_addalert</name>
+      <comment>Add an alert message (requires skeleton-alerts.css)
+AlertType: success, info, warning, error
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Title</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Message</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>AlertType</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddAnchor">_addanchor</name>
+      <comment>Add an anchor element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Name</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddAnchorButton">_addanchorbutton</name>
+      <comment>Add an anchor button element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Primary</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>href</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddBreak">_addbreak</name>
+      <comment>Add a hard break
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="AddButton">_addbutton</name>
+      <comment>Add a normal button element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Primary</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>OnClick</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddCode">_addcode</name>
+      <comment>Add some code block element (ie display some code)
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddContent">_addcontent</name>
+      <comment>Add normal conent (content body)
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddHeader">_addheader</name>
+      <comment>Add a header element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Level</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddHTML">_addhtml</name>
+      <comment>Add HTML directly (includes trailing CRLF)
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>HTML</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddImage">_addimage</name>
+      <comment>Add an image element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Src</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddInputButton">_addinputbutton</name>
+      <comment>Add an input button form element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Primary</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>Submit</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddInputCheckbox">_addinputcheckbox</name>
+      <comment>Add an input checkbox form element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Checked</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddInputHidden">_addinputhidden</name>
+      <comment>Add an hidden input form element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddInputList">_addinputlist</name>
+      <comment>Add an input list form element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Items</name>
+        <type>anywheresoftware.b4a.objects.collections.List</type>
+      </parameter>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Selected</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>IncludeBlank</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddInputText">_addinputtext</name>
+      <comment>Add an input text element
+InputType: email, number, search, text, tel, url, password
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>PlaceHolderText</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>InputType</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>InitialValue</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddInputTextArea">_addinputtextarea</name>
+      <comment>Add an input text area form element
+InputType: email, number, search, text, tel, url, password
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>PlaceHolderText</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>InputType</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>InitialValue</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddLabel">_addlabel</name>
+      <comment>Add a simple text label form element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Element</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddLink">_addlink</name>
+      <comment>Add a simple text hyperlink element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Link</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddList">_addlist</name>
+      <comment>Add a list element
+Ordered = True means the list will be numbered rather than bulleted
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Items</name>
+        <type>anywheresoftware.b4a.objects.collections.List</type>
+      </parameter>
+      <parameter>
+        <name>Ordered</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddNamedDiv">_addnameddiv</name>
+      <comment>Add a named div
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Name</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddNamedDivWithContent">_addnameddivwithcontent</name>
+      <comment>Add a named div with some content (style and text)
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Name</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Style</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="AddNBSP">_addnbsp</name>
+      <comment>Add a non-breaking space (NBSP)
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="AddTable">_addtable</name>
+      <comment>Add a table element
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Table</name>
+        <type>nz.ope.skeleton.skeletonpage._sk_table</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="getSize" HideFromIDE="true">_getsize</name>
+      <returntype>int</returntype>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+      <parameter>
+        <name>Size</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Render">_render</name>
+      <comment>Render
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="setSize" HideFromIDE="true">_setsize</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Size</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <property>
+      <name DesignerName="Size">_size</name>
+      <returntype>int</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>int</type>
+      </parameter>
+    </property>
+  </class>
+  <class>
+    <name>nz.ope.skeleton.sk_helper</name>
+    <shortname>SK_Helper</shortname>
+    <comment>Class module
+</comment>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="Class_Globals">_class_globals</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="HTMLAlert">_htmlalert</name>
+      <comment>AlertType: success, info, warning, error
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Title</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Message</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>AlertType</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLAnchor">_htmlanchor</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Name</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLAnchorButton">_htmlanchorbutton</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Primary</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>href</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLBreak">_htmlbreak</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="HTMLButton">_htmlbutton</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Primary</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>OnClick</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLCode">_htmlcode</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLContent">_htmlcontent</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLFontAwesome">_htmlfontawesome</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Name</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Size</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>FixedWidth</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>Colour</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLFontAwesomeAnimated">_htmlfontawesomeanimated</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Name</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Size</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>FixedWidth</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>Colour</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Spin</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>Pulse</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLFormEnd">_htmlformend</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="HTMLFormStart">_htmlformstart</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Name</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Action</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Method</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>OnSubmit</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLHeader">_htmlheader</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Level</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLImage">_htmlimage</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Src</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLInputButton">_htmlinputbutton</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Primary</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>Submit</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLInputCheckbox">_htmlinputcheckbox</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Checked</name>
+        <type>boolean</type>
+      </parameter>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLInputHidden">_htmlinputhidden</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLInputList">_htmlinputlist</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Items</name>
+        <type>anywheresoftware.b4a.objects.collections.List</type>
+      </parameter>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Selected</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>IncludeBlank</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLInputText">_htmlinputtext</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>PlaceHolderText</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>InputType</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>InitialValue</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLInputTextArea">_htmlinputtextarea</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>PlaceHolderText</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Id</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>InputType</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>InitialValue</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLLabel">_htmllabel</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Element</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLLink">_htmllink</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Link</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLList">_htmllist</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Items</name>
+        <type>anywheresoftware.b4a.objects.collections.List</type>
+      </parameter>
+      <parameter>
+        <name>Ordered</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLNamedDiv">_htmlnameddiv</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Name</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLNamedDivWithContent">_htmlnameddivwithcontent</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Name</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Style</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="HTMLNBSP">_htmlnbsp</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="HTMLTable">_htmltable</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Table</name>
+        <type>nz.ope.skeleton.skeletonpage._sk_table</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SK_TableColumnValueToHref">_sk_tablecolumnvaluetohref</name>
+      <returntype>nz.ope.skeleton.skeletonpage._sk_table</returntype>
+      <parameter>
+        <name>Table</name>
+        <type>nz.ope.skeleton.skeletonpage._sk_table</type>
+      </parameter>
+      <parameter>
+        <name>Column</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Text</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Target</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SK_TablePrefixColumnValue">_sk_tableprefixcolumnvalue</name>
+      <returntype>nz.ope.skeleton.skeletonpage._sk_table</returntype>
+      <parameter>
+        <name>Table</name>
+        <type>nz.ope.skeleton.skeletonpage._sk_table</type>
+      </parameter>
+      <parameter>
+        <name>Column</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Prefix</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SK_TableReplaceColumnValue">_sk_tablereplacecolumnvalue</name>
+      <returntype>nz.ope.skeleton.skeletonpage._sk_table</returntype>
+      <parameter>
+        <name>Table</name>
+        <type>nz.ope.skeleton.skeletonpage._sk_table</type>
+      </parameter>
+      <parameter>
+        <name>Column</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Find</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Replace</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Contains</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SK_TableSuffixColumnValue">_sk_tablesuffixcolumnvalue</name>
+      <returntype>nz.ope.skeleton.skeletonpage._sk_table</returntype>
+      <parameter>
+        <name>Table</name>
+        <type>nz.ope.skeleton.skeletonpage._sk_table</type>
+      </parameter>
+      <parameter>
+        <name>Column</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Suffix</name>
+        <type>String</type>
+      </parameter>
+    </method>
+  </class>
+  <class>
+    <name>nz.ope.skeleton.sk_fontawesomeicon</name>
+    <shortname>SK_FontAwesomeIcon</shortname>
+    <comment>Class module
+</comment>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="Class_Globals">_class_globals</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>Initializes the object. You can add parameters to this method if needed.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+    </method>
+    <field>
+      <name DesignerName="fa_500px">_fa_500px</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_address_book">_fa_address_book</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_address_book_o">_fa_address_book_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_address_card">_fa_address_card</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_address_card_o">_fa_address_card_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_adjust">_fa_adjust</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_adn">_fa_adn</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_align_center">_fa_align_center</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_align_justify">_fa_align_justify</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_align_left">_fa_align_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_align_right">_fa_align_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_amazon">_fa_amazon</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ambulance">_fa_ambulance</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_american_sign_language_interpreting">_fa_american_sign_language_interpreting</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_anchor">_fa_anchor</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_android">_fa_android</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_angellist">_fa_angellist</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_angle_double_down">_fa_angle_double_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_angle_double_left">_fa_angle_double_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_angle_double_right">_fa_angle_double_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_angle_double_up">_fa_angle_double_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_angle_down">_fa_angle_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_angle_left">_fa_angle_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_angle_right">_fa_angle_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_angle_up">_fa_angle_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_apple">_fa_apple</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_archive">_fa_archive</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_area_chart">_fa_area_chart</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_circle_down">_fa_arrow_circle_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_circle_left">_fa_arrow_circle_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_circle_o_down">_fa_arrow_circle_o_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_circle_o_left">_fa_arrow_circle_o_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_circle_o_right">_fa_arrow_circle_o_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_circle_o_up">_fa_arrow_circle_o_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_circle_right">_fa_arrow_circle_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_circle_up">_fa_arrow_circle_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_down">_fa_arrow_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_left">_fa_arrow_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_right">_fa_arrow_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrow_up">_fa_arrow_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrows">_fa_arrows</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrows_alt">_fa_arrows_alt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrows_h">_fa_arrows_h</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_arrows_v">_fa_arrows_v</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_asl_interpreting">_fa_asl_interpreting</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_assistive_listening_systems">_fa_assistive_listening_systems</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_asterisk">_fa_asterisk</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_at">_fa_at</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_audio_description">_fa_audio_description</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_automobile">_fa_automobile</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_backward">_fa_backward</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_balance_scale">_fa_balance_scale</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ban">_fa_ban</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bandcamp">_fa_bandcamp</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bank">_fa_bank</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bar_chart">_fa_bar_chart</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bar_chart_o">_fa_bar_chart_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_barcode">_fa_barcode</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bars">_fa_bars</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bath">_fa_bath</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bathtub">_fa_bathtub</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery">_fa_battery</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_0">_fa_battery_0</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_1">_fa_battery_1</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_2">_fa_battery_2</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_3">_fa_battery_3</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_4">_fa_battery_4</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_empty">_fa_battery_empty</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_full">_fa_battery_full</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_half">_fa_battery_half</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_quarter">_fa_battery_quarter</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_battery_three_quarters">_fa_battery_three_quarters</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bed">_fa_bed</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_beer">_fa_beer</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_behance">_fa_behance</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_behance_square">_fa_behance_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bell">_fa_bell</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bell_o">_fa_bell_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bell_slash">_fa_bell_slash</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bell_slash_o">_fa_bell_slash_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bicycle">_fa_bicycle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_binoculars">_fa_binoculars</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_birthday_cake">_fa_birthday_cake</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bitbucket">_fa_bitbucket</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bitbucket_square">_fa_bitbucket_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bitcoin">_fa_bitcoin</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_black_tie">_fa_black_tie</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_blind">_fa_blind</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bluetooth">_fa_bluetooth</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bluetooth_b">_fa_bluetooth_b</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bold">_fa_bold</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bolt">_fa_bolt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bomb">_fa_bomb</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_book">_fa_book</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bookmark">_fa_bookmark</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bookmark_o">_fa_bookmark_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_braille">_fa_braille</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_briefcase">_fa_briefcase</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_btc">_fa_btc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bug">_fa_bug</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_building">_fa_building</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_building_o">_fa_building_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bullhorn">_fa_bullhorn</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bullseye">_fa_bullseye</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_bus">_fa_bus</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_buysellads">_fa_buysellads</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cab">_fa_cab</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_calculator">_fa_calculator</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_calendar">_fa_calendar</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_calendar_check_o">_fa_calendar_check_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_calendar_minus_o">_fa_calendar_minus_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_calendar_o">_fa_calendar_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_calendar_plus_o">_fa_calendar_plus_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_calendar_times_o">_fa_calendar_times_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_camera">_fa_camera</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_camera_retro">_fa_camera_retro</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_car">_fa_car</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_caret_down">_fa_caret_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_caret_left">_fa_caret_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_caret_right">_fa_caret_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_caret_square_o_down">_fa_caret_square_o_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_caret_square_o_left">_fa_caret_square_o_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_caret_square_o_right">_fa_caret_square_o_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_caret_square_o_up">_fa_caret_square_o_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_caret_up">_fa_caret_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cart_arrow_down">_fa_cart_arrow_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cart_plus">_fa_cart_plus</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cc">_fa_cc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cc_amex">_fa_cc_amex</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cc_diners_club">_fa_cc_diners_club</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cc_discover">_fa_cc_discover</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cc_jcb">_fa_cc_jcb</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cc_mastercard">_fa_cc_mastercard</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cc_paypal">_fa_cc_paypal</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cc_stripe">_fa_cc_stripe</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cc_visa">_fa_cc_visa</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_certificate">_fa_certificate</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chain">_fa_chain</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chain_broken">_fa_chain_broken</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_check">_fa_check</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_check_circle">_fa_check_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_check_circle_o">_fa_check_circle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_check_square">_fa_check_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_check_square_o">_fa_check_square_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chevron_circle_down">_fa_chevron_circle_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chevron_circle_left">_fa_chevron_circle_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chevron_circle_right">_fa_chevron_circle_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chevron_circle_up">_fa_chevron_circle_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chevron_down">_fa_chevron_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chevron_left">_fa_chevron_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chevron_right">_fa_chevron_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chevron_up">_fa_chevron_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_child">_fa_child</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_chrome">_fa_chrome</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_circle">_fa_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_circle_o">_fa_circle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_circle_o_notch">_fa_circle_o_notch</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_circle_thin">_fa_circle_thin</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_clipboard">_fa_clipboard</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_clock_o">_fa_clock_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_clone">_fa_clone</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_close">_fa_close</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cloud">_fa_cloud</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cloud_download">_fa_cloud_download</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cloud_upload">_fa_cloud_upload</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cny">_fa_cny</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_code">_fa_code</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_code_fork">_fa_code_fork</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_codepen">_fa_codepen</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_codiepie">_fa_codiepie</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_coffee">_fa_coffee</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cog">_fa_cog</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cogs">_fa_cogs</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_columns">_fa_columns</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_comment">_fa_comment</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_comment_o">_fa_comment_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_commenting">_fa_commenting</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_commenting_o">_fa_commenting_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_comments">_fa_comments</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_comments_o">_fa_comments_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_compass">_fa_compass</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_compress">_fa_compress</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_connectdevelop">_fa_connectdevelop</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_contao">_fa_contao</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_copy">_fa_copy</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_copyright">_fa_copyright</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_creative_commons">_fa_creative_commons</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_credit_card">_fa_credit_card</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_credit_card_alt">_fa_credit_card_alt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_crop">_fa_crop</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_crosshairs">_fa_crosshairs</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_css3">_fa_css3</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cube">_fa_cube</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cubes">_fa_cubes</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cut">_fa_cut</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_cutlery">_fa_cutlery</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_dashboard">_fa_dashboard</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_dashcube">_fa_dashcube</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_database">_fa_database</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_deaf">_fa_deaf</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_deafness">_fa_deafness</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_dedent">_fa_dedent</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_delicious">_fa_delicious</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_desktop">_fa_desktop</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_deviantart">_fa_deviantart</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_diamond">_fa_diamond</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_digg">_fa_digg</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_dollar">_fa_dollar</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_dot_circle_o">_fa_dot_circle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_download">_fa_download</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_dribbble">_fa_dribbble</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_drivers_license">_fa_drivers_license</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_drivers_license_o">_fa_drivers_license_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_dropbox">_fa_dropbox</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_drupal">_fa_drupal</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_edge">_fa_edge</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_edit">_fa_edit</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_eercast">_fa_eercast</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_eject">_fa_eject</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ellipsis_h">_fa_ellipsis_h</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ellipsis_v">_fa_ellipsis_v</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_empire">_fa_empire</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_envelope">_fa_envelope</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_envelope_o">_fa_envelope_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_envelope_open">_fa_envelope_open</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_envelope_open_o">_fa_envelope_open_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_envelope_square">_fa_envelope_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_envira">_fa_envira</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_eraser">_fa_eraser</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_etsy">_fa_etsy</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_eur">_fa_eur</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_euro">_fa_euro</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_exchange">_fa_exchange</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_exclamation">_fa_exclamation</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_exclamation_circle">_fa_exclamation_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_exclamation_triangle">_fa_exclamation_triangle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_expand">_fa_expand</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_expeditedssl">_fa_expeditedssl</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_external_link">_fa_external_link</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_external_link_square">_fa_external_link_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_eye">_fa_eye</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_eye_slash">_fa_eye_slash</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_eyedropper">_fa_eyedropper</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_fa">_fa_fa</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_facebook">_fa_facebook</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_facebook_f">_fa_facebook_f</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_facebook_official">_fa_facebook_official</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_facebook_square">_fa_facebook_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_fast_backward">_fa_fast_backward</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_fast_forward">_fa_fast_forward</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_fax">_fa_fax</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_feed">_fa_feed</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_female">_fa_female</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_fighter_jet">_fa_fighter_jet</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file">_fa_file</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_archive_o">_fa_file_archive_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_audio_o">_fa_file_audio_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_code_o">_fa_file_code_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_excel_o">_fa_file_excel_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_image_o">_fa_file_image_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_movie_o">_fa_file_movie_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_o">_fa_file_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_pdf_o">_fa_file_pdf_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_photo_o">_fa_file_photo_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_picture_o">_fa_file_picture_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_powerpoint_o">_fa_file_powerpoint_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_sound_o">_fa_file_sound_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_text">_fa_file_text</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_text_o">_fa_file_text_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_video_o">_fa_file_video_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_word_o">_fa_file_word_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_file_zip_o">_fa_file_zip_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_files_o">_fa_files_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_film">_fa_film</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_filter">_fa_filter</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_fire">_fa_fire</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_fire_extinguisher">_fa_fire_extinguisher</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_firefox">_fa_firefox</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_first_order">_fa_first_order</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_flag">_fa_flag</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_flag_checkered">_fa_flag_checkered</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_flag_o">_fa_flag_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_flash">_fa_flash</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_flask">_fa_flask</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_flickr">_fa_flickr</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_floppy_o">_fa_floppy_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_folder">_fa_folder</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_folder_o">_fa_folder_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_folder_open">_fa_folder_open</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_folder_open_o">_fa_folder_open_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_font">_fa_font</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_font_awesome">_fa_font_awesome</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_fonticons">_fa_fonticons</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_fort_awesome">_fa_fort_awesome</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_forumbee">_fa_forumbee</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_forward">_fa_forward</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_foursquare">_fa_foursquare</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_free_code_camp">_fa_free_code_camp</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_frown_o">_fa_frown_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_futbol_o">_fa_futbol_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gamepad">_fa_gamepad</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gavel">_fa_gavel</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gbp">_fa_gbp</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ge">_fa_ge</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gear">_fa_gear</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gears">_fa_gears</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_genderless">_fa_genderless</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_get_pocket">_fa_get_pocket</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gg">_fa_gg</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gg_circle">_fa_gg_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gift">_fa_gift</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_git">_fa_git</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_git_square">_fa_git_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_github">_fa_github</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_github_alt">_fa_github_alt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_github_square">_fa_github_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gitlab">_fa_gitlab</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gittip">_fa_gittip</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_glass">_fa_glass</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_glide">_fa_glide</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_glide_g">_fa_glide_g</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_globe">_fa_globe</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_google">_fa_google</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_google_plus">_fa_google_plus</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_google_plus_circle">_fa_google_plus_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_google_plus_official">_fa_google_plus_official</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_google_plus_square">_fa_google_plus_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_google_wallet">_fa_google_wallet</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_graduation_cap">_fa_graduation_cap</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_gratipay">_fa_gratipay</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_grav">_fa_grav</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_group">_fa_group</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_h_square">_fa_h_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hacker_news">_fa_hacker_news</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_grab_o">_fa_hand_grab_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_lizard_o">_fa_hand_lizard_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_o_down">_fa_hand_o_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_o_left">_fa_hand_o_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_o_right">_fa_hand_o_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_o_up">_fa_hand_o_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_paper_o">_fa_hand_paper_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_peace_o">_fa_hand_peace_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_pointer_o">_fa_hand_pointer_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_rock_o">_fa_hand_rock_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_scissors_o">_fa_hand_scissors_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_spock_o">_fa_hand_spock_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hand_stop_o">_fa_hand_stop_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_handshake_o">_fa_handshake_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hard_of_hearing">_fa_hard_of_hearing</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hashtag">_fa_hashtag</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hdd_o">_fa_hdd_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_header">_fa_header</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_headphones">_fa_headphones</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_heart">_fa_heart</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_heart_o">_fa_heart_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_heartbeat">_fa_heartbeat</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_history">_fa_history</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_home">_fa_home</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hospital_o">_fa_hospital_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hotel">_fa_hotel</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hourglass">_fa_hourglass</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hourglass_1">_fa_hourglass_1</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hourglass_2">_fa_hourglass_2</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hourglass_3">_fa_hourglass_3</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hourglass_end">_fa_hourglass_end</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hourglass_half">_fa_hourglass_half</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hourglass_o">_fa_hourglass_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_hourglass_start">_fa_hourglass_start</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_houzz">_fa_houzz</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_html5">_fa_html5</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_i_cursor">_fa_i_cursor</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_id_badge">_fa_id_badge</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_id_card">_fa_id_card</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_id_card_o">_fa_id_card_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ils">_fa_ils</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_image">_fa_image</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_imdb">_fa_imdb</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_inbox">_fa_inbox</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_indent">_fa_indent</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_industry">_fa_industry</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_info">_fa_info</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_info_circle">_fa_info_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_inr">_fa_inr</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_instagram">_fa_instagram</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_institution">_fa_institution</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_internet_explorer">_fa_internet_explorer</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_intersex">_fa_intersex</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ioxhost">_fa_ioxhost</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_italic">_fa_italic</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_joomla">_fa_joomla</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_jpy">_fa_jpy</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_jsfiddle">_fa_jsfiddle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_key">_fa_key</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_keyboard_o">_fa_keyboard_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_krw">_fa_krw</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_language">_fa_language</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_laptop">_fa_laptop</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_lastfm">_fa_lastfm</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_lastfm_square">_fa_lastfm_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_leaf">_fa_leaf</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_leanpub">_fa_leanpub</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_legal">_fa_legal</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_lemon_o">_fa_lemon_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_level_down">_fa_level_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_level_up">_fa_level_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_life_bouy">_fa_life_bouy</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_life_buoy">_fa_life_buoy</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_life_ring">_fa_life_ring</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_life_saver">_fa_life_saver</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_lightbulb_o">_fa_lightbulb_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_line_chart">_fa_line_chart</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_link">_fa_link</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_linkedin">_fa_linkedin</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_linkedin_square">_fa_linkedin_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_linode">_fa_linode</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_linux">_fa_linux</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_list">_fa_list</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_list_alt">_fa_list_alt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_list_ol">_fa_list_ol</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_list_ul">_fa_list_ul</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_location_arrow">_fa_location_arrow</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_lock">_fa_lock</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_long_arrow_down">_fa_long_arrow_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_long_arrow_left">_fa_long_arrow_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_long_arrow_right">_fa_long_arrow_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_long_arrow_up">_fa_long_arrow_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_low_vision">_fa_low_vision</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_magic">_fa_magic</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_magnet">_fa_magnet</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mail_forward">_fa_mail_forward</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mail_reply">_fa_mail_reply</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mail_reply_all">_fa_mail_reply_all</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_male">_fa_male</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_map">_fa_map</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_map_marker">_fa_map_marker</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_map_o">_fa_map_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_map_pin">_fa_map_pin</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_map_signs">_fa_map_signs</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mars">_fa_mars</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mars_double">_fa_mars_double</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mars_stroke">_fa_mars_stroke</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mars_stroke_h">_fa_mars_stroke_h</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mars_stroke_v">_fa_mars_stroke_v</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_maxcdn">_fa_maxcdn</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_meanpath">_fa_meanpath</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_medium">_fa_medium</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_medkit">_fa_medkit</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_meetup">_fa_meetup</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_meh_o">_fa_meh_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mercury">_fa_mercury</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_microchip">_fa_microchip</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_microphone">_fa_microphone</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_microphone_slash">_fa_microphone_slash</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_minus">_fa_minus</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_minus_circle">_fa_minus_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_minus_square">_fa_minus_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_minus_square_o">_fa_minus_square_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mixcloud">_fa_mixcloud</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mobile">_fa_mobile</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mobile_phone">_fa_mobile_phone</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_modx">_fa_modx</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_money">_fa_money</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_moon_o">_fa_moon_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mortar_board">_fa_mortar_board</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_motorcycle">_fa_motorcycle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_mouse_pointer">_fa_mouse_pointer</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_music">_fa_music</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_navicon">_fa_navicon</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_neuter">_fa_neuter</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_newspaper_o">_fa_newspaper_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_object_group">_fa_object_group</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_object_ungroup">_fa_object_ungroup</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_odnoklassniki">_fa_odnoklassniki</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_odnoklassniki_square">_fa_odnoklassniki_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_opencart">_fa_opencart</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_openid">_fa_openid</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_opera">_fa_opera</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_optin_monster">_fa_optin_monster</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_outdent">_fa_outdent</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pagelines">_fa_pagelines</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_paint_brush">_fa_paint_brush</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_paper_plane">_fa_paper_plane</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_paper_plane_o">_fa_paper_plane_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_paperclip">_fa_paperclip</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_paragraph">_fa_paragraph</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_paste">_fa_paste</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pause">_fa_pause</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pause_circle">_fa_pause_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pause_circle_o">_fa_pause_circle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_paw">_fa_paw</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_paypal">_fa_paypal</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pencil">_fa_pencil</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pencil_square">_fa_pencil_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pencil_square_o">_fa_pencil_square_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_percent">_fa_percent</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_phone">_fa_phone</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_phone_square">_fa_phone_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_photo">_fa_photo</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_picture_o">_fa_picture_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pie_chart">_fa_pie_chart</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pied_piper">_fa_pied_piper</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pied_piper_alt">_fa_pied_piper_alt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pied_piper_pp">_fa_pied_piper_pp</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pinterest">_fa_pinterest</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pinterest_p">_fa_pinterest_p</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_pinterest_square">_fa_pinterest_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_plane">_fa_plane</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_play">_fa_play</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_play_circle">_fa_play_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_play_circle_o">_fa_play_circle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_plug">_fa_plug</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_plus">_fa_plus</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_plus_circle">_fa_plus_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_plus_square">_fa_plus_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_plus_square_o">_fa_plus_square_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_podcast">_fa_podcast</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_power_off">_fa_power_off</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_print">_fa_print</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_product_hunt">_fa_product_hunt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_puzzle_piece">_fa_puzzle_piece</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_qq">_fa_qq</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_qrcode">_fa_qrcode</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_question">_fa_question</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_question_circle">_fa_question_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_question_circle_o">_fa_question_circle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_quora">_fa_quora</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_quote_left">_fa_quote_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_quote_right">_fa_quote_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ra">_fa_ra</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_random">_fa_random</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ravelry">_fa_ravelry</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rebel">_fa_rebel</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_recycle">_fa_recycle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_reddit">_fa_reddit</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_reddit_alien">_fa_reddit_alien</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_reddit_square">_fa_reddit_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_refresh">_fa_refresh</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_registered">_fa_registered</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_remove">_fa_remove</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_renren">_fa_renren</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_reorder">_fa_reorder</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_repeat">_fa_repeat</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_reply">_fa_reply</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_reply_all">_fa_reply_all</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_resistance">_fa_resistance</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_retweet">_fa_retweet</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rmb">_fa_rmb</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_road">_fa_road</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rocket">_fa_rocket</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rotate_left">_fa_rotate_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rotate_right">_fa_rotate_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rouble">_fa_rouble</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rss">_fa_rss</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rss_square">_fa_rss_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rub">_fa_rub</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ruble">_fa_ruble</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_rupee">_fa_rupee</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_s15">_fa_s15</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_safari">_fa_safari</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_save">_fa_save</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_scissors">_fa_scissors</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_scribd">_fa_scribd</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_search">_fa_search</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_search_minus">_fa_search_minus</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_search_plus">_fa_search_plus</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sellsy">_fa_sellsy</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_send">_fa_send</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_send_o">_fa_send_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_server">_fa_server</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_share">_fa_share</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_share_alt">_fa_share_alt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_share_alt_square">_fa_share_alt_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_share_square">_fa_share_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_share_square_o">_fa_share_square_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_shekel">_fa_shekel</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sheqel">_fa_sheqel</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_shield">_fa_shield</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ship">_fa_ship</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_shirtsinbulk">_fa_shirtsinbulk</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_shopping_bag">_fa_shopping_bag</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_shopping_basket">_fa_shopping_basket</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_shopping_cart">_fa_shopping_cart</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_shower">_fa_shower</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sign_in">_fa_sign_in</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sign_language">_fa_sign_language</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sign_out">_fa_sign_out</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_signal">_fa_signal</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_signing">_fa_signing</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_simplybuilt">_fa_simplybuilt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sitemap">_fa_sitemap</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_skyatlas">_fa_skyatlas</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_skype">_fa_skype</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_slack">_fa_slack</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sliders">_fa_sliders</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_slideshare">_fa_slideshare</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_smile_o">_fa_smile_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_snapchat">_fa_snapchat</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_snapchat_ghost">_fa_snapchat_ghost</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_snapchat_square">_fa_snapchat_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_snowflake_o">_fa_snowflake_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_soccer_ball_o">_fa_soccer_ball_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort">_fa_sort</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_alpha_asc">_fa_sort_alpha_asc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_alpha_desc">_fa_sort_alpha_desc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_amount_asc">_fa_sort_amount_asc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_amount_desc">_fa_sort_amount_desc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_asc">_fa_sort_asc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_desc">_fa_sort_desc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_down">_fa_sort_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_numeric_asc">_fa_sort_numeric_asc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_numeric_desc">_fa_sort_numeric_desc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sort_up">_fa_sort_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_soundcloud">_fa_soundcloud</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_space_shuttle">_fa_space_shuttle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_spinner">_fa_spinner</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_spoon">_fa_spoon</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_spotify">_fa_spotify</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_square">_fa_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_square_o">_fa_square_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_stack_exchange">_fa_stack_exchange</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_stack_overflow">_fa_stack_overflow</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_star">_fa_star</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_star_half">_fa_star_half</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_star_half_empty">_fa_star_half_empty</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_star_half_full">_fa_star_half_full</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_star_half_o">_fa_star_half_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_star_o">_fa_star_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_steam">_fa_steam</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_steam_square">_fa_steam_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_step_backward">_fa_step_backward</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_step_forward">_fa_step_forward</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_stethoscope">_fa_stethoscope</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sticky_note">_fa_sticky_note</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sticky_note_o">_fa_sticky_note_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_stop">_fa_stop</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_stop_circle">_fa_stop_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_stop_circle_o">_fa_stop_circle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_street_view">_fa_street_view</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_strikethrough">_fa_strikethrough</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_stumbleupon">_fa_stumbleupon</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_stumbleupon_circle">_fa_stumbleupon_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_subscript">_fa_subscript</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_subway">_fa_subway</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_suitcase">_fa_suitcase</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_sun_o">_fa_sun_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_superpowers">_fa_superpowers</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_superscript">_fa_superscript</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_support">_fa_support</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_table">_fa_table</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tablet">_fa_tablet</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tachometer">_fa_tachometer</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tag">_fa_tag</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tags">_fa_tags</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tasks">_fa_tasks</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_taxi">_fa_taxi</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_telegram">_fa_telegram</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_television">_fa_television</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tencent_weibo">_fa_tencent_weibo</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_terminal">_fa_terminal</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_text_height">_fa_text_height</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_text_width">_fa_text_width</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_th">_fa_th</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_th_large">_fa_th_large</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_th_list">_fa_th_list</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_themeisle">_fa_themeisle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer">_fa_thermometer</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_0">_fa_thermometer_0</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_1">_fa_thermometer_1</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_2">_fa_thermometer_2</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_3">_fa_thermometer_3</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_4">_fa_thermometer_4</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_empty">_fa_thermometer_empty</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_full">_fa_thermometer_full</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_half">_fa_thermometer_half</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_quarter">_fa_thermometer_quarter</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thermometer_three_quarters">_fa_thermometer_three_quarters</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thumb_tack">_fa_thumb_tack</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thumbs_down">_fa_thumbs_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thumbs_o_down">_fa_thumbs_o_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thumbs_o_up">_fa_thumbs_o_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_thumbs_up">_fa_thumbs_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_ticket">_fa_ticket</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_times">_fa_times</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_times_circle">_fa_times_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_times_circle_o">_fa_times_circle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_times_rectangle">_fa_times_rectangle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_times_rectangle_o">_fa_times_rectangle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tint">_fa_tint</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_toggle_down">_fa_toggle_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_toggle_left">_fa_toggle_left</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_toggle_off">_fa_toggle_off</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_toggle_on">_fa_toggle_on</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_toggle_right">_fa_toggle_right</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_toggle_up">_fa_toggle_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_trademark">_fa_trademark</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_train">_fa_train</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_transgender">_fa_transgender</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_transgender_alt">_fa_transgender_alt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_trash">_fa_trash</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_trash_o">_fa_trash_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tree">_fa_tree</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_trello">_fa_trello</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tripadvisor">_fa_tripadvisor</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_trophy">_fa_trophy</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_truck">_fa_truck</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_try">_fa_try</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tty">_fa_tty</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tumblr">_fa_tumblr</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tumblr_square">_fa_tumblr_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_turkish_lira">_fa_turkish_lira</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_tv">_fa_tv</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_twitch">_fa_twitch</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_twitter">_fa_twitter</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_twitter_square">_fa_twitter_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_umbrella">_fa_umbrella</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_underline">_fa_underline</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_undo">_fa_undo</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_universal_access">_fa_universal_access</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_university">_fa_university</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_unlink">_fa_unlink</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_unlock">_fa_unlock</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_unlock_alt">_fa_unlock_alt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_unsorted">_fa_unsorted</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_upload">_fa_upload</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_usb">_fa_usb</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_usd">_fa_usd</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_user">_fa_user</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_user_circle">_fa_user_circle</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_user_circle_o">_fa_user_circle_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_user_md">_fa_user_md</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_user_o">_fa_user_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_user_plus">_fa_user_plus</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_user_secret">_fa_user_secret</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_user_times">_fa_user_times</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_users">_fa_users</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_vcard">_fa_vcard</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_vcard_o">_fa_vcard_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_venus">_fa_venus</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_venus_double">_fa_venus_double</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_venus_mars">_fa_venus_mars</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_viacoin">_fa_viacoin</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_viadeo">_fa_viadeo</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_viadeo_square">_fa_viadeo_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_video_camera">_fa_video_camera</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_vimeo">_fa_vimeo</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_vimeo_square">_fa_vimeo_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_vine">_fa_vine</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_vk">_fa_vk</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_volume_control_phone">_fa_volume_control_phone</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_volume_down">_fa_volume_down</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_volume_off">_fa_volume_off</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_volume_up">_fa_volume_up</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_warning">_fa_warning</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wechat">_fa_wechat</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_weibo">_fa_weibo</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_weixin">_fa_weixin</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_whatsapp">_fa_whatsapp</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wheelchair">_fa_wheelchair</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wheelchair_alt">_fa_wheelchair_alt</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wifi">_fa_wifi</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wikipedia_w">_fa_wikipedia_w</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_window_close">_fa_window_close</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_window_close_o">_fa_window_close_o</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_window_maximize">_fa_window_maximize</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_window_minimize">_fa_window_minimize</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_window_restore">_fa_window_restore</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_windows">_fa_windows</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_won">_fa_won</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wordpress">_fa_wordpress</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wpbeginner">_fa_wpbeginner</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wpexplorer">_fa_wpexplorer</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wpforms">_fa_wpforms</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_wrench">_fa_wrench</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_xing">_fa_xing</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_xing_square">_fa_xing_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_y_combinator">_fa_y_combinator</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_y_combinator_square">_fa_y_combinator_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_yahoo">_fa_yahoo</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_yc">_fa_yc</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_yc_square">_fa_yc_square</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_yelp">_fa_yelp</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_yen">_fa_yen</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_yoast">_fa_yoast</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_youtube">_fa_youtube</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_youtube_play">_fa_youtube_play</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="fa_youtube_square">_fa_youtube_square</name>
+      <returntype>String</returntype>
+    </field>
+  </class>
+  <class>
+    <name>nz.ope.skeleton.sk_section</name>
+    <shortname>SK_Section</shortname>
+    <comment>Class module
+</comment>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="Add">_add</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Row</name>
+        <type>Object</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="getAlign" HideFromIDE="true">_getalign</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getBackground" HideFromIDE="true">_getbackground</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getColor" HideFromIDE="true">_getcolor</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>Initializes the object. You can add parameters to this method if needed.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Render">_render</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="Rows">_rows</name>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </method>
+    <method>
+      <name DesignerName="setAlign" HideFromIDE="true">_setalign</name>
+      <comment>Set container alignment
+Align: left, right, center, justify
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Align</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setBackground" HideFromIDE="true">_setbackground</name>
+      <comment>Background
+If background string cotains .jpg or .png then image is assumed
+Otherwise string is assumed to be a hex color
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Background</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setColor" HideFromIDE="true">_setcolor</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Color</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <property>
+      <name DesignerName="Align">_align</name>
+      <comment>Set container alignment
+Align: left, right, center, justify
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="Background">_background</name>
+      <comment>Background
+If background string cotains .jpg or .png then image is assumed
+Otherwise string is assumed to be a hex color
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="Color">_color</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>String</type>
+      </parameter>
+    </property>
+  </class>
+  <version>1.01</version>
+  <author>Trevor Hart (www.ope.nz)</author>
+</root>
