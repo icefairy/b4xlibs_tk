@@ -1,0 +1,46 @@
+﻿Version=5.8
+AppType=StandardJava
+NumberOfModules=4
+Module1=Demo
+Module2=Demo2
+Module3=QuickStart1
+Module4=QuickStart2
+Build1=Default,b4j.example
+NumberOfFiles=0
+NumberOfLibraries=3
+Library1=jcore
+Library2=jserver
+Library3=skeleton
+@EndOfDesignText@
+'Non-UI application (console / server application)
+#Region Project Attributes 
+	#CommandLineArgs:
+	#MergeLibraries: True 
+	
+	#IgnoreWarnings: 32
+#End Region
+
+Sub Process_Globals
+	Private srvr As Server
+	
+End Sub
+
+Sub AppStart (Args() As String)
+	srvr.Initialize("")
+	srvr.Port = 80
+	
+	srvr.AddHandler("/quick1","QuickStart1",True)
+	srvr.AddHandler("/quick2","QuickStart2",True)
+	srvr.AddHandler("/demo1","Demo",True)
+	srvr.AddHandler("/demo2","Demo2",True)
+
+	srvr.LogsRetainDays = 7
+	srvr.LogWaitingMessages = False
+
+	srvr.Start
+	
+	'http://localhost/demo
+	'http://localhost/demo2
+	
+	StartMessageLoop
+End Sub
