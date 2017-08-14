@@ -1,0 +1,69 @@
+﻿Version=7.01
+NumberOfModules=1
+Module1=ParsGlide
+Build1=Default,de.amberhome.appcompat.serachviewexample
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="21"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~AddPermission(android.permission.INTERNET)~\n~AddPermission(android.permission.READ_EXTERNAL_STORAGE) 
+IconFile=
+NumberOfFiles=1
+File1=b4A_bubble.jpg
+NumberOfLibraries=5
+Library1=core
+Library2=javaobject
+Library3=mediabrowser
+Library4=xmllayoutbuilder
+Library5=reflection
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: ParsGlide
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+#AdditionalRes:..\res
+#AdditionalJar:glide-full-4.0.0.jar
+#AdditionalJar:com.android.support:support-v4
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+Sub Process_Globals
+
+End Sub
+
+Sub Globals
+	Dim iv1,iv2,iv3,iv4 As ImageView
+	Dim MB As MediaBrowser
+	Dim xml As XmlLayoutBuilder
+End Sub
+ 
+Sub Activity_Create(FirstTime As Boolean)
+	iv1.Initialize(""):Activity.AddView(iv1, 0, 0, 50%x,50%y)
+	iv2.Initialize(""):Activity.AddView(iv2, 0, 50%y,50%x,50%y)
+	iv3.Initialize(""):Activity.AddView(iv3, 50%x, 0, 50%x,50%y)
+	iv4.Initialize(""):Activity.AddView(iv4, 50%x, 50%y, 50%x,50%y)
+	
+	
+	
+	Dim GIFurl As String = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif"
+	'	Dim url As String = "https://b4x-4c17.kxcdn.com/images/Logo_on-dark.png"
+	'	Dim brokenUrl As String = "https://b4x-4c17.kxcdn.com/images/Logo_on-dak.png"
+	'
+	'	Dim PG As ParsGlide:PG.Initialize(brokenUrl,iv1,xml.GetResourceId("drawable","placeholder"),xml.GetResourceId("drawable","error"),0)
+	'	Dim PG As ParsGlide:PG.Initialize(url,iv1,xml.GetResourceId("drawable","placeholder"),xml.GetResourceId("drawable","error"),0)
+	
+	Dim PG As ParsGlide:PG.Initialize(GIFurl,iv1,xml.GetResourceId("drawable","placeholder"),xml.GetResourceId("drawable","error"),0)
+	Dim PG2 As ParsGlide:PG2.Initialize(PG2.AssetFile("b4A_bubble.jpg"),iv2,0,0,0)
+	Dim PG3 As ParsGlide:PG3.Initialize(xml.GetResourceId("drawable","parsaina"),iv3,0,0,0)
+	
+	MB.Initialize("MB")
+	Dim m As Map
+	
+	m = MB.GetMediaImageList(True, "_display_name COLLATE UNICODE")
+	For i = 0 To (m.Size / 7) - 1
+		Dim PG4 As ParsGlide:PG4.Initialize(m.Get("Location" & i),iv4,0,0,0)
+		Sleep(1000)
+	Next
+End Sub
+ 
