@@ -11,6 +11,8 @@
 > 银行卡摄像头识别模块
 │  ├─richpath<br>
 > 动画模块
+│  ├─daynightswitch<br>
+> 日夜主题切换模块
 │  ├─amaplocation<br>
 > 高德地图（amap.com)+高德定位支持库以及例子项目
 │  ├─daynightswitch<br>

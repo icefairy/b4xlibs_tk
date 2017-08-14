@@ -1,57 +1,33 @@
-﻿Version=4.7
+﻿Version=5.82
 AppType=StandardJava
-NumberOfModules=9
-Module1=ABMApplication
-Module2=ABMShared
-Module3=ABMPageTemplate
-Module4=ABMPageTemplateAlternative
-Module5=ABMUploadHandler
-Module6=ABMSessionCreator
-Module7=ABMCacheScavenger
-Module8=DBM
-Module9=pgUserList
+NumberOfModules=1
+Module1=CathingAlipayOrder
 Build1=Default,b4j.example
 NumberOfFiles=0
-NumberOfLibraries=5
+NumberOfLibraries=2
 Library1=jcore
-Library2=abmaterial
-Library3=jserver
-Library4=javaobject
-Library5=jsql
+Library2=javaobject
 @EndOfDesignText@
 'Non-UI application (console / server application)
-#Region  Project Attributes 
+#Region Project Attributes 
 	#CommandLineArgs:
 	#MergeLibraries: True 
 #End Region
-
+#AdditionalJar:selenium-server-standalone-2.45.0
+#AdditionalJar:selenium-java-2.45.0
+#AdditionalJar:jsoup-1.7.2
+#AdditionalJar:json-simple-2.1.2
 Sub Process_Globals
-	Public srvr As Server	
+	Private cao As CathingAlipayOrder
 End Sub
 
 Sub AppStart (Args() As String)
-	' the user needs to login
-	'ABMShared.NeedsAuthorization = True
-	
-	' Build the Theme
-	ABMShared.BuildTheme("mytheme")
-	
-	' create the app
-	Dim myApp As ABMApplication
-	myApp.Initialize
-	DBM.InitializeMySQL("jdbc:mysql://127.0.0.1:3306/zfbdb?characterEncoding=utf8", "root", "root", 100)
-	
-	' create the pages
-	Dim myPage As ABMPageTemplate
-	myPage.Initialize	
-	
-	' add the pages to the app
-	myApp.AddPage(myPage.Page)
-	
-	' start the server
-	myApp.StartServer(srvr, "srvr", 51042)	
-		
-	ABMShared.RedirectOutput(File.DirApp, "logs.txt")
-	
+	cao.Initialize
 	StartMessageLoop
+	
+End Sub
+
+'Return true to allow the default exceptions handler to handle the uncaught exception.
+Sub Application_Error (Error As Exception, StackTrace As String) As Boolean
+	Return True
 End Sub
