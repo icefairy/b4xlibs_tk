@@ -42,6 +42,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scrollbars="none"
+        android:divider="#D3D3D3"
+        android:dividerHeight="1px"
         android:id="@id/rc_list"/>
 
 </LinearLayout>

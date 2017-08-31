@@ -1,5 +1,7 @@
 package com.gaodemap;
 
+import java.util.ArrayList;
+
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -8,6 +10,7 @@ import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps2d.AMap;
 import com.amap.api.maps2d.AMap.OnCameraChangeListener;
 import com.amap.api.maps2d.AMap.OnMapClickListener;
+import com.amap.api.maps2d.AMap.OnMapLoadedListener;
 import com.amap.api.maps2d.AMap.OnMapLongClickListener;
 import com.amap.api.maps2d.AMap.OnMarkerClickListener;
 import com.amap.api.maps2d.CameraUpdate;
@@ -16,7 +19,7 @@ import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.model.CameraPosition;
 import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.maps2d.model.Marker;
-import com.loc.am;
+import com.loc.*;
 
 import android.os.Bundle;
 import android.view.View;
@@ -31,15 +34,16 @@ import anywheresoftware.b4a.keywords.Common.DesignerCustomView;
 import anywheresoftware.b4a.objects.LabelWrapper;
 import anywheresoftware.b4a.objects.PanelWrapper;
 import anywheresoftware.b4a.objects.ViewWrapper;
+import anywheresoftware.b4a.objects.collections.List;
 import anywheresoftware.b4a.objects.collections.Map;
 
 @ShortName("GaodeMap2D")
-@DependsOn(values={"AMap_2DMap_V2.9.0_20160525","android-support-v4","AMap_Location_core"})
+@DependsOn(values={"android-support-v4","AMap_Location_core","Amap_2DMap_V5.2.0_20170627","AMap_Search_V5.3.0_20170814"})
 @Permissions(values={"android.permission.INTERNET","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.ACCESS_COARSE_LOCATION","android.permission.ACCESS_NETWORK_STATE","android.permission.ACCESS_FINE_LOCATION","android.permission.READ_PHONE_STATE","android.permission.CHANGE_WIFI_STATE","android.permission.ACCESS_WIFI_STATE","android.permission.CHANGE_CONFIGURATION","android.permission.WAKE_LOCK"})
 @ActivityObject
-@Version(1.30f)
-@Events(values={"onmapclick(pos as LatLng)","onmaplongclick(pos as LatLng)","oncamerachangestart(pos as LatLng)","oncamerachangeover(pos as LatLng)","OnMarkerClick(markerid as String,markertitle as String,markerpos as Latlng) as Boolean"})
-public class mapviewwrapper extends ViewWrapper<com.amap.api.maps2d.MapView> implements DesignerCustomView, LocationSource, AMapLocationListener {
+@Version(1.31f)
+@Events(values={"poiList(l as list)","onmaploadedlistener(x as double,y as double)","onmapclick(pos as LatLng)","onmaplongclick(pos as LatLng)","oncamerachangestart(pos as LatLng)","oncamerachangeover(pos as LatLng)","OnMarkerClick(markerid as String,markertitle as String,markerpos as Latlng) as Boolean"})
+public class mapviewwrapper extends ViewWrapper<com.amap.api.maps2d.MapView> implements LocationSource, DesignerCustomView, AMapLocationListener {
 	private String En;
 	private BA mBa;
 	public MapView mv;
@@ -69,7 +73,11 @@ public class mapviewwrapper extends ViewWrapper<com.amap.api.maps2d.MapView> imp
 			if (mBa.subExists(En+"_onmarkerclick")) {
 				aMap.setOnMarkerClickListener(mMarkerClickListener);
 			}
+			if (mBa.subExists(En+"_oncamerachangeover")) {
+				aMap.setOnCameraChangeListener(occl);
+			}
 		}
+		
 		
 	}
 
@@ -115,7 +123,7 @@ public class mapviewwrapper extends ViewWrapper<com.amap.api.maps2d.MapView> imp
 				// TODO Auto-generated method stub
 				LatLngWraper llw=new LatLngWraper();
 				llw.init(paramCameraPosition.target.latitude, paramCameraPosition.target.longitude);
-				mBa.raiseEvent(this, En+"_oncamerachangestart", new Object[]{llw});
+		        mBa.raiseEvent(this, En+"_oncamerachangestart", new Object[]{llw});
 			}
 		};
 		mMarkerClickListener=new OnMarkerClickListener() {
@@ -131,6 +139,8 @@ public class mapviewwrapper extends ViewWrapper<com.amap.api.maps2d.MapView> imp
 		};
 		
 	}
+	
+
 	public boolean getCompassEnabled() {
 		if (aMap!=null) {
 			return aMap.getUiSettings().isCompassEnabled();
@@ -251,13 +261,16 @@ public class mapviewwrapper extends ViewWrapper<com.amap.api.maps2d.MapView> imp
 	}
 	public void invalidateMap() {
 		aMap.invalidate();
+		
 	}
 	public void setMyLocationEnabled(boolean paramBoolean) {
 		if (paramBoolean) {
 			aMap.setLocationSource(this);
 		}
 		aMap.setMyLocationEnabled(paramBoolean);
-		
+	}
+	public void setMyLocationButtonEnabled(boolean paramBoolean){
+		aMap.getUiSettings().setMyLocationButtonEnabled(paramBoolean);
 	}
 	public void setMyLocationRotateAngle(float paramFloat) {
 		aMap.setMyLocationRotateAngle(paramFloat);
@@ -293,6 +306,7 @@ public class mapviewwrapper extends ViewWrapper<com.amap.api.maps2d.MapView> imp
 			// 在定位结束后，在合适的生命周期调用onDestroy()方法
 			// 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
 			mlocationClient.startLocation();
+			
 		}
 	}
 
@@ -313,11 +327,14 @@ public class mapviewwrapper extends ViewWrapper<com.amap.api.maps2d.MapView> imp
 		if (mListener != null && amapLocation != null) {
 			if (amapLocation != null
 					&& amapLocation.getErrorCode() == 0) {
+				//BA.Log(amapLocation.toString());
 				mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
+			
 			} else {
 				String errText = "定位失败," + amapLocation.getErrorCode()+ ": " + amapLocation.getErrorInfo();
 				BA.LogError(errText);
 			}
 		}
 	}
+
 }

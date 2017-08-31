@@ -3,8 +3,6 @@ package com.zaiten;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import android.os.IBinder;
-import android.os.RemoteException;
 import anywheresoftware.b4a.BA;
 import anywheresoftware.b4a.BA.Author;
 import anywheresoftware.b4a.BA.DependsOn;
@@ -14,7 +12,6 @@ import anywheresoftware.b4a.BA.ShortName;
 import anywheresoftware.b4a.BA.Version;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.RongIM.UserInfoProvider;
-import io.rong.imlib.OnReceiveMessageListener;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.RongIMClient.ConnectCallback;
 import io.rong.imlib.RongIMClient.ErrorCode;
@@ -27,7 +24,7 @@ import io.rong.message.TextMessage;
 import io.rong.message.VoiceMessage;
 
 @ShortName("RongYunIMKit")
-@DependsOn(values={"Rong_IMLib_v2_5_2","android-support-v4",})
+@DependsOn(values={"Rong_IMKit","android-support-v4"})
 @Events(values={"onIMReceived(msg as String,nLeft as Int)","onSuccess(arg as String)","onError(code as int,msg as String)","onTokenIncorrect","reqUserInfo(userId as String) as UserInfo_ry"})
 @Version(1.20f)
 @Author("Icefairy333")

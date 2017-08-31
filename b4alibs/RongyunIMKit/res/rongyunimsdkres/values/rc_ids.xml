@@ -10,6 +10,8 @@
     <item type="id" name="rc_progress"/>
     <item type="id" name="rc_warning"/>
     <item type="id" name="rc_read_receipt"/>
+    <item type="id" name="rc_read_receipt_request"/>
+    <item type="id" name="rc_read_receipt_status"/>
     <item type="id" name="rc_back"/>
     <item type="id" name="rc_actionbar"/>
     <item type="id" name="rc_logo"/>
@@ -51,4 +53,6 @@
     <item type="id" name="rc_frame"/>
     <item type="id" name="rc_sent_status"/>
     <item type="id" name="rc_conversation_status" />
+    <item type="id" name="rc_edit_text" />
+    <item type="id" name="rc_layout_msg_list" />
 </resources>

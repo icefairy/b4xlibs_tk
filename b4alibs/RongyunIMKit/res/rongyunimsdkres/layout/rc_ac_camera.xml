@@ -34,7 +34,7 @@
             android:gravity="center"
             android:background="@android:color/transparent"
             android:layout_gravity="center|left"
-            android:text="取消"
+            android:text="@string/rc_dialog_cancel"
             android:textColor="#fff"
             android:textSize="14sp" />
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:text="发送"
+            android:text="@string/rc_input_send"
             android:textColor="#fff"
             android:textSize="14sp"
             android:background="@android:color/transparent"

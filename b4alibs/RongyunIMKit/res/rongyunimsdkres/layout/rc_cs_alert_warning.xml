@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="确定"
+            android:text="@string/rc_dialog_ok"
             android:textColor="#0099ff"
             android:textSize="17sp" />
     </LinearLayout>

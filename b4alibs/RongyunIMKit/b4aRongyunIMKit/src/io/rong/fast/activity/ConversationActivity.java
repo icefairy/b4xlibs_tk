@@ -37,14 +37,15 @@ public class ConversationActivity extends FragmentActivity {
 				}
 			});
 			tvtitle=(TextView) findViewById(R.id.tvtitle);
+			String Name = getIntent().getData().getQueryParameter("title");
 			if (ryimcaller.userName==null||ryimcaller.userName.length()<1) {
 				if (ryimcaller.userTel==null||ryimcaller.userTel.length()<1) {
-					tvtitle.setText("聊天中");
+					tvtitle.setText(Name);
 				}else{
-					tvtitle.setText("与"+ryimcaller.userTel+"聊天中");
+					tvtitle.setText(ryimcaller.userTel);
 				}
 			}else{
-				tvtitle.setText("与"+ryimcaller.userName+"聊天中");
+				tvtitle.setText(ryimcaller.userName);
 			}
 			
 	    }
@@ -56,7 +57,9 @@ public class ConversationActivity extends FragmentActivity {
 	    public void onBackPressed() {
 	               ConversationFragment fragment = (ConversationFragment) getSupportFragmentManager().findFragmentById(R.id.conversation);
 	        if(!fragment.onBackPressed()) {
-	            finish();
+	        	finish();
 	        }
 	      }
+	    
+	  
 	}
