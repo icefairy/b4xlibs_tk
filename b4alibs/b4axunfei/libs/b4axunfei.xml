@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.02</doclet-version-NOT-library-version>
+    <class>
+        <name>org.xlzbw.xunfei.xunfeiwrapper</name>
+        <shortname>xunfei</shortname>
+        <owner>activity</owner>
+        <event>xfiniterror(errCode as int)</event>
+        <event>onxfResult(resultStr as String)</event>
+        <event>onxfError(errcode as int,errDesc as String)</event>
+        <permission>android.permission.INTERNET</permission>
+        <permission>android.permission.RECORD_AUDIO</permission>
+        <permission>android.permission.ACCESS_NETWORK_STATE</permission>
+        <permission>android.permission.ACCESS_WIFI_STATE</permission>
+        <permission>android.permission.CHANGE_NETWORK_STATE</permission>
+        <permission>android.permission.READ_PHONE_STATE</permission>
+        <permission>android.permission.READ_CONTACTS</permission>
+        <permission>android.permission.WRITE_EXTERNAL_STORAGE</permission>
+        <permission>android.permission.READ_EXTERNAL_STORAGE</permission>
+        <permission>android.permission.WRITE_SETTINGS</permission>
+        <permission>android.permission.ACCESS_FINE_LOCATION</permission>
+        <permission>android.permission.CAMERA</permission>
+        <method>
+            <name>init</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>eventname</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>appid</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>start</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+    </class>
+    <version>1.0</version>
+    <author>icefairy333</author>
+    <dependsOn>Msc</dependsOn>
+    <dependsOn>Sunflower</dependsOn>
+</root>
