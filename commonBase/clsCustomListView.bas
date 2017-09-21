@@ -3,8 +3,9 @@ Version=7.01
 ModulesStructureVersion=1
 B4A=true
 @EndOfDesignText@
-'version: 1.65 - modified version
+'version: 1.76 - modified version
 #Event: ItemClick (Index As Int, Value As Object)
+#Event: ReachEnd
 #DesignerProperty: Key: DividerColor, DisplayName: Divider Color, FieldType: Color, DefaultValue: 0xFFD9D7DE
 #DesignerProperty: Key: DividerHeight, DisplayName: Divider Height, FieldType: Int, DefaultValue: 2
 #DesignerProperty: Key: PressedColor, DisplayName: Pressed Color, FieldType: Color, DefaultValue: 0xFF7EB4FA
@@ -24,6 +25,7 @@ Sub Class_Globals
 	Private DefaultTextBackground As Object
 	Private PressedDrawable As ColorDrawable
 	Public AnimationDuration As Int = 300
+	Private LastReachEndEvent As Long
 End Sub
 
 
@@ -49,7 +51,16 @@ Public Sub AsView As View
 	Return sv
 End Sub
 
-
+Private Sub sv_ScrollChanged(Position As Int)
+	If Position + sv.Height >= sv.Panel.Height - 5dip And DateTime.Now > LastReachEndEvent + 100 Then
+		If SubExists(CallBack, EventName & "_ReachEnd") Then
+			LastReachEndEvent = DateTime.Now
+			CallSubDelayed(CallBack, EventName & "_ReachEnd")
+		Else
+			LastReachEndEvent = DateTime.Now + 1000 * DateTime.TicksPerDay 'disable
+		End If
+	End If
+End Sub
 Public Sub DesignerCreateView(base As Panel, lbl As Label, props As Map)
 	ReplaceBasePanelWithView(base, sv)
 	sv.Color = props.Get("DividerColor")
@@ -79,6 +90,37 @@ Public Sub Clear
 	Next
 End Sub
 
+'Smoothly scrolls the list to the specified item.
+Public Sub ScrollToItem(Index As Int)
+	sv.ScrollPosition = FindItemTop(Index)	
+End Sub
+Private Sub FindItemTop(Index As Int) As Int
+	Dim top As Int
+	For i = 0 To Min(Index - 1, items.Size - 1)
+		top = top + heights.Get(i) + dividerHeight
+	Next
+	Return top
+End Sub
+'Gets the index of the first visible item.
+Public Sub getFirstVisibleIndex As Int
+	Dim bottom As Int
+	For i = 0 To items.Size - 1
+		bottom = bottom + heights.Get(i) + dividerHeight
+		If bottom > sv.ScrollPosition Then Return i		
+	Next
+	Return items.Size - 1
+End Sub
+
+'Gets the index of the last visible item.
+Public Sub getLastVisibleIndex As Int
+	Dim first As Int = getFirstVisibleIndex
+	Dim bottom As Int
+	For i = 0 To items.Size - 1
+		bottom = bottom + heights.Get(i) + dividerHeight
+		If i >= first And bottom >= sv.ScrollPosition  + sv.Height Then Return Max(i - 1, first)
+	Next
+	Return items.Size - 1
+End Sub
 
 
 'Returns the number of items.
