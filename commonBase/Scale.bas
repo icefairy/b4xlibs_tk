@@ -1,12 +1,10 @@
 ﻿Type=StaticCode
-Version=3
+Version=7.3
 ModulesStructureVersion=1
-B4i=true
+B4A=true
 @EndOfDesignText@
 #ExcludeFromLibrary : True
 'Scale Code module
-' Version 1.5		2016-12-9 
-'add b4i support
 ' Version 1.4		2013.11.29
 ' amended error with height and width <0
 '
@@ -379,7 +377,7 @@ Public Sub ScaleAllDS(pnl As Panel, FirstTime As Boolean)
 	Dim I As Int
 	
 	' test if the activity object is a Panel
-	If IsPanel(pnl) And FirstTime = True Then
+	If IsPanel(pnl) AND FirstTime = True Then
 		' if yes scale it
 		ScaleViewDS(pnl)
 	Else
@@ -403,7 +401,7 @@ Public Sub ScaleAllX(pnl As Panel, FirstTime As Boolean)
 	Dim I As Int
 	
 	' test if the activity object is a Panel
-	If IsPanel(pnl) And FirstTime = True Then
+	If IsPanel(pnl) AND FirstTime = True Then
 		' if yes scale it
 		ScaleViewX(pnl)
 	Else
@@ -589,7 +587,7 @@ Public Sub SetLeftAndRight2(v As View, vLeft As View, dxL As Int, vRight As View
 	End If
 	
 	' if vLeft is on the right of vRight pernutates the two views
-	If IsActivity(vLeft) = False And IsActivity(vRight) = False Then
+	If IsActivity(vLeft) = False AND IsActivity(vRight) = False Then
 		If vLeft.Left > vRight.Left Then
 			Dim v1 As View
 			v1 = vLeft
@@ -634,7 +632,7 @@ Public Sub SetTopAndBottom2(v As View, vTop As View, dyT As Int, vBottom As View
 		Return
 	End If
 	
-	If IsActivity(vTop) = False And IsActivity(vBottom) = False Then
+	If IsActivity(vTop) = False AND IsActivity(vBottom) = False Then
 		' if vTop is below vBottom.Top permutes the two views
 		If vTop.Top > vBottom.Top Then
 			Dim v1 As View

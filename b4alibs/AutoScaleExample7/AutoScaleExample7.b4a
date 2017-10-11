@@ -1,0 +1,158 @@
+﻿Version=7.3
+NumberOfModules=11
+Module1=Setup
+Module2=About
+Module3=Scale
+Module4=DBWebView
+Module5=DBUtils
+Module6=DBScrollView
+Module7=Keyboard
+Module8=ListView
+Module9=Calculator
+Module10=Calculator1
+Module11=Positioning
+Build1=Default,b4a.AutoScaleExample7
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@android:style/Theme.Holo")~\n~'End of default text.~\n~
+IconFile=
+NumberOfFiles=13
+File1=about.bal
+File2=calc_calculator.bal
+File3=calc_functions.bal
+File4=calc_main.bal
+File5=calc1_calculator.bal
+File6=calc1_functions.bal
+File7=calc1_main.bal
+File8=listview.bal
+File9=main.bal
+File10=persons.db
+File11=positioning.bal
+File12=rose.png
+File13=setup.bal
+NumberOfLibraries=5
+Library1=core
+Library2=phone
+Library3=scrollview2d
+Library4=sql
+Library5=javaobject
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: AutoScaleExample7
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+'Activity module
+Sub Process_Globals
+	Public ProgName = "AutoScale Example 6" As String
+	Public ProgVersion = "2.1" As String
+	Public ProgAuthor = "klaus" As String
+	Public ProgDate = "feb 2013" As String
+	Public ProgCopyright = "©  2012, 2013 Anywhere Software" As String
+	Public ProgCountry = "Switzerland" As String
+	Public ProgEMail = "e-mail address" As String
+	
+	Public SQL1 As SQL
+	Public DBFileName = "persons.db" As String	
+	Public DBFileDir  = File.DirInternal As String
+	Public DBTableName = "persons" As String 	
+End Sub
+
+Sub Globals
+	Private btnDBScrollView, btnDBWebView, btnKeyboard, btnSetup, btnAbout As Button
+	Private btnListView, btnCalculator, btnCalculator1, btnPositionning As Button
+	Private pnlMainBackground, pnlToolBox, pnlToolBox1 As Panel
+	Private lblTitle As Label
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+'	Scale.Initialize
+	Scale.SetRate(0.5)
+
+	Dim ph As Phone
+	If Scale.GetDevicePhysicalSize < 6 Then
+		ph.SetScreenOrientation(1)
+	Else
+		ph.SetScreenOrientation(-1)
+	End If
+
+	Activity.LoadLayout("Main")
+
+	Scale.ScaleView(lblTitle)
+	Scale.HorizontalCenter(pnlToolBox)
+	Scale.HorizontalCenter(pnlToolBox1)
+	Scale.ScaleView(pnlMainBackground)
+	Scale.HorizontalCenter(pnlMainBackground)
+	
+	pnlToolBox.Top = 100%y - pnlToolBox.Height
+	
+	If 100%x >= 8 * btnAbout.Width Then
+		pnlToolBox.Left = 50%x - 4 * btnAbout.Width
+		pnlToolBox1.Left = pnlToolBox.Left + pnlToolBox.Width
+		pnlToolBox1.Top = pnlToolBox.Top
+	Else
+		pnlToolBox.Left = (100%x - pnlToolBox.Width) / 2
+		pnlToolBox1.Left = (100%x - pnlToolBox1.Width) / 2
+		pnlToolBox1.Top = pnlToolBox.Top - pnlToolBox1.Height	
+	End If
+	
+	Scale.VerticalCenter2(pnlMainBackground, lblTitle, pnlToolBox1)
+
+	If FirstTime Then
+		DBFileDir = DBUtils.CopyDBFromAssets(DBFileName)
+	End If
+	
+	SQL1.Initialize(DBFileDir, DBFileName, True)
+	
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub btnDBScrollView_Click
+	StartActivity("DBScrollView")
+End Sub
+
+Sub btnDBWebView_Click
+	StartActivity("DBWebView")
+End Sub
+
+Sub btnKeyboard_Click
+	StartActivity("Keyboard")
+End Sub
+
+Sub btnSetup_Click
+	StartActivity("Setup")
+End Sub
+
+Sub btnAbout_Click
+	StartActivity("About")
+End Sub
+
+Sub btnListView_Click
+	StartActivity("ListView")
+End Sub
+
+Sub btnCalculator_Click
+	StartActivity("Calculator")
+End Sub
+
+Sub btnCalculator1_Click
+	StartActivity("Calculator1")
+End Sub
+
+Sub btnPositionning_Click
+	StartActivity("Positioning")
+End Sub
