@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/rc_normal_bg">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rc_normal_bg">
 
-    <fragment
-        android:id="@android:id/toggle"
-        android:name="io.rong.imkit.fragment.MessageInputFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
-
-    <fragment
-        android:id="@android:id/list"
-        android:name="io.rong.imkit.fragment.MessageListFragment"
+    <include
+        android:id="@id/rc_layout_msg_list"
+        layout="@layout/rc_fr_messagelist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@android:id/toggle"/>
+        android:layout_above="@+id/rc_extension" />
+
+    <io.rong.imkit.RongExtension
+        android:id="@+id/rc_extension"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:RCStyle="SC" />
+
 </RelativeLayout>

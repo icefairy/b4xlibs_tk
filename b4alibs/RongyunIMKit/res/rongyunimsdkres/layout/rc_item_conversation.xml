@@ -13,7 +13,8 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="6dp">
 
         <io.rong.imkit.widget.AsyncImageView
             android:id="@+id/rc_left"
@@ -28,13 +29,15 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="4dp"
-            android:layout_gravity="right|top">
+            android:layout_gravity="right|top"
+            android:paddingTop="4dp">
+
             <ImageView
                 android:id="@+id/rc_unread_message_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
+
             <TextView
                 android:id="@+id/rc_unread_message"
                 android:layout_width="wrap_content"
@@ -73,8 +76,9 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="4dp"
-            android:layout_gravity="right|top">
+            android:layout_gravity="right|top"
+            android:paddingTop="4dp">
+
             <ImageView
                 android:id="@+id/rc_unread_message_icon_right"
                 android:layout_width="wrap_content"

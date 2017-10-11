@@ -2,6 +2,7 @@ package com.zaiten;
 
 import anywheresoftware.b4a.BA;
 import anywheresoftware.b4a.BA.ActivityObject;
+import anywheresoftware.b4a.BA.Events;
 import anywheresoftware.b4a.BA.Hide;
 import anywheresoftware.b4a.BA.ShortName;
 import io.rong.imkit.RongIM;
@@ -19,10 +20,12 @@ public class ryimcaller {
 	public static String userName="";
 	@Hide
 	public static String userTel="";
+	public static BA mba;
 	public static void startChatByUser(BA ba,String user,String title){
 		if (RongIM.getInstance() != null){
 			userName=title;
 			userTel=user;
+			mba = ba;
             RongIM.getInstance().startPrivateChat(ba.context, user, title);
             }
 	}
@@ -34,7 +37,7 @@ public class ryimcaller {
 	}
 	public static void startConversationList(BA ba){
 		if (RongIM.getInstance() != null){
-            RongIM.getInstance().startConversationList(ba.context);
+			RongIM.getInstance().startConversationList(ba.context);
 		}
 	}
 	public static void startSubConversationList(BA ba) {
@@ -42,5 +45,6 @@ public class ryimcaller {
 		                   RongIM.getInstance().startSubConversationList(ba.context, ConversationType.GROUP);
 		}
 	}
+	
 	
 }

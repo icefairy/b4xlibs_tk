@@ -45,7 +45,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	iv4.Initialize(""):Activity.AddView(iv4, 50%x, 50%y, 50%x,50%y)
 	
 	
-	
+	'https://www.b4x.com/android/forum/threads/parsglide-glide.82573/#post-529178
 	Dim GIFurl As String = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif"
 	'	Dim url As String = "https://b4x-4c17.kxcdn.com/images/Logo_on-dark.png"
 	'	Dim brokenUrl As String = "https://b4x-4c17.kxcdn.com/images/Logo_on-dak.png"
