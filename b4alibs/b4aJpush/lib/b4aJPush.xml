@@ -10,71 +10,9 @@
         <event>initok(RegID as String)</event>
         <event>onclick</event>
         <event>connect(isconnect as Boolean)</event>
-        <permission>android.permission.WRITE_SETTINGS</permission>
-        <permission>android.permission.RECEIVE_BOOT_COMPLETED</permission>
-        <permission>android.permission.RECEIVE_USER_PRESENT</permission>
-        <permission>android.permission.INTERNET</permission>
-        <permission>android.permission.WAKE_LOCK</permission>
-        <permission>android.permission.READ_PHONE_STATE</permission>
-        <permission>android.permission.WRITE_EXTERNAL_STORAGE</permission>
-        <permission>android.permission.READ_EXTERNAL_STORAGE</permission>
-        <permission>android.permission.VIBRATE</permission>
-        <permission>android.permission.MOUNT_UNMOUNT_FILESYSTEMS</permission>
-        <permission>android.permission.ACCESS_NETWORK_STATE</permission>
-        <permission>android.permission.SYSTEM_ALERT_WINDOW</permission>
-        <permission>android.permission.READ_SMS</permission>
-        <permission>android.permission.WRITE_SMS</permission>
-        <permission>android.permission.ACCESS_COARSE_LOCATION</permission>
-        <permission>android.permission.ACCESS_WIFI_STATE</permission>
-        <permission>android.permission.CHANGE_WIFI_STATE</permission>
-        <permission>android.permission.ACCESS_FINE_LOCATION</permission>
-        <permission>android.permission.ACCESS_LOCATION_EXTRA_COMMANDS</permission>
-        <permission>android.permission.CHANGE_NETWORK_STATE</permission>
-        <permission>ice.jpushdemo.permission.JPUSH_MESSAGE</permission>
-        <method>
-            <name>GetLibVer</name>
-            <comment>Blank_Annotations</comment>
-            <returntype>java.lang.String</returntype>
-        </method>
-        <method>
-            <name>onPause</name>
-            <comment>Blank_Annotations</comment>
-            <returntype>void</returntype>
-            <parameter>
-                <name>ba1</name>
-                <type>anywheresoftware.b4a.BA</type>
-            </parameter>
-        </method>
-        <method>
-            <name>registerMessageReceiver</name>
-            <comment>Blank_Annotations</comment>
-            <returntype>void</returntype>
-        </method>
-        <method>
-            <name>onResume</name>
-            <comment>Blank_Annotations</comment>
-            <returntype>void</returntype>
-            <parameter>
-                <name>ba1</name>
-                <type>anywheresoftware.b4a.BA</type>
-            </parameter>
-        </method>
-        <method>
-            <name>setAliasAndTags</name>
-            <comment>Blank_Annotations</comment>
-            <returntype>void</returntype>
-            <parameter>
-                <name>Alias</name>
-                <type>java.lang.String</type>
-            </parameter>
-            <parameter>
-                <name>Tags</name>
-                <type>java.lang.String</type>
-            </parameter>
-        </method>
         <method>
             <name>InitSdk</name>
-            <comment>Blank_Annotations</comment>
+            <comment></comment>
             <returntype>void</returntype>
             <parameter>
                 <name>ba</name>
@@ -89,33 +27,75 @@
                 <type>boolean</type>
             </parameter>
         </method>
+        <method>
+            <name>registerMessageReceiver</name>
+            <comment></comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>onPause</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba1</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>onResume</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba1</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetLibVer</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </method>
         <property>
             <name>Udid</name>
             <returntype>java.lang.String</returntype>
-            <comment>Blank_Annotations</comment>
+            <comment></comment>
+        </property>
+        <property>
+            <name>DeviceId</name>
+            <returntype>java.lang.String</returntype>
+            <comment></comment>
+        </property>
+        <property>
+            <name>AliasAndTags</name>
+            <parameter>
+                <name>Alias</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <comment></comment>
         </property>
         <field>
-            <name>KEY_TITLE</name>
-            <comment>Blank_Annotations</comment>
-            <returntype>java.lang.String</returntype>
-        </field>
-        <field>
-            <name>KEY_EXTRAS</name>
-            <comment>Blank_Annotations</comment>
-            <returntype>java.lang.String</returntype>
-        </field>
-        <field>
             <name>MESSAGE_RECEIVED_ACTION</name>
-            <comment>Blank_Annotations</comment>
+            <comment></comment>
             <returntype>java.lang.String</returntype>
         </field>
         <field>
             <name>KEY_MESSAGE</name>
-            <comment>Blank_Annotations</comment>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>KEY_TITLE</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+        <field>
+            <name>KEY_EXTRAS</name>
+            <comment></comment>
             <returntype>java.lang.String</returntype>
         </field>
     </class>
-    <version>1.63</version>
+    <version>3.09</version>
     <author>IceFairy333</author>
-    <dependsOn>jpush-sdk-release1.6.3</dependsOn>
+    <dependsOn>jcore-android-1.1.7</dependsOn>
+    <dependsOn>jpush-android-3.0.9</dependsOn>
 </root>
