@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>$table$ list</title>
+<script type="text/javascript" src="$vuecdn$"></script>
+<script type="text/javascript" src="$jqcdn$"></script>
+<script>
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(String(value)).format('YYYY-MM-DD hh:mm:ss');
+  }
+});
+</script>
+</head>
+<body>
+	<div id="appmain">
+		<table>
+		<thead><tr>$thead$ <td>操作</td></tr></thead>
+		<tbody>
+			<tr v-for="item in lines">
+			$tbody$ <td><button v-on:click="doDelete(item)">删除</button><button v-on:click="doEdit(item)">编辑</button></td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+	<script>
+		var appmain=new Vue({el:"#appmain",data:$data$});
+		function doDelete(item){
+			if(confirm('确定要删除这条记录吗？')){
+				$.post('$actionurl$delete',"id="+item.id,function(dd){
+					alert(dd.data);
+					if(dd.code==200){
+						location.reload();
+					}
+				},'json');
+			}
+		}
+		function doEdit(item){
+			window.open('$actionurl$edit?id='+item.id);
+		}
+	</script>
+</body>
+</html>

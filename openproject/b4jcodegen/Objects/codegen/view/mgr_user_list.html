@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>wp_user list</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript" src="https://ossweb-img.qq.com/images/js/jquery/jquery-1.9.0.min.js"></script>
+<script>
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(String(value)).format('YYYY-MM-DD hh:mm:ss');
+  }
+});
+</script>
+</head>
+<body>
+	<div id="appmain">
+		<table>
+		<thead><tr><td>Id</td><td>username</td><td>password</td><td>salt</td><td>nickname</td><td>qq</td><td>email</td><td>phone</td><td>address</td> <td>操作</td></tr></thead>
+		<tbody>
+			<tr v-for="item in lines">
+			<td>{{ item.Id }}</td><td>{{ item.username }}</td><td>{{ item.password }}</td><td>{{ item.salt }}</td><td>{{ item.nickname }}</td><td>{{ item.qq }}</td><td>{{ item.email }}</td><td>{{ item.phone }}</td><td>{{ item.address }}</td> <td><button v-on:click="doDelete(item)">删除</button><button v-on:click="doEdit(item)">编辑</button></td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+	<script>
+		var appmain=new Vue({el:"#appmain",data:$data$});
+		function doDelete(item){
+			if(confirm('确定要删除这条记录吗？')){
+				$.post('/mgr/user/delete',"id="+item.id,function(dd){
+					alert(dd.data);
+					if(dd.code==200){
+						location.reload();
+					}
+				},'json');
+			}
+		}
+		function doEdit(item){
+			window.open('/mgr/user/edit?id='+item.id);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+﻿Version=5.9
+AppType=StandardJava
+NumberOfModules=2
+Module1=wpDBUtils
+Module2=G
+Build1=Default,b4j.example
+NumberOfFiles=0
+NumberOfLibraries=9
+Library1=jcore
+Library2=jsql
+Library3=json
+Library4=jserver
+Library5=jsonplus
+Library6=encryption
+Library7=byteconverter
+Library8=jstringutils
+Library9=javaobject
+@EndOfDesignText@
+'Non-UI application (console / server application)
+#Region Project Attributes 
+	#CommandLineArgs:
+	#MergeLibraries: false
+		'use next line when using sqlite
+'	#AdditionalJar: sqlite-jdbc-3.7.2
+	'use next line when using mysql
+	#AdditionalJar:mysql-connector-java-5.1.41-bin
+	'use next line when using oracle
+'	#AdditionalJar:oracle-ojdbc6-11.2.0.3.0 
+#End Region
+
+Sub Process_Globals
+	Dim mData As Map
+	Public jqCDN As String="https://ossweb-img.qq.com/images/js/jquery/jquery-1.9.0.min.js"
+	Public vueCDN As String="https://cdn.jsdelivr.net/npm/vue"
+End Sub
+
+Sub AppStart (Args() As String)
+	If Args=Null Or Args.Length<2 Then
+		printUsage
+		Return
+	End If
+	mData.Initialize
+	'test
+'	dbconfig(Array As String("dbconfig","localhost","ylaio","root","root"))
+'	Args=Array As String("genhandler","/mgr/user/","wp_user")
+	'test end
+	
+	Select Args(0).ToLowerCase
+		Case "dbconfig"
+			dbconfig(Args)
+		Case "genhandler"
+			gencode(Args)
+			Log("gencode complete,please move gencode dir as your new project dir")
+	End Select
+	
+End Sub
+Public Sub dbconfig(args() As String)
+	Dim dbhost,dbuser,dbpass,dbname As String
+	dbhost=args(1)
+	dbname=args(2)
+	dbuser=args(3)
+	dbpass=args(4)
+	wpDBUtils.conpool.Initialize("com.mysql.jdbc.Driver",$"jdbc:mysql://${dbhost}:3306/${dbname}?characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull"$,dbuser,dbpass)
+	G.db=wpDBUtils.conpool.GetConnection
+	mData.Put("dbname",dbname)
+End Sub
+Public Sub gencode(args() As String)
+	Dim uripath As String,tablename As String
+	uripath=args(1)
+	tablename=args(2)
+	If File.Exists(File.DirApp,"codegen") Then
+		Log("please remove codegen dir first")
+'		Return
+	End If
+	Dim viewdir As String=File.Combine(File.DirApp,"codegen/view")
+	Dim handlerdir As String=File.Combine(File.DirApp,"codegen/handler")
+	File.MakeDir(File.DirApp,"codegen/view")
+	File.MakeDir(File.DirApp,"codegen/handler")
+	'get table info
+	Dim query As String=$"select column_name colname,data_type datatype,ifnull(character_maximum_length,11) maxlength,column_comment comments from information_schema.columns
+where table_schema = '${mData.GetDefault("dbname","webplus")}'  #表所在数据库
+And table_name = '${tablename}' ; #你要查的表"$
+	Dim lst As List=wpDBUtils.ExecuteMemoryTable(G.db,query,Null,0)
+	Dim key As String=getTableKey(tablename)
+	Dim viewnamepre As String=uripath.Replace("/","_").ToLowerCase.SubString(1)
+	'list delete edit
+	Dim tplstr As String=File.ReadString(File.DirApp,"tpl/list.html")
+	Dim tsb,tbody As StringBuilder
+	tsb.Initialize
+	tbody.Initialize
+	For Each m As Map In lst
+		tsb.Append($"<td>${m.GetDefault("colname","")}</td>"$)
+		tbody.Append($"<td>{{ item.${m.GetDefault("colname","key")} }}</td>"$)
+	Next
+	tplstr=G.ReplaceMap(tplstr,CreateMap("actionurl":uripath,"table":tablename,"vuecdn":vueCDN,"jqcdn":jqCDN,"thead":tsb.ToString,"tbody":tbody.ToString))
+	File.WriteString(viewdir,viewnamepre&"list.html",tplstr)
+	'edit
+	tplstr=File.ReadString(File.DirApp,"tpl/edit.html")
+	tbody.Initialize
+	tsb.Initialize
+	For Each m As Map In lst
+		If key.EqualsIgnoreCase(m.GetDefault("colname","id")) Then
+			tsb.Append($"<input type="hidden" name="${m.GetDefault("colname","")}">"$)
+		Else
+			tbody.Append($"<tr><td>${m.GetDefault("colname","")}</td><td><input type="text" name="info.${m.GetDefault("colname","")}"></td></tr>"$)
+		End If
+		
+	Next
+	tbody.Append($"<tr><td><input type="submit" value="提交"></td>
+		<td><input type="reset" value="重置"></td></tr>"$)
+	tplstr=G.ReplaceMap(tplstr,CreateMap("actionurl":uripath,"table":tablename,"vuecdn":vueCDN,"jqcdn":jqCDN,"tbody":tbody.ToString,"hiddenarea":tsb.ToString))
+	File.Writestring(viewdir,viewnamepre&"edit.html",tplstr)
+	'handler
+	tplstr=File.ReadString(File.DirApp,"tpl/Handler.bas")
+	tplstr=G.ReplaceMap(tplstr,CreateMap("uripath":uripath,"tablename":tablename,"viewname":viewnamepre))
+	Dim handlername As String=G.arrUpperFirst(Regex.Split("/",uripath))
+	handlername=handlername.SubString2(handlername.LastIndexOf("/")+1,handlername.Length)
+	File.WriteString(handlerdir,handlername&"Handle.bas",tplstr)
+End Sub
+Private Sub getTableKey(table As String) As String
+	Dim query As String=$"select column_name keyname from information_schema.key_column_usage where table_schema='${mData.GetDefault("dbname","webplus")}' and `table_name`='${table}'"$
+	Return wpDBUtils.ExecuteMap(G.db,query,Null).GetDefault("keyname","id")
+End Sub
+Sub printUsage
+	Log($"usage:
+	"java -jar codegen " with:
+	dbconfig dbhost dbname dbuser dbpass
+	genhandler uripath tablename
+for example:
+	dbconfig localhost webplus root root
+	genhandler /mgr/user/ wp_user
+	"$)
+End Sub
+
+'Return true to allow the default exceptions handler to handle the uncaught exception.
+Sub Application_Error (Error As Exception, StackTrace As String) As Boolean
+	Return True
+End Sub

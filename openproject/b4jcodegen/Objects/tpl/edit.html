@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>$table$ 查看/编辑</title>
+<script type="text/javascript" src="$vuecdn$"></script>
+<script type="text/javascript" src="$jqcdn$"></script>
+<script>
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(String(value)).format('YYYY-MM-DD hh:mm:ss');
+  }
+});
+</script>
+</head>
+<body>
+	<div id="appmain">
+		<form action="$actionurl$edit" method="post">
+		$hiddenarea$
+		<table>
+		<thead><tr><td>名称</td><td>内容</td></tr></thead>
+		<tbody>
+			$tbody$
+		</tbody>
+		
+		</table>
+		</form>
+	</div>
+	<script>
+		var appmain=new Vue({el:"#appmain",data:$data$});
+		function doDelete(item){
+			if(confirm('确定要删除这条记录吗？')){
+				$.post('$actionurl$',"id="+item.id,function(dd){
+					alert(dd.data);
+					if(dd.code==200){
+						location.reload();
+					}
+				},'json');
+			}
+		}
+		function doEdit(item){
+			window.open('$actionurl$edit?id='+item.id);
+		}
+	</script>
+</body>
+</html>
