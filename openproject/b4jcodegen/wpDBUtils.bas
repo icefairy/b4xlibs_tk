@@ -1,7 +1,8 @@
-﻿Type=StaticCode
-Version=5.9
+﻿B4J=true
+Group=Default Group
 ModulesStructureVersion=1
-B4J=true
+Type=StaticCode
+Version=5.9
 @EndOfDesignText@
 'version 1.01
 Sub Process_Globals

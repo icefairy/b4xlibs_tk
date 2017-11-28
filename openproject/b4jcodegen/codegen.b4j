@@ -1,11 +1,6 @@
-﻿Version=5.9
-AppType=StandardJava
-NumberOfModules=2
-Module1=wpDBUtils
-Module2=G
+﻿AppType=StandardJava
 Build1=Default,b4j.example
-NumberOfFiles=0
-NumberOfLibraries=9
+Group=Default Group
 Library1=jcore
 Library2=jsql
 Library3=json
@@ -15,11 +10,17 @@ Library6=encryption
 Library7=byteconverter
 Library8=jstringutils
 Library9=javaobject
+Module1=wpDBUtils
+Module2=G
+NumberOfFiles=0
+NumberOfLibraries=9
+NumberOfModules=2
+Version=5.98
 @EndOfDesignText@
 'Non-UI application (console / server application)
 #Region Project Attributes 
 	#CommandLineArgs:
-	#MergeLibraries: false
+	#MergeLibraries: true
 		'use next line when using sqlite
 '	#AdditionalJar: sqlite-jdbc-3.7.2
 	'use next line when using mysql
